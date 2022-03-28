@@ -1,0 +1,32 @@
+{
+  "name": "kodicomponents/navigation",
+  "description": "The KodiCMS Support package.",
+  "homepage": "http://kodicms.com",
+  "keywords": [
+    "laravel",
+    "kodicms",
+    "navigation",
+    "menu"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Pavel Buchnev",
+      "email": "butschster@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.2.5",
+    "illuminate/support": ">=7.0",
+    "kodicomponents/support": ">=0.5"
+  },
+    "require-dev": {
+        "mockery/mockery": ">=1.0",
+        "phpunit/phpunit": ">=8.5"
+    },
+  "autoload": {
+    "psr-4": {
+      "KodiComponents\\Navigation\\": "src/"
+    }
+  }
+}

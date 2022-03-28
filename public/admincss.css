@@ -1,0 +1,15 @@
+.aStyle {
+    border: 1px solid #1462bb;
+    border-radius: 6px;
+    padding: 0 4px 0 4px;
+    text-decoration: none;
+
+}
+
+.aStyle:hover {
+    background-color: rgba(11, 144, 196, 0.41);
+    transition-duration: 1s;
+}
+/** {*/
+/*    border: 1px solid black;*/
+/*}*/
