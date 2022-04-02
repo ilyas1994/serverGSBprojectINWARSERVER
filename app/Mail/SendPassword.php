@@ -35,6 +35,6 @@ class SendPassword extends Mailable
     public function build()
     {
         return $this->view('sendPasswordOnEmail.sendPasswordOnEmail',
-            ['email' => $this->email, 'password' => $this->password])->subject('Пароль для прохождения тест');
+            ['email' => $this->email, 'password' => $this->password])->subject('Пароль для прохождения теста');
     }
 }

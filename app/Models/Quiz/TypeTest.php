@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class TypeTest extends Model
 {
     use HasFactory;
+    protected $guarded = false;
+    protected $table = 'type_tests';
 }

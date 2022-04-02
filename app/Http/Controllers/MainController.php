@@ -93,7 +93,7 @@ class MainController extends Controller
 
         try {
         DB::beginTransaction();
-            for ($i = 0; $i < 1000; $i++) {
+
 
             PersonalData::query()->create([
             'surname' => $request->input('surname'),
@@ -207,12 +207,9 @@ class MainController extends Controller
                 'password' => $toHash,
                 'role' => 2
             ]);
-//            \Mail::to($email)->send(new SendPassword($email, $password));
-
+            \Mail::to($email)->send(new SendPassword($email, $password));
             DB::commit();
 
-//            dd('success');
-            }
             dd('success');
 
         } catch (\Exception $exception) {

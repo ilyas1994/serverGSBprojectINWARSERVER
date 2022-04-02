@@ -1,6 +1,7 @@
 @extends(AdminTemplate::getViewPath('_layout.base'))
 
 @section('content')
+
     <div class="wrapper" id="vueApp">
         <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
             @include(AdminTemplate::getViewPath('_partials.header'))
@@ -9,6 +10,7 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             @include(AdminTemplate::getViewPath('_partials.navigation'))
         </aside>
+
 
         <div class="content-wrapper">
 

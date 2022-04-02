@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\AdminCrudQuiz\QuizCrud;
 use App\Http\Controllers\downloadFilesController;
 use App\Http\Controllers\PDFController;
+use App\Http\Controllers\QuizResult\QuizResult;
 use App\Http\Controllers\ResetPassword\ResetPasswordController;
+use App\Http\Controllers\switchStateDropDownQuiz\SwitchStateDropDownController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,12 +32,6 @@ Route::get('/qwe', function () {
 Route::get('/data', [\App\Http\Controllers\GetDataForDropDownController::class, 'index']);
 
 Route::post('/sendData', [\App\Http\Controllers\MainController::class, 'index'])->name('sendData');
-
-
-//Route::get('/qwe', function () {
-//      $qwe =  \App\Models\PersonalData::all();
-//    return view('profileUser')->with('qwe', $qwe);
-//})->name('adminka');
 
 
 Route::get('/files', [downloadFilesController::class, 'index'])->name('getFiless');
@@ -75,4 +72,11 @@ Route::get('/quiz', function () {
 Route::post('/resetpassword', [ResetPasswordController::class, 'index'])->name('reset_pass');
 
 
+// Quiz - Send Reuslt
+Route::get('/sendResult', [QuizResult::class, 'index'])->name('quiz_res');
 
+// CRUD
+Route::resource('/crud', QuizCrud::class );
+
+//SwitchStateDropDown in Quiz
+Route::get('/dropdown{id}', [SwitchStateDropDownController::class, 'index'])->name('dropdownState');

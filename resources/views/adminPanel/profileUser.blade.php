@@ -26,6 +26,8 @@
 
     </div>
 
+
+
 {{--    <div class="col-2 justify-content-end">--}}
 
     <div class="col-3 justify-content-end d-flex align-items-center">
@@ -37,6 +39,12 @@
 {{--        <option name="sortByData" selected>Дате</option>--}}
 {{--        <option name="sortByName" value="1">Имени</option>--}}
 {{--        <option name="sortBySurnamee" onclick="event.preventDefault(); document.getElementById('qwe').submit()" value="4">Фамилии</option>--}}
+
+
+
+        @isset($fail)
+            <h3>fail</h3>
+        @endisset
 
         @if (Session::has('asd'))
             @php
@@ -100,12 +108,7 @@
 
     </div>
 
-{{--        @php--}}
-{{--            $qwe = 4;--}}
-{{--        @endphp--}}
-{{--    @push($qwe = 6)--}}
-{{--    @endpush--}}
-{{--    @dd($qwe)--}}
+
 
     <div class="col-md-4 col-sm-4 align-items-center">
         <form id="forms" action="{{ route('searchParamams', 'name') }}" method="get">
@@ -125,8 +128,6 @@
 
 </div>
 <div class="col-12" id="trr">
-
-
 
 @isset($profileData)
 

@@ -31,8 +31,11 @@ return [
     [
         'title' => 'Quiz',
         'icon'  => 'fas fa-info-circle',
-        'url'   => route('admin.information'),
+        'url'   => route('admin.quiz'),
     ],
+
+
+
 
     // Examples
     // [
