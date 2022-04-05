@@ -8,6 +8,8 @@
 
     <div class="container-fluid">
         <div class="row">
+
+
             @if(Session::has('data'))
                 @php
                     $data = Session::get('data');
@@ -19,17 +21,30 @@
                     $dropDown = Session::get('dropDown');
                 @endphp
             @endif
-            {{--        @dd($data)--}}
 
             <div class="col-12 mt-3">
                 <button class="btn btn-success"><a style="text-decoration: none; color: white"
-                                                   href="{{ route('crud.create') }}">Создать вопрос</a></
-                ></button>
+                                                   href="{{ route('crud.create') }}">Создать вопрос</a></button>
 
             </div>
+
+                    @isset($success)
+
+                    <div id="alertId" class="alert alert-success mt-3" role="alert">
+                       Успешная запись
+                    </div>
+
+                    @endisset
+
+                    @isset($fail)
+                        <div id="alertIdFail" class="alert alert-success mt-3" role="alert">
+                            Что то пошло не так
+                        </div>
+                    @endisset
+
             @if(isset($null))
                 <div class="col-12 mt-4">
-                    <h3>Вопросов еще нет</h3>
+                    <h3>Добавьте вопросы</h3>
                 </div>
             @else
 
@@ -47,15 +62,14 @@
                         </button>
 
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ route('dropdownState', '1') }}">First test</a></li>
-                            <li><a class="dropdown-item" href="{{ route('dropdownState', '2') }}">Second test</a></li>
+                            <li><a class="dropdown-item" href="{{ route('dropdownState', 1) }}">First test</a></li>
+                            <li><a class="dropdown-item" href="{{ route('dropdownState', 2) }}">Second test</a></li>
                             <li><a class="dropdown-item" href="#">Something else here</a></li>
                             {{--                    <li><a class="dropdown-item" href="#">Something else here</a></li>--}}
 
                         </ul>
                     </div>
                 </div>
-
 
                 <div class="col-12 mt-5">
 
@@ -65,59 +79,14 @@
 
                     @endphp
 
+                    @isset($data)
 
-                    {{--                @isset($dataa)--}}
-                    {{--                @foreach($data as $key => $val)--}}
-                    {{--                @foreach($data as $key => $val)--}}
-
-                    {{--                    <div class="col-12">--}}
-                    {{--                    <h5>{{ $key }} </h5>--}}
-                    {{--                </div>--}}
-                    {{--                @dd($val)--}}
-                    {{--                @for($i = 0; $i < count($val); $i++)--}}
-
-
-
-
-                    {{--                        <div class="col-12">--}}
-                    {{--                             <div class="form-check">--}}
-                    {{--                             <div class="">--}}
-                    {{--                                <input class="form-check-input" disabled type="radio" name="flexRadioDefault"--}}
-                    {{--                                <input class="" disabled type="hidden" name="flexRadioDefault"--}}
-
-                    {{--                                       id="{{ $counter }}">--}}
-                    {{--                                       id="{{ $counter }}">--}}
-                    {{--                                 @if($val[$i]['type_answer'] == 1)--}}
-                    {{--                                     <label class="form-check-label" for="{{ $val[$i]['question_id'] }}">--}}
-                    {{--                                     <label class="form-check-label" for="{{ $val[$i]['question_id'] }}">--}}
-
-                    {{--                                     <label class="" for="{{ $val[$i]['question_id'] }}">--}}
-                    {{--                                         <label class="" for="{{ $val[$i]['question_id'] }}">--}}
-                    {{--                                         <i class="fas fa-check"></i>  {{ $val[$i]['answer'] }}--}}
-                    {{--                                     </label>--}}
-                    {{--                                 @else--}}
-
-                    {{--                                     <label class="form-check-label" for="{{ $val[$i]['question_id'] }}">--}}
-                    {{--                                     <label class="" for="{{ $val[$i]['question_id'] }}">--}}
-                    {{--                                       {{ $val[$i]['answer'] }}--}}
-                    {{--                                     </label>--}}
-                    {{--                                 @endif--}}
-
-                    {{--                            </div>--}}
-
-                    {{--                        </div>--}}
-
-                    {{--                    @push($counter++)--}}
-                    {{--                    @endpush--}}
-
-                    {{--                @endfor--}}
-                    {{--            @dump($data)--}}
-                    @isset($data, $dropDown)
 
                         <div class="col-12">
                             @for($i = 0; $i < count($data); $i++)
 
                                 @foreach($data[$i] as $keyName => $val)
+
                                     <div class="col-12 mb-3">
                                         <h2 class="styleH2">{{ $keyName }}</h2>
                                     </div>
@@ -125,24 +94,40 @@
                                     @for($j = 0; $j < count($val); $j++)
                                         <div class="col-12">
                                             @if($val[$j]['true_answer'] == 1)
-                                                <h5 style="color: green"><i class="far fa-check-circle"></i> {{ $val[$j]['name_answer'] }}</h5>
+                                                <h5 style="color: green"><i
+                                                            class="far fa-check-circle"></i> {{ $val[$j]['name_answer'] }}
+                                                </h5>
                                             @else
                                                 <h5><i class="fas fa-ban"></i> {{ $val[$j]['name_answer'] }}</h5>
                                             @endif
                                         </div>
                                     @endfor
+
+                                    <div class="col-12 mb-3 d-flex">
+                                        @isset($val[0]['question_id'])
+                                            <button class="btn btn-outline-info ms-3" type="submit"><a style="text-decoration: none"
+                                                                                                          href={{ route('crud.edit', $val[0]['question_id'] ) }}>
+                                                    <span>Изменить</span></a></button>
+
+                                            <form action="{{ route('crud.destroy', $val[0]['question_id']) }}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+{{--                                                <i class="fas fa-backspace"></i>--}}
+
+                                                <button onclick="return confirm ('Вы точно хотите удалить {{  $keyName }} ?')"  class="btn btn-outline-danger ms-3" type="submit">Удалить</button>
+                                            </form>
+
+                                        @endisset
+                                    </div>
                                 @endforeach
-                                <div class="col-12 mb-3">
-                                    <a style="color: rgba(0,0,255,0.61); text-decoration: none"
-                                       href={{ route('crud.edit', '1') }}><i class="fas fa-edit ps-4"></i>
-                                        <span>Изменить</span></a>
-                                </div>
+
 
                             @endfor
                         </div>
 
                     @endisset
                     @push($counterQuiz++) @endpush
+
                     @endisset
 
                 </div>
@@ -151,6 +136,27 @@
 @endsection
 
 
+<script>
+
+
+    {{--function delAlert() {--}}
+    {{--   document.getElementById('alertId').remove();--}}
+    {{--}--}}
+    {{--function delAlertFail() {--}}
+    {{--   document.getElementById('alertIdFail').remove();--}}
+    {{--}--}}
+
+    {{--@isset($success)--}}
+
+    {{--setTimeout(delAlert, 2000);--}}
+    {{--@endisset--}}
+
+
+    {{--@isset($fail)--}}
+    {{--setTimeout(delAlertFail, 2000);--}}
+    {{--    @endisset--}}
+
+</script>
 
 
 

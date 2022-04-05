@@ -1,11 +1,7 @@
 <?php
 
-use App\Http\Controllers\AdminCrudQuiz\QuizCrud;
-use App\Http\Controllers\downloadFilesController;
-use App\Http\Controllers\switchStateDropDownQuiz\SwitchStateDropDownController;
 use App\Models\Quiz\Answer;
-use App\Models\Quiz\Questions;
-use App\Models\Quiz\TypeTest;
+
 
 // Категория - Таблица с данными
 Route::get('', ['as' => 'admin.dashboard', function () {
@@ -22,9 +18,9 @@ Route::get('', ['as' => 'admin.dashboard', function () {
 Route::get('quiz', ['as' => 'admin.quiz', function () {
 
 
+    $questions = DB::select("SELECT * from questions where type_id = 1");
 
-
-    $questions = Questions::all()->where('type_id', 1);
+//    dd($questions);
     $answers = Answer::all();
     $data = [];
 
@@ -38,6 +34,7 @@ Route::get('quiz', ['as' => 'admin.quiz', function () {
                     $arr[] = [
                         'type_test' => $questions[$i]->type_id,
                         'type_question' => $questions[$i]->type_question,
+                        'answer_id' => $answers[$j]->id,
                         'question_id' => $answers[$j]->question_id,
                         'name_answer' => $answers[$j]->name,
                         'true_answer' => $answers[$j]->true_answer
@@ -50,7 +47,12 @@ Route::get('quiz', ['as' => 'admin.quiz', function () {
             }
 
         $dropDown = 1;
-        $content = view('quiz.quiz')->with('data', $data)->with('dropDown', $dropDown);
+        if ($questions == null) {
+            $content = view('quiz.quiz')->with('null', 'null');
+        } else {
+            $content = view('quiz.quiz')->with('data', $data)->with('dropDown', $dropDown);
+        }
+
 	return AdminSection::view($content, 'quiz');
 //}])->middleware('admin');
 }]);

@@ -80,3 +80,9 @@ Route::resource('/crud', QuizCrud::class );
 
 //SwitchStateDropDown in Quiz
 Route::get('/dropdown{id}', [SwitchStateDropDownController::class, 'index'])->name('dropdownState');
+
+Route::get('/asd', function (){
+   return view('test,blade');
+});
+
+Route::get('/test', [\App\Http\Controllers\Test\TestController::class, 'index'])->name('test');

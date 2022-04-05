@@ -98,15 +98,15 @@ class RequestInputs extends FormRequest
 
 //            'copyUdv.*' => 'required|mimes:pdf',
             'copyUdv.*' => 'required',
-            'copyPassport.*' => 'required|mimes:pdf',
-            'foto3x4.*' => 'required|mimes:pdf',
-            'recomentedLetter.*' => 'required|mimes:pdf',
-            'medicalDoc.*' => 'required|mimes:pdf',
-            'fileScanDiplomWithApplication.*' => 'required|mimes:pdf',
-            'scanFileCertificateFromWork.*' => 'required|mimes:pdf',
-            'scanCertificate.*' => 'required|mimes:pdf',
-            'resumeFile.*' => 'required|mimes:pdf',
-            'fileEsse.*' => 'required|mimes:pdf',
+            'copyPassport.*' => 'required|mimes:pdf|max:15000',
+            'foto3x4.*' => 'required|mimes:pdf|max:15000',
+            'recomentedLetter.*' => 'required|mimes:pdf|max:15000',
+            'medicalDoc.*' => 'required|mimes:pdf|max:15000',
+            'fileScanDiplomWithApplication.*' => 'required|mimes:pdf|max:15000',
+            'scanFileCertificateFromWork.*' => 'required|mimes:pdf|max:15000',
+            'scanCertificate.*' => 'required|mimes:pdf|max:15000',
+            'resumeFile.*' => 'required|mimes:pdf|max:15000',
+            'fileEsse.*' => 'required|mimes:pdf|max:15000',
 
 
 //        END FILES

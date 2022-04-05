@@ -109,6 +109,8 @@ class CreatePersonalDataTable extends Migration
             $table->string('fieldOfActivity');
             //           Наличие командировок *     *
             $table->string('availabilityOfBusinessTrips');
+            $table->string('availabilityOfBusinessTripsInputYes')->nullable();
+            $table->string('availabilityOfBusinessTripsInputDuration')->nullable();
 
 
 
