@@ -22,9 +22,21 @@
 
         <div class="col-12">
 
-            @error('resumeFile.*')
-            <div class="text-danger">{{ $message }}</div>
-            @enderror
+{{--            @error('resumeFile.*')--}}
+{{--            <div class="text-danger">{{ $message }}</div>--}}
+{{--            @enderror--}}
+
+            @if($errors->any())
+
+
+                <div class="alert-danger">
+                    <ul>
+                        @foreach($errors->all() as $errors)
+                            <li>{{ $errors }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
         </div>
         <col-12>
@@ -137,18 +149,19 @@
 
 {{--                         DOWNLOAD FILES                                               --}}
                         <div class="mb-3 mt-5 col-12">
-                            <label for="formFile" class="form-label">Резюме</label>
+                            <label for="formFile" class="form-label">Резюме pdf,doc,docx</label>
+{{--                            <input class="form-control" name="resumeFile[]" multiple type="file"  id="formFile">--}}
                             <input class="form-control" name="resumeFile[]" multiple type="file"  id="formFile">
                         </div>
 
                         <div class="mb-3 mt-5 col-12">
-                            <label for="formFile" class="form-label">Мотивационное эссе только на EXECUTIVE MBA</label>
+                            <label for="formFile" class="form-label">Мотивационное эссе только на EXECUTIVE MBA pdf,doc,docx</label>
                             <input class="form-control" name="fileEsse[]" multiple type="file" id="formFile">
                         </div>
 
 {{--                      + копия удв  --}}
                         <div class="mb-3 mt-5 col-12">
-                            <label for="formFile" class="form-label">Копия удостоверения личности Jpg</label>
+                            <label for="formFile" class="form-label">Копия удостоверения личности pdf,png,jpg</label>
                             <input class="form-control" name="copyUdv[]" multiple type="file" id="formFile">
                         </div>
 
@@ -166,12 +179,12 @@
 
 
                         <div class="mb-3 mt-5 col-12">
-                            <label for="formFile" class="form-label">Копия диплома о высшем образовании + приложения к диплому о высшем образовании (.pdf)</label>
+                            <label for="formFile" class="form-label">Копия диплома о высшем образовании + приложения к диплому о высшем образовании (pdf,png,jpg)</label>
                             <input class="form-control" name="fileScanDiplomWithApplication[]" multiple type="file" id="formFile">
                         </div>
 
                         <div class="mb-3 mt-5 col-12">
-                            <label for="formFile" class="form-label">Справка с места работы с указанием должности (.pdf) </label>
+                            <label for="formFile" class="form-label">Справка с места работы с указанием должности (pdf,png,jpg) </label>
                             <input class="form-control" type="file" multiple  name="scanFileCertificateFromWork[]" id="formFile">
                         </div>
 
@@ -191,7 +204,7 @@
 {{-----------------------------------------------------------------}}
 
                         <div class="mb-3 mt-5 col-12">
-                            <label for="formFile" class="form-label">Прикрепить скан сертификата (.pdf)</label>
+                            <label for="formFile" class="form-label">Прикрепить скан сертификата (.pdf,png,jpg)</label>
                             <input class="form-control" name="scanCertificate[]" multiple  type="file" id="formFile">
                         </div>
 
@@ -214,7 +227,7 @@
                     </div>
                     <div class="mt-5 col-3">
                         <label for="exampleFormControlInput1" class="form-label">Электронная почта</label>
-                        <input type="text" value="qwe@mail.ru" name="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+                        <input type="text" value="iliyas1994777@mail.ru" name="email" class="form-control" id="exampleFormControlInput1" placeholder="">
                     </div>
 
                         <button class="mt-5" type="submit">Отправить</button>

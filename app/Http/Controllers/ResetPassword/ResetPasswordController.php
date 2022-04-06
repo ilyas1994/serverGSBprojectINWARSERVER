@@ -38,7 +38,7 @@ class ResetPasswordController extends Controller
 
                 DB::commit();
 
-                dd('success');
+                return redirect()->back()->with('success', 'success');
             } catch (\Exception $exception) {
                 DB::rollBack();
                 dd($exception);

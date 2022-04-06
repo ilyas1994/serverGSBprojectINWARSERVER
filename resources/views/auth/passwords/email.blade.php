@@ -3,6 +3,11 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
+        <div class="col-12">
+            @isset($success)
+                <h3>YESSSSSSS</h3>
+            @endisset
+        </div>
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Reset Password') }}</div>

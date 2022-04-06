@@ -9,8 +9,7 @@ Route::get('', ['as' => 'admin.dashboard', function () {
     $profileData =  DB::table('personal_dataMBA')->orderBy('created_at', 'desc')->get();
     $content = view('adminPanel.profileUser')->with('profileData', $profileData);
 	return AdminSection::view($content, 'Dashboard');
-//}])->middleware('admin');
-}]);
+}])->middleware('admin');
 
 
 
@@ -54,41 +53,6 @@ Route::get('quiz', ['as' => 'admin.quiz', function () {
         }
 
 	return AdminSection::view($content, 'quiz');
-//}])->middleware('admin');
-}]);
+}])->middleware('admin');
 
-
-
-
-
-
-
-
-
-
-
-
-// рабочий метод с ключ значением
-//for ($j = 0; $j < count($answers); $j++) {
-//
-//    if ($questions[$i]->id == $answers[$j]->question_id) {
-//
-//        $arr[] = [
-//            'type_test' => $questions[$i]->type_id,
-//            'type_question' => $questions[$i]->type_question,
-//            'question_id' => $answers[$j]->question_id,
-//            'name_answer' => $answers[$j]->name,
-//            'true_answer' => $answers[$j]->true_answer
-//        ];
-//
-//
-//
-//    }
-//
-//
-//}
-//$data[] = [$questions[$i]->name => $arr];
-//
-//
-//}
 
