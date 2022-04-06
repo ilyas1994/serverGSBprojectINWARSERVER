@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="76c86216-8c47-45b5-b63a-4f4738510c0b" name="Changes" comment="испортилуцацацуацуацуацуацуауцауцацуауц" />
     <list default="true" id="76c86216-8c47-45b5-b63a-4f4738510c0b" name="Changes" comment="готовность 95%">
       <change beforePath="$PROJECT_DIR$/public/SALAMALEY4UM.blade" beforeDir="false" afterPath="$PROJECT_DIR$/public/SALAMALEY4UM.blade" afterDir="false" />
     </list>
@@ -24,11 +25,6 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="ilyasBranch" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -194,7 +190,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -239,7 +235,7 @@
       <workItem from="1648573851173" duration="28607000" />
       <workItem from="1648641467149" duration="210073000" />
       <workItem from="1649059444038" duration="49617000" />
-      <workItem from="1649156839136" duration="26039000" />
+      <workItem from="1649156839136" duration="18012000" />
     </task>
     <task id="LOCAL-00001" summary="почти закончил">
       <created>1648915219567</created>
@@ -255,42 +251,7 @@
       <option name="project" value="LOCAL" />
       <updated>1649159192708</updated>
     </task>
-    <task id="LOCAL-00003" summary="готовность 95%">
-      <created>1649235659612</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1649235659612</updated>
-    </task>
-    <task id="LOCAL-00004" summary="готовность 97%">
-      <created>1649245163117</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1649245163117</updated>
-    </task>
-    <task id="LOCAL-00005" summary="YES">
-      <created>1649245799119</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1649245799119</updated>
-    </task>
-    <task id="LOCAL-00006" summary="цйццййцйц">
-      <created>1649245974058</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1649245974058</updated>
-    </task>
-    <task id="LOCAL-00007" summary="НОВАЯ ЗАПИСЬ 17 54">
-      <created>1649246071806</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1649246071806</updated>
-    </task>
-    <option name="localTasksCounter" value="8" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -310,12 +271,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="почти закончил" />
     <MESSAGE value="закончил back часть" />
-    <MESSAGE value="готовность 95%" />
-    <MESSAGE value="готовность 97%" />
-    <MESSAGE value="YES" />
-    <MESSAGE value="цйццййцйц" />
-    <MESSAGE value="НОВАЯ ЗАПИСЬ 17 54" />
-    <option name="LAST_COMMIT_MESSAGE" value="НОВАЯ ЗАПИСЬ 17 54" />
+    <option name="LAST_COMMIT_MESSAGE" value="закончил back часть" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
