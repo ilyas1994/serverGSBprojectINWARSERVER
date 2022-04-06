@@ -18,11 +18,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
 
-    return view('main');
+    return view('reactComponents.tabs1');
 });
+//Route::get('/', function () {
+//
+//    return view('main');
+//});
 
 Route::get('/qwe', function () {
 
