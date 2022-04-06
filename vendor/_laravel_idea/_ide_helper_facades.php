@@ -2792,7 +2792,7 @@ namespace {
     class Log extends Illuminate\Support\Facades\Log {}
     class Mail extends Illuminate\Support\Facades\Mail {}
     class Notification extends Illuminate\Support\Facades\Notification {}
-    class PDF extends Barryvdh\DomPDF\Facade {}
+    class PDF extends Barryvdh\DomPDF\Facade\Pdf {}
     class Password extends Illuminate\Support\Facades\Password {}
     class Queue extends Illuminate\Support\Facades\Queue {}
     class Redirect extends Illuminate\Support\Facades\Redirect {}

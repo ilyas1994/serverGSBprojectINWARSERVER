@@ -17,17 +17,15 @@
 {{--            <h3>{{ dd($dataDropDown['drop_down_check_check_master_degrees'][0]->checkMasterDegree) }}</h3>--}}
 
 {{--        @endisset--}}
+
+
+
         <div class="col-12">
 
-        @if($errors->any())
-                <div class="alert-danger">
-                    <ul>
-                        @foreach($errors->all() as $errors)
-                            <li>{{ $errors }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+            @error('resumeFile.*')
+            <div class="text-danger">{{ $message }}</div>
+            @enderror
+
         </div>
         <col-12>
 

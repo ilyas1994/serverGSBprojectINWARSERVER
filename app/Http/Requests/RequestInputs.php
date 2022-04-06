@@ -95,19 +95,23 @@ class RequestInputs extends FormRequest
 
 //            FILES
 
+            'copyUdv' => 'required',
+            'copyUdv.*' => 'mimes:pdf,png,jpg|max:15000',
+            'fileScanDiplomWithApplication' => 'required',
+            'fileScanDiplomWithApplication.*' => 'mimes:pdf,png,jpg|max:15000',
+            'scanFileCertificateFromWork' => 'required',
+            'scanFileCertificateFromWork.*' => 'mimes:pdf,png,jpg|max:15000',
+            'scanCertificate' => 'required',
+            'scanCertificate.*' => 'mimes:pdf,png,jpg|max:15000',
+            'resumeFile' => 'required',
+            'resumeFile.*' => 'mimes:pdf,doc,docx|max:15000',
+            'fileEsse' => 'required',
+            'fileEsse.*' => 'mimes:doc,docx,pdf|max:15000',
 
-//            'copyUdv.*' => 'required|mimes:pdf',
-            'copyUdv.*' => 'required',
-            'copyPassport.*' => 'required|mimes:pdf|max:15000',
-            'foto3x4.*' => 'required|mimes:pdf|max:15000',
-            'recomentedLetter.*' => 'required|mimes:pdf|max:15000',
-            'medicalDoc.*' => 'required|mimes:pdf|max:15000',
-            'fileScanDiplomWithApplication.*' => 'required|mimes:pdf|max:15000',
-            'scanFileCertificateFromWork.*' => 'required|mimes:pdf|max:15000',
-            'scanCertificate.*' => 'required|mimes:pdf|max:15000',
-            'resumeFile.*' => 'required|mimes:pdf|max:15000',
-            'fileEsse.*' => 'required|mimes:pdf|max:15000',
-
+            //            'copyPassport.*' => 'required|mimes:pdf|max:15000',
+//            'foto3x4.*' => 'required|mimes:pdf|max:15000',
+//            'recomentedLetter.*' => 'required|mimes:pdf|max:15000',
+//            'medicalDoc.*' => 'required|mimes:pdf|max:15000',
 
 //        END FILES
 
@@ -130,5 +134,37 @@ class RequestInputs extends FormRequest
         ];
     }
 
+    public function messages()
+    {
+
+        return [
+//           Резюме
+            'resumeFile.required' => 'Заполните обязательные поля',
+            'resumeFile.*.mimes' => 'Загрузите в формате pdf,doc,docx',
+            'resumeFile.*.max' => '1 загрузочный файл не должен превышать 15 мб',
+//          Копия Удв
+            'copyUdv.required' => 'Заполните обязательные поля',
+            'copyUdv.*.mimes' => 'Загрузите в формате pdf,png,jpg',
+            'copyUdv.*.max' => '1 Загрузочный файл не должен превышать 15 мб',
+//           Копия диплома
+            'fileScanDiplomWithApplication.required' => 'Заполните обязательные поля',
+            'fileScanDiplomWithApplication.*.mimes' => 'Загрузите в формате pdf,png,jpg',
+            'fileScanDiplomWithApplication.*.max' => '1 Загрузочный файл не должен превышать 15 мб',
+//          Справка с места работы
+            'scanFileCertificateFromWork.required' => 'Заполните обязательные поля',
+            'scanFileCertificateFromWork.*.mimes' => 'Загрузите в формате pdf,png,jpg',
+            'scanFileCertificateFromWork.*.max' => '1 загрузочный файл не должен превышать 15 мб',
+            //          Скан сертификата
+            'scanCertificate.required' => 'Заполните обязательные поля',
+            'scanCertificate.*.mimes' => 'Загрузите в формате pdf,png,jpg',
+            'scanCertificate.*.max' => '1 Загрузочный файл не должен превышать 15 мб',
+            //          Эссе
+            'fileEsse.required' => 'Заполните обязательные поля',
+            'fileEsse.*.mimes' => 'Загрузите в формате pdf,doc,docx',
+            'fileEsse.*.max' => '1 Загрузочный файл не должен превышать 15 мб',
+
+        ];
+
+    }
 
 }

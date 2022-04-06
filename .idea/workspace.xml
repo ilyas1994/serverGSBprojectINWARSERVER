@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76c86216-8c47-45b5-b63a-4f4738510c0b" name="Changes" comment="почти закончил">
+    <list default="true" id="76c86216-8c47-45b5-b63a-4f4738510c0b" name="Changes" comment="закончил back часть">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/routes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Requests/RequestInputs.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/RequestInputs.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2022_03_10_041829_create_personal_data_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_03_10_041829_create_personal_data_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/quiz/quiz.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/quiz/quiz.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/_laravel_idea/_ide_helper_facades.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/_laravel_idea/_ide_helper_facades.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +186,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../almau.edu.kz" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../serveerGSB" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -239,7 +238,7 @@
       <workItem from="1648573851173" duration="28607000" />
       <workItem from="1648641467149" duration="210073000" />
       <workItem from="1649059444038" duration="49617000" />
-      <workItem from="1649156839136" duration="2322000" />
+      <workItem from="1649156839136" duration="18012000" />
     </task>
     <task id="LOCAL-00001" summary="почти закончил">
       <created>1648915219567</created>
@@ -248,7 +247,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648915219567</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="закончил back часть">
+      <created>1649159192708</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1649159192708</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -267,7 +273,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="почти закончил" />
-    <option name="LAST_COMMIT_MESSAGE" value="почти закончил" />
+    <MESSAGE value="закончил back часть" />
+    <option name="LAST_COMMIT_MESSAGE" value="закончил back часть" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
