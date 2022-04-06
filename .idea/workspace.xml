@@ -239,7 +239,7 @@
       <workItem from="1648573851173" duration="28607000" />
       <workItem from="1648641467149" duration="210073000" />
       <workItem from="1649059444038" duration="49617000" />
-      <workItem from="1649156839136" duration="25618000" />
+      <workItem from="1649156839136" duration="26039000" />
     </task>
     <task id="LOCAL-00001" summary="почти закончил">
       <created>1648915219567</created>
@@ -269,7 +269,28 @@
       <option name="project" value="LOCAL" />
       <updated>1649245163117</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="YES">
+      <created>1649245799119</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1649245799119</updated>
+    </task>
+    <task id="LOCAL-00006" summary="цйццййцйц">
+      <created>1649245974058</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1649245974058</updated>
+    </task>
+    <task id="LOCAL-00007" summary="НОВАЯ ЗАПИСЬ 17 54">
+      <created>1649246071806</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1649246071806</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -291,7 +312,10 @@
     <MESSAGE value="закончил back часть" />
     <MESSAGE value="готовность 95%" />
     <MESSAGE value="готовность 97%" />
-    <option name="LAST_COMMIT_MESSAGE" value="готовность 97%" />
+    <MESSAGE value="YES" />
+    <MESSAGE value="цйццййцйц" />
+    <MESSAGE value="НОВАЯ ЗАПИСЬ 17 54" />
+    <option name="LAST_COMMIT_MESSAGE" value="НОВАЯ ЗАПИСЬ 17 54" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
