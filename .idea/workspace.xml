@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76c86216-8c47-45b5-b63a-4f4738510c0b" name="Changes" comment="update table">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="76c86216-8c47-45b5-b63a-4f4738510c0b" name="Changes" comment="add dropDown NEW">
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GetDataForDropDownController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GetDataForDropDownController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,7 +237,7 @@
       <workItem from="1648641467149" duration="210073000" />
       <workItem from="1649059444038" duration="49617000" />
       <workItem from="1649156839136" duration="18012000" />
-      <workItem from="1649307092397" duration="4654000" />
+      <workItem from="1649307092397" duration="5146000" />
     </task>
     <task id="LOCAL-00001" summary="почти закончил">
       <created>1648915219567</created>
@@ -288,7 +288,21 @@
       <option name="project" value="LOCAL" />
       <updated>1649309280029</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="add dropDown">
+      <created>1649311821178</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1649311821178</updated>
+    </task>
+    <task id="LOCAL-00009" summary="add dropDown NEW">
+      <created>1649312016150</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1649312016150</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -312,7 +326,9 @@
     <MESSAGE value="edit dropDown DB77" />
     <MESSAGE value="update dropDow" />
     <MESSAGE value="update table" />
-    <option name="LAST_COMMIT_MESSAGE" value="update table" />
+    <MESSAGE value="add dropDown" />
+    <MESSAGE value="add dropDown NEW" />
+    <option name="LAST_COMMIT_MESSAGE" value="add dropDown NEW" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
