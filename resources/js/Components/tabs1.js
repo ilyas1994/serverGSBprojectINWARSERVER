@@ -1,5 +1,7 @@
 
-// let dropdownValues =  JSON.parse( JSON.stringify(dataArrayForDropDown));
+let dropdownValues =  JSON.parse( JSON.stringify(dataArrayForDropDown));
+//
+// console.log(JSON.stringify(dataArrayForDropDown));
 
 import {dataPiker, dropDown, inputField, Label, RequiredSpan} from "./components.js";
 
@@ -55,8 +57,8 @@ export function tabs_1() {
     input = [];
     // alert({{$dataDropDown['drop_down_genders'][0])}});
     title = ['Пол','Гражданский статус','Кол-во детей'];
-    let gender = ['sdfdsf'];
-    let familyStatus = ['sdfdsf'];
+    let gender = dropdownValues['gender'];
+    let familyStatus = dropdownValues['familyStatus'];
     sec = [gender, familyStatus];
 
     for (let i = 0; i < sec.length; i++) {
@@ -74,8 +76,8 @@ export function tabs_1() {
 // ------------------------------------------------------------------------------------------
     input = [];
     title = ['Гражданство','Национальность','Дата рождения'];
-    let citizenShip =['sdfdsf'];
-    let nationality = ['sdfdsf'];
+    let citizenShip =dropdownValues['citizenship'];
+    let nationality = dropdownValues['nationality'];
     // let dataOfBirth ;
     sec = [citizenShip,nationality];
 
@@ -92,7 +94,7 @@ export function tabs_1() {
     title = ['ИИН/ПИНФЛ','Документ удостоверяющий личность'];
     // console.log(dropdownValues['typeDocument'])
 
-    let typeDocument = ['sdfdsf'];
+    let typeDocument = dropdownValues['typeDocument'];
     sec = [typeDocument];
     // inputField(title[i], names[count],"col-lg-4", null,'', RequiredSpan());
     input[0] = inputField(title[0], names[count],"col-lg-4", null,'', RequiredSpan());
@@ -105,7 +107,7 @@ export function tabs_1() {
 // // ------------------------------------------------------------------------------------------
     input = [];
     title = ['№ документа удостоверяющий личность','Кем и когда выдан'];
-    let kemVidanDoc =['sdfdsf'];
+    let kemVidanDoc =dropdownValues['kemVidanDoc'];
     sec = [kemVidanDoc];
     input[0] = inputField(title[0], names[count],"col-lg-4", null,'', RequiredSpan());
     count+=2;

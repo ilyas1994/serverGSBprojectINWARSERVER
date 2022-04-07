@@ -1,4 +1,4 @@
-// let dropdownValues =  JSON.parse( JSON.stringify(dataArrayForDropDown));
+let dropdownValues =  JSON.parse( JSON.stringify(dataArrayForDropDown));
 import {dropDown, inputField, RadioB, RadioButton, RequiredSpan} from "./components.js";
 
 let count = 0;
@@ -42,10 +42,11 @@ export function tabs_2() {
 
     input = [];
     title = ['Управленческий стаж','Вы являетесь','Сфера деятельности'];
-    let upravlencheskiy_stazh = ['sdfdsf'];
-    let jobType = ['sdfdsf'];
 
-    sec = [upravlencheskiy_stazh, jobType];
+    let jobType = dropdownValues['jobType'];
+    let fieldOfActivity = dropdownValues['fieldOfActivity'];
+
+    sec = [fieldOfActivity, jobType];
 
         count++;
         input[0] = inputField(title[0], names[count],'col-lg-8',null,'', RequiredSpan());

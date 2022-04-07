@@ -1,3 +1,5 @@
+let dropdownValues =  JSON.parse( JSON.stringify(dataArrayForDropDown));
+
 import {
     CheckBox,
     dataPiker,
@@ -72,11 +74,15 @@ let names = [
             'checkBoxSourceOfFinancing',
             'checkBoxMBAProgram',
                  'ScanFileDocument',
-                'ScanFileCirtificateFromWork',
+                'scanFileCertificateFromWork',
                 'resumeFile',
                 'fileScanDiplomWithApplication',
                  'scanCertificate',
-                 'fileEsse'
+                 'fileEsse',
+                 'copyPassport',
+                 'foto3x4',
+                'medicalDoc',
+                'recomentedLetter'
 ];
 
 export function tabs_3() {
@@ -101,11 +107,16 @@ export function tabs_3() {
     //----------------------------------------------------------------------------------
 
     input = [];
-    title = ['Академическая степень/квалификация','Полное наименование учебного заведения'];
-    let qualification = ['qualification'];
-    sec = [qualification];
 
-    input[0] = dropDown(title[0], names[count], sec,null,'col-lg-4', <RequiredSpan/>);
+    title = ['Академическая степень/квалификация','Полное наименование учебного заведения'];
+    let qualification = dropdownValues['qualification'];
+
+
+    sec = [qualification];
+    // console.log(sec +' '+sec.length);
+
+
+    input[0] = dropDown(title[0], names[count], sec[0],null,'col-lg-4', <RequiredSpan/>);
     count++;
     input[1] = inputField(title[1], names[count],'col-lg-8',null,'', RequiredSpan());
     count++;
@@ -122,9 +133,9 @@ export function tabs_3() {
     input = [];
     title = ['Язык обучения','Имеется ли второе высшее образование ','Имеется ли магистерская степень'];
 
-    let languageEducation = ['qualification'];
-    let checkSecondDegree = ['qualification'];
-    let checkMasterDegree = ['qualification'];
+    let languageEducation = dropdownValues['languageEducation'];
+    let checkSecondDegree = dropdownValues['checkSecondDegree'];
+    let checkMasterDegree = dropdownValues['checkMasterDegree'];
     sec = [languageEducation,checkSecondDegree,checkMasterDegree ];
     for (let i = 0; i < sec.length ; i++) {
         input[i] = dropDown(title[i], names[count], sec[i],null,'col-lg-4',RequiredSpan());
@@ -135,11 +146,11 @@ export function tabs_3() {
 
 // ------------------------------------------------------------------------------------------
     input = [];
-    let   checkLanguageKazakh = ['qualification'];
-    let   checkLanguageEnglish = ['qualification'];
-    let   checkLanguageFrench = ['qualification'];
-    let   checkLanguageGerman = ['qualification'];
-    let   checkLanguageChinese = ['qualification'];
+    let   checkLanguageKazakh = dropdownValues['levellanguages'];
+    let   checkLanguageEnglish = dropdownValues['levellanguages'];
+    let   checkLanguageFrench = dropdownValues['levellanguages'];
+    let   checkLanguageGerman = dropdownValues['levellanguages'];
+    let   checkLanguageChinese = dropdownValues['levellanguages'];
     sec = [checkLanguageKazakh,checkLanguageEnglish,checkLanguageFrench,checkLanguageGerman,checkLanguageChinese ];
     let language = ['Казахский','Английский','Французский','Немецкий','Китайский'];
      labelvar = <div>
@@ -159,7 +170,7 @@ export function tabs_3() {
 
         count++;
     }
-    const arrayFromBack = ['qualification'];
+    const arrayFromBack =  dropdownValues['levellanguages'];
     allcode[4] = <div id={'lang'} className={"form-group row"} key={'0'}>
                             {labelvar}
                             {input}
@@ -172,7 +183,7 @@ export function tabs_3() {
     input = [];
     title = ['Наличие сертификатов на знание Английского языка','Дата выдачи сертификата '];
 
-    let certificateIssueDate = ['qualification'];
+    let certificateIssueDate = dropdownValues['englishProficiencyCertificates'];
     sec = [certificateIssueDate];
 
         input[0] = dropDown(title[0], names[count], sec[0],null,'col-lg-6');
@@ -267,7 +278,8 @@ export function tabs_3() {
 // ------------------------------------------------------------------------------------------
     input = [];
     title = ['Причины, по которым Вы выбрали МВА Высшей Школы Бизнеса AlmaU'];
-    titleForCheckBox = ['Положительная репутация вуза на рынке бизнес-образования',
+    titleForCheckBox = [
+        'Положительная репутация вуза на рынке бизнес-образования',
         'Практическая направленность обучения, приближенная к казахстанским реалиям',
         'Высококвалифицированный профессорско-преподавательский состав',
         'Клиентоориентированность персонала, индивидуальный подход',
@@ -290,7 +302,8 @@ export function tabs_3() {
 // ------------------------------------------------------------------------------------------
      input = [];
     title = [];
-    let titleForStar =['Качество образования ',
+    let titleForStar =[
+         'Качество образования ',
          'Большой выбор программ ',
          'Месторасположение бизнес-школы ',
          'Наличие скидок ',
@@ -491,9 +504,18 @@ export function tabs_3() {
     count++;
     allcode[23] = <FilePicker name={names[count]} uploadLabel={'Прикрепить мотивационное эссе (.pdf или .doc)'} key={count}/>
     count++;
+    allcode[24] = <FilePicker name={names[count]} uploadLabel={'Копия паспорта (.pdf или .jpg, .png)'} key={count}/>
+    count++;
+    allcode[25] = <FilePicker name={names[count]} uploadLabel={'6 фото 3х4 (.pdf или .jpg, .png)'} key={count}/>
+    count++;
+    allcode[26] = <FilePicker name={names[count]} uploadLabel={'Медицинская справка (форма 075У) (.pdf или .jpg, .png)'} key={count}/>
+    count++;
+    allcode[27] = <FilePicker name={names[count]} uploadLabel={'2 рекомендательных письма (.pdf или .doc)'} key={count}/>
+    count++;
+
     // ------------------------------------------------------------------------------------------
 
-    allcode[24] = <div key={count}>
+    allcode[28] = <div key={count}>
         <small className=" ">Нажимая на кнопку, я даю свое согласие на обработку персональных
             данных и
             соглашаюсь <a
@@ -513,7 +535,7 @@ export function tabs_3() {
     const divStyle3 = {
         padding: '0'
     };
-    allcode[25] = <div key={count} className="d-flex justify-content-end" style={divStyle2}>
+    allcode[29] = <div key={count} className="d-flex justify-content-end" style={divStyle2}>
                     <div className="" style={divStyle3}>
                         <button style={divStyle1} type={"submit"} className={"submit"}>Отправить</button>
                     </div>

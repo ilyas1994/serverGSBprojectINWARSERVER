@@ -51,8 +51,8 @@ export function label(title, className= 'col-lg-4'){
 }
 export function dropDown( title, name, section, sample = null, className = 'col-lg-4', span = null){
     let sec = [];
-
-
+    //
+    // console.log(section +' '+ section.length)
     for (let i = 0; i < section.length; i++) {
          sec[i] =  <option  value={i+1} key={i}>{section[i]}</option>;
     }

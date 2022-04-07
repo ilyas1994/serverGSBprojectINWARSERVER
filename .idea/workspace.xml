@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76c86216-8c47-45b5-b63a-4f4738510c0b" name="Changes" comment="add dropDown NEW">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GetDataForDropDownController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GetDataForDropDownController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Components/components.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Components/components.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Components/tabs1.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Components/tabs1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Components/tabs2.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Components/tabs2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Components/tabs3.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Components/tabs3.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/reactComponents/tabs1.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/reactComponents/tabs1.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +191,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../oldGsb" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../serveerGSB" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -237,7 +244,6 @@
       <workItem from="1648641467149" duration="210073000" />
       <workItem from="1649059444038" duration="49617000" />
       <workItem from="1649156839136" duration="18012000" />
-      <workItem from="1649307092397" duration="4654000" />
     </task>
     <task id="LOCAL-00001" summary="почти закончил">
       <created>1648915219567</created>
@@ -253,42 +259,7 @@
       <option name="project" value="LOCAL" />
       <updated>1649159192708</updated>
     </task>
-    <task id="LOCAL-00003" summary="edit dropDown DB">
-      <created>1649306943720</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1649306943720</updated>
-    </task>
-    <task id="LOCAL-00004" summary="edit dropDown DB">
-      <created>1649307023170</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1649307023170</updated>
-    </task>
-    <task id="LOCAL-00005" summary="edit dropDown DB77">
-      <created>1649307142645</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1649307142645</updated>
-    </task>
-    <task id="LOCAL-00006" summary="update dropDow">
-      <created>1649307701069</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1649307701069</updated>
-    </task>
-    <task id="LOCAL-00007" summary="update table">
-      <created>1649309280029</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1649309280029</updated>
-    </task>
-    <option name="localTasksCounter" value="8" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -308,11 +279,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="почти закончил" />
     <MESSAGE value="закончил back часть" />
-    <MESSAGE value="edit dropDown DB" />
-    <MESSAGE value="edit dropDown DB77" />
-    <MESSAGE value="update dropDow" />
-    <MESSAGE value="update table" />
-    <option name="LAST_COMMIT_MESSAGE" value="update table" />
+    <option name="LAST_COMMIT_MESSAGE" value="закончил back часть" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -5536,7 +5536,8 @@ function dropDown(title, name, section) {
   var sample = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
   var className = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 'col-lg-4';
   var span = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : null;
-  var sec = [];
+  var sec = []; //
+  // console.log(section +' '+ section.length)
 
   for (var i = 0; i < section.length; i++) {
     sec[i] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("option", {
@@ -6293,7 +6294,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _components_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components.js */ "./resources/js/Components/components.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-// let dropdownValues =  JSON.parse( JSON.stringify(dataArrayForDropDown));
+var dropdownValues = JSON.parse(JSON.stringify(dataArrayForDropDown)); //
+// console.log(JSON.stringify(dataArrayForDropDown));
+
 
 
 
@@ -6326,8 +6329,8 @@ function tabs_1() {
   input = []; // alert({{$dataDropDown['drop_down_genders'][0])}});
 
   title = ['Пол', 'Гражданский статус', 'Кол-во детей'];
-  var gender = ['sdfdsf'];
-  var familyStatus = ['sdfdsf'];
+  var gender = dropdownValues['gender'];
+  var familyStatus = dropdownValues['familyStatus'];
   sec = [gender, familyStatus];
 
   for (var _i = 0; _i < sec.length; _i++) {
@@ -6357,8 +6360,8 @@ function tabs_1() {
 
   input = [];
   title = ['Гражданство', 'Национальность', 'Дата рождения'];
-  var citizenShip = ['sdfdsf'];
-  var nationality = ['sdfdsf']; // let dataOfBirth ;
+  var citizenShip = dropdownValues['citizenship'];
+  var nationality = dropdownValues['nationality']; // let dataOfBirth ;
 
   sec = [citizenShip, nationality];
 
@@ -6377,7 +6380,7 @@ function tabs_1() {
   input = [];
   title = ['ИИН/ПИНФЛ', 'Документ удостоверяющий личность']; // console.log(dropdownValues['typeDocument'])
 
-  var typeDocument = ['sdfdsf'];
+  var typeDocument = dropdownValues['typeDocument'];
   sec = [typeDocument]; // inputField(title[i], names[count],"col-lg-4", null,'', RequiredSpan());
 
   input[0] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[0], names[count], "col-lg-4", null, '', (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan)());
@@ -6391,7 +6394,7 @@ function tabs_1() {
 
   input = [];
   title = ['№ документа удостоверяющий личность', 'Кем и когда выдан'];
-  var kemVidanDoc = ['sdfdsf'];
+  var kemVidanDoc = dropdownValues['kemVidanDoc'];
   sec = [kemVidanDoc];
   input[0] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[0], names[count], "col-lg-4", null, '', (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan)());
   count += 2;
@@ -6468,7 +6471,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _components_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components.js */ "./resources/js/Components/components.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-// let dropdownValues =  JSON.parse( JSON.stringify(dataArrayForDropDown));
+var dropdownValues = JSON.parse(JSON.stringify(dataArrayForDropDown));
 
 
 
@@ -6493,9 +6496,9 @@ function tabs_2() {
 
   input = [];
   title = ['Управленческий стаж', 'Вы являетесь', 'Сфера деятельности'];
-  var upravlencheskiy_stazh = ['sdfdsf'];
-  var jobType = ['sdfdsf'];
-  sec = [upravlencheskiy_stazh, jobType];
+  var jobType = dropdownValues['jobType'];
+  var fieldOfActivity = dropdownValues['fieldOfActivity'];
+  sec = [fieldOfActivity, jobType];
   count++;
   input[0] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[0], names[count], 'col-lg-8', null, '', (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan)());
   count++;
@@ -6589,6 +6592,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components */ "./resources/js/Components/components.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+var dropdownValues = JSON.parse(JSON.stringify(dataArrayForDropDown));
 
 
 
@@ -6596,7 +6600,7 @@ __webpack_require__.r(__webpack_exports__);
 var count = 0;
 var stars;
 var bankRequisites;
-var names = ['startEducation', 'endEducation', 'qualification', 'fullNameUniversity', 'speciality', 'languageEducation', 'checkSecondDegree', 'checkMasterDegree', 'checkLanguageKazakh', 'checkLanguageEnglish', 'checkLanguageFrench', 'checkLanguageGerman', 'checkLanguageChinese', 'checkOtherLanguages', 'englishProficiencyCertificates', 'certificateIssueDate', 'hobby', 'achievements', 'reasonForLearning', 'suite', 'otherSuite', 'socialNetwork', 'PageInFacebook', 'PageInInstagram', 'PageInTwitter', 'checkBoxAboutMBA', 'checkBoxReasonsForChoosingMBA', 'otherReason', stars = ['starsTheQualityOfEducation', 'starsLargeSelectionOfPrograms', 'starsLocationSchool', 'starsDiscounts', 'starsDurationEducation', 'starsСostOfEducation', 'starsReputationMBA', 'starsPartPayment', 'starsFormOfEducation', 'starsCompositionOfTeachers'], 'otherСharacteristics', bankRequisites = ['requisites', 'bin', 'reqYurAdress', 'bank', 'reqEmail', 'fioSupervisor', 'reqName', 'rnn', 'telFax', 'iik', 'reqSuite', 'reqPositionHead'], 'checkBoxSourceOfFinancing', 'checkBoxMBAProgram', 'ScanFileDocument', 'ScanFileCirtificateFromWork', 'resumeFile', 'fileScanDiplomWithApplication', 'scanCertificate', 'fileEsse'];
+var names = ['startEducation', 'endEducation', 'qualification', 'fullNameUniversity', 'speciality', 'languageEducation', 'checkSecondDegree', 'checkMasterDegree', 'checkLanguageKazakh', 'checkLanguageEnglish', 'checkLanguageFrench', 'checkLanguageGerman', 'checkLanguageChinese', 'checkOtherLanguages', 'englishProficiencyCertificates', 'certificateIssueDate', 'hobby', 'achievements', 'reasonForLearning', 'suite', 'otherSuite', 'socialNetwork', 'PageInFacebook', 'PageInInstagram', 'PageInTwitter', 'checkBoxAboutMBA', 'checkBoxReasonsForChoosingMBA', 'otherReason', stars = ['starsTheQualityOfEducation', 'starsLargeSelectionOfPrograms', 'starsLocationSchool', 'starsDiscounts', 'starsDurationEducation', 'starsСostOfEducation', 'starsReputationMBA', 'starsPartPayment', 'starsFormOfEducation', 'starsCompositionOfTeachers'], 'otherСharacteristics', bankRequisites = ['requisites', 'bin', 'reqYurAdress', 'bank', 'reqEmail', 'fioSupervisor', 'reqName', 'rnn', 'telFax', 'iik', 'reqSuite', 'reqPositionHead'], 'checkBoxSourceOfFinancing', 'checkBoxMBAProgram', 'ScanFileDocument', 'scanFileCertificateFromWork', 'resumeFile', 'fileScanDiplomWithApplication', 'scanCertificate', 'fileEsse', 'copyPassport', 'foto3x4', 'medicalDoc', 'recomentedLetter'];
 function tabs_3() {
   var allcode = [];
   var title = ['Начало обучения', 'Конец обучения '];
@@ -6622,9 +6626,10 @@ function tabs_3() {
 
   input = [];
   title = ['Академическая степень/квалификация', 'Полное наименование учебного заведения'];
-  var qualification = ['qualification'];
-  sec = [qualification];
-  input[0] = (0,_components__WEBPACK_IMPORTED_MODULE_0__.dropDown)(title[0], names[count], sec, null, 'col-lg-4', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {}));
+  var qualification = dropdownValues['qualification'];
+  sec = [qualification]; // console.log(sec +' '+sec.length);
+
+  input[0] = (0,_components__WEBPACK_IMPORTED_MODULE_0__.dropDown)(title[0], names[count], sec[0], null, 'col-lg-4', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {}));
   count++;
   input[1] = (0,_components__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[1], names[count], 'col-lg-8', null, '', (0,_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan)());
   count++;
@@ -6644,9 +6649,9 @@ function tabs_3() {
 
   input = [];
   title = ['Язык обучения', 'Имеется ли второе высшее образование ', 'Имеется ли магистерская степень'];
-  var languageEducation = ['qualification'];
-  var checkSecondDegree = ['qualification'];
-  var checkMasterDegree = ['qualification'];
+  var languageEducation = dropdownValues['languageEducation'];
+  var checkSecondDegree = dropdownValues['checkSecondDegree'];
+  var checkMasterDegree = dropdownValues['checkMasterDegree'];
   sec = [languageEducation, checkSecondDegree, checkMasterDegree];
 
   for (var i = 0; i < sec.length; i++) {
@@ -6660,11 +6665,11 @@ function tabs_3() {
   }, count); // ------------------------------------------------------------------------------------------
 
   input = [];
-  var checkLanguageKazakh = ['qualification'];
-  var checkLanguageEnglish = ['qualification'];
-  var checkLanguageFrench = ['qualification'];
-  var checkLanguageGerman = ['qualification'];
-  var checkLanguageChinese = ['qualification'];
+  var checkLanguageKazakh = dropdownValues['levellanguages'];
+  var checkLanguageEnglish = dropdownValues['levellanguages'];
+  var checkLanguageFrench = dropdownValues['levellanguages'];
+  var checkLanguageGerman = dropdownValues['levellanguages'];
+  var checkLanguageChinese = dropdownValues['levellanguages'];
   sec = [checkLanguageKazakh, checkLanguageEnglish, checkLanguageFrench, checkLanguageGerman, checkLanguageChinese];
   var language = ['Казахский', 'Английский', 'Французский', 'Немецкий', 'Китайский'];
   labelvar = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
@@ -6688,7 +6693,7 @@ function tabs_3() {
     count++;
   }
 
-  var arrayFromBack = ['qualification'];
+  var arrayFromBack = dropdownValues['levellanguages'];
   allcode[4] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
     id: 'lang',
     className: "form-group row",
@@ -6700,7 +6705,7 @@ function tabs_3() {
 
   input = [];
   title = ['Наличие сертификатов на знание Английского языка', 'Дата выдачи сертификата '];
-  var certificateIssueDate = ['qualification'];
+  var certificateIssueDate = dropdownValues['englishProficiencyCertificates'];
   sec = [certificateIssueDate];
   input[0] = (0,_components__WEBPACK_IMPORTED_MODULE_0__.dropDown)(title[0], names[count], sec[0], null, 'col-lg-6');
   count++;
@@ -7189,9 +7194,29 @@ function tabs_3() {
     name: names[count],
     uploadLabel: 'Прикрепить мотивационное эссе (.pdf или .doc)'
   }, count);
+  count++;
+  allcode[24] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
+    name: names[count],
+    uploadLabel: 'Копия паспорта (.pdf или .jpg, .png)'
+  }, count);
+  count++;
+  allcode[25] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
+    name: names[count],
+    uploadLabel: '6 фото 3х4 (.pdf или .jpg, .png)'
+  }, count);
+  count++;
+  allcode[26] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
+    name: names[count],
+    uploadLabel: 'Медицинская справка (форма 075У) (.pdf или .jpg, .png)'
+  }, count);
+  count++;
+  allcode[27] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
+    name: names[count],
+    uploadLabel: '2 рекомендательных письма (.pdf или .doc)'
+  }, count);
   count++; // ------------------------------------------------------------------------------------------
 
-  allcode[24] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+  allcode[28] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("small", {
       className: " ",
       children: ["\u041D\u0430\u0436\u0438\u043C\u0430\u044F \u043D\u0430 \u043A\u043D\u043E\u043F\u043A\u0443, \u044F \u0434\u0430\u044E \u0441\u0432\u043E\u0435 \u0441\u043E\u0433\u043B\u0430\u0441\u0438\u0435 \u043D\u0430 \u043E\u0431\u0440\u0430\u0431\u043E\u0442\u043A\u0443 \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u043B\u044C\u043D\u044B\u0445 \u0434\u0430\u043D\u043D\u044B\u0445 \u0438 \u0441\u043E\u0433\u043B\u0430\u0448\u0430\u044E\u0441\u044C ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
@@ -7212,7 +7237,7 @@ function tabs_3() {
   var divStyle3 = {
     padding: '0'
   };
-  allcode[25] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+  allcode[29] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     className: "d-flex justify-content-end",
     style: divStyle2,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {

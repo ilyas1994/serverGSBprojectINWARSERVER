@@ -18,11 +18,11 @@
     <link href={{asset('css/dropzone.css')}} rel="stylesheet">
     <link href={{asset('css/style.css')}} rel="stylesheet">
     <link href={{asset('css/mystyle.css')}} rel="stylesheet">
+{{--    <script src="validator.min.js"></script>--}}
+{{--        @push('scripts')--}}
+{{--        <script type="text/babel" src={{asset('reactComponents/components.js')}}> </script>--}}
 
-    {{--    @push('scripts')--}}
-    {{--    <script type="text/babel" src={{asset('reactComponents/components.js')}}> </script>--}}
-
-    {{--    @endpush--}}
+{{--        @endpush--}}
 
     @if($errors->any())
 
@@ -41,9 +41,9 @@
 </head>
 <body>
 
-    @dd($dataArrayForDropDown);
+{{--    @dd($dataArrayForDropDown);--}}
 
-{{dd($dataArrayForDropDown)}}
+{{--{{dd($dataArrayForDropDown['gender'])}}--}}
 <div class="header">
     <div class="container">
         <a href="https://gsb.almau.edu.kz/"><img src="{{asset('img/logo-gsb.png')}}" alt=""></a>
@@ -74,9 +74,13 @@
         </div>
     </div>
 </div>
+<script>
+    let dataArrayForDropDown ={!!json_encode($dataArrayForDropDown)!!};
+    console.log(dataArrayForDropDown);
+</script>
 <div class="container">
     <div class="row">
-        {{--        {{dd(json_encode($dataArrayForDropDown['gender']))}}--}}
+{{--                {{dd($dataArrayForDropDown['gender'])}}--}}
         <div id="tabs" class=" tabs_head">
 
             <ul class="nav nav-tabs" id="myTab" role="tablist" style="background-color: gainsboro;">
@@ -105,11 +109,16 @@
 {{--                   $e = Illuminate\Support\Facades\Hash::make('qwe123')--}}
 {{--                @endphp--}}
 {{--                {{$e}}--}}
-                <form id="basic-form" method="post" class="needs-validation" novalidate enctype="multipart/form-data" action="{{route('sendData')}}">
+{{--                class="needs-validation" novalidate--}}
+                <form id="basic-form" method="post"  enctype="multipart/form-data" action="{{route('sendData')}}">
                       @csrf
                     <div class="tab-content" id="myTabContent">
+
+
                         {{--                        <div class="tab-pane fade show active" id="tabs-1" role="tabpanel" aria-labelledby="home-tab">--}}
-                        <script src={{asset('js/app.js')}} type="text/javascript"></script>
+                        <script src={{asset('js/app.js')}} type="text/javascript">
+
+                        </script>
 
                         {{--                        </div>--}}
                     </div>
@@ -172,7 +181,6 @@
 </body>
 </html>
 
-{{--<script>let dataArrayForDropDown ={!!json_encode($dataArrayForDropDown)!!};</script>--}}
 
 
 
