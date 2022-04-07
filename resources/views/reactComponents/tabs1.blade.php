@@ -41,6 +41,8 @@
 </head>
 <body>
 
+{{--    @dd($dataArrayForDropDown);--}}
+
 {{dd($dataArrayForDropDown)}}
 <div class="header">
     <div class="container">
