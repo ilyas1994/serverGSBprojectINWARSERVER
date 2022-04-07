@@ -11,6 +11,8 @@ class CreateDropDownсitizenshipsTable extends Migration
      *
      * @return void
      */
+
+    // qweqweqwqe
     public function up()
     {
         Schema::create('drop_downсitizenships', function (Blueprint $table) {
