@@ -150,10 +150,10 @@
                         </div>
 
 {{--                      + копия удв  --}}
-                        <div class="mb-3 mt-5 col-12">
-                            <label for="formFile" class="form-label">Копия удостоверения личности pdf,png,jpg</label>
-                            <input class="form-control" name="copyUdv[]" multiple type="file" id="formFile">
-                        </div>
+{{--                        <div class="mb-3 mt-5 col-12">--}}
+{{--                            <label for="formFile" class="form-label">Копия удостоверения личности pdf,png,jpg</label>--}}
+{{--                            <input class="form-control" name="copyUdv[]" multiple type="file" id="formFile">--}}
+{{--                        </div>--}}
 
 {{--                        + копия паспорта  --}}
                         <div class="mb-3 mt-5 col-12">
