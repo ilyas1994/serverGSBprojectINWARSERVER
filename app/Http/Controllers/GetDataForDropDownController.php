@@ -14,14 +14,41 @@ class GetDataForDropDownController extends Controller
         $arrayData = [];
 
         for ($i = 0; $i < count($data); $i++) {
+
             array_unshift($arrayData, $data[$i]->name);
         }
+
+
 
         return  $arrayData;
 
     }
 
+    private function getProgramMBAKeyVal($key, $val) {
+        $getProgramKey = DB::select("SELECT * FROM $key");
+        $getProgramVal = DB::select("SELECT * FROM $val");
+        $key = [];
+        for ($i = 0; $i < count($getProgramKey); $i ++ ) {
+            $val = [];
+            for ($j = 0; $j < count($getProgramVal); $j ++ ) {
+
+                if ($getProgramVal[$j]->key_id == $getProgramKey[$i]->id) {
+                   array_unshift($val, $getProgramVal[$j]->valueProgram);
+                }
+
+            }
+            $key[$getProgramKey[$i]->programName] = $val;
+
+        }
+        return $key;
+    }
+
+
+
+
     public function index() {
+
+       $programMBA =  $this->getProgramMBAKeyVal('program_m_b_a_selection_k_e_y_s', 'program_m_b_a_selection_values');
 
         $gender = $this->dataFromDB('drop_down_genders');
         $familyStatus = $this->dataFromDB('drop_down_family_statuses');
@@ -56,7 +83,7 @@ class GetDataForDropDownController extends Controller
             'levellanguages' => $levellanguages
         ];
 
-        return view('reactComponents.tabs1')->with('dataArrayForDropDown', $dataArrayForDropDown);
+        return view('reactComponents.tabs1')->with('dataArrayForDropDown', $dataArrayForDropDown)->with('programMBA', $programMBA);
     }
 
 

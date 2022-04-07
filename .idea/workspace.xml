@@ -5,26 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76c86216-8c47-45b5-b63a-4f4738510c0b" name="Changes" comment="add new columns">
-      <change afterPath="$PROJECT_DIR$/app/Models/DropDownLevelLanguage.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/ProgramMBASelectionKEY.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/ProgramMBASelectionValue.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2022_04_07_163416_create_program_m_b_a_selection_k_e_y_s_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2022_04_07_163424_create_program_m_b_a_selection_values_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PDFController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PDFController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2022_03_10_041829_create_personal_data_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_03_10_041829_create_personal_data_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Components/components.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Components/components.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Components/tabs1.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Components/tabs1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Components/tabs2.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Components/tabs2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Components/tabs3.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Components/tabs3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/adminPanel/profileUser.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/adminPanel/profileUser.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GetDataForDropDownController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GetDataForDropDownController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/reactComponents/tabs1.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/reactComponents/tabs1.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/showInPDF/preview.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/showInPDF/preview.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -258,6 +241,7 @@
       <workItem from="1649156839136" duration="18012000" />
       <workItem from="1649307092397" duration="5146000" />
       <workItem from="1649329125048" duration="171000" />
+      <workItem from="1649329314198" duration="4256000" />
     </task>
     <task id="LOCAL-00001" summary="почти закончил">
       <created>1648915219567</created>
@@ -322,7 +306,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649312016150</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="add new columns">
+      <created>1649329579919</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1649329579919</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

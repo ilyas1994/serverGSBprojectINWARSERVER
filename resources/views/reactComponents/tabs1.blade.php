@@ -24,7 +24,11 @@
 
 {{--        @endpush--}}
 
-    @if($errors->any())
+
+    @dd($programMBA)
+
+
+@if($errors->any())
 
 
         <div class="alert-danger">
