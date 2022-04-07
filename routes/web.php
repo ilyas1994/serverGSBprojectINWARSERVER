@@ -19,8 +19,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', function () {
-
-    return view('reactComponents.tabs1');
+       $drop = new \App\Http\Controllers\GetDataForDropDownController();
+    $dataArrayForDropDown = $drop->index();
+//    return view('reactComponents.tabs1')->with('dataArrayForDropDown', $dataArrayForDropDown);
+    return $dataArrayForDropDown;
 });
 //Route::get('/', function () {
 //

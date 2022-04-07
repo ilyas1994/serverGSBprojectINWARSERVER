@@ -10,7 +10,7 @@ class GetDataForDropDownController extends Controller
 //    Отправка dropDown во вью для отображения в input полях
     private function dataFromDB($data) {
 
-        $data = DB::select("SELECT name FROM $data");
+        $data = DB::select("SELECT * FROM $data");
         $arrayData = [];
 
         for ($i = 0; $i < count($data); $i++) {
@@ -30,7 +30,7 @@ class GetDataForDropDownController extends Controller
         $typeDocument = $this->dataFromDB('drop_down_type_documents');
         $kemVidanDoc = $this->dataFromDB('drop_down_kem_vidan_docs');
         $jobType = $this->dataFromDB('drop_down_job_types');
-//        $fieldOfActivity = $this->dataFromDB('drop_down_genders'),
+        $fieldOfActivity = $this->dataFromDB('drop_down_genders');
         $qualification = $this->dataFromDB('drop_down_qualifications');
         $languageEducation = $this->dataFromDB('drop_down_language_education');
         $checkMasterDegree = $this->dataFromDB('drop_down_check_check_master_degrees');
@@ -45,7 +45,8 @@ class GetDataForDropDownController extends Controller
             'typeDocument' => $typeDocument,
             'kemVidanDoc' => $kemVidanDoc,
             'jobType' => $jobType,
-            'fieldOfActivity' => ['наемным руководителем', 'Собственник', 'Учредитель'],
+//            'fieldOfActivity' => ['наемным руководителем', 'Собственник', 'Учредитель'],
+            'fieldOfActivity' => $fieldOfActivity,
             'qualification' => $qualification,
             'languageEducation' => $languageEducation,
             'checkSecondDegree' => $checkSecondDegree,
@@ -53,7 +54,7 @@ class GetDataForDropDownController extends Controller
             'englishProficiencyCertificates' => $englishProficiencyCertificates
         ];
 
-        return view('main')->with('dataArrayForDropDown', $dataArrayForDropDown);
+        return view('reactComponents.tabs1')->with('dataArrayForDropDown', $dataArrayForDropDown);
     }
 
 

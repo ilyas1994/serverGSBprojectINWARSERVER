@@ -68,7 +68,7 @@ class CreatePersonalDataTable extends Migration
 
 //            NEW
             //           Копия удостоверения личности (.pdf)   *
-            $table->json('copyUdv')->nullable();;
+//            $table->json('copyUdv')->nullable();;
 
 
 //            Копия паспорта только на EXECUTIVE MBA null   NULLABLE
