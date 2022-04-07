@@ -41,11 +41,9 @@
 </head>
 <body>
 
-<<<<<<< HEAD
-{{--{{dd($dataArrayForDropDown['gender'])}}--}}
-=======
+{{--    @dd($dataArrayForDropDown);--}}
+
 {{dd($dataArrayForDropDown)}}
->>>>>>> origin/finish_work
 <div class="header">
     <div class="container">
         <a href="https://gsb.almau.edu.kz/"><img src="{{asset('img/logo-gsb.png')}}" alt=""></a>
