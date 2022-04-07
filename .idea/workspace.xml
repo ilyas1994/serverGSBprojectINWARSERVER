@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76c86216-8c47-45b5-b63a-4f4738510c0b" name="Changes" comment="закончил back часть">
+    <list default="true" id="76c86216-8c47-45b5-b63a-4f4738510c0b" name="Changes" comment="update table">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2022_03_10_041829_create_personal_data_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_03_10_041829_create_personal_data_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Components/tabs3.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Components/tabs3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/reactComponents/tabs1.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/reactComponents/tabs1.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +173,9 @@
     </include_path>
   </component>
   <component name="ProjectId" id="26XwCKCwKoJtM2T7zB4BCHmj4CY" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
