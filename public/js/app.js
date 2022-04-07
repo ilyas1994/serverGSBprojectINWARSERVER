@@ -6208,7 +6208,7 @@ var FilePicker = /*#__PURE__*/function (_React$Component5) {
           multiple: true,
           "aria-label": "file example",
           required: true,
-          name: this.props.name,
+          name: this.props.name + '[]',
           className: "form-control",
           id: "exampleFormControlFile1",
           onChange: this.handleFiles.bind(this)
@@ -6301,7 +6301,7 @@ var dropdownValues = JSON.parse(JSON.stringify(dataArrayForDropDown)); //
 
 
 var count = 0;
-var names = ['surname', 'name', 'patronomyc', 'gender', 'familyStatus', 'amountOfChildren', 'citizenShip', 'nationality', 'dataOfBirth', 'Iin', 'typeDocument', 'numberDocument', 'kemVidanDoc', 'dateMonthYearDoc', 'cityOfResidence', 'homeAdress', 'mobileNumber', 'email'];
+var names = ['surname', 'name', 'patronymic', 'gender', 'familyStatus', 'amountOfChildren', 'citizenship', 'nationality', 'dataOfBirth', 'Iin', 'typeDocument', 'numberDocument', 'kemVidanDoc', 'dateMonthYearDoc', 'cityOfResidence', 'homeAdress', 'mobileNumber', 'email'];
 function tabs_1() {
   // f_();
   var allcode = [];
@@ -6310,7 +6310,8 @@ function tabs_1() {
   var sec = [];
 
   for (var i = 0; i < 2; i++) {
-    input[i] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[i], names[count], "col-lg-4", null, '', (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan)());
+    // input[i] = inputField(title[i], names[count],"col-lg-4", null,'', RequiredSpan());
+    input[i] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[i], names[count], "col-lg-4", null, '');
     count++;
   }
 
@@ -6334,7 +6335,7 @@ function tabs_1() {
   sec = [gender, familyStatus];
 
   for (var _i = 0; _i < sec.length; _i++) {
-    input[_i] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.dropDown)(title[_i], names[count], sec[_i], '', 'col-lg-4', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {}));
+    input[_i] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.dropDown)(title[_i], names[count], sec[_i], '', 'col-lg-4');
     count++;
   }
 
@@ -6366,7 +6367,7 @@ function tabs_1() {
   sec = [citizenShip, nationality];
 
   for (var _i2 = 0; _i2 < sec.length; _i2++) {
-    input[_i2] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.dropDown)(title[_i2], names[count], sec[_i2], '', 'col-lg-4', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {}));
+    input[_i2] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.dropDown)(title[_i2], names[count], sec[_i2], '', 'col-lg-4');
     count++;
   }
 
@@ -6383,9 +6384,9 @@ function tabs_1() {
   var typeDocument = dropdownValues['typeDocument'];
   sec = [typeDocument]; // inputField(title[i], names[count],"col-lg-4", null,'', RequiredSpan());
 
-  input[0] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[0], names[count], "col-lg-4", null, '', (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan)());
+  input[0] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[0], names[count], "col-lg-4", null, '');
   count++;
-  input[1] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.dropDown)(title[1], names[count], sec[0], '', 'col-lg-4', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {}));
+  input[1] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.dropDown)(title[1], names[count], sec[0], '', 'col-lg-4');
   count++;
   allcode[3] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     className: "form-group row",
@@ -6396,7 +6397,7 @@ function tabs_1() {
   title = ['№ документа удостоверяющий личность', 'Кем и когда выдан'];
   var kemVidanDoc = dropdownValues['kemVidanDoc'];
   sec = [kemVidanDoc];
-  input[0] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[0], names[count], "col-lg-4", null, '', (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan)());
+  input[0] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[0], names[count], "col-lg-4", null, '');
   count += 2;
 
   var dop = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
@@ -6406,7 +6407,7 @@ function tabs_1() {
   });
 
   count--;
-  input[1] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.dropDown)(title[1], names[count], sec[0], dop, 'col-lg-4', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {}));
+  input[1] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.dropDown)(title[1], names[count], sec[0], dop, 'col-lg-4');
   count += 2;
   allcode[4] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     className: "form-group row",
@@ -6419,8 +6420,8 @@ function tabs_1() {
 
   for (var _i3 = 0; _i3 < title.length; _i3++) {
     if (_i3 == 2) {
-      input[_i3] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[_i3], names[count], 'col-lg-3', '', '', (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan)());
-    } else input[_i3] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[_i3], names[count], 'col-lg-3', null, '', (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan)());
+      input[_i3] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[_i3], names[count], 'col-lg-3', '', '');
+    } else input[_i3] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[_i3], names[count], 'col-lg-3', null, '');
 
     count++;
   }
@@ -6476,7 +6477,7 @@ var dropdownValues = JSON.parse(JSON.stringify(dataArrayForDropDown));
 
 
 var count = 0;
-var names = ['positionAtWord', 'nameOfTheCompany', 'legalAdress', 'firstWorkExperience', 'upravlencheskiy_stazh', 'jobType', 'fieldOfActiviy', 'availabilityOfBusinessTrips', 'availabilityOfBusinessTripsInputYes', 'availabilityOfBusinessTripsInputDuration'];
+var names = ['positionAtWord', 'nameOfTheCompany', 'legalAdress', 'firstWorkExperience', 'upravlencheskiy_stazh', 'jobType', 'fieldOfActivity', 'availabilityOfBusinessTrips', 'availabilityOfBusinessTripsInputYes', 'availabilityOfBusinessTripsInputDuration'];
 function tabs_2() {
   var allcode = [];
   var title = ['Занимаемая должность', 'Компания (полное наименование)', 'Юридический адрес', 'Общий трудовой стаж со дня окончания вуза (первое высшее образование)'];
@@ -6600,7 +6601,7 @@ var dropdownValues = JSON.parse(JSON.stringify(dataArrayForDropDown));
 var count = 0;
 var stars;
 var bankRequisites;
-var names = ['startEducation', 'endEducation', 'qualification', 'fullNameUniversity', 'speciality', 'languageEducation', 'checkSecondDegree', 'checkMasterDegree', 'checkLanguageKazakh', 'checkLanguageEnglish', 'checkLanguageFrench', 'checkLanguageGerman', 'checkLanguageChinese', 'checkOtherLanguages', 'englishProficiencyCertificates', 'certificateIssueDate', 'hobby', 'achievements', 'reasonForLearning', 'suite', 'otherSuite', 'socialNetwork', 'PageInFacebook', 'PageInInstagram', 'PageInTwitter', 'checkBoxAboutMBA', 'checkBoxReasonsForChoosingMBA', 'otherReason', stars = ['starsTheQualityOfEducation', 'starsLargeSelectionOfPrograms', 'starsLocationSchool', 'starsDiscounts', 'starsDurationEducation', 'starsСostOfEducation', 'starsReputationMBA', 'starsPartPayment', 'starsFormOfEducation', 'starsCompositionOfTeachers'], 'otherСharacteristics', bankRequisites = ['requisites', 'bin', 'reqYurAdress', 'bank', 'reqEmail', 'fioSupervisor', 'reqName', 'rnn', 'telFax', 'iik', 'reqSuite', 'reqPositionHead'], 'checkBoxSourceOfFinancing', 'checkBoxMBAProgram', 'ScanFileDocument', 'scanFileCertificateFromWork', 'resumeFile', 'fileScanDiplomWithApplication', 'scanCertificate', 'fileEsse', 'copyPassport', 'foto3x4', 'medicalDoc', 'recomentedLetter'];
+var names = ['startEducation', 'endEducation', 'qualification', 'fullNameUniversity', 'speciality', 'languageEducation', 'checkSecondDegree', 'checkMasterDegree', 'checkLanguageKazakh', 'checkLanguageEnglish', 'checkLanguageFrench', 'checkLanguageGerman', 'checkLanguageChinese', 'checkOtherLanguages', 'englishProficiencyCertificates', 'certificateIssueDate', 'hobby', 'achievements', 'reasonForLearning', 'suite', 'otherSuite', 'socialNetwork', 'PageInFacebook', 'PageInInstagram', 'PageInTwitter', 'checkBoxAboutMBA', 'checkBoxReasonsForChoosingMBA', 'otherReason', stars = ['starsTheQualityOfEducation', 'starsLargeSelectionOfPrograms', 'starsLocationSchool', 'starsDiscounts', 'starsDurationEducation', 'starsСostOfEducation', 'starsReputationMBA', 'starsPartPayment', 'starsFormOfEducation', 'starsCompositionOfTeachers'], 'otherСharacteristics', bankRequisites = ['requisites', 'bin', 'reqYurAdress', 'bank', 'reqEmail', 'fioSupervisor', 'reqName', 'rnn', 'telFax', 'iik', 'reqSuite', 'reqPositionHead'], 'checkBoxSourceOfFinancing', 'checkBoxMBAProgram', 'scanFileDocument', 'scanFileCertificateFromWork', 'resumeFile', 'fileScanDiplomWithApplication', 'scanCertificate', 'fileEsse', 'copyPassport', 'foto3x4', 'medicalDoc', 'recomentedLetter'];
 function tabs_3() {
   var allcode = [];
   var title = ['Начало обучения', 'Конец обучения '];

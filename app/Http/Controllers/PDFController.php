@@ -23,15 +23,15 @@ class PDFController extends Controller
 //        return view('showInPDF.preview')->with('data', $data);
 //    }
 
-    private function getFileFromInputs($iin, $copyUdv) {
-        return \DB::select("SELECT $copyUdv FROM personal_datamba WHERE iin={$iin}");
+    private function getFileFromInputs($Iin, $copyUdv) {
+        return \DB::select("SELECT $copyUdv FROM personal_datamba WHERE Iin={$Iin}");
     }
 
     public function generatePDF($iin)
     {
 
         $getIIN = $iin;
-        $data = \DB::select("SELECT * FROM personal_datamba WHERE iin={$getIIN}")[0];
+        $data = \DB::select("SELECT * FROM personal_datamba WHERE Iin={$getIIN}")[0];
         $data = [
 
             'datas' => $data

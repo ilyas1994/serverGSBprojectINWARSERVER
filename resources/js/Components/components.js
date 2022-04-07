@@ -489,7 +489,7 @@ export class FilePicker extends React.Component{
                 <label htmlFor="" className="title ">{this.props.uploadLabel}</label>
                 <hr className={'mt-0'}/>
 
-                <input type={"file"} multiple aria-label="file example" required={true} name={this.props.name} className="form-control" id="exampleFormControlFile1" onChange={this.handleFiles.bind(this)}/>
+                <input type={"file"} multiple aria-label="file example" required={true} name={this.props.name+'[]'} className="form-control" id="exampleFormControlFile1" onChange={this.handleFiles.bind(this)}/>
                 <div className="invalid-feedback">Загрузите файлы</div>
                 <div id={"fileList"}>
                     {this.state.files}

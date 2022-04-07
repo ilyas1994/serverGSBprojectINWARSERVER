@@ -68,19 +68,19 @@
                 @case('0')
                 <option selected name="name">Имени</option>
                 <option name="surname">Фамилии</option>
-                <option name="iin">ИИН</option>
+                <option name="Iin">ИИН</option>
                 @break
 
                 @case('1')
                     <option name="name">Имени</option>
                     <option selected name="surname">Фамилии</option>
-                    <option name="iin">ИИН</option>
+                    <option name="Iin">ИИН</option>
                 @break
 
                 @case('2')
                     <option name="name">Имени</option>
                     <option name="surname">Фамилии</option>
-                    <option selected name="iin">ИИН</option>
+                    <option selected name="Iin">ИИН</option>
                 @break
 
 
@@ -88,7 +88,7 @@
             @else
                 <option selected name="name">Имени</option>
                 <option name="surname">Фамилии</option>
-                <option  name="iin">ИИН</option>
+                <option  name="Iin">ИИН</option>
             @endif
 
 {{--                <option selected>Имени</option>--}}
@@ -132,7 +132,7 @@
 @isset($profileData)
 
     @foreach($profileData as $value)
-
+{{--            @dd($profileData)--}}
         <div class="col-12" >
 
         <table class="table">
@@ -154,7 +154,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <th scope="row">{{ $value->iin }}</th>
+                    <th scope="row">{{ $value->Iin }}</th>
                     <td>{{ $value->surname }}</td>
                     <td>{{ $value->name }}</td>
                     <td>{{ $value->patronymic }}</td>
@@ -163,39 +163,39 @@
 
                     <td>
                         {{--                    Показать  Резюме--}}
-                        <a class="aStyle" target="_blank" href="{{ route('pdf.getTypeFile', [$value->iin, 'resumeFile']) }}">Резюме</a>
+                        <a class="aStyle" target="_blank" href="{{ route('pdf.getTypeFile', [$value->Iin, 'resumeFile']) }}">Резюме</a>
                         <br>
                         {{--                    Показать Удв--}}
-                        <a class="aStyle" target="_blank" href="{{ route('pdf.getUdvFile', [$value->iin, 'copyUdv']) }}">Удв. личности</a>
+{{--                        <a class="aStyle" target="_blank" href="{{ route('pdf.getUdvFile', [$value->Iin, 'copyUdv']) }}">Удв. личности</a>--}}
                         {{--                    Показать Мотивационное эссе только на EXECUTIVE MBA--}}
                         <br>
-                        <a class="aStyle" target="_blank" href="{{ route('pdf.getTypeFile', [$value->iin, 'fileEsse']) }}">Мотивационное эссе</a>
+                        <a class="aStyle" target="_blank" href="{{ route('pdf.getTypeFile', [$value->Iin, 'fileEsse']) }}">Мотивационное эссе</a>
                                                 {{--Показать foto3x4--}}
                         <br>
-                        <a class="aStyle" target="_blank" href="{{ route('pdf.getTypeFile', [$value->iin, 'foto3x4']) }}">Фото 3х4</a>
+                        <a class="aStyle" target="_blank" href="{{ route('pdf.getTypeFile', [$value->Iin, 'foto3x4']) }}">Фото 3х4</a>
                         {{--                    Показать Копия диплома о высшем образовании + приложения к диплому о высшем образовании (.pdf) --}}
                         <br>
-                        <a class="aStyle" target="_blank" href="{{ route('pdf.getTypeFile', [$value->iin, 'fileScanDiplomWithApplication']) }}">Копия диплома + приложения </a>
+                        <a class="aStyle" target="_blank" href="{{ route('pdf.getTypeFile', [$value->Iin, 'fileScanDiplomWithApplication']) }}">Копия диплома + приложения </a>
                         {{--                    Показать Справка с места работы с указанием должности (.pdf)--}}
                         <br>
-                        <a class="aStyle" target="_blank" href="{{ route('pdf.getTypeFile', [$value->iin, 'scanFileCertificateFromWork']) }}">Справка с места работы</a>
+                        <a class="aStyle" target="_blank" href="{{ route('pdf.getTypeFile', [$value->Iin, 'scanFileCertificateFromWork']) }}">Справка с места работы</a>
                         {{--                    Показать Рекомендательных письма только на EXECUTIVE MBA null--}}
                         <br>
-                        <a class="aStyle" target="_blank" href="{{ route('pdf.getTypeFile', [$value->iin, 'recomentedLetter']) }}">Рекомендательные письма</a>
+                        <a class="aStyle" target="_blank" href="{{ route('pdf.getTypeFile', [$value->Iin, 'recomentedLetter']) }}">Рекомендательные письма</a>
                         {{--                    Показать Медицинская справка (форма 075У)--}}
                         <br>
-                        <a class="aStyle" target="_blank" href="{{ route('pdf.getTypeFile', [$value->iin, 'medicalDoc']) }}">Медицинская справка</a>
+                        <a class="aStyle" target="_blank" href="{{ route('pdf.getTypeFile', [$value->Iin, 'medicalDoc']) }}">Медицинская справка</a>
                         {{--                    Показать Прикрепить скан сертификата (.pdf)--}}
                         <br>
-                        <a class="aStyle" target="_blank" href="{{ route('pdf.getTypeFile', [$value->iin, 'scanCertificate']) }}">Скан сертификата</a>
+                        <a class="aStyle" target="_blank" href="{{ route('pdf.getTypeFile', [$value->Iin, 'scanCertificate']) }}">Скан сертификата</a>
                     </td>
 
 
                     <td>{{ ('Тест')}}</td>
                     <td>
-                        <form action={{ route('pdf.generate', $value->iin) }} method="get">
+                        <form action={{ route('pdf.generate', $value->Iin) }} method="get">
                             @csrf
-                            <button class="btn btn-primary" name="sendIIN" value="{{ $value->iin }}" formtarget="_blank" type="submit">Просмотр</button>
+                            <button class="btn btn-primary" name="sendIIN" value="{{ $value->Iin }}" formtarget="_blank" type="submit">Просмотр</button>
                         </form>
                     </td>
 
@@ -203,7 +203,7 @@
                     <td>
                         <form action={{ route('getFiless') }} method="get">
                             @csrf
-                                <button class="btn btn-primary" name="sendIIN" value="{{ $value->iin }}" type="submit">Скачать все</button>
+                                <button class="btn btn-primary" name="sendIIN" value="{{ $value->Iin }}" type="submit">Скачать все</button>
                          </form>
                     </td>
 

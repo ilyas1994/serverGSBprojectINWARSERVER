@@ -3,15 +3,15 @@ import {dropDown, inputField, RadioB, RadioButton, RequiredSpan} from "./compone
 
 let count = 0;
 let names = [
-             'positionAtWord',
-             'nameOfTheCompany',
-             'legalAdress',
+    'positionAtWord',
+    'nameOfTheCompany',
+    'legalAdress',
 
-             'firstWorkExperience',
-             'upravlencheskiy_stazh',
-             'jobType',
-             'fieldOfActiviy',
-             'availabilityOfBusinessTrips',
+    'firstWorkExperience',
+    'upravlencheskiy_stazh',
+    'jobType',
+    'fieldOfActivity',
+    'availabilityOfBusinessTrips',
     'availabilityOfBusinessTripsInputYes',
     'availabilityOfBusinessTripsInputDuration'
 ];

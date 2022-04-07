@@ -110,7 +110,7 @@
 {{--                @endphp--}}
 {{--                {{$e}}--}}
 {{--                class="needs-validation" novalidate--}}
-                <form id="basic-form" method="post"  enctype="multipart/form-data" action="{{route('sendData')}}">
+                <form id="basic-form" method="post" class="needs-validation" novalidate enctype="multipart/form-data" action="{{route('sendData')}}">
                       @csrf
                     <div class="tab-content" id="myTabContent">
 

@@ -7,24 +7,25 @@ import {dataPiker, dropDown, inputField, Label, RequiredSpan} from "./components
 
 let count = 0;
 let names = [
-             'surname',
-             'name',
-             'patronomyc',
-             'gender',
-             'familyStatus',
-             'amountOfChildren',
-             'citizenShip',
-             'nationality',
-             'dataOfBirth',
-             'Iin',
-             'typeDocument',
-             'numberDocument',
-             'kemVidanDoc',
-             'dateMonthYearDoc',
-             'cityOfResidence',
-             'homeAdress',
-             'mobileNumber',
-             'email',
+    'surname',
+    'name',
+    'patronymic',
+    'gender',
+    'familyStatus',
+    'amountOfChildren',
+    'citizenship',
+    'nationality',
+    'dataOfBirth',
+    'Iin',
+    'typeDocument',
+    'numberDocument',
+    'kemVidanDoc',
+    'dateMonthYearDoc',
+
+    'cityOfResidence',
+    'homeAdress',
+    'mobileNumber',
+    'email',
 ];
 
 
@@ -40,7 +41,8 @@ export function tabs_1() {
     let sec = [];
 
     for (let i = 0; i < 2; i++) {
-        input[i] = inputField(title[i], names[count],"col-lg-4", null,'', RequiredSpan());
+        // input[i] = inputField(title[i], names[count],"col-lg-4", null,'', RequiredSpan());
+        input[i] = inputField(title[i], names[count],"col-lg-4", null,'');
         count++;
     }
 
@@ -62,7 +64,7 @@ export function tabs_1() {
     sec = [gender, familyStatus];
 
     for (let i = 0; i < sec.length; i++) {
-        input[i] = dropDown( title[i],names[count],sec[i],'','col-lg-4', <RequiredSpan/>);
+        input[i] = dropDown( title[i],names[count],sec[i],'','col-lg-4');
         count++;
     }
     input[sec.length+1] =  <div key={sec.length+1} className={"col-lg-4"}>
@@ -82,7 +84,7 @@ export function tabs_1() {
     sec = [citizenShip,nationality];
 
     for (let i = 0; i < sec.length; i++) {
-        input[i] = dropDown(title[i],names[count],sec[i],'','col-lg-4', <RequiredSpan/>);
+        input[i] = dropDown(title[i],names[count],sec[i],'','col-lg-4');
         count++;
     }
 
@@ -97,9 +99,9 @@ export function tabs_1() {
     let typeDocument = dropdownValues['typeDocument'];
     sec = [typeDocument];
     // inputField(title[i], names[count],"col-lg-4", null,'', RequiredSpan());
-    input[0] = inputField(title[0], names[count],"col-lg-4", null,'', RequiredSpan());
+    input[0] = inputField(title[0], names[count],"col-lg-4", null,'');
     count++;
-    input[1] = dropDown(title[1], names[count],sec[0],'','col-lg-4', <RequiredSpan/>);
+    input[1] = dropDown(title[1], names[count],sec[0],'','col-lg-4');
     count++;
 
     allcode[3] =  <div className={"form-group row"} key={count}>{input}</div>;
@@ -109,14 +111,14 @@ export function tabs_1() {
     title = ['№ документа удостоверяющий личность','Кем и когда выдан'];
     let kemVidanDoc =dropdownValues['kemVidanDoc'];
     sec = [kemVidanDoc];
-    input[0] = inputField(title[0], names[count],"col-lg-4", null,'', RequiredSpan());
+    input[0] = inputField(title[0], names[count],"col-lg-4", null,'');
     count+=2;
 
 
     let dop = <input type="date" name={names[count]} className={"col-lg-0 user-cardissueddate"}/>;
     count--;
 
-    input[1] = dropDown(title[1], names[count], sec[0], dop,'col-lg-4', <RequiredSpan/>);
+    input[1] = dropDown(title[1], names[count], sec[0], dop,'col-lg-4');
     count+=2;
 
     allcode[4] =  <div className={"form-group row"} key={count}>{input}</div>;
@@ -126,11 +128,11 @@ export function tabs_1() {
     title = ['Город проживания','Домашний адрес','Мобильный телефон','Электронная почта'];
     for (let i = 0; i < title.length; i++) {
         if(i == 2) {
-            input[i] = inputField(title[i], names[count], 'col-lg-3', '','', RequiredSpan());
+            input[i] = inputField(title[i], names[count], 'col-lg-3', '','');
 
         }
         else
-            input[i] = inputField(title[i], names[count], 'col-lg-3',null,'', RequiredSpan());
+            input[i] = inputField(title[i], names[count], 'col-lg-3',null,'');
              count++;
     }
     allcode[5] =  <div className={"form-group row"} key={count}>{input}</div>;

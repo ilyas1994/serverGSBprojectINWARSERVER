@@ -124,7 +124,7 @@
                 <div class="main-div">
                     <span>Дата рождения: {{ $datas->dataOfBirth }}</span>
                     <hr class="style1">
-                    <span>ИИН/ПИНФЛ: {{ $datas->iin }}</span>
+                    <span>ИИН/ПИНФЛ: {{ $datas->Iin }}</span>
                     <hr class="style1">
                     <span>Документ удостоверяющий личность: {{ $datas->typeDocument }}</span>
                 </div>

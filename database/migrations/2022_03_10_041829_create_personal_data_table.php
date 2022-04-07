@@ -21,33 +21,33 @@ class CreatePersonalDataTable extends Migration
 
             $table->id()->autoIncrement();
 //             Фамилия *
-            $table->string('surname');
+            $table->string('surname')->nullable();
             //             Имя *
-            $table->string('name');
+            $table->string('name')->nullable();
 //            Отчество
             $table->string('patronymic');
             //      Пол        *
-            $table->string('gender');
+            $table->string('gender')->nullable();
             //      Гражданский статус *         *
-            $table->string('familyStatus');
+            $table->string('familyStatus')->nullable();
             //            Кол-во детей
-            $table->string('amountOfChildren');
+            $table->string('amountOfChildren')->nullable();
             //      Гражданство        *
-            $table->string('citizenship');
+            $table->string('citizenship')->nullable();
             //       Национальность       *
-            $table->string('nationality');
+            $table->string('nationality')->nullable();
             //      Дата рождения        *
-            $table->text('dataOfBirth');
+            $table->text('dataOfBirth')->nullable();
             //      ИИН/ПИНФЛ          *
-            $table->bigInteger('iin');
+            $table->bigInteger('Iin')->nullable();
             //      Документ удостоверяющий личность *         *
-            $table->string('typeDocument');
+            $table->string('typeDocument')->nullable();
             //       № документа удостоверяющий личность*         *
-            $table->bigInteger('numberDocument');
+            $table->bigInteger('numberDocument')->nullable();
             //       Кем и когда выдан *
-            $table->string('kemVidanDoc');
+            $table->string('kemVidanDoc')->nullable();
             //      дд.мм.гггг        *
-            $table->text('dateMonthYearDoc');
+            $table->text('dateMonthYearDoc')->nullable();
             //        Прикрепить скан документа (.pdf)   *
 
 
@@ -55,6 +55,8 @@ class CreatePersonalDataTable extends Migration
             // DOWNLOAD FILES
             //        Справка с места работы с указанием должности (.pdf)         *
             $table->text('scanFileCertificateFromWork')->nullable();
+
+            $table->text('scanFileDocument')->nullable();
 
 
             //       Прикрепить мотивационное эссе (.pdf)  NULLABLE     *
@@ -64,7 +66,7 @@ class CreatePersonalDataTable extends Migration
             //          Прикрепить резюме (.pdf)        *
             $table->text('resumeFile')->nullable();
             //           Копия диплома о высшем образовании + приложения к диплому о высшем образовании (.pdf)   *
-            $table->text('fileScanDiplomWithApplication');
+            $table->text('fileScanDiplomWithApplication')->nullable();
 
 //            NEW
             //           Копия удостоверения личности (.pdf)   *
@@ -92,7 +94,7 @@ class CreatePersonalDataTable extends Migration
 
 
             //        Прикрепить скан сертификата (.pdf)      *
-            $table->text('scanCertificate')->nullable();;
+            $table->text('scanCertificate')->nullable();
 
 
 
@@ -105,28 +107,31 @@ class CreatePersonalDataTable extends Migration
             //       Мобильный телефон *         *
             $table->bigInteger('mobileNumber')->nullable();;
             //      Электронная почта *          *
-            $table->string('email')->nullable();;
+            $table->string('email')->nullable();
 
+
+
+//            Нурик обновлил  то что вышел
             /**
              * Part 2 Сведения о трудовой деятельности
              */
 
             //     Занимаемая должность *           *
-            $table->string('positionAtWord');
+            $table->string('positionAtWord')->nullable();
             //      Компания (полное наименование) *          *
-            $table->string('nameOfTheCompany');
+            $table->string('nameOfTheCompany')->nullable();
             //      Юридический адрес *
-            $table->text('legalAdress');
+            $table->text('legalAdress')->nullable();
             //        Общий трудовой стаж со дня окончания вуза (первое высшее образование) *      *
-            $table->string('firstWorkExperience');
+            $table->string('firstWorkExperience')->nullable();
             //         Управленческий стаж *       *
-            $table->string('upravlencheskiy_stazh');
+            $table->string('upravlencheskiy_stazh')->nullable();
             //          Вы являетесь *     *
-            $table->string('jobType');
+            $table->string('jobType')->nullable();
             //          Сфера деятельности *    *
-            $table->string('fieldOfActivity');
+            $table->string('fieldOfActivity')->nullable();
             //           Наличие командировок *     *
-            $table->string('availabilityOfBusinessTrips');
+            $table->string('availabilityOfBusinessTrips')->nullable();
             $table->string('availabilityOfBusinessTripsInputYes')->nullable();
             $table->string('availabilityOfBusinessTripsInputDuration')->nullable();
 
@@ -139,93 +144,93 @@ class CreatePersonalDataTable extends Migration
              */
 
              //      Начало обучения *        *
-            $table->text('startEducation');
+            $table->text('startEducation')->nullable();
             //       Конец обучения *         *
-            $table->text('endEducation');
+            $table->text('endEducation')->nullable();
             //       Академическая степень/квалификация *      *
-            $table->string('qualification');
+            $table->string('qualification')->nullable();
             //        Полное наименование учебного заведения *      *
-            $table->string('fullNameUniversity');
+            $table->string('fullNameUniversity')->nullable();
             //     Специальность (например, юриспруденция или разработка нефтяных и газовых месторождений) *         *
-            $table->string('speciality');
+            $table->string('speciality')->nullable();
             //         Язык обучения *      *
-            $table->string('languageEducation');
+            $table->string('languageEducation')->nullable();
             //         Имеется ли второе высшее образование      *
-            $table->string('checkSecondDegree');
+            $table->string('checkSecondDegree')->nullable();
             //          Имеется ли магистерская степень     *
-            $table->string('checkMasterDegree');
+            $table->string('checkMasterDegree')->nullable();
 
 ////            Знание языков
             //       Казахский       *
-            $table->string('checkLanguageKazakh');
+            $table->string('checkLanguageKazakh')->nullable();
             //        Английский      *
-            $table->string('checkLanguageEnglish');
+            $table->string('checkLanguageEnglish')->nullable();
             //       Французский       *
-            $table->string('checkLanguageFrench');
+            $table->string('checkLanguageFrench')->nullable();
             //       Немецкий       *
-            $table->string('checkLanguageGerman');
+            $table->string('checkLanguageGerman')->nullable();
             //       Китайский       *
-            $table->string('checkLanguageChinese');
+            $table->string('checkLanguageChinese')->nullable();
 //            УТОЧНИТЬЬЬЬ
             $table->string('checkOtherLanguages')->nullable();
             //      Наличие сертификатов на знание Английского языка        *        *
-            $table->string('englishProficiencyCertificates');
+            $table->string('englishProficiencyCertificates')->nullable();
             //      Дата выдачи сертификата
-            $table->text('certificateIssueDate');
+            $table->text('certificateIssueDate')->nullable();
             //    Пожалуйста, поделитесь с нами деятельностью и/или интересами, которые имеют для Вас большое значение          *
-            $table->string('hobby');
+            $table->string('hobby')->nullable();
             //     Пожалуйста, перечислите три ваших самых больших достижения *         *
-            $table->string('achievements');
+            $table->string('achievements')->nullable();
             //       Почему вы решили обучаться на программе MBA? *       *
-            $table->string('reasonForLearning');
+            $table->string('reasonForLearning')->nullable();
 
             //      Какие информационные сайты вы читаете? *        *
-            $table->string('suite');
+            $table->string('suite')->nullable();
             //       Другие
             $table->string('otherSuite')->nullable();
             //       Какими социальными сетями/мессенжерами вы пользуетесь? *         *
-            $table->string('socialNetwork');
+            $table->string('socialNetwork')->nullable();
             //Ваша страница в Facebook        *
-            $table->string('PageInFacebook');
+            $table->string('PageInFacebook')->nullable();
             //Ваша страница в Instagram          *
-            $table->string('PageInInstagram');
+            $table->string('PageInInstagram')->nullable();
             //      Ваша страница в Twitter        *
-            $table->string('PageInTwitter');
+            $table->string('PageInTwitter')->nullable();
 //            Как вы узнали о программах MBA
-            $table->string('checkBoxAboutMBA');
+            $table->string('checkBoxAboutMBA')->nullable();
 ////             Причины, по которым Вы выбрали МВА Высшей Школы Бизнеса AlmaU *
-            $table->string('checkBoxReasonsForChoosingMBA');
+            $table->string('checkBoxReasonsForChoosingMBA')->nullable();
             //       Другие       *
-            $table->text('otherReason')->nullable();
+            $table->text('otherReason')->nullable()->nullable();
 
 //             Какие характеристики программы МВА для Вас важны (отметьте каждый пункт) *
 
             //      Качество образования *          *
-            $table->integer('starsTheQualityOfEducation');
+            $table->integer('starsTheQualityOfEducation')->nullable();
             //        Большой выбор программ *        *
-            $table->integer('starsLargeSelectionOfPrograms');
+            $table->integer('starsLargeSelectionOfPrograms')->nullable();
             //       Месторасположение бизнес-школы *         *
-            $table->integer('starsLocationSchool');
+            $table->integer('starsLocationSchool')->nullable();
             //      Наличие скидок *          *
-            $table->integer('starsDiscounts');
+            $table->integer('starsDiscounts')->nullable();
             //       Продолжительность обучения *         *
-            $table->integer('starsDurationEducation');
+            $table->integer('starsDurationEducation')->nullable();
             //          Стоимость обучения *      *
-            $table->integer('starsСostOfEducation');
+            $table->integer('starsСostOfEducation')->nullable();
             //         Репутация бизнес-школы /университета *       *
-            $table->integer('starsReputationMBA');
+            $table->integer('starsReputationMBA')->nullable();
             //          Наличие гибкой системы оплаты *      *
-            $table->integer('starsPartPayment');
+            $table->integer('starsPartPayment')->nullable();
             //        Форма обучения *        *
-            $table->integer('starsFormOfEducation');
+            $table->integer('starsFormOfEducation')->nullable();
             //         Состав преподавателей *       *
-            $table->integer('starsCompositionOfTeachers');
+            $table->integer('starsCompositionOfTeachers')->nullable();
             //       Другое       *
             $table->text('otherСharacteristics')->nullable();
 ////             Источник финансирования Вашего обучения *
-            $table->string('checkBoxSourceOfFinancing');
+            $table->string('checkBoxSourceOfFinancing')->nullable();
 ////             Выберите программу МВА *
-            $table->string('checkBoxMBAProgram');
+            $table->string('checkBoxMBAProgram')->nullable();
 
 
             /**
