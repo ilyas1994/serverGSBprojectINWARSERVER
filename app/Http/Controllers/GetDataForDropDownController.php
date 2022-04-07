@@ -35,7 +35,8 @@ class GetDataForDropDownController extends Controller
         $languageEducation = $this->dataFromDB('drop_down_language_education');
         $checkMasterDegree = $this->dataFromDB('drop_down_check_check_master_degrees');
         $checkSecondDegree = $this->dataFromDB('drop_down_check_second_degrees');
-        $englishProficiencyCertificates = $this->dataFromDB('drop_down_level_languages');
+        $englishProficiencyCertificates = $this->dataFromDB('drop_down_english_proficiency_certificates');
+        $levellanguages = $this->dataFromDB('drop_down_level_languages');
 
         $dataArrayForDropDown = [
             'gender' => $gender,
@@ -51,7 +52,8 @@ class GetDataForDropDownController extends Controller
             'languageEducation' => $languageEducation,
             'checkSecondDegree' => $checkSecondDegree,
             'checkMasterDegree' => $checkMasterDegree,
-            'englishProficiencyCertificates' => $englishProficiencyCertificates
+            'englishProficiencyCertificates' => $englishProficiencyCertificates,
+            'levellanguages' => $levellanguages
         ];
 
         return view('reactComponents.tabs1')->with('dataArrayForDropDown', $dataArrayForDropDown);
