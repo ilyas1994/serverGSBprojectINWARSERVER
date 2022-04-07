@@ -23,11 +23,29 @@
     {{--    <script type="text/babel" src={{asset('reactComponents/components.js')}}> </script>--}}
 
     {{--    @endpush--}}
+
+    @if($errors->any())
+
+
+        <div class="alert-danger">
+            <ul>
+                @foreach($errors->all() as $errors)
+                    <li>{{ $errors }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+
     <title>Document</title>
 </head>
 <body>
 
+<<<<<<< HEAD
 {{--{{dd($dataArrayForDropDown['gender'])}}--}}
+=======
+{{dd($dataArrayForDropDown)}}
+>>>>>>> origin/finish_work
 <div class="header">
     <div class="container">
         <a href="https://gsb.almau.edu.kz/"><img src="{{asset('img/logo-gsb.png')}}" alt=""></a>

@@ -27,7 +27,7 @@ class HomeController extends Controller
 
             return redirect()->route('admin.dashboard');
         } else  {
-            return view('quiz.quiz');
+            return view('testForUser');
 
         }
     }
