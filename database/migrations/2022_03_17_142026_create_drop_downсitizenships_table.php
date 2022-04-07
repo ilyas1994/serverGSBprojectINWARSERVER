@@ -11,7 +11,7 @@ class CreateDropDownсitizenshipsTable extends Migration
      *
      * @return void
      */
-    //
+    //12
     //ewqe
     public function up()
     {
