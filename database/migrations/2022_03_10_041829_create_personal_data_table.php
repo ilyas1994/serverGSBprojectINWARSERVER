@@ -54,40 +54,58 @@ class CreatePersonalDataTable extends Migration
 
             // DOWNLOAD FILES
             //        Справка с места работы с указанием должности (.pdf)         *
-            $table->text('scanFileCertificateFromWork');
-            //       Прикрепить мотивационное эссе (.pdf)       *
+            $table->text('scanFileCertificateFromWork')->nullable();
+
+
+            //       Прикрепить мотивационное эссе (.pdf)  NULLABLE     *
             $table->text('fileEsse')->nullable();
+
+
             //          Прикрепить резюме (.pdf)        *
-            $table->text('resumeFile');
+            $table->text('resumeFile')->nullable();
             //           Копия диплома о высшем образовании + приложения к диплому о высшем образовании (.pdf)   *
             $table->text('fileScanDiplomWithApplication');
 
 //            NEW
             //           Копия удостоверения личности (.pdf)   *
-            $table->json('copyUdv');
-//            Копия паспорта только на EXECUTIVE MBA null
+            $table->json('copyUdv')->nullable();;
+
+
+//            Копия паспорта только на EXECUTIVE MBA null   NULLABLE
             $table->text('copyPassport')->nullable();
+
+
+
             //           Фото 3х4   *
-            $table->text('foto3x4');
-            //           Рекомендательных письма только на EXECUTIVE MBA null
+            $table->text('foto3x4')->nullable();
+
+
+
+            //           Рекомендательных письма только на EXECUTIVE MBA null NULLABLE
             $table->text('recomentedLetter')->nullable();
-            //          Медицинская справка (форма 075У)
+
+
+
+            //          Медицинская справка (форма 075У)  NULLABLE
             $table->text('medicalDoc')->nullable();
+
+
+
             //        Прикрепить скан сертификата (.pdf)      *
-            $table->text('scanCertificate');
+            $table->text('scanCertificate')->nullable();;
 
 
 
             // END DOWNLOAD FILES
 
             //      Город проживания         *
-            $table->string('cityOfResidence');
+            $table->string('cityOfResidence')->nullable();;
             //     Домашний адрес *         *
-            $table->string('homeAdress');
+            $table->string('homeAdress')->nullable();;
             //       Мобильный телефон *         *
-            $table->bigInteger('mobileNumber');
+            $table->bigInteger('mobileNumber')->nullable();;
             //      Электронная почта *          *
-            $table->string('email');
+            $table->string('email')->nullable();;
 
             /**
              * Part 2 Сведения о трудовой деятельности

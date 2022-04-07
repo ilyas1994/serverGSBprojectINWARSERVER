@@ -23,6 +23,20 @@
     {{--    <script type="text/babel" src={{asset('reactComponents/components.js')}}> </script>--}}
 
     {{--    @endpush--}}
+
+    @if($errors->any())
+
+
+        <div class="alert-danger">
+            <ul>
+                @foreach($errors->all() as $errors)
+                    <li>{{ $errors }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+
     <title>Document</title>
 </head>
 <body>

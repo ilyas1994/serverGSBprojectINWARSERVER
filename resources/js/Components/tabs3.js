@@ -72,7 +72,7 @@ let names = [
             'checkBoxSourceOfFinancing',
             'checkBoxMBAProgram',
                  'ScanFileDocument',
-                'ScanFileCirtificateFromWork',
+                'ScanFileCertificateFromWork',
                 'resumeFile',
                 'fileScanDiplomWithApplication',
                  'scanCertificate',

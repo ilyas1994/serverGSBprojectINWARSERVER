@@ -26,23 +26,13 @@
 {{--            <div class="text-danger">{{ $message }}</div>--}}
 {{--            @enderror--}}
 
-            @if($errors->any())
 
-
-                <div class="alert-danger">
-                    <ul>
-                        @foreach($errors->all() as $errors)
-                            <li>{{ $errors }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
 
         </div>
         <col-12>
 
 
-        <form action="sendData" method="post" enctype="multipart/form-data">
+        <form action="{{ route('sendData') }}" method="post" enctype="multipart/form-data">
             @csrf
         <ul class="nav nav-pills mb-3 justify-content-center d-flex mt-5" id="pills-tab" role="tablist">
             <li class="nav-item" role="presentation">

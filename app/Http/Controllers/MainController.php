@@ -21,7 +21,7 @@ use function MongoDB\BSON\toJSON;
 class MainController extends Controller
 {
 
-    public function index(RequestInputs $request)
+    public function index(Request $request)
     {
 
 
@@ -37,7 +37,7 @@ class MainController extends Controller
             'copyUdv',
             'copyPassport',
             'foto3x4',
-            'recomentedLetter',
+//            'recomentedLetter',
             'medicalDoc',
         ];
 
@@ -80,9 +80,9 @@ class MainController extends Controller
                     case  'foto3x4':
                          $foto3x4 = $fileNames;
                         break;
-                    case  'recomentedLetter':
-                         $recomentedLetter = $fileNames;
-                        break;
+//                    case  'recomentedLetter':
+//                         $recomentedLetter = $fileNames;
+//                        break;
                     case  'medicalDoc':
                          $medicalDoc = $fileNames;
                         break;
@@ -131,8 +131,8 @@ class MainController extends Controller
                 'fileEsse' => json_encode($fileEsse),
                 'copyPassport' => json_encode($copyPassport),
                 'foto3x4' => json_encode($foto3x4),
-                'recomentedLetter' => json_encode($foto3x4),
-                'medicalDoc' => json_encode($foto3x4),
+//                'recomentedLetter' => json_encode($recomentedLetter),
+                'medicalDoc' => json_encode($medicalDoc),
 
 //            ENDFiles
 
