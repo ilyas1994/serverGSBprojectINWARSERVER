@@ -14,7 +14,8 @@ class CreateDropDownFieldOfActivitiesTable extends Migration
     public function up()
     {
         Schema::create('drop_down_field_of_activities', function (Blueprint $table) {
-            $table->string('fieldOfActivity')->nullable();
+            $table->id();
+            $table->string('name')->nullable();
         });
     }
 

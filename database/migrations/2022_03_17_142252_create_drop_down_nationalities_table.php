@@ -15,7 +15,7 @@ class CreateDropDownNationalitiesTable extends Migration
     {
         Schema::create('drop_down_nationalities', function (Blueprint $table) {
             $table->id();
-            $table->string('nationality');
+            $table->string('name');
         });
     }
 

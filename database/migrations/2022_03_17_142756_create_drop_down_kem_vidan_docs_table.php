@@ -15,7 +15,7 @@ class CreateDropDownKemVidanDocsTable extends Migration
     {
         Schema::create('drop_down_kem_vidan_docs', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->string('kemVidanDoc');
+            $table->string('name');
         });
     }
 

@@ -15,7 +15,7 @@ class CreateDropDownFamilyStatusesTable extends Migration
     {
         Schema::create('drop_down_family_statuses', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->string('familyStatus');
+            $table->string('name');
         });
     }
 

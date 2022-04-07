@@ -14,7 +14,7 @@ class GetDataForDropDownController extends Controller
         $arrayData = [];
 
         for ($i = 0; $i < count($data); $i++) {
-            array_unshift($arrayData, $data[$i]);
+            array_unshift($arrayData, $data[$i]->name);
         }
 
         return  $arrayData;

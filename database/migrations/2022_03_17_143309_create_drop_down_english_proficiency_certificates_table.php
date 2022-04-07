@@ -15,7 +15,7 @@ class CreateDropDownEnglishProficiencyCertificatesTable extends Migration
     {
         Schema::create('drop_down_english_proficiency_certificates', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->string('englishProficiencyCertificates');
+            $table->string('name');
         });
     }
 

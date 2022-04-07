@@ -15,7 +15,7 @@ class CreateDropDownQualificationsTable extends Migration
     {
         Schema::create('drop_down_qualifications', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->string('qualification');
+            $table->string('name');
         });
     }
 

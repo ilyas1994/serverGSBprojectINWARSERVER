@@ -15,7 +15,7 @@ class CreateDropDownLanguageEducationTable extends Migration
     {
         Schema::create('drop_down_language_education', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->string('languageEducation');
+            $table->string('name');
         });
     }
 
