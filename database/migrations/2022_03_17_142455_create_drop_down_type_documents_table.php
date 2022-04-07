@@ -15,7 +15,7 @@ class CreateDropDownTypeDocumentsTable extends Migration
     {
         Schema::create('drop_down_type_documents', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->string('typeDocument');
+            $table->string('name');
         });
     }
 

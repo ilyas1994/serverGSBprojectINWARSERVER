@@ -15,7 +15,7 @@ class CreateDropDownGendersTable extends Migration
     {
         Schema::create('drop_down_genders', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->string('gender');
+            $table->string('name');
         });
     }
 

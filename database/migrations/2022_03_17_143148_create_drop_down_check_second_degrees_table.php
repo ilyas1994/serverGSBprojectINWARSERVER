@@ -15,7 +15,7 @@ class CreateDropDownCheckSecondDegreesTable extends Migration
     {
         Schema::create('drop_down_check_second_degrees', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->string('checkSecondDegree');
+            $table->string('name');
         });
     }
 

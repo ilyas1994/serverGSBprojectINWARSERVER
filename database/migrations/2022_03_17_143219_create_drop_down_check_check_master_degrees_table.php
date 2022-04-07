@@ -15,7 +15,7 @@ class CreateDropDownCheckCheckMasterDegreesTable extends Migration
     {
         Schema::create('drop_down_check_check_master_degrees', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->string('checkMasterDegree');
+            $table->string('name');
         });
     }
 

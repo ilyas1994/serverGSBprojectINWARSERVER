@@ -15,7 +15,7 @@ class CreateDropDownJobTypesTable extends Migration
     {
         Schema::create('drop_down_job_types', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->string('jobType');
+            $table->string('name');
         });
     }
 
