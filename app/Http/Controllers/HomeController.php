@@ -23,11 +23,33 @@ class HomeController extends Controller
      */
     public function index()
     {
+
+
         if(auth()->user()->role == 1) {
 
             return redirect()->route('admin.dashboard');
-        } else  {
-            return view('testForUser');
+        }
+
+        if(auth()->user()->role == 2) {
+            $answers = \DB::select("SELECT * FROM answers");
+            $questions = \DB::select("SELECT * FROM questions");
+//            dd($answers);
+            $all = [];
+            for ($i = 0; $i < count($questions); $i++) {
+                $data = [];
+//                    array_unshift($data, $questions[$i]->name);
+                for ($j = 0; $j < count($answers); $j++) {
+                        if ($questions[$i]->id == $answers[$j]->question_id) {
+                            $data[] = $answers[$j]->name;
+
+                        }
+                }
+               $all[$questions[$i]->name] = $data;
+            }
+
+
+//            dd(123);
+            return view('quiz.quizTest')->with('all', $all);
 
         }
     }

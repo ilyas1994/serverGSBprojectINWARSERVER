@@ -4,8 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76c86216-8c47-45b5-b63a-4f4738510c0b" name="Changes" comment="cpmplete Validate">
-      <change beforePath="$PROJECT_DIR$/database/migrations/2022_03_10_041829_create_personal_data_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_03_10_041829_create_personal_data_table.php" afterDir="false" />
+    <list default="true" id="76c86216-8c47-45b5-b63a-4f4738510c0b" name="Changes" comment="complete Validate Update otherLangToJson">
+      <change afterPath="$PROJECT_DIR$/resources/views/quiz/quizTest.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/adminPanel/profileUser.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/adminPanel/profileUser.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/quiz/quiz.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/quiz/quiz.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +192,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../almau.edu.kz" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../myTestPoligon" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -240,7 +248,7 @@
       <workItem from="1649307092397" duration="5146000" />
       <workItem from="1649329125048" duration="171000" />
       <workItem from="1649329314198" duration="28413000" />
-      <workItem from="1649387836930" duration="3391000" />
+      <workItem from="1649387836930" duration="13778000" />
     </task>
     <task id="LOCAL-00001" summary="почти закончил">
       <created>1648915219567</created>
@@ -326,7 +334,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649391746762</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="complete Validate Update otherLangToJson">
+      <created>1649392119905</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1649392119905</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -355,7 +370,8 @@
     <MESSAGE value="add new columns" />
     <MESSAGE value="complete ProgramMBA" />
     <MESSAGE value="cpmplete Validate" />
-    <option name="LAST_COMMIT_MESSAGE" value="cpmplete Validate" />
+    <MESSAGE value="complete Validate Update otherLangToJson" />
+    <option name="LAST_COMMIT_MESSAGE" value="complete Validate Update otherLangToJson" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

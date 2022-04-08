@@ -21,14 +21,19 @@ use function MongoDB\BSON\toJSON;
 class MainController extends Controller
 {
 
-    public function index(RequestInputs $request)
+    public function index(Request $request)
     {
 
-//        dd($request->all());
+
+
+//        $data = $request->input('checkBoxMBAProgram');
+
         $res = array_merge($this->tab1($request), $this->tab2($request), $this->tab3($request),
             $this->files($request));
 
 //        dd($request->all());
+        $city = $request['checkBoxMBAProgram'];
+//        dd($city);
         try {
             DB::beginTransaction();
             PersonalData::query()->create($res);
@@ -227,7 +232,8 @@ class MainController extends Controller
                 'name' => 'guest',
                 'email' => $email,
                 'password' => $toHash,
-                'role' => 2
+                'role' => 2,
+                'city' => $city,
             ]);
             \Mail::to($email)->send(new SendPassword($email, $password));
             DB::commit();

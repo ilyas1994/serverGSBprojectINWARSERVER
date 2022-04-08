@@ -4,7 +4,7 @@
 
 @section('content')
 
-
+{{--Так получилось что здесь создаются вопросы в админке сам тест находится в quizTest.blade.php--}}
 
     <div class="container-fluid">
         <div class="row">

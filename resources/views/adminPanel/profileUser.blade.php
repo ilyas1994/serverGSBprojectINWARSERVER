@@ -133,7 +133,7 @@
     @foreach($profileData as $value)
 
 
-{{--                        @dd($profileData)--}}
+                        @dd($profileData)
         <div class="col-12" >
 
         <table class="table">
