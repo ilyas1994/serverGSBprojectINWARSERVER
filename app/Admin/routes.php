@@ -6,8 +6,9 @@ use App\Models\Quiz\Answer;
 // Категория - Таблица с данными
 Route::get('', ['as' => 'admin.dashboard', function () {
 
-    $profileData =  DB::table('personal_dataMBA')->orderBy('created_at', 'desc')->get();
+    $profileData =  DB::table('personal_datamba')->orderBy('created_at', 'desc')->get();
     $content = view('adminPanel.profileUser')->with('profileData', $profileData);
+
 	return AdminSection::view($content, 'Dashboard');
 //}])->middleware('admin');
 }]);

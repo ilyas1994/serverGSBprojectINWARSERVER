@@ -5465,7 +5465,7 @@ function TextArea(title, name) {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("textarea", {
         type: "text",
         name: name,
-        required: true,
+        required: false,
         className: 'form-control ',
         defaultValue: value,
         maxLength: 32
@@ -5768,7 +5768,7 @@ function Radio(props) {
       className: 'position-relative',
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
         className: "form-check-input p-0",
-        required: true,
+        required: false,
         type: "radio",
         value: props.title,
         style: divStyle,
@@ -6207,7 +6207,7 @@ var FilePicker = /*#__PURE__*/function (_React$Component5) {
           type: "file",
           multiple: true,
           "aria-label": "file example",
-          required: true,
+          required: false,
           name: this.props.name + '[]',
           className: "form-control",
           id: "exampleFormControlFile1",
@@ -6483,13 +6483,13 @@ function tabs_2() {
   var title = ['Занимаемая должность', 'Компания (полное наименование)', 'Юридический адрес', 'Общий трудовой стаж со дня окончания вуза (первое высшее образование)'];
   var input = [];
   var sec = [];
-  input[0] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[0], names[count], 'col-lg-4', null, '', (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan)());
+  input[0] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[0], names[count], 'col-lg-4', null, '');
   count++;
-  input[1] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[1], names[count], 'col-lg-8', null, '', (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan)());
+  input[1] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[1], names[count], 'col-lg-8', null, '');
   count++;
-  input[2] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[2], names[count], 'col-lg-12', null, '', (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan)());
+  input[2] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[2], names[count], 'col-lg-12', null, '');
   count++;
-  input[3] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[3], names[count], 'col-lg-12', null, '', (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan)());
+  input[3] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[3], names[count], 'col-lg-12', null, '');
   allcode[0] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     className: "form-group row",
     children: input
@@ -6501,11 +6501,11 @@ function tabs_2() {
   var fieldOfActivity = dropdownValues['fieldOfActivity'];
   sec = [fieldOfActivity, jobType];
   count++;
-  input[0] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[0], names[count], 'col-lg-8', null, '', (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan)());
+  input[0] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[0], names[count], 'col-lg-8', null, '');
   count++;
-  input[1] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.dropDown)(title[1], names[count], sec[0], '', 'col-lg-4', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {}));
+  input[1] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.dropDown)(title[1], names[count], sec[0], '', 'col-lg-4');
   count++;
-  input[2] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.dropDown)(title[2], names[count], sec[1], null, null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {}));
+  input[2] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.dropDown)(title[2], names[count], sec[1], null, null);
   count++;
   allcode[1] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     className: "form-group row",
@@ -6543,8 +6543,7 @@ function tabs_2() {
     column: 1,
     count: titleForCheckBox.length,
     title: title,
-    checkBoxTitle: titleForCheckBox,
-    span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {})
+    checkBoxTitle: titleForCheckBox
   }, count);
   count += 2;
   allcode[2] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
@@ -6630,9 +6629,9 @@ function tabs_3() {
   var qualification = dropdownValues['qualification'];
   sec = [qualification]; // console.log(sec +' '+sec.length);
 
-  input[0] = (0,_components__WEBPACK_IMPORTED_MODULE_0__.dropDown)(title[0], names[count], sec[0], null, 'col-lg-4', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {}));
+  input[0] = (0,_components__WEBPACK_IMPORTED_MODULE_0__.dropDown)(title[0], names[count], sec[0], null, 'col-lg-4');
   count++;
-  input[1] = (0,_components__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[1], names[count], 'col-lg-8', null, '', (0,_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan)());
+  input[1] = (0,_components__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[1], names[count], 'col-lg-8', null, '');
   count++;
   allcode[1] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     className: "form-group row",
@@ -6641,7 +6640,7 @@ function tabs_3() {
 
   input = [];
   title = ['Специальность (например, юриспруденция или разработка нефтяных и газовых месторождений)'];
-  input[0] = (0,_components__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[0], names[count], 'col-lg-12', null, '', (0,_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan)());
+  input[0] = (0,_components__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[0], names[count], 'col-lg-12', null, '');
   count++;
   allcode[2] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     className: "form-group row",
@@ -6656,7 +6655,7 @@ function tabs_3() {
   sec = [languageEducation, checkSecondDegree, checkMasterDegree];
 
   for (var i = 0; i < sec.length; i++) {
-    input[i] = (0,_components__WEBPACK_IMPORTED_MODULE_0__.dropDown)(title[i], names[count], sec[i], null, 'col-lg-4', (0,_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan)());
+    input[i] = (0,_components__WEBPACK_IMPORTED_MODULE_0__.dropDown)(title[i], names[count], sec[i], null, 'col-lg-4');
     count++;
   }
 
@@ -6735,7 +6734,7 @@ function tabs_3() {
 
   input = [];
   title = ['Пожалуйста, перечислите три ваших самых больших достижения'];
-  input[0] = (0,_components__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[0], names[count], 'col-lg-12', null, '', (0,_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan)());
+  input[0] = (0,_components__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[0], names[count], 'col-lg-12', null, '');
   count++;
   allcode[7] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     className: "form-group row",
@@ -6744,7 +6743,7 @@ function tabs_3() {
 
   input = [];
   title = ['Почему вы решили обучаться на программе MBA?'];
-  input[0] = (0,_components__WEBPACK_IMPORTED_MODULE_0__.TextArea)(title[0], names[count], 'col-lg-12', null, (0,_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan)());
+  input[0] = (0,_components__WEBPACK_IMPORTED_MODULE_0__.TextArea)(title[0], names[count], 'col-lg-12', null);
   count++;
   allcode[8] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     className: "form-group row",
@@ -6760,8 +6759,7 @@ function tabs_3() {
     column: 3,
     count: titleForCheckBox.length,
     title: title,
-    checkBoxTitle: titleForCheckBox,
-    span: (0,_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan)()
+    checkBoxTitle: titleForCheckBox
   }, count);
   count++;
   input[1] = (0,_components__WEBPACK_IMPORTED_MODULE_0__.inputField)('', names[count], 'col-lg-12', '', 'Другое');
@@ -6780,8 +6778,7 @@ function tabs_3() {
     column: 3,
     count: titleForCheckBox.length,
     title: title,
-    checkBoxTitle: titleForCheckBox,
-    span: (0,_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan)()
+    checkBoxTitle: titleForCheckBox
   }, count);
   count++;
   allcode[10] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
@@ -6815,8 +6812,7 @@ function tabs_3() {
     column: 1,
     count: titleForCheckBox.length,
     title: title,
-    checkBoxTitle: titleForCheckBox,
-    span: (0,_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan)()
+    checkBoxTitle: titleForCheckBox
   }, count);
   count++; //
 
@@ -6835,8 +6831,7 @@ function tabs_3() {
     column: 1,
     count: titleForCheckBox.length,
     title: title,
-    checkBoxTitle: titleForCheckBox,
-    span: (0,_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan)()
+    checkBoxTitle: titleForCheckBox
   }, count);
   count += 2;
   allcode[13] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
@@ -6861,8 +6856,7 @@ function tabs_3() {
     column: 2,
     count: titleForStar.length,
     title: title,
-    titleForStar: titleForStar,
-    span: (0,_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan)()
+    titleForStar: titleForStar
   }, count);
   count++;
   allcode[14] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
@@ -6987,8 +6981,7 @@ function tabs_3() {
     column: 1,
     count: titleForCheckBox.length,
     title: title,
-    checkBoxTitle: titleForCheckBox,
-    span: (0,_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan)()
+    checkBoxTitle: titleForCheckBox
   }, count);
   count++;
   allcode[16] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
@@ -7156,8 +7149,7 @@ function tabs_3() {
     column: 1,
     count: titleForCheckBox.length,
     title: title,
-    checkBoxTitle: titleForCheckBox,
-    span: (0,_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan)()
+    checkBoxTitle: titleForCheckBox
   }, count);
   count++;
   allcode[17] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {

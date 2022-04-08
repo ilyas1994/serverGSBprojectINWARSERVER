@@ -6,7 +6,7 @@ import {
     dropDown, FilePicker,
     inputField,
     label,
-    OtherLanguageButton, RadioB, RequiredSpan,
+    OtherLanguageButton, RadioB, RadioBff,
     StarFabric,
     TextArea
 } from "./components";
@@ -117,16 +117,16 @@ export function tabs_3() {
     // console.log(sec +' '+sec.length);
 
 
-    input[0] = dropDown(title[0], names[count], sec[0],null,'col-lg-4', <RequiredSpan/>);
+    input[0] = dropDown(title[0], names[count], sec[0],null,'col-lg-4');
     count++;
-    input[1] = inputField(title[1], names[count],'col-lg-8',null,'', RequiredSpan());
+    input[1] = inputField(title[1], names[count],'col-lg-8',null,'');
     count++;
 
     allcode[1] =  <div className={"form-group row"} key={count}>{input}</div>;
 // ------------------------------------------------------------------------------------------
     input = [];
     title = ['Специальность (например, юриспруденция или разработка нефтяных и газовых месторождений)'];
-    input[0] = inputField(title[0], names[count],'col-lg-12',null,'', RequiredSpan());
+    input[0] = inputField(title[0], names[count],'col-lg-12',null,'');
     count++;
     allcode[2] =  <div className={"form-group row"} key={count}>{input}</div>;
 
@@ -139,7 +139,7 @@ export function tabs_3() {
     let checkMasterDegree = dropdownValues['checkMasterDegree'];
     sec = [languageEducation,checkSecondDegree,checkMasterDegree ];
     for (let i = 0; i < sec.length ; i++) {
-        input[i] = dropDown(title[i], names[count], sec[i],null,'col-lg-4',RequiredSpan());
+        input[i] = dropDown(title[i], names[count], sec[i],null,'col-lg-4');
         count++;
     }
 
@@ -205,7 +205,7 @@ export function tabs_3() {
 // ------------------------------------------------------------------------------------------
     input = [];
     title = ['Пожалуйста, перечислите три ваших самых больших достижения'];
-    input[0] = inputField(title[0], names[count],'col-lg-12',null,'',RequiredSpan());
+    input[0] = inputField(title[0], names[count],'col-lg-12',null,'');
     count++;
 
     allcode[7] =  <div className={"form-group row"} key={count} >{input}</div>;
@@ -213,7 +213,7 @@ export function tabs_3() {
 // ------------------------------------------------------------------------------------------
     input = [];
     title = ['Почему вы решили обучаться на программе MBA?'];
-    input[0] = TextArea(title[0], names[count],'col-lg-12',null,RequiredSpan());
+    input[0] = TextArea(title[0], names[count],'col-lg-12',null);
     count++;
 
     allcode[8] =  <div className={"form-group row"} key={count} >{input}</div>;
@@ -225,7 +225,7 @@ export function tabs_3() {
                         'Zakon.kz','Newtimes.kz','Forbes Kazakhstan','Vesti.kz','The Steppe','Ratel.kz',
                         'Sputnik Казахстан','informБЮРО','Zakon.kz','Inbusiness.kz','Vlast.kz','Kapital.kz'
                          ];
-    input[0] = <CheckBox classN={'col-lg-4'}  name={names[count]} column={3}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} span={RequiredSpan()}/>;
+    input[0] = <CheckBox classN={'col-lg-4'}  name={names[count]} column={3}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count}/>;
     count++;
 
     input[1] = inputField('', names[count],'col-lg-12','','Другое');
@@ -240,7 +240,7 @@ export function tabs_3() {
                         'Tumblr','ВКонтакте','WhatsApp','Skype',
                         'Twitter','Одноклассники','Instagram'
     ];
-    input[0] = <CheckBox classN={'col-lg-4'} name={names[count]} column={3}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} span={RequiredSpan()} />;
+    input[0] = <CheckBox classN={'col-lg-4'} name={names[count]} column={3}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} />;
     count++;
 
 
@@ -271,7 +271,7 @@ export function tabs_3() {
                         'Реклама в медиа',
     ];
 
-    input[0] = <RadioB classN={'col-lg-8'} name={names[count]} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} span={RequiredSpan()}/>;
+    input[0] = <RadioB classN={'col-lg-8'} name={names[count]} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} />;
     count++;
     //
     allcode[12] =  <div className={"form-group row"} key={count} >{input}</div>;
@@ -294,7 +294,7 @@ export function tabs_3() {
         'Международная аккредитация',
         'Возможность обучения без отрыва от работы',''
     ];
-    input[0] = <CheckBox input={true} classN={'col-lg-12'} name={names[count]} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} span={RequiredSpan()} />;
+    input[0] = <CheckBox input={true} classN={'col-lg-12'} name={names[count]} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} />;
     count+=2;
 
     allcode[13] =  <div className={"form-group row"} key={count} >{input}</div>;
@@ -322,7 +322,7 @@ export function tabs_3() {
                     <hr/>
                 </div>
 
-    input[0] = <StarFabric  input={true} classN={'col-lg-6'} name={names[count]} column={2}  count={titleForStar.length} title={title} titleForStar={titleForStar} key={count} span={RequiredSpan()}/>
+    input[0] = <StarFabric  input={true} classN={'col-lg-6'} name={names[count]} column={2}  count={titleForStar.length} title={title} titleForStar={titleForStar} key={count} />
     count++;
 
     allcode[14] = <div className={"form-group row"} key={count}>{labelvar}{input}</div>;
@@ -398,7 +398,7 @@ export function tabs_3() {
     count++;
     let popUpElement = ['',pop,pop];
 
-    input[0] = <RadioB input={true} popupIndex={[1,2]} popUpElement={popUpElement} classN={'col-lg-12'} name={names[count]} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} span={RequiredSpan()} />;
+    input[0] = <RadioB input={true} popupIndex={[1,2]} popUpElement={popUpElement} classN={'col-lg-12'} name={names[count]} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} />;
 
     count++;
     allcode[16] =  <div className={"form-group row"} key={count} >{input}</div>;
@@ -483,7 +483,7 @@ export function tabs_3() {
     </div>
 
     popUpElement = [one, two, '', three, four];
-    input[0] = <RadioB input={true} popupIndex={[0,1,3,4]} popUpElement={popUpElement} classN={'col-lg-12'} name={'notname'} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} span={RequiredSpan()}/>;
+    input[0] = <RadioB input={true} popupIndex={[0,1,3,4]} popUpElement={popUpElement} classN={'col-lg-12'} name={'notname'} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count}/>;
     count++;
 
 

@@ -130,9 +130,10 @@
 <div class="col-12" id="trr">
 
 @isset($profileData)
-
     @foreach($profileData as $value)
-{{--            @dd($profileData)--}}
+
+
+{{--                        @dd($profileData)--}}
         <div class="col-12" >
 
         <table class="table">
@@ -166,7 +167,7 @@
                         <a class="aStyle" target="_blank" href="{{ route('pdf.getTypeFile', [$value->Iin, 'resumeFile']) }}">Резюме</a>
                         <br>
                         {{--                    Показать Удв--}}
-{{--                        <a class="aStyle" target="_blank" href="{{ route('pdf.getUdvFile', [$value->Iin, 'copyUdv']) }}">Удв. личности</a>--}}
+                        <a class="aStyle" target="_blank" href="{{ route('pdf.getTypeFile', [$value->Iin, 'scanFileDocument']) }}">Удв. личности</a>
                         {{--                    Показать Мотивационное эссе только на EXECUTIVE MBA--}}
                         <br>
                         <a class="aStyle" target="_blank" href="{{ route('pdf.getTypeFile', [$value->Iin, 'fileEsse']) }}">Мотивационное эссе</a>

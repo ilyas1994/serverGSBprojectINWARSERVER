@@ -8,7 +8,7 @@ export function TextArea(title, name, className = 'col-lg-4', value = null, span
         input = <div key={name} className={className}>
                     <div className={'position-relative'}>
                         <label className={'form-label'} htmlFor="">{title} {span}</label>
-                        <textarea type="text" name={name} required={true} className={'form-control '} defaultValue={value} maxLength={32}/>
+                        <textarea type="text" name={name} required={false} className={'form-control '} defaultValue={value} maxLength={32}/>
                         <div className="invalid-feedback">
                             Заполните {title}
                         </div>
@@ -217,7 +217,7 @@ export function Radio(props) {
     return  <div  className="form-check">
 
             <div className={'position-relative'}>
-                <input  className="form-check-input p-0" required={true} type="radio" value={props.title} style={divStyle} name={props.name} onChange={props.it.handleClick.bind(this)} id={props.id}  />
+                <input  className="form-check-input p-0" required={false} type="radio" value={props.title} style={divStyle} name={props.name} onChange={props.it.handleClick.bind(this)} id={props.id}  />
                 <label  className="form-check-label col-lg-11 ms-1" htmlFor={props.id} >{props.title}</label>
                 {props.popUpElement}
                  <div className="invalid-feedback">More example invalid feedback text</div>
@@ -489,7 +489,7 @@ export class FilePicker extends React.Component{
                 <label htmlFor="" className="title ">{this.props.uploadLabel}</label>
                 <hr className={'mt-0'}/>
 
-                <input type={"file"} multiple aria-label="file example" required={true} name={this.props.name+'[]'} className="form-control" id="exampleFormControlFile1" onChange={this.handleFiles.bind(this)}/>
+                <input type={"file"} multiple aria-label="file example" required={false} name={this.props.name+'[]'} className="form-control" id="exampleFormControlFile1" onChange={this.handleFiles.bind(this)}/>
                 <div className="invalid-feedback">Загрузите файлы</div>
                 <div id={"fileList"}>
                     {this.state.files}

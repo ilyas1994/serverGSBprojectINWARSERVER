@@ -229,7 +229,20 @@
 
             <div class="panel-body mt-4" style="border: 2px solid #8c8b8b">
                 <div class="main-div">
-                    <span>Пожалуйста, поделитесь с нами деятельностью и/или интересами, которые имеют для Вас большое значение: {{ $datas->hobby }}</span>
+                    @php
+                        $get = json_decode($datas->hobby);
+                        $sss = "";
+                    @endphp
+                    @for($i = 0; $i < count($get ); $i++ )
+                    @if($i + 1 == count($get))
+                            @push($sss .= $get[$i]. "") @endpush
+                        @else
+                            @push($sss .= $get[$i]. ", ") @endpush
+                        @endif
+
+                    @endfor
+                    <span>Пожалуйста, поделитесь с нами деятельностью и/или интересами, которые имеют для Вас большое значение: {{ $sss }}</span>
+
                 </div>
             </div>
 
@@ -247,7 +260,20 @@
                 <div class="main-div">
                     <span>Другие: {{ $datas->otherSuite }}</span>
                     <hr class="style1">
-                    <span>Какими социальными сетями/мессенжерами вы пользуетесь? {{ $datas->socialNetwork }}</span>
+                    @php
+                        $get = json_decode($datas->socialNetwork);
+                        $sss1 = "";
+                    @endphp
+                    @for($i = 0; $i < count($get ); $i++ )
+                        @if($i + 1 == count($get))
+                            @push($sss1 .= $get[$i]. "") @endpush
+                        @else
+                            @push($sss1 .= $get[$i]. ", ") @endpush
+                        @endif
+
+                    @endfor
+
+                    <span>Какими социальными сетями/мессенжерами вы пользуетесь? {{  $sss1  }}</span>
                     <hr class="style1">
                     <span>Ваша страница в Facebook: {{ $datas->PageInFacebook }}</span>
                     <hr class="style1">
@@ -257,7 +283,19 @@
                     <hr class="style1">
                     <span>Как Вы узнали о программах МВА Высшей Школы Бизнеса AlmaU: {{ $datas->checkBoxAboutMBA }}</span>
                     <hr class="style1">
-                    <span>Причины, по которым Вы выбрали МВА Высшей Школы Бизнеса AlmaU: {{ $datas->checkBoxReasonsForChoosingMBA }}</span>
+                    @php
+                        $get = json_decode($datas->checkBoxReasonsForChoosingMBA);
+                        $sss2 = "";
+                    @endphp
+                    @for($i = 0; $i < count($get ); $i++ )
+                        @if($i + 1 == count($get))
+                            @push($sss2 .= $get[$i]. "") @endpush
+                        @else
+                            @push($sss2 .= $get[$i]. ", ") @endpush
+                        @endif
+
+                    @endfor
+                    <span>Причины, по которым Вы выбрали МВА Высшей Школы Бизнеса AlmaU: {{ $sss2 }}</span>
                     <hr class="style1">
                     <span>Другие: {{ $datas->otherReason }}</span>
                     <hr class="style1">

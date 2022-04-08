@@ -25,7 +25,7 @@
 {{--        @endpush--}}
 
 
-    @dd($programMBA)
+{{--    @dd($programMBA)--}}
 
 
 @if($errors->any())

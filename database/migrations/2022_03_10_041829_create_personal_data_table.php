@@ -37,13 +37,13 @@ class CreatePersonalDataTable extends Migration
             //       Национальность       *
             $table->string('nationality')->nullable();
             //      Дата рождения        *
-            $table->text('dataOfBirth')->nullable();
+            $table->string('dataOfBirth')->nullable();
             //      ИИН/ПИНФЛ          *
-            $table->bigInteger('Iin')->nullable();
+            $table->integer('Iin')->nullable();
             //      Документ удостоверяющий личность *         *
             $table->string('typeDocument')->nullable();
             //       № документа удостоверяющий личность*         *
-            $table->bigInteger('numberDocument')->nullable();
+            $table->integer('numberDocument')->nullable();
             //       Кем и когда выдан *
             $table->string('kemVidanDoc')->nullable();
             //      дд.мм.гггг        *
@@ -51,11 +51,10 @@ class CreatePersonalDataTable extends Migration
             //        Прикрепить скан документа (.pdf)   *
 
 
-
             // DOWNLOAD FILES
             //        Справка с места работы с указанием должности (.pdf)         *
             $table->text('scanFileCertificateFromWork')->nullable();
-
+            // Скан удостоверения личности
             $table->text('scanFileDocument')->nullable();
 
 
@@ -111,7 +110,6 @@ class CreatePersonalDataTable extends Migration
 
 
 
-//            Нурик обновлил  то что вышел
             /**
              * Part 2 Сведения о трудовой деятельности
              */
@@ -176,20 +174,20 @@ class CreatePersonalDataTable extends Migration
             //      Наличие сертификатов на знание Английского языка        *        *
             $table->string('englishProficiencyCertificates')->nullable();
             //      Дата выдачи сертификата
-            $table->text('certificateIssueDate')->nullable();
+            $table->string('certificateIssueDate')->nullable();
             //    Пожалуйста, поделитесь с нами деятельностью и/или интересами, которые имеют для Вас большое значение          *
-            $table->string('hobby')->nullable();
+            $table->json('hobby')->nullable();
             //     Пожалуйста, перечислите три ваших самых больших достижения *         *
             $table->string('achievements')->nullable();
             //       Почему вы решили обучаться на программе MBA? *       *
             $table->string('reasonForLearning')->nullable();
 
             //      Какие информационные сайты вы читаете? *        *
-            $table->string('suite')->nullable();
+            $table->json('suite')->nullable();
             //       Другие
             $table->string('otherSuite')->nullable();
             //       Какими социальными сетями/мессенжерами вы пользуетесь? *         *
-            $table->string('socialNetwork')->nullable();
+            $table->json('socialNetwork')->nullable();
             //Ваша страница в Facebook        *
             $table->string('PageInFacebook')->nullable();
             //Ваша страница в Instagram          *
@@ -199,7 +197,7 @@ class CreatePersonalDataTable extends Migration
 //            Как вы узнали о программах MBA
             $table->string('checkBoxAboutMBA')->nullable();
 ////             Причины, по которым Вы выбрали МВА Высшей Школы Бизнеса AlmaU *
-            $table->string('checkBoxReasonsForChoosingMBA')->nullable();
+            $table->json('checkBoxReasonsForChoosingMBA')->nullable();
             //       Другие       *
             $table->text('otherReason')->nullable()->nullable();
 

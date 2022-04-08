@@ -1,5 +1,5 @@
 let dropdownValues =  JSON.parse( JSON.stringify(dataArrayForDropDown));
-import {dropDown, inputField, RadioB, RadioButton, RequiredSpan} from "./components.js";
+import {dropDown, inputField, RadioB, RadioButton} from "./components.js";
 
 let count = 0;
 let names = [
@@ -28,13 +28,13 @@ export function tabs_2() {
     let input = [];
     let sec = [];
 
-        input[0] = inputField(title[0], names[count],'col-lg-4',null,'', RequiredSpan());
+        input[0] = inputField(title[0], names[count],'col-lg-4',null,'',);
         count++;
-        input[1] = inputField(title[1], names[count], 'col-lg-8',null,'', RequiredSpan());
+        input[1] = inputField(title[1], names[count], 'col-lg-8',null,'');
         count++;
-        input[2] = inputField(title[2], names[count],'col-lg-12',null,'', RequiredSpan());
+        input[2] = inputField(title[2], names[count],'col-lg-12',null,'');
         count++;
-        input[3] = inputField(title[3], names[count],'col-lg-12',null,'', RequiredSpan());
+        input[3] = inputField(title[3], names[count],'col-lg-12',null,'');
 
 
     allcode[0] =  <div className={"form-group row"} key={count}>{input}</div>;
@@ -49,11 +49,11 @@ export function tabs_2() {
     sec = [fieldOfActivity, jobType];
 
         count++;
-        input[0] = inputField(title[0], names[count],'col-lg-8',null,'', RequiredSpan());
+        input[0] = inputField(title[0], names[count],'col-lg-8',null,'');
         count++;
-        input[1] = dropDown(title[1],names[count],sec[0],'','col-lg-4', <RequiredSpan/>);
+        input[1] = dropDown(title[1],names[count],sec[0],'','col-lg-4');
         count++;
-        input[2] = dropDown(title[2],names[count],sec[1],null,null, <RequiredSpan/>);
+        input[2] = dropDown(title[2],names[count],sec[1],null,null);
         count++;
 
         allcode[1] =  <div className={"form-group row"} key={count}>{input}</div>;
@@ -70,7 +70,7 @@ export function tabs_2() {
                </div>
 
     let popUpElement = [one]
-    input[0] = <RadioB input={true} popupIndex={[0]} popUpElement={popUpElement} classN={'col-lg-8'} name={names[count]} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} span={<RequiredSpan/>}/>;
+    input[0] = <RadioB input={true} popupIndex={[0]} popUpElement={popUpElement} classN={'col-lg-8'} name={names[count]} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} />;
 
     count+=2;
     allcode[2] =  <div className={"form-group row"} key={count} >{input}</div>;

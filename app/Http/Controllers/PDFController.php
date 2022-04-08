@@ -24,7 +24,7 @@ class PDFController extends Controller
 //    }
 
     private function getFileFromInputs($Iin, $copyUdv) {
-        return \DB::select("SELECT $copyUdv FROM personal_datamba WHERE Iin={$Iin}");
+        return \DB::select("SELECT $copyUdv  FROM personal_datamba WHERE Iin={$Iin}");
     }
 
     public function generatePDF($iin)
@@ -50,11 +50,11 @@ class PDFController extends Controller
 //            return \DB::select("SELECT $copyUdv FROM personal_datamba WHERE iin={$iin}");
 //        }
 //
+
         $data = $this->getFileFromInputs($iin, $copyUdv);
         foreach ($data[0] as $valuev)
 
         $toJsonDecode = json_decode($valuev);
-
         $image = $toJsonDecode;
 
         for ($i = 0; $i < count($image); $i++) {
@@ -65,6 +65,7 @@ class PDFController extends Controller
         $dataa = [
             'datass' => $image
         ];
+
 
         $pdf = PDF::loadView('showInPDF.showImage' ,$dataa);
         return $pdf->download('udv.pdf');
