@@ -170,7 +170,7 @@ class CreatePersonalDataTable extends Migration
             //       Китайский       *
             $table->string('checkLanguageChinese')->nullable();
 //            УТОЧНИТЬЬЬЬ
-            $table->string('checkOtherLanguages')->nullable();
+            $table->json('checkOtherLanguages')->nullable();
             //      Наличие сертификатов на знание Английского языка        *        *
             $table->string('englishProficiencyCertificates')->nullable();
             //      Дата выдачи сертификата
