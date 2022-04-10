@@ -69,14 +69,17 @@ class HomeController extends Controller
             $typeTest = DB::select("SELECT * FROM type_tests");
 
             $questions = "";
-
+            $question2test = "";
             $emailUser = auth()->user()->email;
             $checkUser =  DB::table('quiz_results')->where('email_user', $emailUser)->exists();
 
             if ($checkUser === false) {
                 $random = random_int(1,2);
-                $testRandom = \DB::select("SELECT * FROM questions WHERE type_id IN(1,3) AND variant_otveta = '" .$random. "' ");
+//                $testRandom = \DB::select("SELECT * FROM questions WHERE type_id IN(1,3) AND variant_otveta = '" .$random. "' ");
+                $testRandom = \DB::select("SELECT * FROM questions WHERE type_id = 2 OR type_id IN(1,3) AND variant_otveta = '" .$random. "' ");
                 $questions = $testRandom;
+//                $question2 = DB::select("SELECT * FROM questions WHERE type_id = 2");
+
             }
 
 
@@ -116,10 +119,10 @@ class HomeController extends Controller
 
                 }
                 $all[$typeTest[$n]->id] = $arrTypeTest;
-                dump($all);
+                dump($arrTypeTest);
 
             }
-//            dd($all);
+            dd(33);
             return view('quiz.quizTest')->with('all', $all);
 
         }
