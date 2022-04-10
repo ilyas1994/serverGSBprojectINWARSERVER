@@ -21,15 +21,13 @@ use function MongoDB\BSON\toJSON;
 class MainController extends Controller
 {
 
-    public function index(Request $request)
+    public function index(RequestInputs $request)
     {
 
 
 
-//        $data = $request->input('checkBoxMBAProgram');
 
-        $res = array_merge($this->tab1($request), $this->tab2($request), $this->tab3($request),
-            $this->files($request));
+        $res = array_merge($this->tab1($request), $this->tab2($request), $this->tab3($request), $this->files($request));
 
 //        dd($request->all());
         $city = $request['checkBoxMBAProgram'];
@@ -222,9 +220,6 @@ class MainController extends Controller
 //                'reqSuite' => $request->input('reqSuite'),
 //                'reqPositionHead' => $request->input('reqPositionHead'),
 //
-//            ]);
-
-//            dd(777);
             $email = $request->input('email');
             $password = Str::random(5);
             $toHash = Hash::make($password);
@@ -246,7 +241,6 @@ class MainController extends Controller
         }
 
 
-//        dd(333);
 
     }
 

@@ -5,6 +5,7 @@ use App\Http\Controllers\downloadFilesController;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\QuizResult\QuizResult;
 use App\Http\Controllers\ResetPassword\ResetPasswordController;
+use App\Http\Controllers\SwitchCountryController;
 use App\Http\Controllers\switchStateDropDownQuiz\SwitchStateDropDownController;
 use Illuminate\Support\Facades\Route;
 
@@ -92,3 +93,13 @@ Route::get('/asd', function (){
 });
 
 Route::get('/test', [\App\Http\Controllers\Test\TestController::class, 'index'])->name('test');
+
+// Switch Country
+Route::get('/switchcountry', [SwitchCountryController::class, 'index'])->name('switchCountry');
+
+Route::get('asd', function () {
+    $asd = 'asdasdasd';
+    $gg = Hash::make($asd);
+    return $gg;
+//   return view('welcome');
+});

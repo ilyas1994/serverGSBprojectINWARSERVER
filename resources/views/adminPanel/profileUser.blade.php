@@ -16,15 +16,47 @@
 
 
 
+{{--@dd(auth()->user()->name)--}}
+
+{{--@dd($profileData)--}}
+
 <div class="col-sm-12 d-flex mt-2">
 
 
     <div class="col-5 d-flex">
-        <h3>
-            Таблица с данными
-        </h3>
+        @if(auth()->user()->city == 'almaty')
+        @php
+            $citys = ['Выберите','Алматы','Нур-Султан','Атырау','Актау','Актобе','Кызылорда','Шымкент'];
+        @endphp
+
+        <div class="col-5">
+            <form id="sendForrmm" action="{{ route('switchCountry' ) }}" method="get">
+            <select onchange=switchCountry(this) class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+{{--                <option >Выберите</option>--}}
+
+                    @for($i = 0; $i < count($citys); $i++)
+                            @if (Session::has('city'))
+
+                               @if(Session::get('city') == $i)
+                                  <option selected value="Almaty">{{$citys[$i]}}</option>
+                               @else
+                                   <option value="Almaty">{{$citys[$i]}}</option>
+                               @endif
+                            @else
+                               <option value="Almaty">{{$citys[$i]}}</option>
+                            @endif
+                    @endfor
+
+            </select>
+                <input type="hidden" id="countryVal" name="countryVal">
+                <button type="submit" hidden></button>
+            </form>
+        </div>
+
+            @endif
 
     </div>
+
 
 
 
@@ -53,6 +85,14 @@
             @endphp
             {{--        @dd($hidoption)--}}
         @endif
+
+        @if (Session::has('profileData'))
+            @php
+
+                    $profileData = Session::get('profileData');
+            @endphp
+        @endif
+
 
 {{--        </select>--}}
         <select id="selection" class="col-5 h-75  form-select" aria-label="Default select example">
@@ -129,11 +169,12 @@
 </div>
 <div class="col-12" id="trr">
 
+
 @isset($profileData)
     @foreach($profileData as $value)
 
+{{--checkBoxMBAProgram--}}
 
-                        @dd($profileData)
         <div class="col-12" >
 
         <table class="table">
@@ -240,6 +281,49 @@
     }
 
 
+
+
+        function switchCountry(e) {
+        let hiddenInput = document.getElementById('countryVal')
+            console.log(e.selectedIndex);
+            switch (e.selectedIndex) {
+                case 1: {
+                    hiddenInput.value = "Алматы_"+e.selectedIndex;
+                    document.getElementById('sendForrmm').submit();
+                    break;
+                }
+                case 2: {
+                    hiddenInput.value = "Нур-Султан_"+e.selectedIndex;
+                    document.getElementById('sendForrmm').submit();
+                    break;
+                }
+                case 3: {
+                    hiddenInput.value = "Атырау_"+e.selectedIndex;
+                    document.getElementById('sendForrmm').submit();
+                    break;
+                }
+                case 4: {
+                    hiddenInput.value = "Актау_"+e.selectedIndex;
+                    document.getElementById('sendForrmm').submit();
+                    break;
+                }
+                case 5: {
+                    hiddenInput.value = "Актобе_"+e.selectedIndex;
+                    document.getElementById('sendForrmm').submit();
+                    break;
+                }
+                case 6: {
+                    hiddenInput.value = "Кызылорда_"+e.selectedIndex;
+                    document.getElementById('sendForrmm').submit();
+                    break;
+                }
+                case 7: {
+                    hiddenInput.value = "Шымкент_"+e.selectedIndex;
+                    document.getElementById('sendForrmm').submit();
+                    break;
+                }
+            }
+        }
 
 
         function send(data) {
