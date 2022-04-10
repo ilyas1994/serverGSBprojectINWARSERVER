@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76c86216-8c47-45b5-b63a-4f4738510c0b" name="Changes" comment="QUIZ TEST">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/adminPanel/profileUser.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/adminPanel/profileUser.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-    </list>
+    <list default="true" id="76c86216-8c47-45b5-b63a-4f4738510c0b" name="Changes" comment="admin panel complete" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -245,7 +238,7 @@
       <workItem from="1649307092397" duration="5146000" />
       <workItem from="1649329125048" duration="171000" />
       <workItem from="1649329314198" duration="28413000" />
-      <workItem from="1649387836930" duration="34540000" />
+      <workItem from="1649387836930" duration="34934000" />
     </task>
     <task id="LOCAL-00001" summary="почти закончил">
       <created>1648915219567</created>
@@ -345,7 +338,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649419180621</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="admin panel complete">
+      <created>1649576804627</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1649576804627</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -376,7 +376,8 @@
     <MESSAGE value="cpmplete Validate" />
     <MESSAGE value="complete Validate Update otherLangToJson" />
     <MESSAGE value="QUIZ TEST" />
-    <option name="LAST_COMMIT_MESSAGE" value="QUIZ TEST" />
+    <MESSAGE value="admin panel complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="admin panel complete" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
