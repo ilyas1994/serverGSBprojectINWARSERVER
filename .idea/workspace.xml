@@ -4,21 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76c86216-8c47-45b5-b63a-4f4738510c0b" name="Changes" comment="QUIZ TEST">
+    <list default="true" id="76c86216-8c47-45b5-b63a-4f4738510c0b" name="Changes" comment="first test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2022_03_29_143822_create_questions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_03_29_143822_create_questions_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2022_03_29_233635_create_quiz_results_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_03_29_233635_create_quiz_results_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Components/Index.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Components/Index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Components/Tab.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Components/Tab.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Components/components.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Components/components.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Components/tabs1.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Components/tabs1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Components/tabs2.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Components/tabs2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Components/tabs3.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Components/tabs3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/quiz/quizTest.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/quiz/quizTest.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/reactComponents/tabs1.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/reactComponents/tabs1.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +27,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="f49f2d4bd700c80f96aec4eebf54e789922dec30" />
+        <entry key="$PROJECT_DIR$" value="finish_work" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -359,7 +347,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649419180621</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="first test">
+      <created>1649607347972</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1649607347972</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -390,7 +385,8 @@
     <MESSAGE value="cpmplete Validate" />
     <MESSAGE value="complete Validate Update otherLangToJson" />
     <MESSAGE value="QUIZ TEST" />
-    <option name="LAST_COMMIT_MESSAGE" value="QUIZ TEST" />
+    <MESSAGE value="first test" />
+    <option name="LAST_COMMIT_MESSAGE" value="first test" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

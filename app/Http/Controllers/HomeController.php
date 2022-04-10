@@ -75,9 +75,10 @@ class HomeController extends Controller
 
             if ($checkUser === false) {
                 $random = random_int(1,2);
-                $testRandom = \DB::select("SELECT * FROM questions WHERE variant_otveta = '" .$random. "' ");
+                $testRandom = \DB::select("SELECT * FROM questions WHERE type_id IN(1,3) AND variant_otveta = '" .$random. "' ");
                 $questions = $testRandom;
             }
+
 
 
 
@@ -115,10 +116,10 @@ class HomeController extends Controller
 
                 }
                 $all[$typeTest[$n]->id] = $arrTypeTest;
-//                dump($all);
+                dump($all);
 
             }
-
+//            dd($all);
             return view('quiz.quizTest')->with('all', $all);
 
         }
