@@ -19,6 +19,7 @@ class CreateQuestionsTable extends Migration
             $table->string('name');
             $table->integer('type_id');
             $table->string('type_question');
+            $table->integer('variant_otveta')->nullable();
             $table->timestamps();
         });
     }

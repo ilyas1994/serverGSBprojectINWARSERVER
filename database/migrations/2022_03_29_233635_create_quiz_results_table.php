@@ -15,8 +15,11 @@ class CreateQuizResultsTable extends Migration
     {
         Schema::create('quiz_results', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_user');
+            $table->string('email_user');
+            $table->string('type_test');
+            $table->string('checkTest');
             $table->integer('result');
+            $table->integer('fake_result')->nullable();
             $table->timestamps();
         });
     }

@@ -11,7 +11,7 @@
 </head>
 <body>
 
-{{--      @dump($all)--}}
+      @dd($all)
 
 
 </body>

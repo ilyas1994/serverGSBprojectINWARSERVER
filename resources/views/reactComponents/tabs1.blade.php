@@ -45,9 +45,6 @@
 </head>
 <body>
 
-{{--    @dd($dataArrayForDropDown);--}}
-
-{{--{{dd($dataArrayForDropDown['gender'])}}--}}
 <div class="header">
     <div class="container">
         <a href="https://gsb.almau.edu.kz/"><img src="{{asset('img/logo-gsb.png')}}" alt=""></a>
@@ -74,13 +71,22 @@
             <!--    <p style="margin-top: -50px">Если в процессе подачи заявки у Вас возникнут какие-либо вопросы, пожалуйста, свяжитесь с нашей  командой по телефону или электронной почте</p>-->
             <!--    <p style="margin-top: -50px">Телефон: +7 727 313 30 78 </p>-->
             <!--    <p style="margin-top: -70px">E-mail: gsb@almau.edu.kz </p>-->
-
         </div>
     </div>
 </div>
 <script>
-    let dataArrayForDropDown ={!!json_encode($dataArrayForDropDown)!!};
-    console.log(dataArrayForDropDown);
+    let dataArrayForDropDown = null;
+    @isset($dataArrayForDropDown)
+         dataArrayForDropDown ={!!json_encode($dataArrayForDropDown)!!};
+         console.log(dataArrayForDropDown)
+    @endisset
+
+
+    let programMBA = null;
+    @isset($programMBA)
+        programMBA ={!!json_encode($programMBA)!!};
+        console.log(programMBA)
+    @endisset
 </script>
 <div class="container">
     <div class="row">
