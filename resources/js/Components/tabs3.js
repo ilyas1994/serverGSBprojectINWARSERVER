@@ -436,21 +436,28 @@ export function tabs_3(names) {
 // ------------------------------------------------------------------------------------------
     input = [];
     title = ['Выберите программу МВА'];
-    // titleForCheckBox = ['General MBA - Казахстанская программа MBA',
-    //                     'Казахстанская модульно-дистанционная программа',
-    //                     'xecutive MBA Двудипломная программа с Высшей Школой Менеджмента Санкт-Петербургского Государственного Университета (Россия)',
-    //                     'МВА Финансовый инжиниринг',
-    //                     'МВА Менеджмент в здравоохранении',
-    //                     'МВА Менеджмент в социальной сфере(г. Нур-Султан)',
-    //                     'МВА (г. Ташкент)',
-    //                     'МВА (г. Душанбе)'
-    //                     ];
-    titleForCheckBox = [];
-    // titleForCheckBox = MBAprogram;
-    for (const [key, value] of Object.entries(MBAprogram)) {
-        // console.log(`${key}: ${value}`);
-        titleForCheckBox.push(`${key}`);
-    }
+    titleForCheckBox = ['General MBA - Казахстанская программа MBA',
+                        'Казахстанская модульно-дистанционная программа',
+                        'xecutive MBA Двудипломная программа с Высшей Школой Менеджмента Санкт-Петербургского Государственного Университета (Россия)',
+                        'МВА Финансовый инжиниринг',
+                        'МВА Менеджмент в здравоохранении',
+                        'МВА Менеджмент в социальной сфере(г. Нур-Султан)',
+                        'МВА (г. Ташкент)',
+                        'МВА (г. Душанбе)'
+                        ];
+    let underMBAprogram = [[]];
+    // titleForCheckBox = [];
+    // for (const key of Object.keys(MBAprogram)) {
+    //     titleForCheckBox.push(key);
+    //     for (let i = 0; i < MBAprogram[key].length; i++) {
+    //         // console.log(key +':'+MBAprogram[key][i]);
+    //         underMBAprogram[key].push(<label className="radio source_label_">
+    //                                 <input type="radio" name={names[count]} defaultChecked={true} value="General MBA - Казахстанская программа MBA -> вечерняя программа в г. Алматы"/>
+    //                                 <span>вечерняя программа в г. Алматы</span>
+    //                              </label>);
+    //     }
+    //     // titleForCheckBox.push(`${key}`);
+    // }
 
      let one = <div className="label_in_ ms-5" id="label_in_1_" hidden>
          <label className="radio source_label_">
