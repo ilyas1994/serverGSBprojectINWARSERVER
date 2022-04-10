@@ -1,62 +1,89 @@
-let dropdownValues =  JSON.parse( JSON.stringify(dataArrayForDropDown));
-import {dropDown, inputField, RadioB, RadioButton} from "./components.js";
+let dropdownValues = null;
+if(typeof dataArrayForDropDown !== 'undefined'){
+     dropdownValues =  JSON.parse( JSON.stringify(dataArrayForDropDown));
+}
+
+import {dropDown, inputField, RadioB, RadioButton, RequiredSpan} from "./components.js";
 
 let count = 0;
-let names = [
-    'positionAtWord',
-    'nameOfTheCompany',
-    'legalAdress',
+// let names = [
+//              'positionAtWord',
+//              'nameOfTheCompany',
+//              'legalAdress',
+//
+//              'firstWorkExperience',
+//              'upravlencheskiy_stazh',
+//              'jobType',
+//              'fieldOfActivity',
+//              'availabilityOfBusinessTrips',
+//     'availabilityOfBusinessTripsInputYes',
+//     'availabilityOfBusinessTripsInputDuration'
+// ];
 
-    'firstWorkExperience',
-    'upravlencheskiy_stazh',
-    'jobType',
-    'fieldOfActivity',
-    'availabilityOfBusinessTrips',
-    'availabilityOfBusinessTripsInputYes',
-    'availabilityOfBusinessTripsInputDuration'
-];
 
+export function tabs_2(names) {
 
-export function tabs_2() {
     let allcode = [];
 
     let title =['Занимаемая должность',
-                'Компания (полное наименование)',
-                'Юридический адрес',
-                'Общий трудовой стаж со дня окончания вуза (первое высшее образование)'
+                'Компания (полное наименование)'
                  ];
     let input = [];
     let sec = [];
 
-        input[0] = inputField(title[0], names[count],'col-lg-4',null,'',);
+        input[0] = inputField(title[0], names[count],'col-lg-4',null,'', <RequiredSpan id={names[count]}/>);
         count++;
-        input[1] = inputField(title[1], names[count], 'col-lg-8',null,'');
+        input[1] = inputField(title[1], names[count], 'col-lg-8',null,'', <RequiredSpan id={names[count]}/>);
         count++;
-        input[2] = inputField(title[2], names[count],'col-lg-12',null,'');
-        count++;
-        input[3] = inputField(title[3], names[count],'col-lg-12',null,'');
+
 
 
     allcode[0] =  <div className={"form-group row"} key={count}>{input}</div>;
     //----------------------------------------------------------------------------------
 
     input = [];
+    title = ['Юридический адрес'];
+
+
+    input[0] = inputField(title[0], names[count],'col-lg-12',null,'', <RequiredSpan id={names[count]}/>);
+    count++;
+
+    allcode[1] =  <div className={"form-group row"} key={count}>{input}</div>;
+// ------------------------------------------------------------------------------------------
+
+    input = [];
+    title = ['Общий трудовой стаж со дня окончания вуза (первое высшее образование)'];
+
+
+    input[0] = inputField(title[0], names[count],'col-lg-12',null,'', <RequiredSpan id={names[count]}/>);
+    count++;
+
+    allcode[2] =  <div className={"form-group row"} key={count}>{input}</div>;
+// ------------------------------------------------------------------------------------------
+
+
+
+    input = [];
     title = ['Управленческий стаж','Вы являетесь','Сфера деятельности'];
+    let fieldOfActivity = ['fieldOfActivity'];
+    let jobType = ['jobType'];
+    if(dropdownValues){
+         fieldOfActivity = dropdownValues['fieldOfActivity'];
+         jobType = dropdownValues['jobType'];
+    }
 
-    let jobType = dropdownValues['jobType'];
-    let fieldOfActivity = dropdownValues['fieldOfActivity'];
 
-    sec = [fieldOfActivity, jobType];
+    sec = [jobType,fieldOfActivity ];
 
+
+        input[0] = inputField(title[0], names[count],'col-lg-8',null,'', <RequiredSpan id={names[count]}/>);
         count++;
-        input[0] = inputField(title[0], names[count],'col-lg-8',null,'');
+        input[1] = dropDown(title[1],names[count],sec[0],'','col-lg-4',<RequiredSpan id={names[count]}/>);
         count++;
-        input[1] = dropDown(title[1],names[count],sec[0],'','col-lg-4');
-        count++;
-        input[2] = dropDown(title[2],names[count],sec[1],null,null);
+        input[2] = dropDown(title[2],names[count],sec[1],null,null, <RequiredSpan id={names[count]}/>);
         count++;
 
-        allcode[1] =  <div className={"form-group row"} key={count}>{input}</div>;
+        allcode[3] =  <div className={"form-group row"} key={count}>{input}</div>;
 // ------------------------------------------------------------------------------------------
     input = [];
     title = ['Наличие командировок'];
@@ -70,10 +97,10 @@ export function tabs_2() {
                </div>
 
     let popUpElement = [one]
-    input[0] = <RadioB input={true} popupIndex={[0]} popUpElement={popUpElement} classN={'col-lg-8'} name={names[count]} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} />;
+    input[0] = <RadioB input={true} popupIndex={[0]} popUpElement={popUpElement} classN={'col-lg-8'} name={names[count]} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} span={<RequiredSpan id={names[count]}/>}/>;
 
     count+=2;
-    allcode[2] =  <div className={"form-group row"} key={count} >{input}</div>;
+    allcode[4] =  <div className={"form-group row"} key={count} >{input}</div>;
     count++;
 
     //--------------------------------------------------------------------------------
@@ -81,7 +108,7 @@ export function tabs_2() {
         marginTop: '20px'
     }
     const tab3 = document.getElementById('3-tab');
-    allcode[3] = <div key={count} className="">
+    allcode[5] = <div key={count} className="">
         <div className="d-flex align-items-lg-end" >
             <input value={"Далее 'Профиль' "} type={'button'} onClick={function () {
                 let tab = new bootstrap.Tab(tab3)

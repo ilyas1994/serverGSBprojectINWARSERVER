@@ -1,4 +1,12 @@
-let dropdownValues =  JSON.parse( JSON.stringify(dataArrayForDropDown));
+let dropdownValues = null;
+if(typeof dataArrayForDropDown !== 'undefined'){
+     dropdownValues =  JSON.parse( JSON.stringify(dataArrayForDropDown));
+}
+
+let MBAprogram = null;
+if(typeof MBAprogram !== 'undefined'){
+    MBAprogram =  JSON.parse( JSON.stringify(programMBA));
+}
 
 import {
     CheckBox,
@@ -6,89 +14,98 @@ import {
     dropDown, FilePicker,
     inputField,
     label,
-    OtherLanguageButton, RadioB, RadioBff,
+    OtherLanguageButton, RadioB, RequiredSpan,
     StarFabric,
     TextArea
 } from "./components";
+
+import {ValidateAndSubmitButton} from "./validateWindow";
+
 import ReactDOM, {render} from "react-dom";
+import {Input} from "postcss";
+import {getElement} from "bootstrap/js/src/util";
+import {getNames} from "./names";
+
 
 let count = 0;
-let stars;
-let bankRequisites;
-let names = [
-    'startEducation',
-    'endEducation',
-    'qualification',
-    'fullNameUniversity',
-    'speciality',
-    'languageEducation',
-    'checkSecondDegree',
-    'checkMasterDegree',
-    'checkLanguageKazakh',
-    'checkLanguageEnglish',
-    'checkLanguageFrench',
-    'checkLanguageGerman',
-    'checkLanguageChinese',
-    'checkOtherLanguages',
-    'englishProficiencyCertificates',
-    'certificateIssueDate',
-    'hobby',
-    'achievements',
-    'reasonForLearning',
-    'suite',
-    'otherSuite',
-    'socialNetwork',
-    'PageInFacebook',
-    'PageInInstagram',
-    'PageInTwitter',
-    'checkBoxAboutMBA',
-    'checkBoxReasonsForChoosingMBA',
-    'otherReason',
-    stars = [
-        'starsTheQualityOfEducation',
-        'starsLargeSelectionOfPrograms',
-        'starsLocationSchool',
-        'starsDiscounts',
-        'starsDurationEducation',
-        'starsСostOfEducation',
-        'starsReputationMBA',
-        'starsPartPayment',
-        'starsFormOfEducation',
-        'starsCompositionOfTeachers',
-    ],
-    'otherСharacteristics',
-    bankRequisites = [
-        'requisites',
-        'bin',
-        'reqYurAdress',
-        'bank',
-        'reqEmail',
-        'fioSupervisor',
-        'reqName',
-        'rnn',
-        'telFax',
-        'iik',
-        'reqSuite',
-        'reqPositionHead'
-    ],
-    'checkBoxSourceOfFinancing',
-    'checkBoxMBAProgram',
+// let stars;
+// let bankRequisites;
+// let names;
+// names = [
+//     'startEducation',
+//     'endEducation',
+//     'qualification',
+//     'fullNameUniversity',
+//     'speciality',
+//     'languageEducation',
+//     'checkSecondDegree',
+//     'checkMasterDegree',
+//     'checkLanguageKazakh',
+//     'checkLanguageEnglish',
+//     'checkLanguageFrench',
+//     'checkLanguageGerman',
+//     'checkLanguageChinese',
+//     'checkOtherLanguages',
+//     'englishProficiencyCertificates',
+//     'certificateIssueDate',
+//     'hobby',
+//     'achievements',
+//     'reasonForLearning',
+//     'suite',
+//     'otherSuite',
+//     'socialNetwork',
+//     'PageInFacebook',
+//     'PageInInstagram',
+//     'PageInTwitter',
+//     'checkBoxAboutMBA',
+//     'checkBoxReasonsForChoosingMBA',
+//     'otherReason',
+//     stars = [
+//         'starsTheQualityOfEducation',
+//         'starsLargeSelectionOfPrograms',
+//         'starsLocationSchool',
+//         'starsDiscounts',
+//         'starsDurationEducation',
+//         'starsСostOfEducation',
+//         'starsReputationMBA',
+//         'starsPartPayment',
+//         'starsFormOfEducation',
+//         'starsCompositionOfTeachers',
+//     ],
+//     'otherСharacteristics',
+//     bankRequisites = [
+//         'requisites',
+//         'bin',
+//         'reqYurAdress',
+//         'bank',
+//         'reqEmail',
+//         'fioSupervisor',
+//         'reqName',
+//         'rnn',
+//         'telFax',
+//         'iik',
+//         'reqSuite',
+//         'reqPositionHead'
+//     ],
+//     'checkBoxSourceOfFinancing',
+//     'checkBoxMBAProgram',
+//
+//     'scanFileDocument',
+//     'scanFileCertificateFromWork',
+//     'resumeFile',
+//     'fileScanDiplomWithApplication',
+//     'scanCertificate',
+//     'fileEsse',
+//     'copyPassport',
+//     'foto3x4',
+//     'medicalDoc',
+//     'recomentedLetter'
+// ];
 
-    'scanFileDocument',
-    'scanFileCertificateFromWork',
-    'resumeFile',
-    'fileScanDiplomWithApplication',
-    'scanCertificate',
-    'fileEsse',
-    'copyPassport',
-    'foto3x4',
-    'medicalDoc',
-    'recomentedLetter'
-];
+export function tabs_3(names) {
+    // console.log(names);
 
-export function tabs_3() {
     let allcode = [];
-
     let title =['Начало обучения',
         'Конец обучения '
     ];
@@ -99,34 +116,32 @@ export function tabs_3() {
                         <hr/>
                     </div>
 
-    input[0] = dataPiker(title[0], names[count],'col-lg-6');
+    input[0] = dataPiker(title[0], names[count],'col-lg-6', <RequiredSpan id={names[count]}/>);
     count++;
-    input[1] = dataPiker(title[0], names[count],'col-lg-6');
+    input[1] = dataPiker(title[1], names[count],'col-lg-6', <RequiredSpan id={names[count]}/>);
     count++;
 
     allcode[0] =  <div className={"form-group row"} key={count}>{labelvar}{input}</div>;
     //----------------------------------------------------------------------------------
 
     input = [];
-
     title = ['Академическая степень/квалификация','Полное наименование учебного заведения'];
-    let qualification = dropdownValues['qualification'];
-
-
+    let qualification = ['qualification'];
+    if(dropdownValues){
+        qualification = dropdownValues['qualification'];
+    }
     sec = [qualification];
-    // console.log(sec +' '+sec.length);
 
-
-    input[0] = dropDown(title[0], names[count], sec[0],null,'col-lg-4');
+    input[0] = dropDown(title[0], names[count], sec[0],null,'col-lg-4', <RequiredSpan id={names[count]}/>);
     count++;
-    input[1] = inputField(title[1], names[count],'col-lg-8',null,'');
+    input[1] = inputField(title[1], names[count],'col-lg-8',null,'', <RequiredSpan id={names[count]}/>);
     count++;
 
     allcode[1] =  <div className={"form-group row"} key={count}>{input}</div>;
 // ------------------------------------------------------------------------------------------
     input = [];
     title = ['Специальность (например, юриспруденция или разработка нефтяных и газовых месторождений)'];
-    input[0] = inputField(title[0], names[count],'col-lg-12',null,'');
+    input[0] = inputField(title[0], names[count],'col-lg-12',null,'',<RequiredSpan id={names[count]}/>);
     count++;
     allcode[2] =  <div className={"form-group row"} key={count}>{input}</div>;
 
@@ -134,12 +149,18 @@ export function tabs_3() {
     input = [];
     title = ['Язык обучения','Имеется ли второе высшее образование ','Имеется ли магистерская степень'];
 
-    let languageEducation = dropdownValues['languageEducation'];
-    let checkSecondDegree = dropdownValues['checkSecondDegree'];
-    let checkMasterDegree = dropdownValues['checkMasterDegree'];
+    let languageEducation = ['languageEducation'];
+    let checkSecondDegree = ['checkSecondDegree'];
+    let checkMasterDegree = ['checkMasterDegree'];
+    if(dropdownValues){
+         languageEducation = dropdownValues['languageEducation'];
+         checkSecondDegree = dropdownValues['checkSecondDegree'];
+         checkMasterDegree = dropdownValues['checkMasterDegree'];
+    }
+
     sec = [languageEducation,checkSecondDegree,checkMasterDegree ];
     for (let i = 0; i < sec.length ; i++) {
-        input[i] = dropDown(title[i], names[count], sec[i],null,'col-lg-4');
+        input[i] = dropDown(title[i], names[count], sec[i],null,'col-lg-4',<RequiredSpan id={names[count]}/>);
         count++;
     }
 
@@ -147,11 +168,18 @@ export function tabs_3() {
 
 // ------------------------------------------------------------------------------------------
     input = [];
-    let   checkLanguageKazakh = dropdownValues['levellanguages'];
-    let   checkLanguageEnglish = dropdownValues['levellanguages'];
-    let   checkLanguageFrench = dropdownValues['levellanguages'];
-    let   checkLanguageGerman = dropdownValues['levellanguages'];
-    let   checkLanguageChinese = dropdownValues['levellanguages'];
+    let   checkLanguageKazakh = ['levellanguages'];
+    let   checkLanguageEnglish = ['levellanguages'];
+    let   checkLanguageFrench = ['levellanguages'];
+    let   checkLanguageGerman = ['levellanguages'];
+    let   checkLanguageChinese = ['levellanguages'];
+    if(dropdownValues){
+           checkLanguageKazakh = dropdownValues['levellanguages'];
+           checkLanguageEnglish = dropdownValues['levellanguages'];
+           checkLanguageFrench = dropdownValues['levellanguages'];
+           checkLanguageGerman = dropdownValues['levellanguages'];
+           checkLanguageChinese = dropdownValues['levellanguages'];
+    }
     sec = [checkLanguageKazakh,checkLanguageEnglish,checkLanguageFrench,checkLanguageGerman,checkLanguageChinese ];
     let language = ['Казахский','Английский','Французский','Немецкий','Китайский'];
      labelvar = <div>
@@ -171,7 +199,7 @@ export function tabs_3() {
 
         count++;
     }
-    const arrayFromBack =  dropdownValues['levellanguages'];
+    const arrayFromBack = ['qualification'];
     allcode[4] = <div id={'lang'} className={"form-group row"} key={'0'}>
                             {labelvar}
                             {input}
@@ -184,7 +212,10 @@ export function tabs_3() {
     input = [];
     title = ['Наличие сертификатов на знание Английского языка','Дата выдачи сертификата '];
 
-    let certificateIssueDate = dropdownValues['englishProficiencyCertificates'];
+    let certificateIssueDate = ['englishProficiencyCertificates'];
+    if(dropdownValues){
+        certificateIssueDate = dropdownValues['englishProficiencyCertificates'];
+    }
     sec = [certificateIssueDate];
 
         input[0] = dropDown(title[0], names[count], sec[0],null,'col-lg-6');
@@ -205,7 +236,7 @@ export function tabs_3() {
 // ------------------------------------------------------------------------------------------
     input = [];
     title = ['Пожалуйста, перечислите три ваших самых больших достижения'];
-    input[0] = inputField(title[0], names[count],'col-lg-12',null,'');
+    input[0] = inputField(title[0], names[count],'col-lg-12',null,'',<RequiredSpan id={names[count]}/>);
     count++;
 
     allcode[7] =  <div className={"form-group row"} key={count} >{input}</div>;
@@ -213,7 +244,7 @@ export function tabs_3() {
 // ------------------------------------------------------------------------------------------
     input = [];
     title = ['Почему вы решили обучаться на программе MBA?'];
-    input[0] = TextArea(title[0], names[count],'col-lg-12',null);
+    input[0] = TextArea(title[0], names[count],'col-lg-12',null,<RequiredSpan id={names[count]}/>);
     count++;
 
     allcode[8] =  <div className={"form-group row"} key={count} >{input}</div>;
@@ -225,7 +256,7 @@ export function tabs_3() {
                         'Zakon.kz','Newtimes.kz','Forbes Kazakhstan','Vesti.kz','The Steppe','Ratel.kz',
                         'Sputnik Казахстан','informБЮРО','Zakon.kz','Inbusiness.kz','Vlast.kz','Kapital.kz'
                          ];
-    input[0] = <CheckBox classN={'col-lg-4'}  name={names[count]} column={3}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count}/>;
+    input[0] = <CheckBox classN={'col-lg-4'}  name={names[count]} column={3}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} span={<RequiredSpan id={names[count]}/>}/>;
     count++;
 
     input[1] = inputField('', names[count],'col-lg-12','','Другое');
@@ -240,7 +271,7 @@ export function tabs_3() {
                         'Tumblr','ВКонтакте','WhatsApp','Skype',
                         'Twitter','Одноклассники','Instagram'
     ];
-    input[0] = <CheckBox classN={'col-lg-4'} name={names[count]} column={3}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} />;
+    input[0] = <CheckBox classN={'col-lg-4'} name={names[count]} column={3}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} span={<RequiredSpan id={names[count]}/>} />;
     count++;
 
 
@@ -271,7 +302,7 @@ export function tabs_3() {
                         'Реклама в медиа',
     ];
 
-    input[0] = <RadioB classN={'col-lg-8'} name={names[count]} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} />;
+    input[0] = <RadioB classN={'col-lg-8'} name={names[count]} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} span={<RequiredSpan id={names[count]}/>}/>;
     count++;
     //
     allcode[12] =  <div className={"form-group row"} key={count} >{input}</div>;
@@ -279,8 +310,7 @@ export function tabs_3() {
 // ------------------------------------------------------------------------------------------
     input = [];
     title = ['Причины, по которым Вы выбрали МВА Высшей Школы Бизнеса AlmaU'];
-    titleForCheckBox = [
-        'Положительная репутация вуза на рынке бизнес-образования',
+    titleForCheckBox = ['Положительная репутация вуза на рынке бизнес-образования',
         'Практическая направленность обучения, приближенная к казахстанским реалиям',
         'Высококвалифицированный профессорско-преподавательский состав',
         'Клиентоориентированность персонала, индивидуальный подход',
@@ -294,7 +324,7 @@ export function tabs_3() {
         'Международная аккредитация',
         'Возможность обучения без отрыва от работы',''
     ];
-    input[0] = <CheckBox input={true} classN={'col-lg-12'} name={names[count]} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} />;
+    input[0] = <CheckBox input={true} classN={'col-lg-12'} name={names[count]} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} span={<RequiredSpan id={names[count]}/>} />;
     count+=2;
 
     allcode[13] =  <div className={"form-group row"} key={count} >{input}</div>;
@@ -303,8 +333,7 @@ export function tabs_3() {
 // ------------------------------------------------------------------------------------------
      input = [];
     title = [];
-    let titleForStar =[
-         'Качество образования ',
+    let titleForStar =['Качество образования ',
          'Большой выбор программ ',
          'Месторасположение бизнес-школы ',
          'Наличие скидок ',
@@ -398,7 +427,7 @@ export function tabs_3() {
     count++;
     let popUpElement = ['',pop,pop];
 
-    input[0] = <RadioB input={true} popupIndex={[1,2]} popUpElement={popUpElement} classN={'col-lg-12'} name={names[count]} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} />;
+    input[0] = <RadioB input={true} popupIndex={[1,2]} popUpElement={popUpElement} classN={'col-lg-12'} name={names[count]} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} span={<RequiredSpan id={names[count]}/>} />;
 
     count++;
     allcode[16] =  <div className={"form-group row"} key={count} >{input}</div>;
@@ -407,16 +436,21 @@ export function tabs_3() {
 // ------------------------------------------------------------------------------------------
     input = [];
     title = ['Выберите программу МВА'];
-    titleForCheckBox = ['General MBA - Казахстанская программа MBA',
-                        'Казахстанская модульно-дистанционная программа',
-                        'xecutive MBA Двудипломная программа с Высшей Школой Менеджмента Санкт-Петербургского Государственного Университета (Россия)',
-                        'МВА Финансовый инжиниринг',
-                        'МВА Менеджмент в здравоохранении',
-                        'МВА Менеджмент в социальной сфере(г. Нур-Султан)',
-                        'МВА (г. Ташкент)',
-                        'МВА (г. Душанбе)'
-                        ];
-
+    // titleForCheckBox = ['General MBA - Казахстанская программа MBA',
+    //                     'Казахстанская модульно-дистанционная программа',
+    //                     'xecutive MBA Двудипломная программа с Высшей Школой Менеджмента Санкт-Петербургского Государственного Университета (Россия)',
+    //                     'МВА Финансовый инжиниринг',
+    //                     'МВА Менеджмент в здравоохранении',
+    //                     'МВА Менеджмент в социальной сфере(г. Нур-Султан)',
+    //                     'МВА (г. Ташкент)',
+    //                     'МВА (г. Душанбе)'
+    //                     ];
+    titleForCheckBox = [];
+    // titleForCheckBox = MBAprogram;
+    for (const [key, value] of Object.entries(MBAprogram)) {
+        // console.log(`${key}: ${value}`);
+        titleForCheckBox.push(`${key}`);
+    }
 
      let one = <div className="label_in_ ms-5" id="label_in_1_" hidden>
          <label className="radio source_label_">
@@ -483,7 +517,7 @@ export function tabs_3() {
     </div>
 
     popUpElement = [one, two, '', three, four];
-    input[0] = <RadioB input={true} popupIndex={[0,1,3,4]} popUpElement={popUpElement} classN={'col-lg-12'} name={'notname'} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count}/>;
+    input[0] = <RadioB input={true} popupIndex={[0,1,3,4]} popUpElement={popUpElement} classN={'col-lg-12'} name={'notname'} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} span={<RequiredSpan id={names[count]}/>}/>;
     count++;
 
 
@@ -492,31 +526,30 @@ export function tabs_3() {
 
     // ------------------------------------------------------------------------------------------
 
-    console.log(count);
-    allcode[18] = <FilePicker name={names[count]} uploadLabel={'Прикрепить скан удостоверение личности (.pdf или .jpg, .png)'} key={count}/>
+    // console.log(count);
+    allcode[18] = <FilePicker name={names[count]} uploadLabel={'Прикрепить скан удостоверение личности (.pdf или .jpg, .png)'} key={count} span={<RequiredSpan id={names[count]}/>} />
     count++;
-    allcode[19] = <FilePicker name={names[count]} uploadLabel={'Прикрепить скан справки с места работы с указанием должности (.pdf или .jpg, .png)'} key={count}/>
+    allcode[19] = <FilePicker name={names[count]} uploadLabel={'Прикрепить резюме (.pdf или .doc)'} key={count} span={<RequiredSpan id={names[count]}/>}/>
     count++;
-    allcode[20] = <FilePicker name={names[count]} uploadLabel={'Прикрепить резюме (.pdf или .doc)'} key={count}/>
+    allcode[20] = <FilePicker name={names[count]} uploadLabel={'6 фото 3х4 (.pdf или .doc)'} key={count} span={<RequiredSpan id={names[count]}/>}/>
     count++;
-    allcode[21] = <FilePicker name={names[count]} uploadLabel={'Прикрепить скан диплома с приложением (.pdf или .jpg, .png)'} key={count}/>
+    allcode[21] = <FilePicker name={names[count]} uploadLabel={'Прикрепить скан диплома с приложением (.pdf или .jpg, .png)'} key={count} span={<RequiredSpan id={names[count]}/>}/>
     count++;
-    allcode[22] = <FilePicker name={names[count]} uploadLabel={'Прикрепить скан сертификата (.pdf или .jpg, .png)'} key={count}/>
+    allcode[22] = <FilePicker name={names[count]} uploadLabel={'Прикрепить скан справки с места работы с указанием должности (.pdf или .jpg, .png)'} key={count} span={<RequiredSpan id={names[count]}/>}/>
     count++;
-    allcode[23] = <FilePicker name={names[count]} uploadLabel={'Прикрепить мотивационное эссе (.pdf или .doc)'} key={count}/>
+    allcode[23] = <FilePicker name={names[count]} uploadLabel={'Медицинская справка (форма 075У) (.pdf или .doc)'} key={count} span={<RequiredSpan id={names[count]}/>}/>
     count++;
-    allcode[24] = <FilePicker name={names[count]} uploadLabel={'Копия паспорта (.pdf или .jpg, .png)'} key={count}/>
+
+    allcode[24] = <FilePicker name={names[count]} uploadLabel={'Прикрепить мотивационное эссе (.pdf или .doc)'} key={count} span={<RequiredSpan id={names[count]}/>}/>
     count++;
-    allcode[25] = <FilePicker name={names[count]} uploadLabel={'6 фото 3х4 (.pdf или .jpg, .png)'} key={count}/>
+    allcode[25] = <FilePicker name={names[count]} uploadLabel={'Копия паспорта (.pdf или .jpg, .png)'} key={count} span={<RequiredSpan id={names[count]}/>}/>
     count++;
-    allcode[26] = <FilePicker name={names[count]} uploadLabel={'Медицинская справка (форма 075У) (.pdf или .jpg, .png)'} key={count}/>
-    count++;
-    allcode[27] = <FilePicker name={names[count]} uploadLabel={'2 рекомендательных письма (.pdf или .doc)'} key={count}/>
+    allcode[26] = <FilePicker name={names[count]} uploadLabel={'2 рекомендательных письма (.pdf или .jpg, .png)'} key={count} span={<RequiredSpan id={names[count]}/>}/>
     count++;
 
     // ------------------------------------------------------------------------------------------
 
-    allcode[28] = <div key={count}>
+    allcode[27] = <div key={count}>
         <small className=" ">Нажимая на кнопку, я даю свое согласие на обработку персональных
             данных и
             соглашаюсь <a
@@ -527,21 +560,10 @@ export function tabs_3() {
     count++;
 
     // ------------------------------------------------------------------------------------------
-    const divStyle1 = {
-        border:'none'
-    };
-    const divStyle2 = {
-       marginTop: '20px'
-    };
-    const divStyle3 = {
-        padding: '0'
-    };
-    allcode[29] = <div key={count} className="d-flex justify-content-end" style={divStyle2}>
-                    <div className="" style={divStyle3}>
-                        <button style={divStyle1} type={"submit"} className={"submit"}>Отправить</button>
-                    </div>
-                </div>
+
+    allcode[28] = <ValidateAndSubmitButton allName={getNames()} key={count} />
     count++;
+
     return(
         <div className={'m-5'}>{allcode}</div>
     );

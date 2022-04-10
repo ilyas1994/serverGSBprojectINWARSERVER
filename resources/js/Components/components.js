@@ -1,6 +1,8 @@
+import {eventListeners} from "@popperjs/core";
 
-export function RequiredSpan() {
-return <span className={'required'}>*</span>;
+
+export function RequiredSpan(props) {
+return <span id={props.id} className={'required'}>*</span>;
 }
 
 export function TextArea(title, name, className = 'col-lg-4', value = null, span = null){
@@ -8,7 +10,7 @@ export function TextArea(title, name, className = 'col-lg-4', value = null, span
         input = <div key={name} className={className}>
                     <div className={'position-relative'}>
                         <label className={'form-label'} htmlFor="">{title} {span}</label>
-                        <textarea type="text" name={name} required={false} className={'form-control '} defaultValue={value} maxLength={32}/>
+                        <textarea type="text" name={name} required={true} className={'form-control '} defaultValue={value} maxLength={32}/>
                         <div className="invalid-feedback">
                             Заполните {title}
                         </div>
@@ -18,28 +20,137 @@ export function TextArea(title, name, className = 'col-lg-4', value = null, span
     return(input)
 }
 
-export function inputField(title, name, className = null, value = null, placeholder = '', span = null){
+
+export function dropDownClick( title, name, section, sample = null, className = 'col-lg-4', span = null){
+    let sec = [];
+
+    function dropdownClick(e) {
+        let iin = document.getElementsByName('Iin');
+        switch (e['target'].selectedIndex) {
+            case 0:{
+                iin[0].setAttribute('minlength','12');
+                iin[0].setAttribute('maxlength','12');
+                iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 12 цифр!';
+                break;
+            }
+            case 1:{
+                iin[0].setAttribute('minlength','9');
+                iin[0].setAttribute('maxlength','9');
+                iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 9 цифр!';
+                break;
+            }
+        }
+
+    }
+
+    for (let i = 0; i < section.length; i++) {
+        sec[i] =  <option  value={i+1} key={i}>{section[i]}</option>;
+    }
+
+    return  <div key={name} className={className}>
+        {title !== '' ? <label htmlFor="" >{title}{span}</label> : ""}
+        <select name={name} onChange={dropdownClick.bind(this)}  className={"col-lg-0 selectpicker user-gender"}>
+            {sec}
+        </select>
+        {sample}
+    </div>
+}
+export function inputFieldOnlyNumber(title, name, className = null, value = null, placeholder = '', span = null){
     let input = '';
     let req =  span !== null
     let reqClass =  span !== null ? 'form-control ' : ''
+    let tooltip = '';
+    let maxlength = 0;
+    let minlength = 0;
+    if(name === 'Iin') {
+        maxlength = 12;
+        minlength = 12;
+
+        tooltip = <div className="invalid-tooltip">
+            Поле должно быть не меньше {minlength} цифр!
+        </div>
+    }
+    else {
+        maxlength = 32;
+        minlength = 0;
+        tooltip = <div className="invalid-tooltip">
+            Заполните обязательное поле {title}
+        </div>
+    }
+    function isNumberKey(evt)
+    {
+
+        evt.returnValue =  (evt.keyCode !== 46 && evt.keyCode > 31 && (evt.keyCode < 48 || evt.keyCode > 57));
+        if (evt.returnValue) evt.preventDefault();
+    }
+
+
+    input = <div key={name} className={className}>
+        <div className={'position-relative'}>
+            <label className={''} htmlFor="">{title}{span}</label>
+            <input type="text" name={name} required={req} onKeyDown={isNumberKey.bind(this)}  placeholder={placeholder} className={'user-surname '+reqClass} defaultValue={value}
+                   maxLength={maxlength}
+            minLength={minlength}/>
+            {tooltip}
+        </div>
+
+    </div>
+    return(input)
+}
+export function inputField(title, name, className = null, value = null, placeholder = '', span = null){
+    let input = '';
+    let req =  span !== null
+    let reqClass =  span !== null ? 'form-control ' : '';
+
         input = <div key={name} className={className}>
                  <div className={'position-relative'}>
                     <label className={''} htmlFor="">{title}{span}</label>
-                    <input type="text" name={name} required={req} placeholder={placeholder} className={'user-surname '+reqClass} defaultValue={value} maxLength={32}/>
-                        <div className="invalid-tooltip">
-                            Заполните обязательное поле {title}
-                        </div>
+                    <input type="text" name={name}  required={req} placeholder={placeholder}  className={'user-surname '+reqClass} defaultValue={value}
+
+                           maxLength = {33}/>
+                     <div className="invalid-tooltip">
+                         Заполните обязательное поле {title}
+                     </div>
                     </div>
 
 
                 </div>
     return(input)
 }
+export function inputFieldEmail(title, name, className = null, value = null, placeholder = '', span = null){
+    let input = '';
+    let req =  span !== null
+    let reqClass =  span !== null ? 'form-control ' : ''
+
+    input = <div key={name} className={className}>
+        <div className={'position-relative'}>
+            <label className={''} htmlFor="">{title}{span}</label>
+            <input type="email" name={name} required={req} placeholder={placeholder} className={'user-surname '+reqClass} defaultValue={value} maxLength={32}/>
+            <div className="invalid-tooltip">
+                Заполните обязательное поле {title}
+            </div>
+        </div>
+
+
+    </div>
+    return(input)
+}
+
+
 export function dataPiker(title, name, className = 'col-lg-4',span = null) {
+
+    let tooltip = span !== null ?  <div className="invalid-tooltip">
+                                        Заполните обязательное поле {title}
+                                   </div> : '';
+    let req = span  !== null;
     return(
                 <div key={name} className={className}>
-                    <label htmlFor={""}>{title}{span}</label>
-                    <input type="date" name={name} className={"user-dateofbirth"}/>
+                    <div className={'position-relative'}>
+                        <label htmlFor={""}>{title}{span}</label>
+                        <input type="date"  required={req} name={name} className={"user-dateofbirth"}/>
+                        {tooltip}
+                    </div>
+
                 </div>
         )
 }
@@ -51,14 +162,14 @@ export function label(title, className= 'col-lg-4'){
 }
 export function dropDown( title, name, section, sample = null, className = 'col-lg-4', span = null){
     let sec = [];
-    //
-    // console.log(section +' '+ section.length)
+
     for (let i = 0; i < section.length; i++) {
          sec[i] =  <option  value={i+1} key={i}>{section[i]}</option>;
     }
+
     return  <div key={name} className={className}>
                     {title !== '' ? <label htmlFor="" >{title}{span}</label> : ""}
-                    <select name={name}  className={"col-lg-0 selectpicker user-gender"}>
+                    <select name={name}   className={"col-lg-0 selectpicker user-gender"}>
                         {sec}
                     </select>
                     {sample}
@@ -117,7 +228,7 @@ export function Check(props) {
     return  <div  className="">
         {/*<div  className={'col-lg-12'} >*/}
             <div className={'position-relative'}>
-                <input className={'form-check-input p-0'} value={props.title}  type="checkbox"  style={divStyle} name={props.name+'[]'} onChange={props.it.handleClick.bind(this)} id={props.id}  />
+                <input className={'form-check-input p-0'}   type="checkbox"  style={divStyle} name={props.name+'[]'} onChange={props.it.handleClick.bind(this)} id={props.id}  />
                 {props.metka}
                 {/*<div className="invalid-feedback">Example invalid select feedback</div>*/}
             </div>
@@ -130,18 +241,33 @@ export class CheckBox extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            option1: false,
-            option2: false,
-            option3: false,
+            allcheck:null
         }
     }
-
+    allArr;
     handleClick(i){
+        let radioElements = i['target'].parentElement.parentElement.parentElement.parentElement;
+        let countAllCheck = radioElements.childElementCount;
+
+
+        for (let j = 1; j < countAllCheck; j++) {
+            for (let k = 0; k < radioElements.children[j].childElementCount; k++) {
+                // console.log(radioElements.children[j].children[k].children[0].children[0].id.split('_')[0]);
+                if(radioElements.children[j].children[k].children[0].children[0].id.split('_')[0] !== '')
+                  radioElements.children[j].children[k].children[0].children[0].value = radioElements.children[j].children[k].children[0].children[0].id.split('_')[0];
+                else  radioElements.children[j].children[k].children[0].children[0].value = 'def';
+
+            }
+            // radioElements.children[j].children[0].children[0].value = radioElements.children[j].children[0].children[0].id.split('_')[0];
+        }
         // console.log(i['target'].id);
     }
      click(it){
          // console.log(it['target'].parentElement.children[0]);
         it['target'].parentElement.children[0].checked = true;
+    }
+    onChangeOtherInput(it){
+        it['target'].parentElement.children[0].value = it['target'].value;
     }
     howMany(){
         let all = [];
@@ -154,8 +280,8 @@ export class CheckBox extends React.Component{
                 if(this.props.input) {
                     if (this.props.checkBoxTitle.length - 1 === i)
                         chekbox[i] = <Check
-                                            metka = {<input type="text"  placeholder="Другие" name={this.props.name+'[]'}  htmlFor={this.props.checkBoxTitle[i] + '_' + i}
-                                                     className="mbareasons_another_input col-8 ms-1" onClick={this.click.bind(this)} maxLength="64"/>}
+                                            metka = {<input id={'checkBoxReasonsForChoosingMBA_other'} type="text"  placeholder="Другие" name={this.props.name+'[]'}  htmlFor={this.props.checkBoxTitle[i] + '_' + i}
+                                                     className="mbareasons_another_input col-8 ms-1" onChange={this.onChangeOtherInput.bind(this)} onClick={this.click.bind(this)} maxLength="64"/>}
                                             name={this.props.name}
                                             it={this}
                                             id={this.props.checkBoxTitle[i] + '_' + i}
@@ -193,11 +319,12 @@ export class CheckBox extends React.Component{
                          {chekbox}
                       </div>;
         }
-
+        this.allArr = all;
         return  all
     }
 
     render(){
+        //
         return(
             <div className={'row '}>
                   <label  htmlFor="">{this.props.title} {this.props.span}</label>
@@ -215,15 +342,13 @@ export function Radio(props) {
 
     };
     return  <div  className="form-check">
-
-            <div className={'position-relative'}>
-                <input  className="form-check-input p-0" required={false} type="radio" value={props.title} style={divStyle} name={props.name} onChange={props.it.handleClick.bind(this)} id={props.id}  />
-                <label  className="form-check-label col-lg-11 ms-1" htmlFor={props.id} >{props.title}</label>
-                {props.popUpElement}
-                 <div className="invalid-feedback">More example invalid feedback text</div>
+                    <div className={'position-relative'}>
+                        <input  className="form-check-input p-0" required={true}  type="radio"  style={divStyle} name={props.name} onChange={props.it.handleClick.bind(this)} id={props.id}  />
+                        <label  className="form-check-label col-lg-11 ms-1" htmlFor={props.id} >{props.title}</label>
+                        {props.popUpElement}
+                         <div className="invalid-feedback">Выберите один из пункта</div>
+                    </div>
             </div>
-
-    </div>
 }
 
 export class RadioB extends React.Component{
@@ -236,6 +361,10 @@ export class RadioB extends React.Component{
     handleClick(i){
         let countAll = i['target'].parentElement.parentElement.parentElement.childElementCount;
         let  radioElements = i['target'].parentElement.parentElement.parentElement;
+        for (let j = 0; j < countAll; j++) {
+            // console.log(radioElements.children[j].children[0].children[0].name);
+           radioElements.children[j].children[0].children[0].value = radioElements.children[j].children[0].children[0].id;
+        }
 
         for (let j = 0; j < countAll; j++) {
             if(radioElements.children[j].children[0].childElementCount > 2){
@@ -319,40 +448,27 @@ export function Star(props) {
         width:'1em',
         height:'1em'
     };
+
+        let allStarArr = [];
+    let span = <RequiredSpan id={props.name}/>;
+
+    for (let i = 10; i > 0; i--) {
+            let StarArrinp = [];
+            let StarArrlab = [];
+             StarArrinp.push(
+                                <input onClick={props.it.handleClick.bind(this)}  type="radio" required={true}  key={i} id={props.id+i.toString()} name={props.name} />
+                            )
+             StarArrlab.push(<label key={i+1} htmlFor={props.id+i.toString()} title={"Оценка "+i}/>)
+             allStarArr.push(StarArrinp.concat(StarArrlab)) ;
+            // props.span['props'].id = props.name;
+        }
+    // console.log(span)
+
     return <div className={'col-lg-12  row'}>
-                <label  htmlFor="">{props.title}{props.span} </label>
-
+                <label  htmlFor="">{props.title}{span}  </label>
                 <div className="rating-area col-lg-6">
-                    <input type="radio" id={props.id+"1"} name={props.name} value="10"/>
-                    <label htmlFor={props.id+"1"} title="Оценка «1»"></label>
-
-                    <input type="radio" id={props.id+"2"} name={props.name} value="9"/>
-                    <label htmlFor={props.id+"2"} title="Оценка «2»"></label>
-
-                    <input type="radio" id={props.id+"3"} name={props.name} value="8"/>
-                    <label htmlFor={props.id+"3"} title="Оценка «3»"></label>
-
-                    <input type="radio" id={props.id+"4"} name={props.name} value="7"/>
-                    <label htmlFor={props.id+"4"} title="Оценка «4»"></label>
-
-                    <input type="radio" id={props.id+"5"} name={props.name} value="6"/>
-                    <label htmlFor={props.id+"5"} title="Оценка «5»"></label>
-
-                    <input type="radio" id={props.id+"6"} name={props.name} value="5"/>
-                    <label htmlFor={props.id+"6"} title="Оценка «6»"></label>
-
-                    <input type="radio" id={props.id+"7"} name={props.name} value="4"/>
-                    <label htmlFor={props.id+"7"} title="Оценка «7»"></label>
-
-                    <input type="radio" id={props.id+"8"} name={props.name} value="3"/>
-                    <label htmlFor={props.id+"8"} title="Оценка «8»"></label>
-
-                    <input type="radio" id={props.id+"9"} name={props.name} value="2"/>
-                    <label htmlFor={props.id+"9"} title="Оценка «9»"></label>
-
-                    <input type="radio" id={props.id+"10"} name={props.name} value="1"/>
-                    <label htmlFor={props.id+"10"} title="Оценка «10»"></label>
-
+                    {allStarArr}
+                    <div className="invalid-feedback">поставьте оценку</div>
                 </div>
           </div>
 
@@ -369,7 +485,15 @@ export class StarFabric extends React.Component{
     }
 
     handleClick(i){
-        console.log(i['target'].id);
+        // console.log(i['target'].parentElement);
+        let StarCount = i['target'].parentElement.childElementCount;
+        let  radioElements = i['target'].parentElement;
+        let value = 1;
+        for (let j = 0; j < StarCount; j+=2) {
+            // console.log(radioElements.children[j].name);
+            radioElements.children[j].value = value;
+            value++;
+        }
     }
 
     howMany(){
@@ -380,7 +504,7 @@ export class StarFabric extends React.Component{
         for (let j = 0; j < column; j++){
             let star = [];
             for (let i = start; i < end; i++) {
-                star[i] = <Star name={this.props.name[i]} it={this} id={this.props.titleForStar[i]+'_'+i} title={this.props.titleForStar[i]} key={i} span={this.props.span}/>
+                star[i] = <Star name={this.props.name[i]} it={this} id={this.props.titleForStar[i]} title={this.props.titleForStar[i]} key={i} />
             }
             start = end;
             if(this.props.count-end >= Math.ceil(this.props.count/column)) end += Math.ceil(this.props.count/column);
@@ -458,7 +582,7 @@ export class FilePicker extends React.Component{
                 })
                  this.picker.files = dt1.files;
                  let files_ = this.picker.files;
-                 console.log(    files_);
+                 // console.log(    files_);
 
             if (! files_.length) {
                 this.setState( files_,  <p>No files selected!</p>);
@@ -486,10 +610,10 @@ export class FilePicker extends React.Component{
         };
         return (
             <div className={'mt-5'}>
-                <label htmlFor="" className="title ">{this.props.uploadLabel}</label>
+                <label htmlFor="" className="title ">{this.props.uploadLabel} {this.props.span}</label>
                 <hr className={'mt-0'}/>
 
-                <input type={"file"} multiple aria-label="file example" required={false} name={this.props.name+'[]'} className="form-control" id="exampleFormControlFile1" onChange={this.handleFiles.bind(this)}/>
+                <input type={"file"} multiple aria-label="file example" required={true} name={this.props.name} className="form-control" id="exampleFormControlFile1" onChange={this.handleFiles.bind(this)}/>
                 <div className="invalid-feedback">Загрузите файлы</div>
                 <div id={"fileList"}>
                     {this.state.files}
