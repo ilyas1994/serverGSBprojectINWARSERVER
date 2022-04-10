@@ -79,7 +79,7 @@ Route::get('/quiz', function () {
 Route::post('/resetpassword', [ResetPasswordController::class, 'index'])->name('reset_pass');
 
 
-// Quiz - Send Reuslt
+// Quiz - User Send Reuslt
 Route::get('/sendResult', [QuizResult::class, 'index'])->name('quiz_res');
 
 // CRUD
@@ -89,17 +89,13 @@ Route::resource('/crud', QuizCrud::class );
 Route::get('/dropdown{id}', [SwitchStateDropDownController::class, 'index'])->name('dropdownState');
 
 Route::get('/asd', function (){
-   return view('test,blade');
+    $pass = 'asdasdasd';
+    $tok = \Illuminate\Support\Facades\Hash::make($pass);
+    return $tok;
+
 });
 
 Route::get('/test', [\App\Http\Controllers\Test\TestController::class, 'index'])->name('test');
 
 // Switch Country
 Route::get('/switchcountry', [SwitchCountryController::class, 'index'])->name('switchCountry');
-
-Route::get('asd', function () {
-    $asd = 'asdasdasd';
-    $gg = Hash::make($asd);
-    return $gg;
-//   return view('welcome');
-});
