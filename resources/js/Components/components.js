@@ -111,15 +111,14 @@ export function inputFieldOnlyNumber(title, name, className = null, value = null
 
 
     input = <div key={name} className={className}>
-        <div className={'position-relative'}>
-            <label className={''} htmlFor="">{title}{span}</label>
-            <input type="text" name={name} required={req} onKeyDown={isNumberKey.bind(this)}  placeholder={placeholder} className={'user-surname '+reqClass} defaultValue={value}
-                   maxLength={maxlength}
-            minLength={minlength}/>
-            {tooltip}
-        </div>
-
-    </div>
+                <div className={'position-relative'}>
+                    <label className={''} htmlFor="">{title}{span}</label>
+                    <input type="text" name={name} required={req} onKeyDown={isNumberKey.bind(this)}  placeholder={placeholder} className={'user-surname '+reqClass} defaultValue={value}
+                           maxLength={maxlength}
+                    minLength={minlength}/>
+                    {tooltip}
+                </div>
+            </div>
     return(input)
 }
 export function inputField(title, name, className = null, value = null, placeholder = '', span = null){
@@ -146,17 +145,23 @@ export function inputFieldEmail(title, name, className = null, value = null, pla
     let input = '';
     let req =  span !== null
     let reqClass =  span !== null ? 'form-control ' : ''
+    function onKeydown(evt) {
+        if(evt.key === '@'){
+            evt.preventDefault();
+        }
+    }
 
-    input = <div key={name} className={className}>
-        <div className={'position-relative'}>
+    input = <div key={5} className={className}>
+        <div  className={'position-relative'}>
             <label className={''} htmlFor="">{title}{span}</label>
-            <input type="email" name={name} required={req} placeholder={placeholder} className={'user-surname '+reqClass} defaultValue={value} maxLength={32}/>
-            <div className="invalid-tooltip">
-                Заполните обязательное поле {title}
+            <div  className={'d-flex position-relative'} >
+                <input type="text" name={name} required={req} placeholder={placeholder} onKeyDown={onKeydown.bind(this)} className={'user-surname '+reqClass} defaultValue={value} maxLength={32}/>
+                {dropDown( '', 'mail[]', ['@mail.ru','@gmail.com','@inbox.ru','@list.ru','@bk.ru','@yandex.ru','@yahoo.com','@hotmail.com','@outlook.com'],null,'col-lg-5')}
+                <div  className="invalid-tooltip">
+                    Заполните обязательное поле {title}
+                </div>
             </div>
         </div>
-
-
     </div>
     return(input)
 }
