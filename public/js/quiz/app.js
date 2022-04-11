@@ -1193,6 +1193,7 @@ var SelectQuiz = /*#__PURE__*/function (_React$Component) {
 
         case '1':
           {
+            typeTest = 1;
             var _i = 0;
 
             for (var _i2 = 0, _Object$values = Object.values(result[0]); _i2 < _Object$values.length; _i2++) {
@@ -1203,8 +1204,7 @@ var SelectQuiz = /*#__PURE__*/function (_React$Component) {
                     key = _Object$entries$_i[0],
                     valio = _Object$entries$_i[1];
 
-                if (key.length === 1) typeTest = key;
-                console.log(key);
+                console.log(key + ":" + key.length);
                 console.log(valio); // radio.push(<div className={'col-lg-10'}>{key}</div>);
 
                 var title = [];
@@ -1229,7 +1229,7 @@ var SelectQuiz = /*#__PURE__*/function (_React$Component) {
                         id: key
                       })
                     }, _i)
-                  }, _i));
+                  }, '1_' + _i));
                 } else {
                   radio.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
                     className: 'my-3',
@@ -1241,16 +1241,19 @@ var SelectQuiz = /*#__PURE__*/function (_React$Component) {
                       title: key,
                       checkBoxTitle: title
                     })
-                  }, _i));
+                  }, '1_' + _i));
                 }
 
                 _i++;
               }
             }
+
+            break;
           }
 
         case '2':
           {
+            typeTest = 2;
             var _i4 = 0;
 
             for (var _i5 = 0, _Object$values2 = Object.values(result[1]); _i5 < _Object$values2.length; _i5++) {
@@ -1261,7 +1264,6 @@ var SelectQuiz = /*#__PURE__*/function (_React$Component) {
                     _key2 = _Object$entries2$_i[0],
                     _valio = _Object$entries2$_i[1];
 
-                if (_key2.length === 1) typeTest = _key2;
                 console.log(_key2);
                 console.log(_valio); // radio.push(<div className={'col-lg-10'}>{key}</div>);
 
@@ -1288,7 +1290,7 @@ var SelectQuiz = /*#__PURE__*/function (_React$Component) {
                         id: _key2
                       })
                     }, _i4)
-                  }, _i4));
+                  }, '2_' + _i4));
                 } else {
                   radio.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
                     className: 'my-3',
@@ -1300,7 +1302,7 @@ var SelectQuiz = /*#__PURE__*/function (_React$Component) {
                       title: _key2,
                       checkBoxTitle: _title
                     })
-                  }, _i4));
+                  }, '2_' + _i4));
                 }
 
                 _i4++;
@@ -1312,6 +1314,62 @@ var SelectQuiz = /*#__PURE__*/function (_React$Component) {
 
         case '3':
           {
+            typeTest = 3;
+            var _i7 = 0;
+
+            for (var _i8 = 0, _Object$values3 = Object.values(result[2]); _i8 < _Object$values3.length; _i8++) {
+              var _key3 = _Object$values3[_i8];
+
+              for (var _i9 = 0, _Object$entries3 = Object.entries(_key3); _i9 < _Object$entries3.length; _i9++) {
+                var _Object$entries3$_i = _slicedToArray(_Object$entries3[_i9], 2),
+                    _key4 = _Object$entries3$_i[0],
+                    _valio2 = _Object$entries3$_i[1];
+
+                console.log(_key4);
+                console.log(_valio2); // radio.push(<div className={'col-lg-10'}>{key}</div>);
+
+                var _title2 = [];
+
+                for (var _j2 = 0; _j2 < _valio2.length; _j2++) {
+                  console.log(_valio2[_j2]);
+
+                  _title2.push(_valio2[_j2]);
+                }
+
+                if (_i7 < 30) {
+                  radio.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: 'my-3',
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RadioB, {
+                      classN: 'col-lg-12',
+                      name: _i7 + '_[]',
+                      column: 1,
+                      count: _title2.length,
+                      title: _key4,
+                      checkBoxTitle: _title2,
+                      identifier: _i7,
+                      span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
+                        id: _key4
+                      })
+                    }, _i7)
+                  }, '3_' + _i7));
+                } else {
+                  radio.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: 'my-3',
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.CheckBox, {
+                      identifier: _i7,
+                      name: _i7 + "_",
+                      column: 1,
+                      count: _title2.length,
+                      title: _key4,
+                      checkBoxTitle: _title2
+                    })
+                  }, '3_' + _i7));
+                }
+
+                _i7++;
+              }
+            }
+
             break;
           }
       }
@@ -1322,8 +1380,16 @@ var SelectQuiz = /*#__PURE__*/function (_React$Component) {
           onClick: this.handleClick
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("form", {
           action: testRoutes,
-          method: 'GET',
-          children: [radio, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+          method: 'POST',
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+            type: "hidden",
+            name: "_token",
+            defaultValue: csrf
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+            type: "hidden",
+            name: "typeTest",
+            defaultValue: typeTest
+          }), radio, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
             type: "text",
             hidden: true,
             defaultValue: typeTest
