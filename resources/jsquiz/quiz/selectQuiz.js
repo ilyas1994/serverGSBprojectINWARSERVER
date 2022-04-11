@@ -24,6 +24,8 @@ export class SelectQuiz extends React.Component{
     render() {
          let typeTest = '';
         let radio = [];
+        let result = Object.keys(questions).map((key) => [Number(key), questions[key]]);
+
         switch (this.state.quizSel){
             case '-1':{
                 let quiz_Type = [];
@@ -42,7 +44,7 @@ export class SelectQuiz extends React.Component{
             }
             case '1':{
 
-                var result = Object.keys(questions).map((key) => [Number(key), questions[key]]);
+
 
                     let i = 0;
                     for (const key1 of Object.values(result[0])) {
@@ -83,6 +85,44 @@ export class SelectQuiz extends React.Component{
                     }
             }
             case '2':{
+
+                let i = 0;
+                for (const key1 of Object.values(result[1])) {
+                    for (const [key,valio] of Object.entries(key1)) {
+                        if(key.length === 1)  typeTest = key
+
+                        console.log(key)
+                        console.log(valio)
+                        // radio.push(<div className={'col-lg-10'}>{key}</div>);
+                        let title = []
+                        for (let j = 0; j < valio.length; j++) {
+                            console.log(valio[j])
+                            title.push(valio[j])
+                        }
+                        if(i < 30){
+                            radio.push(<div className={'my-3'}    key={i}>
+                                <RadioB
+                                    classN={'col-lg-12'} name={i+'_[]'} column={1}
+                                    count={title.length} title={key}
+                                    checkBoxTitle={title} key={i}
+                                    identifier={i}
+                                    span={<RequiredSpan id={key}/>}/>
+                            </div>);
+                        }else{
+                            radio.push(<div className={'my-3'}    key={i}>
+                                <CheckBox
+                                    identifier ={i}
+                                    name = {i+"_"}
+                                    column={1}
+                                    count={title.length}
+                                    title={key}
+                                    checkBoxTitle={title}
+                                />
+                            </div>);
+                        }
+                        i++;
+                    }
+                }
                 break;
             }
             case '3':{
