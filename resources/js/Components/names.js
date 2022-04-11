@@ -97,14 +97,13 @@ export function getNames(nameIndex = 0) {
         'checkBoxSourceOfFinancing',
         'checkBoxMBAProgram',
         'scanFileDocument',
-        'scanFileCertificateFromWork',
         'resumeFile',
+        'foto3x4',
         'fileScanDiplomWithApplication',
-        'scanCertificate',
+        'scanFileCertificateFromWork',
+        'medicalDoc',
         'fileEsse',
         'copyPassport',
-        'foto3x4',
-        'medicalDoc',
         'recomentedLetter'
     ];
     N[0] = names1;

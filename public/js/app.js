@@ -5415,6 +5415,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "Check": () => (/* binding */ Check),
 /* harmony export */   "CheckBox": () => (/* binding */ CheckBox),
 /* harmony export */   "FilePicker": () => (/* binding */ FilePicker),
+/* harmony export */   "MBAPropgramRadio": () => (/* binding */ MBAPropgramRadio),
 /* harmony export */   "OtherLanguageButton": () => (/* binding */ OtherLanguageButton),
 /* harmony export */   "Radio": () => (/* binding */ Radio),
 /* harmony export */   "RadioB": () => (/* binding */ RadioB),
@@ -6065,6 +6066,99 @@ var RadioB = /*#__PURE__*/function (_React$Component3) {
 
   return RadioB;
 }(React.Component);
+var MBAPropgramRadio = /*#__PURE__*/function (_React$Component4) {
+  _inherits(MBAPropgramRadio, _React$Component4);
+
+  var _super4 = _createSuper(MBAPropgramRadio);
+
+  function MBAPropgramRadio(props) {
+    _classCallCheck(this, MBAPropgramRadio);
+
+    return _super4.call(this, props);
+  }
+
+  _createClass(MBAPropgramRadio, [{
+    key: "handleClick",
+    value: function handleClick(i) {
+      var countAll = i['target'].parentElement.parentElement.parentElement.childElementCount;
+      var radioElements = i['target'].parentElement.parentElement.parentElement;
+
+      for (var j = 0; j < countAll; j++) {
+        // console.log(radioElements.children[j].children[0].children[0].name);
+        radioElements.children[j].children[0].children[0].value = radioElements.children[j].children[0].children[0].id;
+      }
+
+      for (var _j2 = 0; _j2 < countAll; _j2++) {
+        if (radioElements.children[_j2].children[0].childElementCount > 2) {
+          // console.log(radioElements.children[j].children[0].children[2].className+" off");
+          radioElements.children[_j2].children[0].children[2].hidden = true;
+        }
+      }
+
+      if (i['target'].parentElement.childElementCount > 2) {
+        // console.log(  i['target'].parentElement.children[2].className+" on");
+        i['target'].parentElement.children[2].hidden = false;
+      }
+    }
+  }, {
+    key: "howMany",
+    value: function howMany() {
+      var all = [];
+      var column = this.props.column;
+      var start = 0;
+      var end = Math.ceil(this.props.count / column);
+
+      for (var j = 0; j < column; j++) {
+        var chekbox = [];
+
+        for (var i = start; i < end; i++) {
+          if (this.props.input) {
+            // if(this.props.popupIndex.includes(i)) {
+            chekbox[i] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(Radio, {
+              popUpElement: this.props.popUpElement[i],
+              popupArray: this.props.popupIndex,
+              name: this.props.name,
+              it: this,
+              id: this.props.checkBoxTitle[i],
+              title: this.props.checkBoxTitle[i]
+            }, i); // }else{
+            //     chekbox[i] = <Radio
+            //         popupArray={this.props.popupIndex}
+            //         name={this.props.name}
+            //         it={this}
+            //         id={this.props.checkBoxTitle[i]}
+            //         title={this.props.checkBoxTitle[i]}
+            //         key={i}
+            //     />
+            // }
+          }
+        }
+
+        start = end;
+        if (this.props.count - end >= Math.ceil(this.props.count / column)) end += Math.ceil(this.props.count / column);else end = this.props.count;
+        all[j] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+          className: this.props.classN,
+          children: chekbox
+        }, j);
+      }
+
+      return all;
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+        className: 'row',
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("label", {
+          htmlFor: "",
+          children: [this.props.title, " ", this.props.span]
+        }), this.howMany()]
+      });
+    }
+  }]);
+
+  return MBAPropgramRadio;
+}(React.Component);
 function Star(props) {
   var divStyle = {
     marginLeft: '0px',
@@ -6109,17 +6203,17 @@ function Star(props) {
     })]
   });
 }
-var StarFabric = /*#__PURE__*/function (_React$Component4) {
-  _inherits(StarFabric, _React$Component4);
+var StarFabric = /*#__PURE__*/function (_React$Component5) {
+  _inherits(StarFabric, _React$Component5);
 
-  var _super4 = _createSuper(StarFabric);
+  var _super5 = _createSuper(StarFabric);
 
   function StarFabric(props) {
     var _this3;
 
     _classCallCheck(this, StarFabric);
 
-    _this3 = _super4.call(this, props);
+    _this3 = _super5.call(this, props);
     _this3.state = {
       option1: false,
       option2: false,
@@ -6191,17 +6285,17 @@ var StarFabric = /*#__PURE__*/function (_React$Component4) {
 
   return StarFabric;
 }(React.Component);
-var FilePicker = /*#__PURE__*/function (_React$Component5) {
-  _inherits(FilePicker, _React$Component5);
+var FilePicker = /*#__PURE__*/function (_React$Component6) {
+  _inherits(FilePicker, _React$Component6);
 
-  var _super5 = _createSuper(FilePicker);
+  var _super6 = _createSuper(FilePicker);
 
   function FilePicker(props) {
     var _this4;
 
     _classCallCheck(this, FilePicker);
 
-    _this4 = _super5.call(this, props);
+    _this4 = _super6.call(this, props);
 
     _defineProperty(_assertThisInitialized(_this4), "ul", void 0);
 
@@ -6396,12 +6490,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tabs1__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./tabs1 */ "./resources/js/Components/tabs1.js");
 /* harmony import */ var _tabs2__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./tabs2 */ "./resources/js/Components/tabs2.js");
 /* harmony import */ var _tabs3__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./tabs3 */ "./resources/js/Components/tabs3.js");
-/* harmony import */ var _window__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./window */ "./resources/js/Components/window.js");
-/* harmony import */ var _names__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./names */ "./resources/js/Components/names.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
 
 
 
@@ -6409,7 +6497,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Index() {
-  var allTabs = [(0,_tabs1__WEBPACK_IMPORTED_MODULE_2__.tabs_1)((0,_names__WEBPACK_IMPORTED_MODULE_6__.getNames)(1)), (0,_tabs2__WEBPACK_IMPORTED_MODULE_3__.tabs_2)((0,_names__WEBPACK_IMPORTED_MODULE_6__.getNames)(2)), (0,_tabs3__WEBPACK_IMPORTED_MODULE_4__.tabs_3)((0,_names__WEBPACK_IMPORTED_MODULE_6__.getNames)(3))];
+  var allTabs = [(0,_tabs1__WEBPACK_IMPORTED_MODULE_2__.tabs_1)(), (0,_tabs2__WEBPACK_IMPORTED_MODULE_3__.tabs_2)(), (0,_tabs3__WEBPACK_IMPORTED_MODULE_4__.tabs_3)()];
   var contents = [];
   var tabID = ['tabs-1', 'tabs-2', 'tabs-3'];
 
@@ -6417,7 +6505,6 @@ function Index() {
     contents[i] = i === 0 ? (0,_Tab__WEBPACK_IMPORTED_MODULE_1__.Tab)(tabID[i], allTabs[i], 'active', 'tab' + i) : (0,_Tab__WEBPACK_IMPORTED_MODULE_1__.Tab)(tabID[i], allTabs[i], '', 'tab' + i);
   }
 
-  contents[allTabs.length + 1] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_window__WEBPACK_IMPORTED_MODULE_5__.DocWindow, {}, '0');
   return contents;
 }
 
@@ -6444,7 +6531,7 @@ function getNames() {
   var names2 = ['positionAtWord', 'nameOfTheCompany', 'legalAdress', 'firstWorkExperience', 'upravlencheskiy_stazh', 'jobType', 'fieldOfActivity', 'availabilityOfBusinessTrips', 'availabilityOfBusinessTripsInputYes', 'availabilityOfBusinessTripsInputDuration'];
   var stars;
   var bankRequisites;
-  var names3 = ['startEducation', 'endEducation', 'qualification', 'fullNameUniversity', 'speciality', 'languageEducation', 'checkSecondDegree', 'checkMasterDegree', 'checkLanguageKazakh', 'checkLanguageEnglish', 'checkLanguageFrench', 'checkLanguageGerman', 'checkLanguageChinese', 'checkOtherLanguages', 'englishProficiencyCertificates', 'certificateIssueDate', 'hobby', 'achievements', 'reasonForLearning', 'suite', 'otherSuite', 'socialNetwork', 'PageInFacebook', 'PageInInstagram', 'PageInTwitter', 'checkBoxAboutMBA', 'checkBoxReasonsForChoosingMBA', 'otherReason', stars = ['starsTheQualityOfEducation', 'starsLargeSelectionOfPrograms', 'starsLocationSchool', 'starsDiscounts', 'starsDurationEducation', 'starsСostOfEducation', 'starsReputationMBA', 'starsPartPayment', 'starsFormOfEducation', 'starsCompositionOfTeachers'], 'otherСharacteristics', bankRequisites = ['requisites', 'bin', 'reqYurAdress', 'bank', 'reqEmail', 'fioSupervisor', 'reqName', 'rnn', 'telFax', 'iik', 'reqSuite', 'reqPositionHead'], 'checkBoxSourceOfFinancing', 'checkBoxMBAProgram', 'scanFileDocument', 'scanFileCertificateFromWork', 'resumeFile', 'fileScanDiplomWithApplication', 'scanCertificate', 'fileEsse', 'copyPassport', 'foto3x4', 'medicalDoc', 'recomentedLetter'];
+  var names3 = ['startEducation', 'endEducation', 'qualification', 'fullNameUniversity', 'speciality', 'languageEducation', 'checkSecondDegree', 'checkMasterDegree', 'checkLanguageKazakh', 'checkLanguageEnglish', 'checkLanguageFrench', 'checkLanguageGerman', 'checkLanguageChinese', 'checkOtherLanguages', 'englishProficiencyCertificates', 'certificateIssueDate', 'hobby', 'achievements', 'reasonForLearning', 'suite', 'otherSuite', 'socialNetwork', 'PageInFacebook', 'PageInInstagram', 'PageInTwitter', 'checkBoxAboutMBA', 'checkBoxReasonsForChoosingMBA', 'otherReason', stars = ['starsTheQualityOfEducation', 'starsLargeSelectionOfPrograms', 'starsLocationSchool', 'starsDiscounts', 'starsDurationEducation', 'starsСostOfEducation', 'starsReputationMBA', 'starsPartPayment', 'starsFormOfEducation', 'starsCompositionOfTeachers'], 'otherСharacteristics', bankRequisites = ['requisites', 'bin', 'reqYurAdress', 'bank', 'reqEmail', 'fioSupervisor', 'reqName', 'rnn', 'telFax', 'iik', 'reqSuite', 'reqPositionHead'], 'checkBoxSourceOfFinancing', 'checkBoxMBAProgram', 'scanFileDocument', 'resumeFile', 'foto3x4', 'fileScanDiplomWithApplication', 'scanFileCertificateFromWork', 'medicalDoc', 'fileEsse', 'copyPassport', 'recomentedLetter'];
   N[0] = names1;
   N[1] = names2;
   N[2] = names3;
@@ -7439,171 +7526,119 @@ function tabs_3(names) {
   }, count); // ------------------------------------------------------------------------------------------
 
   input = [];
-  title = ['Выберите программу МВА'];
-  titleForCheckBox = ['General MBA - Казахстанская программа MBA', 'Казахстанская модульно-дистанционная программа', 'xecutive MBA Двудипломная программа с Высшей Школой Менеджмента Санкт-Петербургского Государственного Университета (Россия)', 'МВА Финансовый инжиниринг', 'МВА Менеджмент в здравоохранении', 'МВА Менеджмент в социальной сфере(г. Нур-Султан)', 'МВА (г. Ташкент)', 'МВА (г. Душанбе)'];
-  var underMBAprogram = [[]]; // titleForCheckBox = [];
-  // for (const key of Object.keys(MBAprogram)) {
-  //     titleForCheckBox.push(key);
-  //     for (let i = 0; i < MBAprogram[key].length; i++) {
-  //         // console.log(key +':'+MBAprogram[key][i]);
-  //         underMBAprogram[key].push(<label className="radio source_label_">
-  //                                 <input type="radio" name={names[count]} defaultChecked={true} value="General MBA - Казахстанская программа MBA -> вечерняя программа в г. Алматы"/>
-  //                                 <span>вечерняя программа в г. Алматы</span>
-  //                              </label>);
-  //     }
-  //     // titleForCheckBox.push(`${key}`);
-  // }
+  title = ['Выберите программу МВА']; // titleForCheckBox = ['General MBA - Казахстанская программа MBA',
+  //                     'Казахстанская модульно-дистанционная программа',
+  //                     'xecutive MBA Двудипломная программа с Высшей Школой Менеджмента Санкт-Петербургского Государственного Университета (Россия)',
+  //                     'МВА Финансовый инжиниринг',
+  //                     'МВА Менеджмент в здравоохранении',
+  //                     'МВА Менеджмент в социальной сфере(г. Нур-Султан)',
+  //                     'МВА (г. Ташкент)',
+  //                     'МВА (г. Душанбе)'
+  //                     ];
 
-  var one = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-    className: "label_in_ ms-5",
-    id: "label_in_1_",
-    hidden: true,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
-      className: "radio source_label_",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
-        type: "radio",
-        name: names[count],
-        defaultChecked: true,
-        value: "General MBA - \u041A\u0430\u0437\u0430\u0445\u0441\u0442\u0430\u043D\u0441\u043A\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 MBA -> \u0432\u0435\u0447\u0435\u0440\u043D\u044F\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-        children: "\u0432\u0435\u0447\u0435\u0440\u043D\u044F\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
-      className: "radio source_label_",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
-        type: "radio",
-        name: names[count],
-        value: "General MBA - \u041A\u0430\u0437\u0430\u0445\u0441\u0442\u0430\u043D\u0441\u043A\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 MBA -> \u043C\u043E\u0434\u0443\u043B\u044C\u043D\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-        children: "\u043C\u043E\u0434\u0443\u043B\u044C\u043D\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
-      className: "radio source_label_",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
-        type: "radio",
-        name: names[count],
-        value: "General MBA - \u041A\u0430\u0437\u0430\u0445\u0441\u0442\u0430\u043D\u0441\u043A\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 MBA -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433. \u041D\u0443\u0440-\u0421\u0443\u043B\u0442\u0430\u043D"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u041D\u0443\u0440-\u0421\u0443\u043B\u0442\u0430\u043D"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
-      className: "radio source_label_",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
-        type: "radio",
-        name: names[count],
-        value: "General MBA - \u041A\u0430\u0437\u0430\u0445\u0441\u0442\u0430\u043D\u0441\u043A\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 MBA -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433. \u0410\u0442\u044B\u0440\u0430\u0443"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u0410\u0442\u044B\u0440\u0430\u0443"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
-      className: "radio source_label_",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
-        type: "radio",
-        name: names[count],
-        value: "General MBA - \u041A\u0430\u0437\u0430\u0445\u0441\u0442\u0430\u043D\u0441\u043A\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 MBA -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433.\u0410\u043A\u0442\u0430\u0443"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u0410\u043A\u0442\u0430\u0443"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
-      className: "radio  source_label_",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
-        type: "radio",
-        name: names[count],
-        value: "General MBA - \u041A\u0430\u0437\u0430\u0445\u0441\u0442\u0430\u043D\u0441\u043A\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 MBA -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433.\u0410\u043A\u0442\u043E\u0431\u0435"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433.\u0410\u043A\u0442\u043E\u0431\u0435"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
-      className: "radio source_label_ ",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
-        type: "radio",
-        name: names[count],
-        value: "General MBA - \u041A\u0430\u0437\u0430\u0445\u0441\u0442\u0430\u043D\u0441\u043A\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 MBA -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433.\u041A\u044B\u0437\u044B\u043B\u043E\u0440\u0434\u0430"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433.\u041A\u044B\u0437\u044B\u043B\u043E\u0440\u0434\u0430"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
-      className: "radio source_label_ ",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
-        type: "radio",
-        name: names[count],
-        value: "General MBA - \u041A\u0430\u0437\u0430\u0445\u0441\u0442\u0430\u043D\u0441\u043A\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 MBA -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433.\u0428\u044B\u043C\u043A\u0435\u043D\u0442"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u0428\u044B\u043C\u043A\u0435\u043D\u0442"
-      })]
-    })]
-  });
+  titleForCheckBox = [];
+  popUpElement = [];
 
-  var two = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-    className: "label_in_ ms-5",
-    id: "label_in_2_",
-    hidden: true,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
-      className: "radio source_label_ ",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
-        type: "radio",
-        name: names[count],
-        value: "\u041A\u0430\u0437\u0430\u0445\u0441\u0442\u0430\u043D\u0441\u043A\u0430\u044F \u043C\u043E\u0434\u0443\u043B\u044C\u043D\u043E-\u0434\u0438\u0441\u0442\u0430\u043D\u0446\u0438\u043E\u043D\u043D\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
-      })]
-    })
-  });
+  for (var _i3 = 0, _Object$keys = Object.keys(MBAprogram); _i3 < _Object$keys.length; _i3++) {
+    var key = _Object$keys[_i3];
+    titleForCheckBox.push(key);
+    var popupArr = [];
 
-  var three = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-    className: "label_in_ ms-5",
-    id: "label_in_5_",
-    hidden: true,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
-      className: "radio source_label_",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
-        type: "radio",
-        name: names[count],
-        value: "\u041C\u0412\u0410 \u0424\u0438\u043D\u0430\u043D\u0441\u043E\u0432\u044B\u0439 \u0438\u043D\u0436\u0438\u043D\u0438\u0440\u0438\u043D\u0433 -> \u0432\u0435\u0447\u0435\u0440\u043D\u044F\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-        children: "\u0432\u0435\u0447\u0435\u0440\u043D\u044F\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
-      className: "radio source_label_",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
-        type: "radio",
-        name: names[count],
-        value: "\u041C\u0412\u0410 \u0424\u0438\u043D\u0430\u043D\u0441\u043E\u0432\u044B\u0439 \u0438\u043D\u0436\u0438\u043D\u0438\u0440\u0438\u043D\u0433 -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u041D\u0443\u0440-\u0421\u0443\u043B\u0442\u0430\u043D"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u041D\u0443\u0440-\u0421\u0443\u043B\u0442\u0430\u043D"
-      })]
-    })]
-  });
+    for (var _i4 = 0; _i4 < MBAprogram[key].length; _i4++) {
+      if (MBAprogram[key][_i4] === 'null') break;
+      popupArr.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
+        className: "radio source_label_",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+          type: "radio",
+          name: names[count],
+          defaultChecked: true,
+          value: key + " -> " + MBAprogram[key][_i4]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+          children: MBAprogram[key][_i4]
+        })]
+      }, _i4));
+    }
 
-  var four = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-    className: "label_in_ ms-5",
-    id: "label_in_6_",
-    hidden: true,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
-      className: "radio source_label_",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
-        type: "radio",
-        name: names[count],
-        value: "\u041C\u0412\u0410 \u041C\u0435\u043D\u0435\u0434\u0436\u043C\u0435\u043D\u0442 \u0432 \u0437\u0434\u0440\u0430\u0432\u043E\u043E\u0445\u0440\u0430\u043D\u0435\u043D\u0438\u0438 -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
-      className: "radio source_label_",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
-        type: "radio",
-        name: names[count],
-        value: "\u041C\u0412\u0410 \u041C\u0435\u043D\u0435\u0434\u0436\u043C\u0435\u043D\u0442 \u0432 \u0437\u0434\u0440\u0430\u0432\u043E\u043E\u0445\u0440\u0430\u043D\u0435\u043D\u0438\u0438 -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u041D\u0443\u0440-\u0421\u0443\u043B\u0442\u0430\u043D"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u041D\u0443\u0440-\u0421\u0443\u043B\u0442\u0430\u043D"
-      })]
-    })]
-  });
+    var popup = '';
 
-  popUpElement = [one, two, '', three, four];
-  input[0] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RadioB, {
+    if (popupArr.length > 0) {
+      popup = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        className: "label_in_ ms-5",
+        id: "label_in_1_",
+        hidden: true,
+        children: popupArr
+      });
+    }
+
+    popUpElement.push(popup);
+  } //  let one = <div className="label_in_ ms-5" id="label_in_1_" hidden>
+  //                  <label className="radio source_label_">
+  //                      <input type="radio" name={names[count]} defaultChecked={true} value="General MBA - Казахстанская программа MBA -> вечерняя программа в г. Алматы"/>
+  //                      <span>вечерняя программа в г. Алматы</span>
+  //                  </label>
+  //      <label className="radio source_label_">
+  //          <input type="radio" name={names[count]}   value="General MBA - Казахстанская программа MBA -> модульная программа в г. Алматы"/>
+  //          <span>модульная программа в г. Алматы</span>
+  //      </label>
+  //      <label className="radio source_label_">
+  //          <input type="radio" name={names[count]}   value="General MBA - Казахстанская программа MBA -> обучение программа в г. Нур-Султан"/>
+  //          <span>обучение в г. Нур-Султан</span>
+  //      </label>
+  //      <label className="radio source_label_">
+  //          <input type="radio" name={names[count]} value="General MBA - Казахстанская программа MBA -> обучение программа в г. Атырау"/>
+  //          <span>обучение в г. Атырау</span>
+  //      </label>
+  //      <label className="radio source_label_">
+  //          <input type="radio" name={names[count]} value="General MBA - Казахстанская программа MBA -> обучение программа в г.Актау"/>
+  //          <span>обучение в г. Актау</span>
+  //      </label>
+  //      <label className="radio  source_label_">
+  //          <input type="radio" name={names[count]} value="General MBA - Казахстанская программа MBA -> обучение программа в г.Актобе"/>
+  //          <span>обучение в г.Актобе</span>
+  //      </label>
+  //      <label className="radio source_label_ ">
+  //          <input type="radio" name={names[count]} value="General MBA - Казахстанская программа MBA -> обучение программа в г.Кызылорда"/>
+  //          <span>обучение в г.Кызылорда</span>
+  //      </label>
+  //      <label className="radio source_label_ ">
+  //          <input type="radio" name={names[count]} value="General MBA - Казахстанская программа MBA -> обучение в г.Шымкент"/>
+  //          <span>обучение в г. Шымкент</span>
+  //      </label>
+  //  </div>;
+  //
+  // let two = <div className="label_in_ ms-5" id="label_in_2_" hidden>
+  //     <label className="radio source_label_ ">
+  //         <input type="radio" name={names[count]} value="Казахстанская модульно-дистанционная программа -> обучение в г. Алматы"  />
+  //         <span>обучение в г. Алматы</span>
+  //     </label>
+  // </div>;
+  //
+  // let three = <div className="label_in_ ms-5" id="label_in_5_" hidden>
+  //     <label className="radio source_label_">
+  //         <input type="radio" name={names[count]} value="МВА Финансовый инжиниринг -> вечерняя программа в г. Алматы"   />
+  //         <span>вечерняя программа в г. Алматы</span>
+  //     </label>
+  //     <label className="radio source_label_">
+  //         <input type="radio" name={names[count]} value="МВА Финансовый инжиниринг -> обучение в г. Нур-Султан"/>
+  //         <span>обучение в г. Нур-Султан</span>
+  //     </label>
+  // </div>;
+  //
+  // let four =  <div className="label_in_ ms-5" id="label_in_6_" hidden>
+  //     <label className="radio source_label_">
+  //         <input type="radio" name={names[count]} value="МВА Менеджмент в здравоохранении -> обучение в г. Алматы"  />
+  //         <span>обучение в г. Алматы</span>
+  //     </label>
+  //     <label className="radio source_label_">
+  //         <input type="radio" name={names[count]} value="МВА Менеджмент в здравоохранении -> обучение в г. Нур-Султан"/>
+  //         <span>обучение в г. Нур-Султан</span>
+  //     </label>
+  // </div>
+  // popUpElement = [one, two, '', three, four];
+
+
+  input[0] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.MBAPropgramRadio, {
     input: true,
-    popupIndex: [0, 1, 3, 4],
     popUpElement: popUpElement,
     classN: 'col-lg-12',
     name: 'notname',
@@ -7980,175 +8015,6 @@ var ValidateAndSubmitButton = /*#__PURE__*/function (_React$Component) {
   }]);
 
   return ValidateAndSubmitButton;
-}(React.Component);
-
-/***/ }),
-
-/***/ "./resources/js/Components/window.js":
-/*!*******************************************!*\
-  !*** ./resources/js/Components/window.js ***!
-  \*******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "DocWindow": () => (/* binding */ DocWindow)
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-
-
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var DocWindow = /*#__PURE__*/function (_React$Component) {
-  _inherits(DocWindow, _React$Component);
-
-  var _super = _createSuper(DocWindow);
-
-  function DocWindow(props) {
-    var _this;
-
-    _classCallCheck(this, DocWindow);
-
-    _this = _super.call(this, props);
-
-    _defineProperty(_assertThisInitialized(_this), "body", document.getElementsByTagName('body')[0]);
-
-    _defineProperty(_assertThisInitialized(_this), "state", {
-      hide: false,
-      bodyStyle: {
-        height: '50px',
-        overflowY: 'hidden',
-        paddingRight: '15px'
-      }
-    });
-
-    return _this;
-  }
-
-  _createClass(DocWindow, [{
-    key: "hundleOnClick",
-    value: function hundleOnClick(elem) {
-      this.setState({
-        hide: true
-      });
-      this.setState({
-        bodyStyle: {
-          overflowY: ''
-        }
-      });
-      this.body.style.clear; // elem['target'].parentElement.parentElement.parentElement.parentElement.hidden = this.state.hide;
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-
-      document.body.scrollTop = 0;
-      this.body.style.overflowY = this.state.bodyStyle.overflowY;
-      var styleAbs = {
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        backgroundColor: '#424242a3'
-      };
-      var stPlane = {
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        backgroundColor: 'white'
-      };
-      var p = {
-        marginBottom: '0px'
-      };
-      var h4 = {
-        marginTop: '30px'
-      };
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-        className: 'position-absolute vh-100 w-100',
-        style: styleAbs,
-        hidden: this.state.hide,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-          className: 'col-lg-5 position-relative ',
-          style: stPlane,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-            className: 'p-5',
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-              className: 'py-5',
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h4", {
-                children: "\u041F\u0435\u0440\u0435\u0434 \u0437\u0430\u043F\u043E\u043B\u043D\u0435\u043D\u0438\u0435\u043C \u0444\u043E\u0440\u043C\u044B, \u043F\u0440\u0438\u0433\u043E\u0442\u043E\u0432\u044C\u0442\u0435 \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0438\u0435 \u0441\u043A\u0430\u043D \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B: "
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
-                style: p,
-                children: "- \u0423\u0434\u043E\u0441\u0442\u043E\u0432\u0435\u0440\u0435\u043D\u0438\u0435 \u043B\u0438\u0447\u043D\u043E\u0441\u0442\u0438"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
-                style: p,
-                children: "- \u0420\u0435\u0437\u044E\u043C\u0435"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
-                style: p,
-                children: "- 6 \u0444\u043E\u0442\u043E 3\u04454"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
-                style: p,
-                children: "- \u0414\u0438\u043F\u043B\u043E\u043C\u0430 \u043E \u0432\u044B\u0441\u0448\u0435\u043C \u043E\u0431\u0440\u0430\u0437\u043E\u0432\u0430\u043D\u0438\u0438"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
-                style: p,
-                children: "- \u041F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F \u043A \u0434\u0438\u043F\u043B\u043E\u043C\u0443 \u043E \u0432\u044B\u0441\u0448\u0435\u043C \u043E\u0431\u0440\u0430\u0437\u043E\u0432\u0430\u043D\u0438\u0438"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
-                style: p,
-                children: "- \u0421\u043F\u0440\u0430\u0432\u043A\u0430 \u0441 \u043C\u0435\u0441\u0442\u0430 \u0440\u0430\u0431\u043E\u0442\u044B \u0441 \u0443\u043A\u0430\u0437\u0430\u043D\u0438\u0435\u043C \u0434\u043E\u043B\u0436\u043D\u043E\u0441\u0442\u0438"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
-                style: p,
-                children: "- \u041C\u0435\u0434\u0438\u0446\u0438\u043D\u0441\u043A\u0430\u044F \u0441\u043F\u0440\u0430\u0432\u043A\u0430 (\u0444\u043E\u0440\u043C\u0430 075\u0423)"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h4", {
-                style: h4,
-                children: "\u0414\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0435 \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B \u0434\u043B\u044F EXECUTIVE MBA: "
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
-                style: p,
-                children: "- \u041C\u043E\u0442\u0438\u0432\u0430\u0446\u0438\u043E\u043D\u043D\u043E\u0435 \u044D\u0441\u0441\u0435 \u0432 word"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
-                style: p,
-                children: "- \u041A\u043E\u043F\u0438\u044F \u043F\u0430\u0441\u043F\u043E\u0440\u0442\u0430"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
-                style: p,
-                children: "- 2 \u0440\u0435\u043A\u043E\u043C\u0435\u043D\u0434\u0430\u0442\u0435\u043B\u044C\u043D\u044B\u0445 \u043F\u0438\u0441\u044C\u043C\u0430"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-              className: 'd-flex justify-content-center p-1',
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
-                onClick: this.hundleOnClick.bind(this),
-                className: 'btn btn-success',
-                children: "\u0423 \u043C\u0435\u043D\u044F \u0435\u0441\u0442\u044C \u0441\u043A\u0430\u043D \u0432\u0441\u0435\u0445 \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u043E\u0432"
-              })
-            })]
-          })
-        })
-      });
-    }
-  }]);
-
-  return DocWindow;
 }(React.Component);
 
 /***/ }),

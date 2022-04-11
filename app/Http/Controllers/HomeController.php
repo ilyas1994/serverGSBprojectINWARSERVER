@@ -142,7 +142,7 @@ class HomeController extends Controller
                 $all[$typeTest[$n]->name] = $arrTypeTest;
 
             }
-            dd($all);
+//            dd($all);
                 return view('quiz.quizTest')->with('all', $all);
 
             } else {
