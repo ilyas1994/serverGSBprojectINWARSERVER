@@ -38,15 +38,40 @@ export function dropDownClick( title, name, section, sample = null, className = 
         let iin = document.getElementsByName('Iin');
         switch (e['target'].selectedIndex) {
             case 0:{
+                iin[0].setAttribute('minlength','9');
+                iin[0].setAttribute('maxlength','9');
+                iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 9 цифр!';
+                break;
+            }
+            case 1:{
+                iin[0].setAttribute('minlength','11');
+                iin[0].setAttribute('maxlength','11');
+                iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 11 цифр!';
+                break;
+            }
+
+            case 2:{
                 iin[0].setAttribute('minlength','12');
                 iin[0].setAttribute('maxlength','12');
                 iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 12 цифр!';
                 break;
             }
-            case 1:{
-                iin[0].setAttribute('minlength','9');
-                iin[0].setAttribute('maxlength','9');
-                iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 9 цифр!';
+            case 3:{
+                iin[0].setAttribute('minlength','12');
+                iin[0].setAttribute('maxlength','12');
+                iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 12 цифр!';
+                break;
+            }
+            case 4:{
+                iin[0].setAttribute('minlength','12');
+                iin[0].setAttribute('maxlength','12');
+                iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 12 цифр!';
+                break;
+            }
+            case 5:{
+                iin[0].setAttribute('minlength','12');
+                iin[0].setAttribute('maxlength','12');
+                iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 12 цифр!';
                 break;
             }
         }
@@ -80,8 +105,8 @@ export function inputFieldOnlyNumber(title, name, className = null, value = null
     let maxlength = 0;
     let minlength = 0;
     if(name === 'Iin') {
-        maxlength = 12;
-        minlength = 12;
+        maxlength = 9;
+        minlength = 9;
 
         tooltip = <div className="invalid-tooltip">
             Поле должно быть не меньше {minlength} цифр!
