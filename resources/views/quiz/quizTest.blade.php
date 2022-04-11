@@ -11,8 +11,14 @@
 </head>
 <body>
 
-      @dd($all)
+        @isset($all)
+            @dd($all)
 
+        @endisset
+
+        @isset($no_test)
+            <h3>NO ARRAY</h3>
+        @endisset
 
 </body>
 </html>
