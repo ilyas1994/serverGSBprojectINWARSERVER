@@ -1,4 +1,4 @@
-import {eventListeners} from "@popperjs/core";
+
 
 
 export function RequiredSpan(props) {
@@ -225,15 +225,13 @@ export function Check(props) {
         height:'1em'
     };
     let req =  props.span !== null
-    return  <div  className="">
-        {/*<div  className={'col-lg-12'} >*/}
-            <div className={'position-relative'}>
-                <input className={'form-check-input p-0'}   type="checkbox"  style={divStyle} name={props.name+'[]'} onChange={props.it.handleClick.bind(this)} id={props.id}  />
-                {props.metka}
-                {/*<div className="invalid-feedback">Example invalid select feedback</div>*/}
+    return  <div  className="form-check">
+                    <div className={'position-relative'}>
+                        <input className={'form-check-input p-0'}   type="checkbox"  style={divStyle} name={props.name+'[]'} onChange={props.it.handleClick.bind(this)} id={props.id}  />
+                        {props.metka}
+                        {/*<div className="invalid-feedback">Example invalid select feedback</div>*/}
+                    </div>
             </div>
-        {/*</div>*/}
-    </div>
 }
 
 
@@ -277,29 +275,7 @@ export class CheckBox extends React.Component{
         for (let j = 0; j < column; j++){
             let chekbox = [];
             for (let i = start; i < end; i++) {
-                if(this.props.input) {
-                    if (this.props.checkBoxTitle.length - 1 === i)
-                        chekbox[i] = <Check
-                                            metka = {<input id={'checkBoxReasonsForChoosingMBA_other'} type="text"  placeholder="Другие" name={this.props.name+'[]'}  htmlFor={this.props.checkBoxTitle[i] + '_' + i}
-                                                     className="mbareasons_another_input col-8 ms-1" onChange={this.onChangeOtherInput.bind(this)} onClick={this.click.bind(this)} maxLength="64"/>}
-                                            name={this.props.name}
-                                            it={this}
-                                            id={this.props.checkBoxTitle[i] + '_' + i}
-                                            title={this.props.checkBoxTitle[i]} key={i}
-                                            value={this.props.checkBoxTitle[i]}
-                                            span={this.props.span}
-                                     />
-                    else
-                        chekbox[i] = <Check
-                                            metka = {<label  className=" col-lg-8 ms-2"  htmlFor={this.props.checkBoxTitle[i] + '_' + i} >{this.props.checkBoxTitle[i]}</label>}
-                                            name={this.props.name}
-                                            it={this}
-                                            id={this.props.checkBoxTitle[i] + '_' + i}
-                                            title={this.props.checkBoxTitle[i]}
-                                            key={i}
-                                            span={this.props.span}
-                                     />
-                }else{
+
                     chekbox[i] = <Check
                                         metka = {<label  className="col-lg-8 ms-2" htmlFor={this.props.checkBoxTitle[i] + '_' + i} >{this.props.checkBoxTitle[i]}</label>}
                                         name={this.props.name}
@@ -309,7 +285,7 @@ export class CheckBox extends React.Component{
                                         key={i}
                                         span={this.props.span}
                                     />
-                }
+
             }
             start = end;
             if(this.props.count-end >= Math.ceil(this.props.count/column)) end += Math.ceil(this.props.count/column);
@@ -324,11 +300,24 @@ export class CheckBox extends React.Component{
     }
 
     render(){
-        //
+        let style ={
+            border:'black solid 1px'
+        }
+        let quesStyle = {
+            border:'black solid 1px',
+            backgroundColor: '#ffe3e3'
+
+        }
         return(
             <div className={'row '}>
-                  <label  htmlFor="">{this.props.title} {this.props.span}</label>
-                  {this.howMany()}
+                <div className={'p-3 '} style={quesStyle}>
+                    <h5>{(this.props.identifier+1)+') '}{this.props.title} </h5>
+                </div>
+                {/*<label  htmlFor="">{(this.props.identifier+1)+') '}{this.props.title} {this.props.span}</label>*/}
+                <div className={'p-3 '} style={style}>
+                    <small>(2 правильных ответа)</small>
+                    {this.howMany()}
+                </div>
             </div>
         )}
 }
@@ -388,36 +377,15 @@ export class RadioB extends React.Component{
         for (let j = 0; j < column; j++){
             let chekbox = [];
             for (let i = start; i < end; i++) {
-                if(this.props.input) {
-                    if(this.props.popupIndex.includes(i)) {
-                        chekbox[i] = <Radio
-                            popUpElement={this.props.popUpElement[i]}
-                            popupArray={this.props.popupIndex}
-                            name={this.props.name}
-                            it={this}
-                            id={this.props.checkBoxTitle[i]}
-                            title={this.props.checkBoxTitle[i]}
-                            key={i}
-                        />
-                    }else{
-                        chekbox[i] = <Radio
-                            popupArray={this.props.popupIndex}
-                            name={this.props.name}
-                            it={this}
-                            id={this.props.checkBoxTitle[i]}
-                            title={this.props.checkBoxTitle[i]}
-                            key={i}
-                        />
-                    }
-                }else{
+
                     chekbox[i] = <Radio
                         name={this.props.name}
                         it={this}
-                        id={this.props.checkBoxTitle[i]}
+                        id={this.props.checkBoxTitle[i]+this.props.identifier}
                         title={this.props.checkBoxTitle[i]}
                         key={i}
                     />
-                }
+
             }
             start = end;
             if(this.props.count-end >= Math.ceil(this.props.count/column)) end += Math.ceil(this.props.count/column);
@@ -431,12 +399,23 @@ export class RadioB extends React.Component{
     }
 
     render(){
+        let style ={
+            border:'black solid 1px'
+        }
+        let quesStyle = {
+            border:'black solid 1px',
+            backgroundColor: '#ffe3e3'
+
+        }
         return(
             <div className={'row'}>
-
-                    <label  htmlFor="">{this.props.title} {this.props.span}</label>
+                    <div className={'p-3 '} style={quesStyle}>
+                        <h5>{(this.props.identifier+1)+') '}{this.props.title} </h5>
+                    </div>
+                    {/*<label  htmlFor="">{(this.props.identifier+1)+') '}{this.props.title} {this.props.span}</label>*/}
+                <div className={'p-3 '} style={style}>
                     {this.howMany()}
-
+                </div>
             </div>
         )}
 }

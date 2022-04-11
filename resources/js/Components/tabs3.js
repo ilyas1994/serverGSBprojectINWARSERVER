@@ -13,7 +13,7 @@ import {
     dataPiker,
     dropDown, FilePicker,
     inputField,
-    label,
+    label, MBAPropgramRadio,
     OtherLanguageButton, RadioB, RequiredSpan,
     StarFabric,
     TextArea
@@ -436,95 +436,104 @@ export function tabs_3(names) {
 // ------------------------------------------------------------------------------------------
     input = [];
     title = ['Выберите программу МВА'];
-    titleForCheckBox = ['General MBA - Казахстанская программа MBA',
-                        'Казахстанская модульно-дистанционная программа',
-                        'xecutive MBA Двудипломная программа с Высшей Школой Менеджмента Санкт-Петербургского Государственного Университета (Россия)',
-                        'МВА Финансовый инжиниринг',
-                        'МВА Менеджмент в здравоохранении',
-                        'МВА Менеджмент в социальной сфере(г. Нур-Султан)',
-                        'МВА (г. Ташкент)',
-                        'МВА (г. Душанбе)'
-                        ];
-    let underMBAprogram = [[]];
-    // titleForCheckBox = [];
-    // for (const key of Object.keys(MBAprogram)) {
-    //     titleForCheckBox.push(key);
-    //     for (let i = 0; i < MBAprogram[key].length; i++) {
-    //         // console.log(key +':'+MBAprogram[key][i]);
-    //         underMBAprogram[key].push(<label className="radio source_label_">
-    //                                 <input type="radio" name={names[count]} defaultChecked={true} value="General MBA - Казахстанская программа MBA -> вечерняя программа в г. Алматы"/>
-    //                                 <span>вечерняя программа в г. Алматы</span>
-    //                              </label>);
-    //     }
-    //     // titleForCheckBox.push(`${key}`);
-    // }
+    // titleForCheckBox = ['General MBA - Казахстанская программа MBA',
+    //                     'Казахстанская модульно-дистанционная программа',
+    //                     'xecutive MBA Двудипломная программа с Высшей Школой Менеджмента Санкт-Петербургского Государственного Университета (Россия)',
+    //                     'МВА Финансовый инжиниринг',
+    //                     'МВА Менеджмент в здравоохранении',
+    //                     'МВА Менеджмент в социальной сфере(г. Нур-Султан)',
+    //                     'МВА (г. Ташкент)',
+    //                     'МВА (г. Душанбе)'
+    //                     ];
 
-     let one = <div className="label_in_ ms-5" id="label_in_1_" hidden>
-         <label className="radio source_label_">
-             <input type="radio" name={names[count]} defaultChecked={true} value="General MBA - Казахстанская программа MBA -> вечерняя программа в г. Алматы"/>
-             <span>вечерняя программа в г. Алматы</span>
-         </label>
-         <label className="radio source_label_">
-             <input type="radio" name={names[count]}   value="General MBA - Казахстанская программа MBA -> модульная программа в г. Алматы"/>
-             <span>модульная программа в г. Алматы</span>
-         </label>
-         <label className="radio source_label_">
-             <input type="radio" name={names[count]}   value="General MBA - Казахстанская программа MBA -> обучение программа в г. Нур-Султан"/>
-             <span>обучение в г. Нур-Султан</span>
-         </label>
-         <label className="radio source_label_">
-             <input type="radio" name={names[count]} value="General MBA - Казахстанская программа MBA -> обучение программа в г. Атырау"/>
-             <span>обучение в г. Атырау</span>
-         </label>
-         <label className="radio source_label_">
-             <input type="radio" name={names[count]} value="General MBA - Казахстанская программа MBA -> обучение программа в г.Актау"/>
-             <span>обучение в г. Актау</span>
-         </label>
-         <label className="radio  source_label_">
-             <input type="radio" name={names[count]} value="General MBA - Казахстанская программа MBA -> обучение программа в г.Актобе"/>
-             <span>обучение в г.Актобе</span>
-         </label>
-         <label className="radio source_label_ ">
-             <input type="radio" name={names[count]} value="General MBA - Казахстанская программа MBA -> обучение программа в г.Кызылорда"/>
-             <span>обучение в г.Кызылорда</span>
-         </label>
-         <label className="radio source_label_ ">
-             <input type="radio" name={names[count]} value="General MBA - Казахстанская программа MBA -> обучение в г.Шымкент"/>
-             <span>обучение в г. Шымкент</span>
-         </label>
-     </div>;
+    titleForCheckBox = [];
+    popUpElement = [];
+    for (const key of Object.keys(MBAprogram)) {
+        titleForCheckBox.push(key);
+        let popupArr = [];
 
-    let two = <div className="label_in_ ms-5" id="label_in_2_" hidden>
-        <label className="radio source_label_ ">
-            <input type="radio" name={names[count]} value="Казахстанская модульно-дистанционная программа -> обучение в г. Алматы"  />
-            <span>обучение в г. Алматы</span>
-        </label>
-    </div>;
+        for (let i = 0; i < MBAprogram[key].length; i++) {
+            if(MBAprogram[key][i] === 'null') break;
+            popupArr.push(<label key={i} className="radio source_label_">
+                            <input type="radio" name={names[count]} defaultChecked={true} value={key+" -> "+MBAprogram[key][i]}/>
+                            <span>{MBAprogram[key][i]}</span>
+                         </label>);
+        }
+        let popup = ''
+        if(popupArr.length > 0){
+            popup = <div  className="label_in_ ms-5" id="label_in_1_" hidden>
+                        {popupArr}
+                    </div>
+        }
+        popUpElement.push(popup);
+    }
 
-    let three = <div className="label_in_ ms-5" id="label_in_5_" hidden>
-        <label className="radio source_label_">
-            <input type="radio" name={names[count]} value="МВА Финансовый инжиниринг -> вечерняя программа в г. Алматы"   />
-            <span>вечерняя программа в г. Алматы</span>
-        </label>
-        <label className="radio source_label_">
-            <input type="radio" name={names[count]} value="МВА Финансовый инжиниринг -> обучение в г. Нур-Султан"/>
-            <span>обучение в г. Нур-Султан</span>
-        </label>
-    </div>;
+    //  let one = <div className="label_in_ ms-5" id="label_in_1_" hidden>
+    //                  <label className="radio source_label_">
+    //                      <input type="radio" name={names[count]} defaultChecked={true} value="General MBA - Казахстанская программа MBA -> вечерняя программа в г. Алматы"/>
+    //                      <span>вечерняя программа в г. Алматы</span>
+    //                  </label>
+    //      <label className="radio source_label_">
+    //          <input type="radio" name={names[count]}   value="General MBA - Казахстанская программа MBA -> модульная программа в г. Алматы"/>
+    //          <span>модульная программа в г. Алматы</span>
+    //      </label>
+    //      <label className="radio source_label_">
+    //          <input type="radio" name={names[count]}   value="General MBA - Казахстанская программа MBA -> обучение программа в г. Нур-Султан"/>
+    //          <span>обучение в г. Нур-Султан</span>
+    //      </label>
+    //      <label className="radio source_label_">
+    //          <input type="radio" name={names[count]} value="General MBA - Казахстанская программа MBA -> обучение программа в г. Атырау"/>
+    //          <span>обучение в г. Атырау</span>
+    //      </label>
+    //      <label className="radio source_label_">
+    //          <input type="radio" name={names[count]} value="General MBA - Казахстанская программа MBA -> обучение программа в г.Актау"/>
+    //          <span>обучение в г. Актау</span>
+    //      </label>
+    //      <label className="radio  source_label_">
+    //          <input type="radio" name={names[count]} value="General MBA - Казахстанская программа MBA -> обучение программа в г.Актобе"/>
+    //          <span>обучение в г.Актобе</span>
+    //      </label>
+    //      <label className="radio source_label_ ">
+    //          <input type="radio" name={names[count]} value="General MBA - Казахстанская программа MBA -> обучение программа в г.Кызылорда"/>
+    //          <span>обучение в г.Кызылорда</span>
+    //      </label>
+    //      <label className="radio source_label_ ">
+    //          <input type="radio" name={names[count]} value="General MBA - Казахстанская программа MBA -> обучение в г.Шымкент"/>
+    //          <span>обучение в г. Шымкент</span>
+    //      </label>
+    //  </div>;
+    //
+    // let two = <div className="label_in_ ms-5" id="label_in_2_" hidden>
+    //     <label className="radio source_label_ ">
+    //         <input type="radio" name={names[count]} value="Казахстанская модульно-дистанционная программа -> обучение в г. Алматы"  />
+    //         <span>обучение в г. Алматы</span>
+    //     </label>
+    // </div>;
+    //
+    // let three = <div className="label_in_ ms-5" id="label_in_5_" hidden>
+    //     <label className="radio source_label_">
+    //         <input type="radio" name={names[count]} value="МВА Финансовый инжиниринг -> вечерняя программа в г. Алматы"   />
+    //         <span>вечерняя программа в г. Алматы</span>
+    //     </label>
+    //     <label className="radio source_label_">
+    //         <input type="radio" name={names[count]} value="МВА Финансовый инжиниринг -> обучение в г. Нур-Султан"/>
+    //         <span>обучение в г. Нур-Султан</span>
+    //     </label>
+    // </div>;
+    //
+    // let four =  <div className="label_in_ ms-5" id="label_in_6_" hidden>
+    //     <label className="radio source_label_">
+    //         <input type="radio" name={names[count]} value="МВА Менеджмент в здравоохранении -> обучение в г. Алматы"  />
+    //         <span>обучение в г. Алматы</span>
+    //     </label>
+    //     <label className="radio source_label_">
+    //         <input type="radio" name={names[count]} value="МВА Менеджмент в здравоохранении -> обучение в г. Нур-Султан"/>
+    //         <span>обучение в г. Нур-Султан</span>
+    //     </label>
+    // </div>
 
-    let four =  <div className="label_in_ ms-5" id="label_in_6_" hidden>
-        <label className="radio source_label_">
-            <input type="radio" name={names[count]} value="МВА Менеджмент в здравоохранении -> обучение в г. Алматы"  />
-            <span>обучение в г. Алматы</span>
-        </label>
-        <label className="radio source_label_">
-            <input type="radio" name={names[count]} value="МВА Менеджмент в здравоохранении -> обучение в г. Нур-Султан"/>
-            <span>обучение в г. Нур-Султан</span>
-        </label>
-    </div>
-
-    popUpElement = [one, two, '', three, four];
-    input[0] = <RadioB input={true} popupIndex={[0,1,3,4]} popUpElement={popUpElement} classN={'col-lg-12'} name={'notname'} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} span={<RequiredSpan id={names[count]}/>}/>;
+    // popUpElement = [one, two, '', three, four];
+    input[0] = <MBAPropgramRadio input={true}  popUpElement={popUpElement} classN={'col-lg-12'} name={'notname'} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} span={<RequiredSpan id={names[count]}/>}/>;
     count++;
 
 

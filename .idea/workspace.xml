@@ -4,9 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76c86216-8c47-45b5-b63a-4f4738510c0b" name="Changes" comment="complete check counter quiz">
+    <list default="true" id="76c86216-8c47-45b5-b63a-4f4738510c0b" name="Changes" comment="frontWithQuiz">
+      <change afterPath="$PROJECT_DIR$/resources/jsquiz/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/jsquiz/quiz/components.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/jsquiz/quiz/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/jsquiz/quiz/selectQuiz.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Components/components.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Components/components.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Components/names.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Components/names.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Components/tabs3.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Components/tabs3.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/quiz/quizTest.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/quiz/quizTest.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/sendPasswordOnEmail/sendPasswordOnEmail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sendPasswordOnEmail/sendPasswordOnEmail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,17 +33,12 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="finish_work" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RESET_MODE" value="MIXED" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -191,7 +198,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../myTestPoligon" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/jsquiz/quiz" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -203,9 +210,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\OpenServer\domains\GSBGitHub\resources\jsquiz\quiz" />
       <recent name="D:\program\OpenServer\domains\serverGSBprojectINWARSERVER\public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\OpenServer\domains\GSBGitHub\resources\jsquiz" />
       <recent name="D:\program\OpenServer\domains\serverGSBprojectINWARSERVER\resources\views\crudQuiz\layouts" />
       <recent name="D:\program\OpenServer\domains\serverGSBprojectINWARSERVER\resources\views\adminPanel" />
     </key>
@@ -247,7 +256,8 @@
       <workItem from="1649307092397" duration="5146000" />
       <workItem from="1649329125048" duration="171000" />
       <workItem from="1649329314198" duration="28413000" />
-      <workItem from="1649387836930" duration="34540000" />
+      <workItem from="1649387836930" duration="34934000" />
+      <workItem from="1649579681548" duration="16849000" />
     </task>
     <task id="LOCAL-00001" summary="почти закончил">
       <created>1648915219567</created>
@@ -347,35 +357,28 @@
       <option name="project" value="LOCAL" />
       <updated>1649419180621</updated>
     </task>
-    <task id="LOCAL-00015" summary="first test">
-      <created>1649607347972</created>
+    <task id="LOCAL-00015" summary="admin panel complete">
+      <created>1649576804627</created>
       <option name="number" value="00015" />
       <option name="presentableId" value="LOCAL-00015" />
       <option name="project" value="LOCAL" />
-      <updated>1649607347972</updated>
+      <updated>1649576804627</updated>
     </task>
-    <task id="LOCAL-00016" summary="quiz">
-      <created>1649610441917</created>
+    <task id="LOCAL-00016" summary="front+">
+      <created>1649577672489</created>
       <option name="number" value="00016" />
       <option name="presentableId" value="LOCAL-00016" />
       <option name="project" value="LOCAL" />
-      <updated>1649610441917</updated>
+      <updated>1649577672489</updated>
     </task>
-    <task id="LOCAL-00017" summary="complete 2/3 quiz">
-      <created>1649611985476</created>
+    <task id="LOCAL-00017" summary="front+++">
+      <created>1649579810005</created>
       <option name="number" value="00017" />
       <option name="presentableId" value="LOCAL-00017" />
       <option name="project" value="LOCAL" />
-      <updated>1649611985476</updated>
+      <updated>1649579810005</updated>
     </task>
-    <task id="LOCAL-00018" summary="complete check counter quiz">
-      <created>1649646439246</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1649646439246</updated>
-    </task>
-    <option name="localTasksCounter" value="19" />
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -406,11 +409,12 @@
     <MESSAGE value="cpmplete Validate" />
     <MESSAGE value="complete Validate Update otherLangToJson" />
     <MESSAGE value="QUIZ TEST" />
-    <MESSAGE value="first test" />
-    <MESSAGE value="quiz" />
-    <MESSAGE value="complete 2/3 quiz" />
-    <MESSAGE value="complete check counter quiz" />
-    <option name="LAST_COMMIT_MESSAGE" value="complete check counter quiz" />
+    <MESSAGE value="admin panel complete" />
+    <MESSAGE value="front+" />
+    <MESSAGE value="front++" />
+    <MESSAGE value="front+++" />
+    <MESSAGE value="frontWithQuiz" />
+    <option name="LAST_COMMIT_MESSAGE" value="frontWithQuiz" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
