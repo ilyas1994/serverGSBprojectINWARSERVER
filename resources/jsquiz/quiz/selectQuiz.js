@@ -62,7 +62,7 @@ export class SelectQuiz extends React.Component{
                             if(i < 30){
                                 radio.push(<div className={'my-3'}    key={'1_'+i}>
                                             <RadioB
-                                                classN={'col-lg-12'} name={i+'_[]'} column={1}
+                                                classN={'col-lg-12'} name={key+'[]'} column={1}
                                                 count={title.length} title={key}
                                                 checkBoxTitle={title} key={i}
                                                 identifier={i}
@@ -104,7 +104,7 @@ export class SelectQuiz extends React.Component{
                         if(i < 30){
                             radio.push(<div className={'my-3'}    key={'2_'+i}>
                                 <RadioB
-                                    classN={'col-lg-12'} name={i+'_[]'} column={1}
+                                    classN={'col-lg-12'} name={key+'[]'} column={1}
                                     count={title.length} title={key}
                                     checkBoxTitle={title} key={i}
                                     identifier={i}
@@ -145,7 +145,7 @@ export class SelectQuiz extends React.Component{
                         if(i < 30){
                             radio.push(<div className={'my-3'}    key={'3_'+i}>
                                 <RadioB
-                                    classN={'col-lg-12'} name={i+'_[]'} column={1}
+                                    classN={'col-lg-12'} name={key+'[]'} column={1}
                                     count={title.length} title={key}
                                     checkBoxTitle={title} key={i}
                                     identifier={i}
