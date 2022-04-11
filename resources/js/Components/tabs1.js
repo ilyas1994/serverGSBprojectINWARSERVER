@@ -144,34 +144,37 @@ export function tabs_1(names) {
     allcode[4] =  <div className={"form-group row"} key={count}>{input}</div>;
 //
 // // ------------------------------------------------------------------------------------------
+    // ------------------------------------------------------------------------------------------
     input = [];
     title = ['Город проживания','Домашний адрес','Мобильный телефон','Электронная почта'];
     for (let i = 0; i < title.length-1; i++) {
-        if(i == 2) {
+        if(i === 2) {
             // input[i] = inputField(title[i], names[count], 'col-lg-3', '','', RequiredSpan());
             input[i] = inputFieldOnlyNumber(title[i], names[count], 'col-lg-3', '','', <RequiredSpan id={names[count]}/>);
-
         }
         else
             input[i] = inputField(title[i], names[count], 'col-lg-3',null,'', <RequiredSpan id={names[count]}/>);
-             count++;
+        count++;
     }
-    input[title.length-1] = inputFieldEmail(title[title.length-1], names[count], 'col-lg-3',null,'', <RequiredSpan id={names[count]}/>);
-    count++;
+
     allcode[5] =  <div className={"form-group row"} key={count}>{input}</div>;
-
-
     count++;
- //----------------------------------------------------------------------------------------------------
-   const buttonStyle = {
-       marginTop: '20px'
-   }
+
+    input = [];
+    input[title.length-1] = inputFieldEmail('Электронная почта', names[count], 'col-lg-6',null,'', <RequiredSpan id={names[count]}/>);
+    count++;
+    allcode[6] =  <div className={"form-group row"} key={count}>{input}</div>;
+
+    //----------------------------------------------------------------------------------------------------
+    const buttonStyle = {
+        marginTop: '20px'
+    }
     const tab2 = document.getElementById('2-tab');
-    allcode[6] = <div key={count} className="">
+    allcode[7] = <div key={count} className="">
         <div className="d-flex align-items-lg-end" >
             <input value={"Далее 'Сведения о трудовой деятельности' "} type={'button'} onClick={function () {
-                    let tab = new bootstrap.Tab(tab2)
-                    tab.show()
+                let tab = new bootstrap.Tab(tab2)
+                tab.show()
             }}/>
         </div>
     </div>

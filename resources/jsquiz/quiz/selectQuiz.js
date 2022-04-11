@@ -72,7 +72,7 @@ export class SelectQuiz extends React.Component{
                                 radio.push(<div className={'my-3'}    key={'1_'+i}>
                                                <CheckBox
                                                    identifier ={i}
-                                                   name = {i+"_"}
+                                                   name = {key+'&'+i}
                                                    column={1}
                                                    count={title.length}
                                                    title={key}
@@ -114,7 +114,7 @@ export class SelectQuiz extends React.Component{
                             radio.push(<div className={'my-3'}    key={'2_'+i}>
                                 <CheckBox
                                     identifier ={i}
-                                    name = {i+"_"}
+                                    name = {key+'&'+i}
                                     column={1}
                                     count={title.length}
                                     title={key}
@@ -155,7 +155,7 @@ export class SelectQuiz extends React.Component{
                             radio.push(<div className={'my-3'}    key={'3_'+i}>
                                 <CheckBox
                                     identifier ={i}
-                                    name = {i+"_"}
+                                    name = {key+'&'+i}
                                     column={1}
                                     count={title.length}
                                     title={key}
