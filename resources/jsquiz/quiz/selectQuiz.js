@@ -45,13 +45,13 @@ export class SelectQuiz extends React.Component{
             case '1':{
 
 
-
+                     typeTest = 1;
                     let i = 0;
                     for (const key1 of Object.values(result[0])) {
                         for (const [key,valio] of Object.entries(key1)) {
-                            if(key.length === 1)  typeTest = key
 
-                            console.log(key)
+
+                            console.log(key+":"+key.length);
                             console.log(valio)
                             // radio.push(<div className={'col-lg-10'}>{key}</div>);
                             let title = []
@@ -60,16 +60,16 @@ export class SelectQuiz extends React.Component{
                                 title.push(valio[j])
                             }
                             if(i < 30){
-                                radio.push(<div className={'my-3'}    key={i}>
+                                radio.push(<div className={'my-3'}    key={'1_'+i}>
                                             <RadioB
-                                                classN={'col-lg-12'} name={i+'_[]'} column={1}
+                                                classN={'col-lg-12'} name={key+'[]'} column={1}
                                                 count={title.length} title={key}
                                                 checkBoxTitle={title} key={i}
                                                 identifier={i}
                                                 span={<RequiredSpan id={key}/>}/>
                                         </div>);
                             }else{
-                                radio.push(<div className={'my-3'}    key={i}>
+                                radio.push(<div className={'my-3'}    key={'1_'+i}>
                                                <CheckBox
                                                    identifier ={i}
                                                    name = {i+"_"}
@@ -83,13 +83,15 @@ export class SelectQuiz extends React.Component{
                             i++;
                         }
                     }
+                    break;
+
             }
             case '2':{
-
+                typeTest = 2;
                 let i = 0;
                 for (const key1 of Object.values(result[1])) {
                     for (const [key,valio] of Object.entries(key1)) {
-                        if(key.length === 1)  typeTest = key
+
 
                         console.log(key)
                         console.log(valio)
@@ -100,16 +102,16 @@ export class SelectQuiz extends React.Component{
                             title.push(valio[j])
                         }
                         if(i < 30){
-                            radio.push(<div className={'my-3'}    key={i}>
+                            radio.push(<div className={'my-3'}    key={'2_'+i}>
                                 <RadioB
-                                    classN={'col-lg-12'} name={i+'_[]'} column={1}
+                                    classN={'col-lg-12'} name={key+'[]'} column={1}
                                     count={title.length} title={key}
                                     checkBoxTitle={title} key={i}
                                     identifier={i}
                                     span={<RequiredSpan id={key}/>}/>
                             </div>);
                         }else{
-                            radio.push(<div className={'my-3'}    key={i}>
+                            radio.push(<div className={'my-3'}    key={'2_'+i}>
                                 <CheckBox
                                     identifier ={i}
                                     name = {i+"_"}
@@ -126,6 +128,44 @@ export class SelectQuiz extends React.Component{
                 break;
             }
             case '3':{
+                typeTest = 3;
+                let i = 0;
+                for (const key1 of Object.values(result[2])) {
+                    for (const [key,valio] of Object.entries(key1)) {
+
+
+                        console.log(key)
+                        console.log(valio)
+                        // radio.push(<div className={'col-lg-10'}>{key}</div>);
+                        let title = []
+                        for (let j = 0; j < valio.length; j++) {
+                            console.log(valio[j])
+                            title.push(valio[j])
+                        }
+                        if(i < 30){
+                            radio.push(<div className={'my-3'}    key={'3_'+i}>
+                                <RadioB
+                                    classN={'col-lg-12'} name={key+'[]'} column={1}
+                                    count={title.length} title={key}
+                                    checkBoxTitle={title} key={i}
+                                    identifier={i}
+                                    span={<RequiredSpan id={key}/>}/>
+                            </div>);
+                        }else{
+                            radio.push(<div className={'my-3'}    key={'3_'+i}>
+                                <CheckBox
+                                    identifier ={i}
+                                    name = {i+"_"}
+                                    column={1}
+                                    count={title.length}
+                                    title={key}
+                                    checkBoxTitle={title}
+                                />
+                            </div>);
+                        }
+                        i++;
+                    }
+                }
                 break;
             }
 
@@ -133,7 +173,9 @@ export class SelectQuiz extends React.Component{
 
         return <div className={'row'}>
                     <BackToSelect  onClick={this.handleClick} />
-                    <form action={testRoutes} method={'GET'}>
+                    <form action={testRoutes} method={'POST'}>
+                        <input type="hidden" name="_token" defaultValue={csrf} />
+                        <input type="hidden" name="typeTest" defaultValue={typeTest} />
                         {radio}
                         <input type="text" hidden={true} defaultValue={typeTest}/>
                         <div className={'col-lg-4 my-5'}>

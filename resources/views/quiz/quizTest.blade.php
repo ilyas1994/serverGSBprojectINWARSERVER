@@ -87,15 +87,18 @@
 
 {{--@dd(json_encode($all))--}}
         <div  id="quizSelect" class="col-lg-12 mb-5">
+              @csrf
             <script>
+
                 let question = null;
+                let csrf = "{!! csrf_token() !!}";
+
                 @isset($all)
                     {{--question ={!!json_encode($all)!!};--}}
                     question ={!! json_encode($all) !!};
                 console.log(question)
                 @endisset
                 let testRoutes = "{{route('quiz_res')}}";
-
             </script>
             <script src={{asset('js/quiz/app.js')}} type="text/javascript"> </script>
         </div>
