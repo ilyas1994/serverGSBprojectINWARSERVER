@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76c86216-8c47-45b5-b63a-4f4738510c0b" name="Changes" comment="complete 2/3 quiz">
+    <list default="true" id="76c86216-8c47-45b5-b63a-4f4738510c0b" name="Changes" comment="complete check counter quiz">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/quiz/quizTest.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/quiz/quizTest.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -369,7 +368,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649611985476</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="complete check counter quiz">
+      <created>1649646439246</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1649646439246</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -403,18 +409,8 @@
     <MESSAGE value="first test" />
     <MESSAGE value="quiz" />
     <MESSAGE value="complete 2/3 quiz" />
-    <option name="LAST_COMMIT_MESSAGE" value="complete 2/3 quiz" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/routes/web.php</url>
-          <line>65</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="complete check counter quiz" />
+    <option name="LAST_COMMIT_MESSAGE" value="complete check counter quiz" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
