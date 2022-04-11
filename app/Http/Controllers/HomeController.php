@@ -28,7 +28,7 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\RedirectResponse
+     * @return void
      * @throws \Exception
      */
 
@@ -65,26 +65,48 @@ class HomeController extends Controller
 
         if (auth()->user()->role == 2) {
             $answers = \DB::select("SELECT * FROM answers");
-            $allquestions = \DB::select("SELECT * FROM questions");
+//            $allquestions = \DB::select("SELECT * FROM questions");
             $typeTest = DB::select("SELECT * FROM type_tests");
 
-            $questions = "";
-
             $emailUser = auth()->user()->email;
-            $checkUser =  DB::table('quiz_results')->where('email_user', $emailUser)->exists();
+            $questions = null;
 
-            if ($checkUser === false) {
+//            $checkUser =  DB::table('quiz_results')->where('email_user', $emailUser)->exists();
+
+            $getTypeTest = DB::select("SELECT type_test FROM quiz_results WHERE email_user = '" .$emailUser. " ' ");
+
+            if ($getTypeTest == null) {
                 $random = random_int(1,2);
-                $testRandom = \DB::select("SELECT * FROM questions WHERE variant_otveta = '" .$random. "' ");
+                $testRandom = \DB::select("SELECT * FROM questions WHERE type_id = 3 OR type_id IN(1,2) AND variant_otveta = '" .$random. "' ");
                 $questions = $testRandom;
+//                dump($testRandom);
+            } else {
+
+//                dump($typeTest);
+            for ($i = 0; $i < count($getTypeTest); $i++) {
+//                        dump($getTypeTest);
+                    if ($getTypeTest[$i]->type_test != 1) {
+                        $random = random_int(1, 2);
+                        $testRandom1 = \DB::select("SELECT * FROM questions WHERE type_id = 1 AND variant_otveta = '" . $random . "' ");
+                        $questions = $testRandom1;
+                    }
+
+                    if ($getTypeTest[$i]->type_test != 3) {
+                        $testRandom3 = \DB::select("SELECT * FROM questions WHERE type_id = 3");
+                        $questions = $testRandom3;
+                    }
+            }
+
+            }
+
+            if (count($getTypeTest) == 3 ) {
+                $typeTest = [];
             }
 
 
-
-
-
-
             $all = [];
+
+
 
 
 //            for ($i = 0; $i < count($questions); $i++) {
@@ -96,6 +118,9 @@ class HomeController extends Controller
 //                }
 //               $all[$questions[$i]->name] = $data;
 //            }
+
+            if ($questions != null) {
+
 
             for ($n = 0; $n < count($typeTest); $n++) {
                 $arrTypeTest = [];
@@ -114,12 +139,18 @@ class HomeController extends Controller
                     }
 
                 }
-                $all[$typeTest[$n]->id] = $arrTypeTest;
-//                dump($all);
+                $all[$typeTest[$n]->name] = $arrTypeTest;
 
             }
+            dd($all);
+                return view('quiz.quizTest')->with('all', $all);
 
-            return view('quiz.quizTest')->with('all', $all);
+            } else {
+                return view('quiz.quizTest')->with('no_test', 'no_test');
+            }
+//            dd($all);
+
+//            dd(111);
 
         }
     }
