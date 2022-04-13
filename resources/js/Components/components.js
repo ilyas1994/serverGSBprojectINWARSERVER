@@ -151,7 +151,7 @@ export function inputFieldEmail(title, name, className = null, value = null, pla
         }
     }
 
-    input = <div key={5} className={className}>
+    input = <div key={name} className={className}>
         <div  className={'position-relative'}>
             <label className={''} htmlFor="">{title}{span}</label>
             <div  className={'d-flex position-relative'} >
@@ -165,7 +165,6 @@ export function inputFieldEmail(title, name, className = null, value = null, pla
     </div>
     return(input)
 }
-
 
 export function dataPiker(title, name, className = 'col-lg-4',span = null) {
 

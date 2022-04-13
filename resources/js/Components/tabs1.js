@@ -43,7 +43,7 @@ export function tabs_1(names) {
     let sec = [];
 
     for (let i = 0; i < 2; i++) {
-        input[i] = inputField(title[i], names[count],"col-lg-4 ", null,'', <RequiredSpan id={names[count]}/>);
+        input[i] = inputField(title[i], 'old{{'+names[count]+'}}',"col-lg-4 ", null,'', <RequiredSpan id={names[count]}/>);
         count++;
     }
 
@@ -146,24 +146,31 @@ export function tabs_1(names) {
 // // ------------------------------------------------------------------------------------------
     // ------------------------------------------------------------------------------------------
     input = [];
-    title = ['Город проживания','Домашний адрес','Мобильный телефон','Электронная почта'];
+    title = ['Город проживания','Домашний адрес','Мобильный телефон','Второй мобильный номер','Личная электронная почта'];
     for (let i = 0; i < title.length-1; i++) {
-        if(i === 2) {
+        if(i === 2 ) {
             // input[i] = inputField(title[i], names[count], 'col-lg-3', '','', RequiredSpan());
             input[i] = inputFieldOnlyNumber(title[i], names[count], 'col-lg-3', '','', <RequiredSpan id={names[count]}/>);
         }
-        else
+        else if(i === 3){
+            input[i] = inputFieldOnlyNumber(title[i], names[count], 'col-lg-3', '','');
+        }else
             input[i] = inputField(title[i], names[count], 'col-lg-3',null,'', <RequiredSpan id={names[count]}/>);
         count++;
     }
 
     allcode[5] =  <div className={"form-group row"} key={count}>{input}</div>;
-    count++;
+
 
     input = [];
-    input[title.length-1] = inputFieldEmail('Электронная почта', names[count], 'col-lg-6',null,'', <RequiredSpan id={names[count]}/>);
+    input[0] = inputFieldEmail('Личная электронная почта', names[count], 'col-lg-6',null,'', <RequiredSpan id={names[count]}/>);
     count++;
+    input[1] = inputFieldEmail('Электронная почта (корпоративный)', names[count], 'col-lg-6',null,'');
+    count++;
+
     allcode[6] =  <div className={"form-group row"} key={count}>{input}</div>;
+
+    count++;
 
     //----------------------------------------------------------------------------------------------------
     const buttonStyle = {
