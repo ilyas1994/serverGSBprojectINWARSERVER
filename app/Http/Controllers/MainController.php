@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 use PharIo\Manifest\Email;
 use Str;
 use ZipArchive;
@@ -23,7 +24,6 @@ class MainController extends Controller
 
     public function index(RequestInputs $request)
     {
-
 
 
 

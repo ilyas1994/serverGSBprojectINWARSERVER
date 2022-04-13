@@ -4,20 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76c86216-8c47-45b5-b63a-4f4738510c0b" name="Changes" comment="complete check counter quiz update">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/QuizResult/QuizResult.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/SwitchCountryController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/QuizResult.php" afterDir="false" />
+    <list default="true" id="76c86216-8c47-45b5-b63a-4f4738510c0b" name="Changes" comment="complete quiz result">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2022_03_29_233635_create_quiz_results_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_03_29_233635_create_quiz_results_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/quiz/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/quiz/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/jsquiz/quiz/components.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/jsquiz/quiz/components.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/quiz/quiz.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/quiz/quiz.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/RequestInputs.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/RequestInputs.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +187,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../almau.edu.kz" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../uuAlmau" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -257,7 +247,7 @@
       <workItem from="1649329314198" duration="28413000" />
       <workItem from="1649387836930" duration="34934000" />
       <workItem from="1649579681548" duration="16849000" />
-      <workItem from="1649840064097" duration="2188000" />
+      <workItem from="1649840064097" duration="6174000" />
     </task>
     <task id="LOCAL-00001" summary="почти закончил">
       <created>1648915219567</created>
@@ -378,7 +368,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649579810005</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="complete quiz result">
+      <created>1649843598860</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1649843598860</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -414,7 +411,8 @@
     <MESSAGE value="front++" />
     <MESSAGE value="front+++" />
     <MESSAGE value="frontWithQuiz" />
-    <option name="LAST_COMMIT_MESSAGE" value="frontWithQuiz" />
+    <MESSAGE value="complete quiz result" />
+    <option name="LAST_COMMIT_MESSAGE" value="complete quiz result" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

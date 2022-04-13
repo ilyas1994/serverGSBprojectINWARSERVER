@@ -24,73 +24,76 @@ class RequestInputs extends FormRequest
     public function rules()
     {
 // rules
+
+
         return [
+
             // Tab 1
-            'surname' => 'required|string',
-            'name' => 'required|string',
-            'patronymic' => 'required|string',
-            'gender' => 'required|string',
-            'familyStatus' => 'required|string',
-            'amountOfChildren' => 'required|string',
-            'citizenship' => 'required|string',
-            'nationality' => 'required|string',
-            'dataOfBirth' => 'required|string',
-            'Iin' => 'required|integer',
-            'typeDocument' => 'required|string',
-            'numberDocument' => 'required|integer',
-            'kemVidanDoc' => 'required|string',
-            'dateMonthYearDoc' => 'required|string',
-            'cityOfResidence' => 'required|string',
-            'homeAdress' => 'required|string',
-            'mobileNumber' => 'required|integer',
-            'email' => 'required|email',
+//            'surname' => 'required|string',
+//            'name' => 'required|string',
+//            'patronymic' => 'required|string',
+//            'gender' => 'required|string',
+//            'familyStatus' => 'required|string',
+//            'amountOfChildren' => 'required|string',
+//            'citizenship' => 'required|string',
+//            'nationality' => 'required|string',
+//            'dataOfBirth' => 'required|string',
+//            'Iin' => 'required|integer',
+//            'typeDocument' => 'required|string',
+//            'numberDocument' => 'required|integer',
+//            'kemVidanDoc' => 'required|string',
+//            'dateMonthYearDoc' => 'required|string',
+//            'cityOfResidence' => 'required|string',
+//            'homeAdress' => 'required|string',
+//            'mobileNumber' => 'required|integer',
+//            'email' => 'required|email',
 
 //            Tab 2
 
-            'positionAtWord' => 'required|string',
-            'nameOfTheCompany' => 'required|string',
-            'legalAdress' => 'required|string',
-            'firstWorkExperience' => 'required|string',
-            'upravlencheskiy_stazh' => 'required|string',
-            'jobType' => 'required|string',
-            'fieldOfActivity' => 'required|string',
-            'availabilityOfBusinessTrips' => 'required|string',
+//            'positionAtWord' => 'required|string',
+//            'nameOfTheCompany' => 'required|string',
+//            'legalAdress' => 'required|string',
+//            'firstWorkExperience' => 'required|string',
+//            'upravlencheskiy_stazh' => 'required|string',
+//            'jobType' => 'required|string',
+//            'fieldOfActivity' => 'required|string',
+//            'availabilityOfBusinessTrips' => 'required|string',
 
 //               Tab 3
-            'startEducation' => 'required|date',
-            'endEducation' => 'required|date',
-            'qualification' => 'required|string',
-            'fullNameUniversity' => 'required|string',
-            'speciality' => 'required|string',
-            'languageEducation' => 'required|string',
-            'checkSecondDegree' => 'required|string',
-            'checkMasterDegree' => 'required|string',
-            'checkLanguageKazakh' => 'required|string',
-            'checkLanguageEnglish' => 'required|string',
-            'checkLanguageFrench' => 'required|string',
-            'checkLanguageGerman' => 'required|string',
-            'checkLanguageChinese' => 'required|string',
-            'checkOtherLanguages' => 'nullable|string',
-            'englishProficiencyCertificates' => 'required|string',
-            'certificateIssueDate' => 'nullable|string',
+//            'startEducation' => 'required|date',
+//            'endEducation' => 'required|date',
+//            'qualification' => 'required|string',
+//            'fullNameUniversity' => 'required|string',
+//            'speciality' => 'required|string',
+//            'languageEducation' => 'required|string',
+//            'checkSecondDegree' => 'required|string',
+//            'checkMasterDegree' => 'required|string',
+//            'checkLanguageKazakh' => 'required|string',
+//            'checkLanguageEnglish' => 'required|string',
+//            'checkLanguageFrench' => 'required|string',
+//            'checkLanguageGerman' => 'required|string',
+//            'checkLanguageChinese' => 'required|string',
+//            'checkOtherLanguages' => 'nullable|string',
+//            'englishProficiencyCertificates' => 'required|string',
+//            'certificateIssueDate' => 'nullable|string',
 //            'hobby' => 'required|json', QWE
 ////
-            'achievements' => 'required|string',
-            'reasonForLearning' => 'required|string',
+//            'achievements' => 'required|string',
+//            'reasonForLearning' => 'required|string',
 //
 //            'suite' => 'nullable|json', QWE
 //
-            'otherSuite' => 'nullable|string',
+//            'otherSuite' => 'nullable|string',
 
 //            'socialNetwork' => 'nullable|json', QWE
 
-            'PageInFacebook' => 'nullable|string',
-            'PageInInstagram' => 'nullable|string',
-            'PageInTwitter' => 'nullable|string',
+//            'PageInFacebook' => 'nullable|string',
+//            'PageInInstagram' => 'nullable|string',
+//            'PageInTwitter' => 'nullable|string',
 
 //            'checkBoxAboutMBA' => 'required|string', QWE
 
-            'otherReason' => 'nullable|string',
+//            'otherReason' => 'nullable|string',
 
 //            'starsTheQualityOfEducation' => 'required|string', QWE
 
@@ -105,7 +108,7 @@ class RequestInputs extends FormRequest
 
 //            'starsCompositionOfTeachers' => 'required|string', QWE
 
-            'otherСharacteristics' => 'nullable|string',
+//            'otherСharacteristics' => 'nullable|string',
 
 //            'checkBoxSourceOfFinancing' => 'required|string', QWE
 //            'checkBoxMBAProgram' => 'required|string', QWE
@@ -156,11 +159,13 @@ class RequestInputs extends FormRequest
         ];
     }
 
+//iliyas1994777
+
 //    public function messages()
 //    {
-
+//
 //        return [
-//           Резюме
+////           Резюме
 //            'resumeFile.required' => 'Заполните обязательные поля',
 //            'resumeFile.*.mimes' => 'Загрузите  Резюме в формате pdf,doc,docx',
 //////           Копия диплома
@@ -190,9 +195,9 @@ class RequestInputs extends FormRequest
 ////            Медицинская справка (форма 075У) (.pdf или .jpg, .png)
 //            'medicalDoc.required' => 'Заполните обязательные поля',
 //            'medicalDoc.*.mimes' => 'Загрузите в формате pdf,png,jpg',
-
-//        ];
 //
+//        ];
+////
 //    }
 
 }
