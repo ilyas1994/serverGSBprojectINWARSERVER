@@ -5670,6 +5670,13 @@ function inputFieldEmail(title, name) {
   var input = '';
   var req = span !== null;
   var reqClass = span !== null ? 'form-control ' : '';
+
+  function onKeydown(evt) {
+    if (evt.key === '@') {
+      evt.preventDefault();
+    }
+  }
+
   input = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
     className: className,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
@@ -5678,20 +5685,24 @@ function inputFieldEmail(title, name) {
         className: '',
         htmlFor: "",
         children: [title, span]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
-        type: "email",
-        name: name,
-        required: req,
-        placeholder: placeholder,
-        className: 'user-surname ' + reqClass,
-        defaultValue: value,
-        maxLength: 32
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-        className: "invalid-tooltip",
-        children: ["\u0417\u0430\u043F\u043E\u043B\u043D\u0438\u0442\u0435 \u043E\u0431\u044F\u0437\u0430\u0442\u0435\u043B\u044C\u043D\u043E\u0435 \u043F\u043E\u043B\u0435 ", title]
+        className: 'd-flex position-relative',
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
+          type: "text",
+          name: name,
+          required: req,
+          placeholder: placeholder,
+          onKeyDown: onKeydown.bind(this),
+          className: 'user-surname ' + reqClass,
+          defaultValue: value,
+          maxLength: 32
+        }), dropDown('', 'mail[]', ['@mail.ru', '@gmail.com', '@inbox.ru', '@list.ru', '@bk.ru', '@yandex.ru', '@yahoo.com', '@hotmail.com', '@outlook.com'], null, 'col-lg-5'), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+          className: "invalid-tooltip",
+          children: ["\u0417\u0430\u043F\u043E\u043B\u043D\u0438\u0442\u0435 \u043E\u0431\u044F\u0437\u0430\u0442\u0435\u043B\u044C\u043D\u043E\u0435 \u043F\u043E\u043B\u0435 ", title]
+        })]
       })]
     })
-  }, name);
+  }, 5);
   return input;
 }
 function dataPiker(title, name) {
@@ -6780,12 +6791,13 @@ function tabs_1(names) {
     children: input
   }, count); //
   // // ------------------------------------------------------------------------------------------
+  // ------------------------------------------------------------------------------------------
 
   input = [];
   title = ['Город проживания', 'Домашний адрес', 'Мобильный телефон', 'Электронная почта'];
 
   for (var _i2 = 0; _i2 < title.length - 1; _i2++) {
-    if (_i2 == 2) {
+    if (_i2 === 2) {
       // input[i] = inputField(title[i], names[count], 'col-lg-3', '','', RequiredSpan());
       input[_i2] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputFieldOnlyNumber)(title[_i2], names[count], 'col-lg-3', '', '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
         id: names[count]
@@ -6797,21 +6809,26 @@ function tabs_1(names) {
     count++;
   }
 
-  input[title.length - 1] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputFieldEmail)(title[title.length - 1], names[count], 'col-lg-3', null, '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
-    id: names[count]
-  }));
-  count++;
   allcode[5] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     className: "form-group row",
     children: input
   }, count);
-  count++; //----------------------------------------------------------------------------------------------------
+  count++;
+  input = [];
+  input[title.length - 1] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputFieldEmail)('Электронная почта', names[count], 'col-lg-6', null, '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
+    id: names[count]
+  }));
+  count++;
+  allcode[6] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    className: "form-group row",
+    children: input
+  }, count); //----------------------------------------------------------------------------------------------------
 
   var buttonStyle = {
     marginTop: '20px'
   };
   var tab2 = document.getElementById('2-tab');
-  allcode[6] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+  allcode[7] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     className: "",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
       className: "d-flex align-items-lg-end",

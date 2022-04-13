@@ -12,8 +12,8 @@ Route::get('', ['as' => 'admin.dashboard', function () {
     $content = view('adminPanel.profileUser')->with('profileData', $profileData);
 
 	return AdminSection::view($content, 'Dashboard');
-}])->middleware('admin');
-//}]);
+//}])->middleware('admin');
+}]);
 
 
 

@@ -54,7 +54,7 @@
                                 aria-expanded="false">
                             @isset($dropDown)
                                 @if($dropDown == 1)
-                                    First test
+                                    Менеджмент
                                 @else
                                     {{ $dropDown }}
                                 @endif
@@ -62,7 +62,7 @@
                         </button>
 
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ route('dropdownState', 1) }}">First test</a></li>
+                            <li><a class="dropdown-item" href="{{ route('dropdownState', 1) }}">Менеджмент</a></li>
                             <li><a class="dropdown-item" href="{{ route('dropdownState', 2) }}">Second test</a></li>
                             <li><a class="dropdown-item" href="#">Something else here</a></li>
                             {{--                    <li><a class="dropdown-item" href="#">Something else here</a></li>--}}

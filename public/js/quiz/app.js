@@ -533,10 +533,10 @@ function Radio(props) {
         style: divStyle,
         name: props.name,
         onChange: props.it.handleClick.bind(this),
-        id: props.id
+        id: props.id + "&" + props.identifier
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("label", {
         className: "form-check-label col-lg-11 ms-1",
-        htmlFor: props.id,
+        htmlFor: props.id + "&" + props.identifier,
         children: props.title
       }), props.popUpElement, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
         className: "invalid-feedback",
@@ -564,6 +564,7 @@ var RadioB = /*#__PURE__*/function (_React$Component3) {
 
       for (var j = 0; j < countAll; j++) {
         // console.log(radioElements.children[j].children[0].children[0].name);
+        // radioElements.children[j].children[0].children[0].value = radioElements.children[j].children[0].children[0].id.substring(0,radioElements.children[j].children[0].children[0].id.length-2);
         radioElements.children[j].children[0].children[0].value = radioElements.children[j].children[0].children[0].id;
       }
 
@@ -594,7 +595,8 @@ var RadioB = /*#__PURE__*/function (_React$Component3) {
           chekbox[i] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(Radio, {
             name: this.props.name,
             it: this,
-            id: this.props.checkBoxTitle[i] + this.props.identifier,
+            identifier: this.props.identifier,
+            id: this.props.checkBoxTitle[i],
             title: this.props.checkBoxTitle[i]
           }, i);
         }
@@ -1219,7 +1221,7 @@ var SelectQuiz = /*#__PURE__*/function (_React$Component) {
                     className: 'my-3',
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RadioB, {
                       classN: 'col-lg-12',
-                      name: _i + '_[]',
+                      name: key + '[]',
                       column: 1,
                       count: title.length,
                       title: key,
@@ -1235,7 +1237,7 @@ var SelectQuiz = /*#__PURE__*/function (_React$Component) {
                     className: 'my-3',
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.CheckBox, {
                       identifier: _i,
-                      name: _i + "_",
+                      name: key + '&' + _i,
                       column: 1,
                       count: title.length,
                       title: key,
@@ -1280,7 +1282,7 @@ var SelectQuiz = /*#__PURE__*/function (_React$Component) {
                     className: 'my-3',
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RadioB, {
                       classN: 'col-lg-12',
-                      name: _i4 + '_[]',
+                      name: _key2 + '[]',
                       column: 1,
                       count: _title.length,
                       title: _key2,
@@ -1296,7 +1298,7 @@ var SelectQuiz = /*#__PURE__*/function (_React$Component) {
                     className: 'my-3',
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.CheckBox, {
                       identifier: _i4,
-                      name: _i4 + "_",
+                      name: _key2 + '&' + _i4,
                       column: 1,
                       count: _title.length,
                       title: _key2,
@@ -1341,7 +1343,7 @@ var SelectQuiz = /*#__PURE__*/function (_React$Component) {
                     className: 'my-3',
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RadioB, {
                       classN: 'col-lg-12',
-                      name: _i7 + '_[]',
+                      name: _key4 + '[]',
                       column: 1,
                       count: _title2.length,
                       title: _key4,
@@ -1357,7 +1359,7 @@ var SelectQuiz = /*#__PURE__*/function (_React$Component) {
                     className: 'my-3',
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.CheckBox, {
                       identifier: _i7,
-                      name: _i7 + "_",
+                      name: _key4 + '&' + _i7,
                       column: 1,
                       count: _title2.length,
                       title: _key4,

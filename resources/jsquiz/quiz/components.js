@@ -332,8 +332,8 @@ export function Radio(props) {
     };
     return  <div  className="form-check">
                     <div className={'position-relative'}>
-                        <input  className="form-check-input p-0" required={true}  type="radio"  style={divStyle} name={props.name} onChange={props.it.handleClick.bind(this)} id={props.id}  />
-                        <label  className="form-check-label col-lg-11 ms-1" htmlFor={props.id} >{props.title}</label>
+                        <input  className="form-check-input p-0" required={true}  type="radio"  style={divStyle} name={props.name} onChange={props.it.handleClick.bind(this)} id={props.id+"&"+ props.identifier}   />
+                        <label  className="form-check-label col-lg-11 ms-1" htmlFor={props.id+"&"+ props.identifier} >{props.title}</label>
                         {props.popUpElement}
                          <div className="invalid-feedback">Выберите один из пункта</div>
                     </div>
@@ -352,6 +352,7 @@ export class RadioB extends React.Component{
         let  radioElements = i['target'].parentElement.parentElement.parentElement;
         for (let j = 0; j < countAll; j++) {
             // console.log(radioElements.children[j].children[0].children[0].name);
+           // radioElements.children[j].children[0].children[0].value = radioElements.children[j].children[0].children[0].id.substring(0,radioElements.children[j].children[0].children[0].id.length-2);
            radioElements.children[j].children[0].children[0].value = radioElements.children[j].children[0].children[0].id;
         }
 
@@ -381,7 +382,8 @@ export class RadioB extends React.Component{
                     chekbox[i] = <Radio
                         name={this.props.name}
                         it={this}
-                        id={this.props.checkBoxTitle[i]+this.props.identifier}
+                        identifier={this.props.identifier}
+                        id={this.props.checkBoxTitle[i]}
                         title={this.props.checkBoxTitle[i]}
                         key={i}
                     />

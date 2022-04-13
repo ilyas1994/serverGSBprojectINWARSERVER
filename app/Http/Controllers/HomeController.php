@@ -61,7 +61,6 @@ class HomeController extends Controller
         }
 
 
-        // по 25 вопросов с двух тестов
 
         if (auth()->user()->role == 2) {
             $answers = \DB::select("SELECT * FROM answers");
@@ -71,7 +70,6 @@ class HomeController extends Controller
             $emailUser = auth()->user()->email;
             $questions = null;
 
-//            $checkUser =  DB::table('quiz_results')->where('email_user', $emailUser)->exists();
 
             $getTypeTest = DB::select("SELECT type_test FROM quiz_results WHERE email_user = '" .$emailUser. " ' ");
 

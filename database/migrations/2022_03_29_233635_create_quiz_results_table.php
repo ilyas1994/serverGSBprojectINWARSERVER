@@ -17,9 +17,8 @@ class CreateQuizResultsTable extends Migration
             $table->id();
             $table->string('email_user');
             $table->string('type_test');
-            $table->string('checkTest');
-            $table->integer('result');
-            $table->integer('fake_result')->nullable();
+            $table->string('testName');
+            $table->string('result');
             $table->timestamps();
         });
     }

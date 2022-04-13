@@ -80,7 +80,7 @@ Route::post('/resetpassword', [ResetPasswordController::class, 'index'])->name('
 
 
 // Quiz - User Send Reuslt
-Route::get('/sendResult', [QuizResult::class, 'index'])->name('quiz_res');
+Route::post('/sendResult', [QuizResult::class, 'index'])->name('quiz_res');
 
 // CRUD
 Route::resource('/crud', QuizCrud::class );
