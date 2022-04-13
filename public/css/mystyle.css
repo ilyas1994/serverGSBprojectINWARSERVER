@@ -1,3 +1,6 @@
+
+
+
 .rating-area {
     float: left;
     overflow: hidden;
@@ -21,7 +24,7 @@
 .rating-area:not(:checked) > label:before {
     content: '★';
 }
-.rating-area > input:checked ~ label {
+.rating-area  > input:checked ~ label {
     color: gold;
     text-shadow: 1px 1px #c60;
 }
