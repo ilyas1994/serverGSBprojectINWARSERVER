@@ -829,8 +829,8 @@ export  class  AddEducation extends React.Component{
         let allcode = [];
 
         if(this.props.dropdownValues){
-            qualification = dropdownValues['qualification'];
-            languageEducation = dropdownValues['languageEducation'];
+            qualification = this.props.dropdownValues['qualification'];
+            languageEducation = this.props.dropdownValues['languageEducation'];
         }
 
         let sec = [languageEducation,qualification];
