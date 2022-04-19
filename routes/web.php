@@ -99,3 +99,12 @@ Route::get('/test', [\App\Http\Controllers\Test\TestController::class, 'index'])
 
 // Switch Country
 Route::get('/switchcountry', [SwitchCountryController::class, 'index'])->name('switchCountry');
+
+// TESTING
+Route::get('/asdasd', function () {
+    return view('testForUser');
+});
+
+Route::get('/zxc', [\App\Http\Controllers\Test\TestController::class, 'index'])->name('asd');
+
+

@@ -4,10 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76c86216-8c47-45b5-b63a-4f4738510c0b" name="Changes" comment="complete quiz result">
+    <list default="true" id="76c86216-8c47-45b5-b63a-4f4738510c0b" name="Changes" comment="complete quiz result new">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Test/TestController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/crudQuiz/createQuestion/createQuestion.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/crudQuiz/editQuiz.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/blade.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/blade.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/RequestInputs.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/RequestInputs.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/QuizResult.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/QuizResult.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Components/tabs1.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Components/tabs1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +195,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../uuAlmau" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -247,7 +255,12 @@
       <workItem from="1649329314198" duration="28413000" />
       <workItem from="1649387836930" duration="34934000" />
       <workItem from="1649579681548" duration="16849000" />
-      <workItem from="1649840064097" duration="6174000" />
+      <workItem from="1649840064097" duration="10124000" />
+      <workItem from="1649869215097" duration="554000" />
+      <workItem from="1649869814028" duration="6641000" />
+      <workItem from="1650258160957" duration="4145000" />
+      <workItem from="1650344418439" duration="767000" />
+      <workItem from="1650345589180" duration="28000" />
     </task>
     <task id="LOCAL-00001" summary="почти закончил">
       <created>1648915219567</created>
@@ -375,7 +388,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649843598860</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="complete quiz result new">
+      <created>1649847854487</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1649847854487</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -412,7 +432,19 @@
     <MESSAGE value="front+++" />
     <MESSAGE value="frontWithQuiz" />
     <MESSAGE value="complete quiz result" />
-    <option name="LAST_COMMIT_MESSAGE" value="complete quiz result" />
+    <MESSAGE value="complete quiz result new" />
+    <option name="LAST_COMMIT_MESSAGE" value="complete quiz result new" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/Http/Controllers/MainController.php</url>
+          <line>235</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

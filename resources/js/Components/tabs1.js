@@ -43,7 +43,7 @@ export function tabs_1(names) {
     let sec = [];
 
     for (let i = 0; i < 2; i++) {
-        input[i] = inputField(title[i], 'old{{'+names[count]+'}}',"col-lg-4 ", null,'', <RequiredSpan id={names[count]}/>);
+        input[i] = inputField(title[i], '{{old('+names[count]+')}}',"col-lg-4 ", null,'', <RequiredSpan id={names[count]}/>);
         count++;
     }
 

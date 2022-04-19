@@ -5702,7 +5702,7 @@ function inputFieldEmail(title, name) {
         })]
       })]
     })
-  }, 5);
+  }, name);
   return input;
 }
 function dataPiker(title, name) {
@@ -6661,7 +6661,7 @@ function tabs_1(names) {
   var sec = [];
 
   for (var i = 0; i < 2; i++) {
-    input[i] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[i], names[count], "col-lg-4 ", null, '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
+    input[i] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[i], '{{old(' + names[count] + ')}}', "col-lg-4 ", null, '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
       id: names[count]
     }));
     count++;
@@ -6794,7 +6794,7 @@ function tabs_1(names) {
   // ------------------------------------------------------------------------------------------
 
   input = [];
-  title = ['Город проживания', 'Домашний адрес', 'Мобильный телефон', 'Электронная почта'];
+  title = ['Город проживания', 'Домашний адрес', 'Мобильный телефон', 'Второй мобильный номер', 'Личная электронная почта'];
 
   for (var _i2 = 0; _i2 < title.length - 1; _i2++) {
     if (_i2 === 2) {
@@ -6802,6 +6802,8 @@ function tabs_1(names) {
       input[_i2] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputFieldOnlyNumber)(title[_i2], names[count], 'col-lg-3', '', '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
         id: names[count]
       }));
+    } else if (_i2 === 3) {
+      input[_i2] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputFieldOnlyNumber)(title[_i2], names[count], 'col-lg-3', '', '');
     } else input[_i2] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[_i2], names[count], 'col-lg-3', null, '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
       id: names[count]
     }));
@@ -6813,16 +6815,18 @@ function tabs_1(names) {
     className: "form-group row",
     children: input
   }, count);
-  count++;
   input = [];
-  input[title.length - 1] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputFieldEmail)('Электронная почта', names[count], 'col-lg-6', null, '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
+  input[0] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputFieldEmail)('Личная электронная почта', names[count], 'col-lg-6', null, '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
     id: names[count]
   }));
+  count++;
+  input[1] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputFieldEmail)('Электронная почта (корпоративный)', names[count], 'col-lg-6', null, '');
   count++;
   allcode[6] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     className: "form-group row",
     children: input
-  }, count); //----------------------------------------------------------------------------------------------------
+  }, count);
+  count++; //----------------------------------------------------------------------------------------------------
 
   var buttonStyle = {
     marginTop: '20px'

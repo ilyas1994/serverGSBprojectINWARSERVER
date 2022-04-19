@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\PersonalData;
+use App\Models\User;
 use DB;
 use Illuminate\Http\Request;
 use SleepingOwl\Admin\Admin;
