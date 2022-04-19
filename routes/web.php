@@ -53,7 +53,7 @@ Route::get('/search/', [App\Http\Controllers\SearchController::class, 'index'])-
 Route::get('/search/{www}', [App\Http\Controllers\SearchController::class, 'index'])->name('searchParamams');
 
 // Convert to PDF
-// Обычный просмотр с кнопкой генерировать, непонятно для чего нужно
+// Обычный просмотр с кнопкой генерировать
 Route::get('pdf/preview', [PDFController::class, 'preview'])->name('pdf.preview');
 // Если хотим сразу показать обработанную в PDF
 Route::get('pdf/generate{iin}', [PDFController::class, 'generatePDF'])->name('pdf.generate');

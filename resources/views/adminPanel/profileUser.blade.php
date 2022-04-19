@@ -211,6 +211,9 @@
                         <a class="aStyle" target="_blank" href="{{ route('pdf.getTypeFile', [$value->Iin, 'scanFileDocument']) }}">Удв. личности</a>
                         {{--                    Показать Мотивационное эссе только на EXECUTIVE MBA--}}
                         <br>
+                        <a class="aStyle" target="_blank" href="{{ route('pdf.getTypeFile', [$value->Iin, 'copyPassport']) }}">Коп. Паспорта</a>
+                        {{--                    Копия паспорта (.pdf или .jpg, .png)--}}
+                        <br>
                         <a class="aStyle" target="_blank" href="{{ route('pdf.getTypeFile', [$value->Iin, 'fileEsse']) }}">Мотивационное эссе</a>
                                                 {{--Показать foto3x4--}}
                         <br>
@@ -228,6 +231,9 @@
                         <br>
                         <a class="aStyle" target="_blank" href="{{ route('pdf.getTypeFile', [$value->Iin, 'medicalDoc']) }}">Медицинская справка</a>
                         {{--                    Показать Прикрепить скан сертификата (.pdf)--}}
+                        <br>
+                        <a class="aStyle" target="_blank" href="{{ route('pdf.getTypeFile', [$value->Iin, 'fileScanDiplomWithApplication']) }}">Сертиф. Англ. языка</a>
+                        {{--                    Прикрепить скан сертификата на знание Английского языка (.pdf или .jpg)--}}
                         <br>
                         <a class="aStyle" target="_blank" href="{{ route('pdf.getTypeFile', [$value->Iin, 'scanCertificate']) }}">Скан сертификата</a>
                     </td>

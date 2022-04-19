@@ -12,8 +12,8 @@ Route::get('', ['as' => 'admin.dashboard', function () {
     $content = view('adminPanel.profileUser')->with('profileData', $profileData);
 
 	return AdminSection::view($content, 'Dashboard');
-//}])->middleware('admin');
-}]);
+}])->middleware('admin');
+//}]);
 
 
 
@@ -57,7 +57,7 @@ Route::get('quiz', ['as' => 'admin.quiz', function () {
         }
 
 	return AdminSection::view($content, 'quiz');
-//}])->middleware('admin');
-}]);
+}])->middleware('admin');
+//}]);
 
 

@@ -41,21 +41,19 @@ class HomeController extends Controller
 
         if (auth()->user()->role == 1) {
 
-            switch (auth()->user()->city) {
-                case 'almaty':
-                {
-                    $profileData = DB::table('personal_datamba')->orderBy('created_at', 'desc')->get();
-                    $content = view('adminPanel.profileUser')->with('profileData', $profileData);
-                    return \SleepingOwl\Admin\Facades\Admin::view($content);
-
-                }
-                case 'General MBA - Казахстанская программа MBA -> обучение программа в г. Нур-Султан':
-                {
-                    return $this->selectCountry('General MBA - Казахстанская программа MBA -> обучение программа в г. Нур-Султан');
-
-                }
-
+            if (auth()->user()->city == 'Алматы') {
+                $profileData = DB::table('personal_datamba')->orderBy('created_at', 'desc')->get();
+                $content = view('adminPanel.profileUser')->with('profileData', $profileData);
+                return \SleepingOwl\Admin\Facades\Admin::view($content);
+            } else {
+                    $city = auth()->user()->city;
+//                $profileData = DB::table('personal_datamba')->orderBy('created_at', 'desc')->get();
+                $profileData = DB::select("SELECT * FROM personal_datamba WHERE checkBoxMBAProgram  LIKE '%{$city}%'  ");
+                $content = view('adminPanel.profileUser')->with('profileData', $profileData);
+                return \SleepingOwl\Admin\Facades\Admin::view($content);
             }
+
+
 
 
 //                  return redirect()->route('admin.dashboard');

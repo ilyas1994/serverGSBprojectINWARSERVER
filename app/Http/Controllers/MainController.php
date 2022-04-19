@@ -231,7 +231,7 @@ class MainController extends Controller
                 'role' => 2,
                 'city' => $city,
             ]);
-            \Mail::to($email)->send(new SendPassword($email, $password));
+//            \Mail::to($email)->send(new SendPassword($email, $password));
             DB::commit();
 
             dd('success');
