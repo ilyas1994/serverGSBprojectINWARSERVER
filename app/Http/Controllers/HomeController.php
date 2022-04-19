@@ -64,13 +64,13 @@ class HomeController extends Controller
 
 
         if (auth()->user()->role == 2) {
-            $answers = \DB::select("SELECT * FROM answers");
+            $answers = \DB::select("SELECT * FROM true_answer_for_questions");
+//            dd($answers);
 //            $allquestions = \DB::select("SELECT * FROM questions");
             $typeTest = DB::select("SELECT * FROM type_tests");
 
             $emailUser = auth()->user()->email;
             $questions = null;
-
 
             $getTypeTest = DB::select("SELECT type_test FROM quiz_results WHERE email_user = '" .$emailUser. " ' ");
 
@@ -79,6 +79,7 @@ class HomeController extends Controller
                 $testRandom = \DB::select("SELECT * FROM questions WHERE type_id = 3 OR type_id IN(1,2) AND variant_otveta = '" .$random. "' ");
                 $questions = $testRandom;
 //                dump($testRandom);
+
             } else {
 
 //                dump($typeTest);
@@ -97,7 +98,6 @@ class HomeController extends Controller
             }
 
             }
-
             if (count($getTypeTest) == 3 ) {
                 $typeTest = [];
             }
@@ -108,29 +108,22 @@ class HomeController extends Controller
 
 
 
-//            for ($i = 0; $i < count($questions); $i++) {
-//                $data = [];
-//                for ($j = 0; $j < count($answers); $j++) {
-//                        if ($questions[$i]->id == $answers[$j]->question_id) {
-//                            $data[] = $answers[$j]->name;
-//                        }
-//                }
-//               $all[$questions[$i]->name] = $data;
-//            }
-
             if ($questions != null) {
 
-
-            for ($n = 0; $n < count($typeTest); $n++) {
+                for ($n = 0; $n < count($typeTest); $n++) {
                 $arrTypeTest = [];
 
                 for ($i = 0; $i < count($questions); $i++) {
                     $arrQuestion = [];
+
                     for ($j = 0; $j < count($answers); $j++) {
+
                         if ($typeTest[$n]->id == $questions[$i]->type_id) {
 
                             if ($questions[$i]->id == $answers[$j]->question_id) {
-                               $arrQuestion[] = $answers[$j]->name;
+//                                dd(123);
+
+                                $arrQuestion[] = $answers[$j]->name;
                                 $arrTypeTest[$questions[$i]->name] = $arrQuestion;
                             }
                         }
@@ -140,8 +133,9 @@ class HomeController extends Controller
                 }
                 $all[$typeTest[$n]->name] = $arrTypeTest;
 
-            }
-//            dd($all);
+                }
+
+                dd($all);
                 return view('quiz.quizTest')->with('all', $all);
 
             } else {

@@ -18,7 +18,7 @@ class QuizResult extends Controller
         $requestData = $request->all();
         $typeTest = $requestData['typeTest'];
         $question = DB::select("SELECT * FROM questions WHERE type_id = '" . $typeTest . "' ");
-        $answer = DB::select("SELECT * FROM answers");
+        $answer = DB::select("SELECT * FROM true_answer_for_questions");
             $getEmail = auth()->user()->email;
 //            $count = 0;
         $arr = [];

@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76c86216-8c47-45b5-b63a-4f4738510c0b" name="Changes" comment="complete quiz 19-04">
-      <change afterPath="$PROJECT_DIR$/app/Models/Quiz/Answer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Quiz/Questions.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Quiz/QuizResult.php" afterDir="false" />
+    <list default="true" id="76c86216-8c47-45b5-b63a-4f4738510c0b" name="Changes" comment="add class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/QuizResult/QuizResult.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/QuizResult/QuizResult.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Quiz/Answer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Quiz/TrueAnswerForQuestion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2022_03_29_143849_create_answers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_04_19_120134_create_true_answer_for_questions_table.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +29,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="first_test" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -195,7 +201,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Confirmation" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -254,7 +260,7 @@
       <workItem from="1650258160957" duration="4145000" />
       <workItem from="1650344418439" duration="767000" />
       <workItem from="1650345589180" duration="28000" />
-      <workItem from="1650345633955" duration="1671000" />
+      <workItem from="1650345633955" duration="5611000" />
     </task>
     <task id="LOCAL-00001" summary="почти закончил">
       <created>1648915219567</created>
@@ -396,7 +402,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650345964328</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="add class">
+      <created>1650347423792</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1650347423792</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -435,7 +448,8 @@
     <MESSAGE value="complete quiz result" />
     <MESSAGE value="complete quiz result new" />
     <MESSAGE value="complete quiz 19-04" />
-    <option name="LAST_COMMIT_MESSAGE" value="complete quiz 19-04" />
+    <MESSAGE value="add class" />
+    <option name="LAST_COMMIT_MESSAGE" value="add class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
