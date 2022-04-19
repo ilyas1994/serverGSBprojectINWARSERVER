@@ -19,7 +19,9 @@ export function getNames(nameIndex = 0) {
         'cityOfResidence',
         'homeAdress',
         'mobileNumber',
+        'mobileNumberTwo',
         'email',
+        'emailTwo',
     ];
 
     let names2 = [
@@ -41,12 +43,12 @@ export function getNames(nameIndex = 0) {
     let names3 = [
         'startEducation',
         'endEducation',
+        'languageEducation',
         'qualification',
         'fullNameUniversity',
         'speciality',
-        'languageEducation',
-        'checkSecondDegree',
-        'checkMasterDegree',
+        // 'checkSecondDegree', убрать
+        // 'checkMasterDegree', убрать
         'checkLanguageKazakh',
         'checkLanguageEnglish',
         'checkLanguageFrench',
@@ -96,15 +98,21 @@ export function getNames(nameIndex = 0) {
         ],
         'checkBoxSourceOfFinancing',
         'checkBoxMBAProgram',
+
         'scanFileDocument',
         'resumeFile',
         'foto3x4',
         'fileScanDiplomWithApplication',
         'scanFileCertificateFromWork',
         'medicalDoc',
+        'scanCertificate',
         'fileEsse',
         'copyPassport',
         'recomentedLetter'
+
+
+
+
     ];
     N[0] = names1;
     N[1] = names2;

@@ -26,11 +26,19 @@ export class SelectQuiz extends React.Component{
         let radio = [];
         let result = Object.keys(questions).map((key) => [Number(key), questions[key]]);
 
+
+        for (let i = 0; i < result.length; i++) {
+            console.log(Array.isArray(result[i][1]));
+        }
+
         switch (this.state.quizSel){
             case '-1':{
                 let quiz_Type = [];
-                for (let i = 0; i < this.title.length; i++) {
-                    quiz_Type.push(<QuizType key={i} title={this.title[i]}  onClick={this.handleClick} id={i+1}/>);
+
+                // for (let i = 0; i < this.title.length; i++) {
+                for (let i = 0; i < result.length; i++) {
+                    if(!Array.isArray(result[i][1]))
+                      quiz_Type.push(<QuizType key={i} title={this.title[i]}  onClick={this.handleClick} id={i+1}/>);
                 }
 
                 return <div>

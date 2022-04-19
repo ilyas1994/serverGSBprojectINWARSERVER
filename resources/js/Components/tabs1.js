@@ -14,26 +14,7 @@ import {
 } from "./components.js";
 
 let count = 0;
-// let names = [
-//              'surname',
-//              'name',
-//              'patronymic',
-//              'gender',
-//              'familyStatus',
-//              'amountOfChildren',
-//              'citizenship',
-//              'nationality',
-//              'dataOfBirth',
-//              'Iin',
-//              'typeDocument',
-//              'numberDocument',
-//              'kemVidanDoc',
-//              'dateMonthYearDoc',
-//              'cityOfResidence',
-//              'homeAdress',
-//              'mobileNumber',
-//              'email',
-// ];
+
 
 export function tabs_1(names) {
     let allcode = [];
@@ -43,7 +24,7 @@ export function tabs_1(names) {
     let sec = [];
 
     for (let i = 0; i < 2; i++) {
-        input[i] = inputField(title[i], '{{old('+names[count]+')}}',"col-lg-4 ", null,'', <RequiredSpan id={names[count]}/>);
+        input[i] = inputField(title[i], names[count],"col-lg-4 ", null,'', <RequiredSpan id={names[count]}/>);
         count++;
     }
 
@@ -69,7 +50,7 @@ export function tabs_1(names) {
     sec = [gender, familyStatus];
 
     for (let i = 0; i < sec.length; i++) {
-        input[i] = dropDown( title[i],names[count],sec[i],'','col-lg-4', <RequiredSpan id={names[count]}/>);
+        input[i] = dropDown( title[i],names[count],sec[i],'','col-lg-4', <RequiredSpan id={names[count]}/>, i);
         count++;
     }
 
@@ -86,7 +67,7 @@ export function tabs_1(names) {
     input = [];
     title = ['Гражданство','Национальность','Дата рождения'];
     let citizenship =['citizenship','citizenship1'];
-    let nationality = ['nationality'];
+    let nationality = ['nationality','1nationality'];
     if(dropdownValues){
         citizenship =dropdownValues['citizenship'];
         nationality = dropdownValues['nationality'];
@@ -98,7 +79,7 @@ export function tabs_1(names) {
 
     input[0] = dropDownClick(title[0],names[count],sec[0],'','col-lg-4', <RequiredSpan id={names[count]}/>);
     count++;
-    input[1] = dropDown(title[1],names[count],sec[1],'','col-lg-4', <RequiredSpan id={names[count]}/>);
+    input[1] = dropDown(title[1],names[count],sec[1],'','col-lg-4', <RequiredSpan id={names[count]}/>, 0);
     count++;
 
     input[2] = dataPiker(title[2], names[count],'col-lg-4', <RequiredSpan id={names[count]}/>);
@@ -117,7 +98,7 @@ export function tabs_1(names) {
     // inputField(title[i], names[count],"col-lg-4", null,'', RequiredSpan());
     input[0] = inputFieldOnlyNumber(title[0], names[count],"col-lg-4", null,'', <RequiredSpan id={names[count]}/>);
     count++;
-    input[1] = dropDown(title[1], names[count],sec[0],'','col-lg-4', <RequiredSpan id={names[count]}/>);
+    input[1] = dropDown(title[1], names[count],sec[0],'','col-lg-4', <RequiredSpan id={names[count]}/>, 0);
     count++;
 
     allcode[3] =  <div className={"form-group row"} key={count}>{input}</div>;
@@ -138,13 +119,12 @@ export function tabs_1(names) {
     let dop = dataPiker('когда', names[count],'col-lg-6', <RequiredSpan id={names[count]}/>);
     count--;
 
-    input[1] = dropDown(title[1], names[count], sec[0], dop,'col-lg-4', <RequiredSpan id={names[count]}/>);
+    input[1] = dropDown(title[1], names[count], sec[0], dop,'col-lg-4', <RequiredSpan id={names[count]}/>, 0);
     count+=2;
 
     allcode[4] =  <div className={"form-group row"} key={count}>{input}</div>;
-//
-// // ------------------------------------------------------------------------------------------
-    // ------------------------------------------------------------------------------------------
+
+// ------------------------------------------------------------------------------------------
     input = [];
     title = ['Город проживания','Домашний адрес','Мобильный телефон','Второй мобильный номер','Личная электронная почта'];
     for (let i = 0; i < title.length-1; i++) {
@@ -156,7 +136,7 @@ export function tabs_1(names) {
             input[i] = inputFieldOnlyNumber(title[i], names[count], 'col-lg-3', '','');
         }else
             input[i] = inputField(title[i], names[count], 'col-lg-3',null,'', <RequiredSpan id={names[count]}/>);
-        count++;
+             count++;
     }
 
     allcode[5] =  <div className={"form-group row"} key={count}>{input}</div>;
@@ -165,23 +145,22 @@ export function tabs_1(names) {
     input = [];
     input[0] = inputFieldEmail('Личная электронная почта', names[count], 'col-lg-6',null,'', <RequiredSpan id={names[count]}/>);
     count++;
-    input[1] = inputFieldEmail('Электронная почта (корпоративный)', names[count], 'col-lg-6',null,'');
+    input[1] = inputField('Электронная почта (корпоративный)', names[count], 'col-lg-6',null,'');
     count++;
 
     allcode[6] =  <div className={"form-group row"} key={count}>{input}</div>;
 
     count++;
-
-    //----------------------------------------------------------------------------------------------------
-    const buttonStyle = {
-        marginTop: '20px'
-    }
+ //----------------------------------------------------------------------------------------------------
+   const buttonStyle = {
+       marginTop: '20px'
+   }
     const tab2 = document.getElementById('2-tab');
     allcode[7] = <div key={count} className="">
         <div className="d-flex align-items-lg-end" >
             <input value={"Далее 'Сведения о трудовой деятельности' "} type={'button'} onClick={function () {
-                let tab = new bootstrap.Tab(tab2)
-                tab.show()
+                    let tab = new bootstrap.Tab(tab2)
+                    tab.show()
             }}/>
         </div>
     </div>

@@ -94,9 +94,8 @@
                 let csrf = "{!! csrf_token() !!}";
 
                 @isset($all)
-                    {{--question ={!!json_encode($all)!!};--}}
                     question ={!! json_encode($all) !!};
-                console.log(question)
+                     console.log(question)
                 @endisset
                 let testRoutes = "{{route('quiz_res')}}";
             </script>

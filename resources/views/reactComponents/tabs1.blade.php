@@ -18,33 +18,16 @@
     <link href={{asset('css/dropzone.css')}} rel="stylesheet">
     <link href={{asset('css/style.css')}} rel="stylesheet">
     <link href={{asset('css/mystyle.css')}} rel="stylesheet">
-{{--    <script src="validator.min.js"></script>--}}
-{{--        @push('scripts')--}}
-{{--        <script type="text/babel" src={{asset('reactComponents/components.js')}}> </script>--}}
 
-{{--        @endpush--}}
+    {{--    @push('scripts')--}}
+    {{--    <script type="text/babel" src={{asset('reactComponents/components.js')}}> </script>--}}
 
-
-{{--    @dd($programMBA)--}}
-
-
-@if($errors->any())
-
-
-        <div class="alert-danger">
-            <ul>
-                @foreach($errors->all() as $errors)
-                    <li>{{ $errors }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-
-
+    {{--    @endpush--}}
     <title>Document</title>
 </head>
 <body>
 
+{{--{{dd($dataArrayForDropDown['gender'])}}--}}
 <div class="header">
     <div class="container">
         <a href="https://gsb.almau.edu.kz/"><img src="{{asset('img/logo-gsb.png')}}" alt=""></a>
@@ -71,26 +54,26 @@
             <!--    <p style="margin-top: -50px">Если в процессе подачи заявки у Вас возникнут какие-либо вопросы, пожалуйста, свяжитесь с нашей  командой по телефону или электронной почте</p>-->
             <!--    <p style="margin-top: -50px">Телефон: +7 727 313 30 78 </p>-->
             <!--    <p style="margin-top: -70px">E-mail: gsb@almau.edu.kz </p>-->
+
         </div>
     </div>
 </div>
 <script>
     let dataArrayForDropDown = null;
     @isset($dataArrayForDropDown)
-         dataArrayForDropDown ={!!json_encode($dataArrayForDropDown)!!};
-         console.log(dataArrayForDropDown)
+      let dataArrayForDropDown ={!!json_encode($dataArrayForDropDown)!!};
     @endisset
-
 
     let programMBA = null;
     @isset($programMBA)
         programMBA ={!!json_encode($programMBA)!!};
-        console.log(programMBA)
+    console.log(programMBA)
     @endisset
+    // console.log(dataArrayForDropDown);
 </script>
 <div class="container">
     <div class="row">
-{{--                {{dd($dataArrayForDropDown['gender'])}}--}}
+        {{--        {{dd(json_encode($dataArrayForDropDown['gender']))}}--}}
         <div id="tabs" class=" tabs_head">
 
             <ul class="nav nav-tabs" id="myTab" role="tablist" style="background-color: gainsboro;">
@@ -119,18 +102,10 @@
 {{--                   $e = Illuminate\Support\Facades\Hash::make('qwe123')--}}
 {{--                @endphp--}}
 {{--                {{$e}}--}}
-{{--                class="needs-validation" novalidate--}}
-                <form id="basic-form" method="post" class="needs-validation" novalidate enctype="multipart/form-data" action="{{route('sendData')}}">
-                      @csrf
+                <form id="basic-form" method="post" class="needs-validation" novalidate enctype="multipart/form-data" action="{{route('send')}}">
+                    @csrf
                     <div class="tab-content" id="myTabContent">
-
-
-                        {{--                        <div class="tab-pane fade show active" id="tabs-1" role="tabpanel" aria-labelledby="home-tab">--}}
-                        <script src={{asset('js/app.js')}} type="text/javascript">
-
-                        </script>
-
-                        {{--                        </div>--}}
+                        <script src={{asset('js/app.js')}} type="text/javascript"></script>
                     </div>
                     <div class="col-lg-12">
                         <div class="row ">
@@ -190,7 +165,6 @@
 
 </body>
 </html>
-
 
 
 

@@ -3,22 +3,9 @@ if(typeof dataArrayForDropDown !== 'undefined'){
      dropdownValues =  JSON.parse( JSON.stringify(dataArrayForDropDown));
 }
 
-import {dropDown, inputField, RadioB, RadioButton, RequiredSpan} from "./components.js";
+import {dropDown, inputField, inputFieldOnlyNumber, label, RadioB, RadioButton, RequiredSpan} from "./components.js";
 
 let count = 0;
-// let names = [
-//              'positionAtWord',
-//              'nameOfTheCompany',
-//              'legalAdress',
-//
-//              'firstWorkExperience',
-//              'upravlencheskiy_stazh',
-//              'jobType',
-//              'fieldOfActivity',
-//              'availabilityOfBusinessTrips',
-//     'availabilityOfBusinessTripsInputYes',
-//     'availabilityOfBusinessTripsInputDuration'
-// ];
 
 
 export function tabs_2(names) {
@@ -78,9 +65,9 @@ export function tabs_2(names) {
 
         input[0] = inputField(title[0], names[count],'col-lg-8',null,'', <RequiredSpan id={names[count]}/>);
         count++;
-        input[1] = dropDown(title[1],names[count],sec[0],'','col-lg-4',<RequiredSpan id={names[count]}/>);
+        input[1] = dropDown(title[1],names[count],sec[0],'','col-lg-4',<RequiredSpan id={names[count]}/>, 0);
         count++;
-        input[2] = dropDown(title[2],names[count],sec[1],null,null, <RequiredSpan id={names[count]}/>);
+        input[2] = dropDown(title[2],names[count],sec[1],null,null, <RequiredSpan id={names[count]}/>, 1);
         count++;
 
         allcode[3] =  <div className={"form-group row"} key={count}>{input}</div>;
@@ -89,15 +76,14 @@ export function tabs_2(names) {
     title = ['Наличие командировок'];
    let titleForCheckBox = ['Да','Нет'];
     let arraycount = count;
-   let one = <div className={'col-lg-8 ms-5'} hidden>
-                   <input type="text" name={names[arraycount + 1]} placeholder="Если «Да», сколько раз в год"
-                          className=" user-how_many_trips col-lg-8" />
-                   <input type="text" name={names[arraycount + 2]} placeholder="Продолжительность"
-                          className=" user-how_long_trips col-lg-8 " />
+
+   let one = <div className={'col-lg-8 ms-5 d-flex'} >
+                              {inputFieldOnlyNumber('Сколько раз в год', names[arraycount + 1], 'col-lg-6 me-2', '','', <RequiredSpan id={names[arraycount + 1]}/>)}
+                              {inputFieldOnlyNumber('Продолжительность', names[arraycount + 2], 'col-lg-6', '','', <RequiredSpan id={names[arraycount + 2]}/>)}
                </div>
 
     let popUpElement = [one]
-    input[0] = <RadioB input={true} popupIndex={[0]} popUpElement={popUpElement} classN={'col-lg-8'} name={names[count]} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} span={<RequiredSpan id={names[count]}/>}/>;
+    input[0] = <RadioB input={true} hidden={true} popupIndex={[0]} popUpElement={popUpElement} classN={'col-lg-8'} name={names[count]} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} span={<RequiredSpan id={names[count]}/>}/>;
 
     count+=2;
     allcode[4] =  <div className={"form-group row"} key={count} >{input}</div>;
@@ -116,6 +102,7 @@ export function tabs_2(names) {
             }}/>
         </div>
     </div>
+
     return(
         <div  className={'m-5'}>{allcode}</div>
     );

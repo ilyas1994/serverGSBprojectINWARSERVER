@@ -29,6 +29,8 @@ export class ValidateAndSubmitButton extends React.Component{
                             this.setState({hide:false});
                             this.setState({scroll:document.querySelector('#scroll')})
                             let spanElement = null;
+                            console.log(allInputs[i].width+":"+allInputs[i].height);
+                            console.log(allInputs[i]);
 
                             for (let j = 0; j < allspan.length ; j++) {
                                 if(allspan[j].id.trim() === allInputs[i].name.trim()){
