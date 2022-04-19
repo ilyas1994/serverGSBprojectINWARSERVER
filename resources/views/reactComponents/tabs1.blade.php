@@ -61,7 +61,7 @@
 <script>
     let dataArrayForDropDown = null;
     @isset($dataArrayForDropDown)
-      let dataArrayForDropDown ={!!json_encode($dataArrayForDropDown)!!};
+       dataArrayForDropDown ={!!json_encode($dataArrayForDropDown)!!};
     @endisset
 
     let programMBA = null;

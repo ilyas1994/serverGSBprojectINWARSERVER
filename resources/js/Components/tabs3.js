@@ -3,6 +3,10 @@ let dropdownValues = null;
 if(typeof dataArrayForDropDown !== 'undefined'){
      dropdownValues =  JSON.parse( JSON.stringify(dataArrayForDropDown));
 }
+let MBAprogram = null;
+if(typeof programMBA !== 'undefined'){
+    MBAprogram =  JSON.parse( JSON.stringify(programMBA));
+}
 
 import {
     AddEducation,
@@ -484,7 +488,7 @@ export function tabs_3(names) {
     popUpElement = [one, two, '', three, four];
      input[0] = <MBAPropgramRadio input={true}  popUpElement={popUpElement} classN={'col-lg-12'} name={'notname'} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} span={<RequiredSpan id={names[count]}/>}/>;
 
-    // input[0] = <RadioB input={true} hidden={true} popupIndex={[0,1,3,4]} popUpElement={popUpElement} classN={'col-lg-12'} name={'notname'} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} span={<RequiredSpan id={names[count]}/>}/>;
+    input[0] = <RadioB input={true} hidden={true} popupIndex={[0,1,3,4]} popUpElement={popUpElement} classN={'col-lg-12'} name={'notname'} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} span={<RequiredSpan id={names[count]}/>}/>;
     count++;
 
 

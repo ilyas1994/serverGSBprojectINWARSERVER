@@ -567,26 +567,32 @@ export class MBAPropgramRadio extends React.Component{
         super(props);
 
     }
+    state = {
+        popup:this.props.popUpElement,
+        id:this.props.checkBoxTitle[0],
+        defaultState:''
+    }
 
     handleClick(i){
-        let countAll = i['target'].parentElement.parentElement.parentElement.childElementCount;
-        let  radioElements = i['target'].parentElement.parentElement.parentElement;
-        for (let j = 0; j < countAll; j++) {
-            // console.log(radioElements.children[j].children[0].children[0].name);
-            radioElements.children[j].children[0].children[0].value = radioElements.children[j].children[0].children[0].id;
-        }
-
-        for (let j = 0; j < countAll; j++) {
-            if(radioElements.children[j].children[0].childElementCount > 2){
-                // console.log(radioElements.children[j].children[0].children[2].className+" off");
-                radioElements.children[j].children[0].children[2].hidden = true;
-            }
-        }
-
-        if(i['target'].parentElement.childElementCount > 2){
-            // console.log(  i['target'].parentElement.children[2].className+" on");
-            i['target'].parentElement.children[2].hidden = false;
-        }
+        this.setState({id:i.target.id});
+        // let countAll = i['target'].parentElement.parentElement.parentElement.childElementCount;
+        // let  radioElements = i['target'].parentElement.parentElement.parentElement;
+        // for (let j = 0; j < countAll; j++) {
+        //     // console.log(radioElements.children[j].children[0].children[0].name);
+        //     radioElements.children[j].children[0].children[0].value = radioElements.children[j].children[0].children[0].id;
+        // }
+        //
+        // for (let j = 0; j < countAll; j++) {
+        //     if(radioElements.children[j].children[0].childElementCount > 2){
+        //         // console.log(radioElements.children[j].children[0].children[2].className+" off");
+        //         radioElements.children[j].children[0].children[2].hidden = true;
+        //     }
+        // }
+        //
+        // if(i['target'].parentElement.childElementCount > 2){
+        //     // console.log(  i['target'].parentElement.children[2].className+" on");
+        //     i['target'].parentElement.children[2].hidden = false;
+        // }
     }
 
     howMany(){
@@ -603,7 +609,7 @@ export class MBAPropgramRadio extends React.Component{
                         popUpElement={this.props.popUpElement[i]}
                         popupArray={this.props.popupIndex}
                         name={this.props.name}
-                        it={this}
+                        it={this.handleClick}
                         id={this.props.checkBoxTitle[i]}
                         title={this.props.checkBoxTitle[i]}
                         key={i}
