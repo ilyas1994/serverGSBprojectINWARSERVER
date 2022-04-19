@@ -65,6 +65,7 @@
     @endisset
 
     let programMBA = null;
+
     @isset($programMBA)
         programMBA ={!!json_encode($programMBA)!!};
     console.log(programMBA)
@@ -102,7 +103,7 @@
 {{--                   $e = Illuminate\Support\Facades\Hash::make('qwe123')--}}
 {{--                @endphp--}}
 {{--                {{$e}}--}}
-                <form id="basic-form" method="post" class="needs-validation" novalidate enctype="multipart/form-data" action="{{route('send')}}">
+                <form id="basic-form" method="post" class="needs-validation" novalidate enctype="multipart/form-data" action="{{route('sendData')}}">
                     @csrf
                     <div class="tab-content" id="myTabContent">
                         <script src={{asset('js/app.js')}} type="text/javascript"></script>

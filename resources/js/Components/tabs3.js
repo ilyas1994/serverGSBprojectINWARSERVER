@@ -1,4 +1,5 @@
 let dropdownValues = null;
+
 if(typeof dataArrayForDropDown !== 'undefined'){
      dropdownValues =  JSON.parse( JSON.stringify(dataArrayForDropDown));
 }
@@ -10,7 +11,7 @@ import {
     dataPiker,
     dropDown, FilePicker,
     inputField,
-    label,
+    label, MBAPropgramRadio,
     OtherLanguageButton, RadioB, RequiredSpan,
     StarFabric,
     TextArea
@@ -386,27 +387,27 @@ export function tabs_3(names) {
     title = ['Выберите программу МВА'];
 
     //окончательная версия
-    // let underMBAprogram = [[]];
-    // titleForCheckBox = [];
-    // popUpElement = [];
-    // for (const key of Object.keys(MBAprogram)) {
-    //     titleForCheckBox.push(key);
-    //     let popupArr = [];
-    //
-    //     for (let i = 0; i < MBAprogram[key].length; i++) {
-    //         popupArr.push(<label className="radio source_label_">
-    //             <input type="radio" name={names[count]} defaultChecked={true} value={MBAprogram[key]+" -> "+MBAprogram[key][i]}/>
-    //             <span>{MBAprogram[key][i]}</span>
-    //         </label>);
-    //     }
-    //     let popup = ''
-    //     if(popupArr.length > 0){
-    //         popup = <div className="label_in_ ms-5" id="label_in_1_" hidden>
-    //             {popupArr}
-    //         </div>
-    //     }
-    //     popUpElement.push(popup);
-    // }
+    let underMBAprogram = [[]];
+    titleForCheckBox = [];
+    popUpElement = [];
+    for (const key of Object.keys(MBAprogram)) {
+        titleForCheckBox.push(key);
+        let popupArr = [];
+
+        for (let i = 0; i < MBAprogram[key].length; i++) {
+            popupArr.push(<label className="radio source_label_">
+                <input type="radio" name={names[count]} defaultChecked={true} value={MBAprogram[key]+" -> "+MBAprogram[key][i]}/>
+                <span>{MBAprogram[key][i]}</span>
+            </label>);
+        }
+        let popup = ''
+        if(popupArr.length > 0){
+            popup = <div className="label_in_ ms-5" id="label_in_1_" hidden>
+                {popupArr}
+            </div>
+        }
+        popUpElement.push(popup);
+    }
     titleForCheckBox = ['General MBA - Казахстанская программа MBA',
         'Казахстанская модульно-дистанционная программа',
         'xecutive MBA Двудипломная программа с Высшей Школой Менеджмента Санкт-Петербургского Государственного Университета (Россия)',
@@ -481,9 +482,9 @@ export function tabs_3(names) {
     </div>
 
     popUpElement = [one, two, '', three, four];
-    //окончательная версия input[0] = <MBAPropgramRadio input={true}  popUpElement={popUpElement} classN={'col-lg-12'} name={'notname'} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} span={<RequiredSpan id={names[count]}/>}/>;
+     input[0] = <MBAPropgramRadio input={true}  popUpElement={popUpElement} classN={'col-lg-12'} name={'notname'} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} span={<RequiredSpan id={names[count]}/>}/>;
 
-    input[0] = <RadioB input={true} hidden={true} popupIndex={[0,1,3,4]} popUpElement={popUpElement} classN={'col-lg-12'} name={'notname'} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} span={<RequiredSpan id={names[count]}/>}/>;
+    // input[0] = <RadioB input={true} hidden={true} popupIndex={[0,1,3,4]} popUpElement={popUpElement} classN={'col-lg-12'} name={'notname'} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} span={<RequiredSpan id={names[count]}/>}/>;
     count++;
 
 
