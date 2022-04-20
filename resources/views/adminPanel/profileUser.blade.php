@@ -31,24 +31,29 @@
 
         <div class="col-5">
             <form id="sendForrmm" action="{{ route('switchCountry' ) }}" method="get">
-            <select onchange=switchCountry(this) class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+{{--            <select onchange=switchCountry(this) class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">--}}
+            <select   class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
 {{--                <option >Выберите</option>--}}
 
-                    @for($i = 0; $i < count($citys); $i++)
-                            @if (Session::has('city'))
+                <option onclick=switchSelect(this)  name="city" value="Алматы">Алматы</option>
+                <option onclick=switchSelect(this)  name="city2" value="Нур-Султан">Нур-Султан</option>
+{{--                    @for($i = 0; $i < count($citys); $i++)--}}
+{{--                            @if (Session::has('city'))--}}
 
-                               @if(Session::get('city') == $i)
-                                  <option selected value="Almaty">{{$citys[$i]}}</option>
-                               @else
-                                   <option value="Almaty">{{$citys[$i]}}</option>
-                               @endif
-                            @else
-                               <option value="Almaty">{{$citys[$i]}}</option>
-                            @endif
-                    @endfor
+{{--                               @if(Session::get('city') == $i)--}}
+{{--                                  <option selected value="Алматы">{{$citys[$i]}}</option>--}}
+{{--                               @else--}}
+{{--                                   <option value="Almaty">{{$citys[$i]}}</option>--}}
+{{--                               @endif--}}
+{{--                            @else--}}
+{{--                               <option value="Almaty">{{$citys[$i]}}</option>--}}
+{{--                            @endif--}}
+{{--                    @endfor--}}
+
 
             </select>
-                <input type="hidden" id="countryVal" name="countryVal">
+{{--                <input type="hidden" id="countryVal" name="countryVal">--}}
+                <input id="cityVal" type="hidden" name="city">
                 <button type="submit" hidden></button>
             </form>
         </div>
@@ -175,6 +180,7 @@
 
 {{--checkBoxMBAProgram--}}
 
+
         <div class="col-12" >
 
         <table class="table">
@@ -251,7 +257,10 @@
                     <td>
                         <form action={{ route('getFiless') }} method="get">
                             @csrf
+                            <input type="hidden" name="surname" value="{{ $value->surname }}">
+                            <input type="hidden" name="name" value="{{ $value->name }}">
                                 <button class="btn btn-primary" name="sendIIN" value="{{ $value->Iin }}" type="submit">Скачать все</button>
+
                          </form>
                     </td>
 
@@ -274,7 +283,14 @@
 
 <script>
 
+    let cityVal = document.getElementById('cityVal');
 
+    function switchSelect(e) {
+        // alert(e.value);
+
+        cityVal
+        document.getElementById('sendForrmm').submit();
+    }
 
     function btnFormInput() {
         let hiddenOption = document.getElementById('hiddenOption');
@@ -289,47 +305,47 @@
 
 
 
-        function switchCountry(e) {
-        let hiddenInput = document.getElementById('countryVal')
-            console.log(e.selectedIndex);
-            switch (e.selectedIndex) {
-                case 1: {
-                    hiddenInput.value = "Алматы_"+e.selectedIndex;
-                    document.getElementById('sendForrmm').submit();
-                    break;
-                }
-                case 2: {
-                    hiddenInput.value = "Нур-Султан_"+e.selectedIndex;
-                    document.getElementById('sendForrmm').submit();
-                    break;
-                }
-                case 3: {
-                    hiddenInput.value = "Атырау_"+e.selectedIndex;
-                    document.getElementById('sendForrmm').submit();
-                    break;
-                }
-                case 4: {
-                    hiddenInput.value = "Актау_"+e.selectedIndex;
-                    document.getElementById('sendForrmm').submit();
-                    break;
-                }
-                case 5: {
-                    hiddenInput.value = "Актобе_"+e.selectedIndex;
-                    document.getElementById('sendForrmm').submit();
-                    break;
-                }
-                case 6: {
-                    hiddenInput.value = "Кызылорда_"+e.selectedIndex;
-                    document.getElementById('sendForrmm').submit();
-                    break;
-                }
-                case 7: {
-                    hiddenInput.value = "Шымкент_"+e.selectedIndex;
-                    document.getElementById('sendForrmm').submit();
-                    break;
-                }
-            }
-        }
+        // function switchCountry(e) {
+        // let hiddenInput = document.getElementById('countryVal')
+        //     console.log(e.selectedIndex);
+        //     switch (e.selectedIndex) {
+        //         case 1: {
+        //             hiddenInput.value = "Алматы_"+e.selectedIndex;
+        //             document.getElementById('sendForrmm').submit();
+        //             break;
+        //         }
+        //         case 2: {
+        //             hiddenInput.value = "Нур-Султан_"+e.selectedIndex;
+        //             document.getElementById('sendForrmm').submit();
+        //             break;
+        //         }
+        //         case 3: {
+        //             hiddenInput.value = "Атырау_"+e.selectedIndex;
+        //             document.getElementById('sendForrmm').submit();
+        //             break;
+        //         }
+        //         case 4: {
+        //             hiddenInput.value = "Актау_"+e.selectedIndex;
+        //             document.getElementById('sendForrmm').submit();
+        //             break;
+        //         }
+        //         case 5: {
+        //             hiddenInput.value = "Актобе_"+e.selectedIndex;
+        //             document.getElementById('sendForrmm').submit();
+        //             break;
+        //         }
+        //         case 6: {
+        //             hiddenInput.value = "Кызылорда_"+e.selectedIndex;
+        //             document.getElementById('sendForrmm').submit();
+        //             break;
+        //         }
+        //         case 7: {
+        //             hiddenInput.value = "Шымкент_"+e.selectedIndex;
+        //             document.getElementById('sendForrmm').submit();
+        //             break;
+        //         }
+        //     }
+        // }
 
 
         function send(data) {

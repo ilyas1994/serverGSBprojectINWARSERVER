@@ -15,9 +15,13 @@ class downloadFilesController extends Controller
     public function index(Request $request) {
 
         $getIIN = $request->input('sendIIN');
+        $surname = $request->input('surname');
+        $name = $request->input('name');
+//        dd($surname);
         $zip = new ZipArchive;
 
-        $fileName = $getIIN.'zipFileName.zip';
+//        $fileName = $getIIN.'zipFileName.zip';
+        $fileName = $surname . '_' . $name .'.zip';
 
         if ($zip->open(public_path($fileName), ZipArchive::CREATE) === TRUE)
         {
@@ -27,6 +31,7 @@ class downloadFilesController extends Controller
             // Folder files to zip and download
             // files folder must be existing to your public folder
             // динамически создаем папку для сохранения где .$getIIN означает что у папки у будет название
+//            $files = File::files(storage_path('app/public/folder/'.$getIIN.'/'));
             $files = File::files(storage_path('app/public/folder/'.$getIIN.'/'));
 //            $files = File::files(storage_path('app/public/folder/777/'));
 //                dd($files);

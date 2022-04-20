@@ -74,7 +74,14 @@ class HomeController extends Controller
 
             if ($getTypeTest == null) {
                 $random = random_int(1,2);
-                $testRandom = \DB::select("SELECT * FROM questions WHERE type_id = 3 OR type_id IN(1,2) AND variant_otveta = '" .$random. "' ");
+//                $testRandom = \DB::select("SELECT * FROM questions WHERE type_id = 3 OR type_id IN(1,2) AND variant_otveta = '" .$random. "' ");
+                $testRandom = \DB::select("   SELECT * 
+                                                    FROM questions 
+                                                    WHERE type_id IN(1,2) AND variant_otveta  = '" .$random. "' 
+                                                    union
+                                                    SELECT * 
+                                                    FROM questions 
+                                                    WHERE type_id = 3");
                 $questions = $testRandom;
 //                dump($testRandom);
 
