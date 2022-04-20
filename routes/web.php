@@ -66,6 +66,10 @@ Route::get('pdf/iin{iin}/udv{copyUdv}', [PDFController::class, 'getUdvFile'])->n
 Route::get('pdf/iin{iin}/typeFile/{typeFile}', [PDFController::class, 'getResumeFile'])->name('pdf.getTypeFile');
 
 
+
+
+
+
 Route::get('pdf/sortBy/', [\App\Http\Controllers\SortingController::class, 'index'])->name('sort');
 
 

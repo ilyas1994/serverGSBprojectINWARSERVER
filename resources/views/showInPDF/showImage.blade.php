@@ -16,8 +16,9 @@
 {{--        @dd($datass);--}}
                 @isset($datass)
 
+
                 @foreach($datass as $value)
-                    @dump($value)
+{{--                    @dump($value)--}}
                 <div class="col-12 text-center justify-content-center mt-4 mb-4">
 {{--                <img style="max-height: 100%; max-width: 100%" src="{{ asset('storage/'.$value) }}" alt="">--}}
                 <img style="max-height: 100%; max-width: 100%" src="{{ asset('storage/'.$value) }}" alt="">
