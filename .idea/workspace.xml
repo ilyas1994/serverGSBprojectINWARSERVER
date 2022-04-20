@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76c86216-8c47-45b5-b63a-4f4738510c0b" name="Changes" comment="add class">
+    <list default="true" id="76c86216-8c47-45b5-b63a-4f4738510c0b" name="Changes" comment="Поправил в админке отображение img и теперь нужно pdf в img сделать не пушить">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/QuizResult/QuizResult.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/QuizResult/QuizResult.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Quiz/Answer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Quiz/TrueAnswerForQuestion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2022_03_29_143849_create_answers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_04_19_120134_create_true_answer_for_questions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2022_03_10_041829_create_personal_data_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_03_10_041829_create_personal_data_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/adminPanel/profileUser.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/adminPanel/profileUser.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/sendPasswordOnEmail/sendPasswordOnEmail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sendPasswordOnEmail/sendPasswordOnEmail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/showInPDF/preview.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/showInPDF/preview.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,10 +32,11 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="first_test" />
+        <entry key="$PROJECT_DIR$" value="Nurlan" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SWAP_SIDES_IN_COMPARE_BRANCHES" value="true" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -409,7 +411,21 @@
       <option name="project" value="LOCAL" />
       <updated>1650347423792</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Поправил в админке отображение img и теперь нужно pdf в img сделать">
+      <created>1650397606347</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1650397606347</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Поправил в админке отображение img и теперь нужно pdf в img сделать не пушить">
+      <created>1650424013908</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1650424013908</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -449,14 +465,16 @@
     <MESSAGE value="complete quiz result new" />
     <MESSAGE value="complete quiz 19-04" />
     <MESSAGE value="add class" />
-    <option name="LAST_COMMIT_MESSAGE" value="add class" />
+    <MESSAGE value="Поправил в админке отображение img и теперь нужно pdf в img сделать" />
+    <MESSAGE value="Поправил в админке отображение img и теперь нужно pdf в img сделать не пушить" />
+    <option name="LAST_COMMIT_MESSAGE" value="Поправил в админке отображение img и теперь нужно pdf в img сделать не пушить" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/MainController.php</url>
-          <line>235</line>
+          <line>276</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

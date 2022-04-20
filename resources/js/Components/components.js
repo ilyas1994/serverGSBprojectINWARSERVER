@@ -38,15 +38,40 @@ export function dropDownClick( title, name, section, sample = null, className = 
         let iin = document.getElementsByName('Iin');
         switch (e['target'].selectedIndex) {
             case 0:{
+                iin[0].setAttribute('minlength','9');
+                iin[0].setAttribute('maxlength','9');
+                iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 9 цифр!';
+                break;
+            }
+            case 1:{
+                iin[0].setAttribute('minlength','11');
+                iin[0].setAttribute('maxlength','11');
+                iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 11 цифр!';
+                break;
+            }
+
+            case 2:{
                 iin[0].setAttribute('minlength','12');
                 iin[0].setAttribute('maxlength','12');
                 iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 12 цифр!';
                 break;
             }
-            case 1:{
-                iin[0].setAttribute('minlength','9');
-                iin[0].setAttribute('maxlength','9');
-                iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 9 цифр!';
+            case 3:{
+                iin[0].setAttribute('minlength','12');
+                iin[0].setAttribute('maxlength','12');
+                iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 12 цифр!';
+                break;
+            }
+            case 4:{
+                iin[0].setAttribute('minlength','12');
+                iin[0].setAttribute('maxlength','12');
+                iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 12 цифр!';
+                break;
+            }
+            case 5:{
+                iin[0].setAttribute('minlength','12');
+                iin[0].setAttribute('maxlength','12');
+                iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 12 цифр!';
                 break;
             }
         }
@@ -80,8 +105,8 @@ export function inputFieldOnlyNumber(title, name, className = null, value = null
     let maxlength = 0;
     let minlength = 0;
     if(name === 'Iin') {
-        maxlength = 12;
-        minlength = 12;
+        maxlength = 9;
+        minlength = 9;
 
         tooltip = <div className="invalid-tooltip">
             Поле должно быть не меньше {minlength} цифр!
@@ -528,6 +553,90 @@ export class RadioB extends React.Component{
     }
 }
 
+
+
+export class MBAPropgramRadio extends React.Component{
+
+    constructor(props) {
+        super(props);
+
+    }
+
+    handleClick(i){
+        let countAll = i['target'].parentElement.parentElement.parentElement.childElementCount;
+        let  radioElements = i['target'].parentElement.parentElement.parentElement;
+        for (let j = 0; j < countAll; j++) {
+            // console.log(radioElements.children[j].children[0].children[0].name);
+            radioElements.children[j].children[0].children[0].value = radioElements.children[j].children[0].children[0].id;
+        }
+
+        for (let j = 0; j < countAll; j++) {
+            if(radioElements.children[j].children[0].childElementCount > 2){
+                // console.log(radioElements.children[j].children[0].children[2].className+" off");
+                radioElements.children[j].children[0].children[2].hidden = true;
+            }
+        }
+
+        if(i['target'].parentElement.childElementCount > 2){
+            // console.log(  i['target'].parentElement.children[2].className+" on");
+            i['target'].parentElement.children[2].hidden = false;
+        }
+    }
+
+    howMany(){
+        let all = [];
+
+        let column = this.props.column;
+        let start = 0;
+        let end = Math.ceil(this.props.count/column);
+        for (let j = 0; j < column; j++){
+            let chekbox = [];
+            for (let i = start; i < end; i++) {
+                if(this.props.input) {
+                    // if(this.props.popupIndex.includes(i)) {
+                        chekbox[i] = <Radio
+                            popUpElement={this.props.popUpElement[i]}
+                            popupArray={this.props.popupIndex}
+                            name={this.props.name}
+                            it={this}
+                            id={this.props.checkBoxTitle[i]}
+                            title={this.props.checkBoxTitle[i]}
+                            key={i}
+                        />
+                    // }else{
+                    //     chekbox[i] = <Radio
+                    //         popupArray={this.props.popupIndex}
+                    //         name={this.props.name}
+                    //         it={this}
+                    //         id={this.props.checkBoxTitle[i]}
+                    //         title={this.props.checkBoxTitle[i]}
+                    //         key={i}
+                    //     />
+                    // }
+                }
+            }
+            start = end;
+            if(this.props.count-end >= Math.ceil(this.props.count/column))
+                end += Math.ceil(this.props.count/column);
+            else end = this.props.count;
+            all[j] =  <div key={j} className={this.props.classN}>
+                            {chekbox}
+                      </div>;
+        }
+
+        return  all
+    }
+
+    render(){
+        return(
+            <div className={'row'}>
+
+                <label  htmlFor="">{this.props.title} {this.props.span}</label>
+                {this.howMany()}
+
+            </div>
+        )}
+}
 
 export function Star(props) {
     const divStyle = {

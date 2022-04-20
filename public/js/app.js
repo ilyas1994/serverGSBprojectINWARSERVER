@@ -5412,6 +5412,7 @@ function Tab(tabsID, content) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "AddEducation": () => (/* binding */ AddEducation),
 /* harmony export */   "Check": () => (/* binding */ Check),
 /* harmony export */   "CheckBox": () => (/* binding */ CheckBox),
 /* harmony export */   "FilePicker": () => (/* binding */ FilePicker),
@@ -5431,7 +5432,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "inputFieldOnlyNumber": () => (/* binding */ inputFieldOnlyNumber),
 /* harmony export */   "label": () => (/* binding */ label)
 /* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -5460,7 +5462,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 function RequiredSpan(props) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
     id: props.id,
     className: 'required',
     children: "*"
@@ -5471,22 +5473,33 @@ function TextArea(title, name) {
   var value = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
   var span = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
   var input = '';
-  input = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+
+  function save(arg) {
+    sessionStorage.setItem(arg.target.name, arg.target.value);
+    console.log(arg.target.value);
+  }
+
+  if (value === null) {
+    value = sessionStorage.getItem(name);
+  }
+
+  input = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     className: className,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: 'position-relative',
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("label", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("label", {
         className: 'form-label',
         htmlFor: "",
         children: [title, " ", span]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("textarea", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("textarea", {
         type: "text",
+        onChange: save.bind(this),
         name: name,
         required: true,
         className: 'form-control ',
         defaultValue: value,
         maxLength: 32
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "invalid-feedback",
         children: ["\u0417\u0430\u043F\u043E\u043B\u043D\u0438\u0442\u0435 ", title]
       })]
@@ -5501,72 +5514,49 @@ function dropDownClick(title, name, section) {
   var sec = [];
 
   function dropdownClick(e) {
+    sessionStorage.setItem(e.target.name, e.target.selectedIndex);
     var iin = document.getElementsByName('Iin');
 
     switch (e['target'].selectedIndex) {
       case 0:
+        {
+          iin[0].setAttribute('minlength', '12');
+          iin[0].setAttribute('maxlength', '12');
+          iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 12 цифр!';
+          break;
+        }
+
+      case 1:
         {
           iin[0].setAttribute('minlength', '9');
           iin[0].setAttribute('maxlength', '9');
           iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 9 цифр!';
           break;
         }
-
-      case 1:
-        {
-          iin[0].setAttribute('minlength', '11');
-          iin[0].setAttribute('maxlength', '11');
-          iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 11 цифр!';
-          break;
-        }
-
-      case 2:
-        {
-          iin[0].setAttribute('minlength', '12');
-          iin[0].setAttribute('maxlength', '12');
-          iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 12 цифр!';
-          break;
-        }
-
-      case 3:
-        {
-          iin[0].setAttribute('minlength', '12');
-          iin[0].setAttribute('maxlength', '12');
-          iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 12 цифр!';
-          break;
-        }
-
-      case 4:
-        {
-          iin[0].setAttribute('minlength', '12');
-          iin[0].setAttribute('maxlength', '12');
-          iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 12 цифр!';
-          break;
-        }
-
-      case 5:
-        {
-          iin[0].setAttribute('minlength', '12');
-          iin[0].setAttribute('maxlength', '12');
-          iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 12 цифр!';
-          break;
-        }
     }
   }
 
   for (var i = 0; i < section.length; i++) {
-    sec[i] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("option", {
+    if (sessionStorage.getItem(name)) {
+      if (sessionStorage.getItem(name) === i.toString()) {
+        sec[i] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+          defaultChecked: true,
+          value: i + 1,
+          children: section[i]
+        }, i);
+      }
+    } else sec[i] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
       value: i + 1,
       children: section[i]
     }, i);
   }
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
     className: className,
-    children: [title !== '' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("label", {
+    children: [title !== '' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("label", {
       htmlFor: "",
       children: [title, span]
-    }) : "", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("select", {
+    }) : "", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("select", {
       name: name,
       onChange: dropdownClick.bind(this),
       className: "col-lg-0 selectpicker user-gender",
@@ -5587,16 +5577,16 @@ function inputFieldOnlyNumber(title, name) {
   var minlength = 0;
 
   if (name === 'Iin') {
-    maxlength = 9;
-    minlength = 9;
-    tooltip = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+    maxlength = 12;
+    minlength = 12;
+    tooltip = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: "invalid-tooltip",
       children: ["\u041F\u043E\u043B\u0435 \u0434\u043E\u043B\u0436\u043D\u043E \u0431\u044B\u0442\u044C \u043D\u0435 \u043C\u0435\u043D\u044C\u0448\u0435 ", minlength, " \u0446\u0438\u0444\u0440!"]
     });
   } else {
     maxlength = 32;
     minlength = 0;
-    tooltip = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+    tooltip = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: "invalid-tooltip",
       children: ["\u0417\u0430\u043F\u043E\u043B\u043D\u0438\u0442\u0435 \u043E\u0431\u044F\u0437\u0430\u0442\u0435\u043B\u044C\u043D\u043E\u0435 \u043F\u043E\u043B\u0435 ", title]
     });
@@ -5605,17 +5595,22 @@ function inputFieldOnlyNumber(title, name) {
   function isNumberKey(evt) {
     evt.returnValue = evt.keyCode !== 46 && evt.keyCode > 31 && (evt.keyCode < 48 || evt.keyCode > 57);
     if (evt.returnValue) evt.preventDefault();
+    sessionStorage.setItem(evt.target.name, evt.target.value);
   }
 
-  input = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+  if (sessionStorage.getItem(name) !== null) {
+    value = sessionStorage.getItem(name);
+  }
+
+  input = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     className: className,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: 'position-relative',
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("label", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("label", {
         className: '',
         htmlFor: "",
         children: [title, span]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
         type: "text",
         name: name,
         required: req,
@@ -5638,23 +5633,34 @@ function inputField(title, name) {
   var input = '';
   var req = span !== null;
   var reqClass = span !== null ? 'form-control ' : '';
-  input = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+
+  function save(arg) {
+    sessionStorage.setItem(arg.target.name, arg.target.value);
+    console.log(arg.target.value);
+  }
+
+  if (value == null) {
+    value = sessionStorage.getItem(name);
+  }
+
+  input = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     className: className,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: 'position-relative',
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("label", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("label", {
         className: '',
         htmlFor: "",
         children: [title, span]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
         type: "text",
         name: name,
+        onChange: save.bind(this),
         required: req,
         placeholder: placeholder,
         className: 'user-surname ' + reqClass,
         defaultValue: value,
         maxLength: 33
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "invalid-tooltip",
         children: ["\u0417\u0430\u043F\u043E\u043B\u043D\u0438\u0442\u0435 \u043E\u0431\u044F\u0437\u0430\u0442\u0435\u043B\u044C\u043D\u043E\u0435 \u043F\u043E\u043B\u0435 ", title]
       })]
@@ -5677,26 +5683,35 @@ function inputFieldEmail(title, name) {
     }
   }
 
-  input = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+  function save(arg) {
+    sessionStorage.setItem(arg.target.name, arg.target.value);
+  }
+
+  if (sessionStorage.getItem(name) !== null) {
+    value = sessionStorage.getItem(name);
+  }
+
+  input = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     className: className,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: 'position-relative',
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("label", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("label", {
         className: '',
         htmlFor: "",
         children: [title, span]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: 'd-flex position-relative',
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
           type: "text",
           name: name,
           required: req,
           placeholder: placeholder,
+          onChange: save.bind(this),
           onKeyDown: onKeydown.bind(this),
           className: 'user-surname ' + reqClass,
           defaultValue: value,
           maxLength: 32
-        }), dropDown('', 'mail[]', ['@mail.ru', '@gmail.com', '@inbox.ru', '@list.ru', '@bk.ru', '@yandex.ru', '@yahoo.com', '@hotmail.com', '@outlook.com'], null, 'col-lg-5'), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+        }), dropDown('', 'mailDomen', ['@mail.ru', '@gmail.com', '@inbox.ru', '@list.ru', '@bk.ru', '@yandex.ru', '@yahoo.com', '@hotmail.com', '@outlook.com'], null, 'col-lg-5'), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           className: "invalid-tooltip",
           children: ["\u0417\u0430\u043F\u043E\u043B\u043D\u0438\u0442\u0435 \u043E\u0431\u044F\u0437\u0430\u0442\u0435\u043B\u044C\u043D\u043E\u0435 \u043F\u043E\u043B\u0435 ", title]
         })]
@@ -5708,30 +5723,38 @@ function inputFieldEmail(title, name) {
 function dataPiker(title, name) {
   var className = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'col-lg-4';
   var span = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
-  var tooltip = span !== null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+  var key = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 0;
+  var tooltip = span !== null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
     className: "invalid-tooltip",
     children: ["\u0417\u0430\u043F\u043E\u043B\u043D\u0438\u0442\u0435 \u043E\u0431\u044F\u0437\u0430\u0442\u0435\u043B\u044C\u043D\u043E\u0435 \u043F\u043E\u043B\u0435 ", title]
   }) : '';
   var req = span !== null;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+
+  function save(arg) {
+    sessionStorage.setItem(arg.target.name, arg.target.value);
+    console.log(arg.target.name + "::" + arg.target.value);
+  }
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     className: className,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: 'position-relative',
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("label", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("label", {
         htmlFor: "",
         children: [title, span]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
         type: "date",
+        onChange: save.bind(this),
         required: req,
         name: name,
         className: "user-dateofbirth"
       }), tooltip]
     })
-  }, name);
+  }, key);
 }
 function label(title) {
   var className = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'col-lg-4';
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("label", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("label", {
     htmlFor: "",
     className: className,
     children: [" ", title]
@@ -5741,22 +5764,39 @@ function dropDown(title, name, section) {
   var sample = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
   var className = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 'col-lg-4';
   var span = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : null;
+  var key = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : 0;
   var sec = [];
 
+  function save(arg) {
+    sessionStorage.setItem(arg.target.name, arg.target.selectedIndex); // console.log(arg.target.selectedIndex)
+  } // save = save.bind(this);
+
+
   for (var i = 0; i < section.length; i++) {
-    sec[i] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("option", {
+    if (sessionStorage.getItem(name)) {
+      console.log(sessionStorage.getItem(name));
+
+      if (sessionStorage.getItem(name) === i.toString()) {
+        sec[i] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+          defaultChecked: true,
+          value: i + 1,
+          children: section[i]
+        }, i);
+      }
+    } else sec[i] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
       value: i + 1,
       children: section[i]
     }, i);
   }
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
     className: className,
-    children: [title !== '' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("label", {
+    children: [title !== '' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("label", {
       htmlFor: "",
       children: [title, span]
-    }) : "", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("select", {
+    }) : "", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("select", {
       name: name,
+      onChange: save.bind(this),
       className: "col-lg-0 selectpicker user-gender",
       children: sec
     }), sample]
@@ -5791,12 +5831,12 @@ var OtherLanguageButton = /*#__PURE__*/function (_React$Component) {
   _createClass(OtherLanguageButton, [{
     key: "handlerClick",
     value: function handlerClick() {
-      this.newLang[this.langCount] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+      this.newLang[this.langCount] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           className: 'col-lg-12 row',
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             className: 'col-lg-4 d-lg-flex align-items-bottom',
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
               type: "text"
             })
           }), dropDown('', 'asdasd', this.drop, null, 'col-lg-7')]
@@ -5810,11 +5850,11 @@ var OtherLanguageButton = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
           children: this.state.newStateLang
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             className: "plus user-language_plus",
             onClick: this.handlerClick.bind(this),
             children: "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0435\u0449\u0451"
@@ -5833,11 +5873,11 @@ function Check(props) {
     height: '1em'
   };
   var req = props.span !== null;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     className: "",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: 'position-relative',
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
         className: 'form-check-input p-0',
         type: "checkbox",
         style: divStyle,
@@ -5907,8 +5947,8 @@ var CheckBox = /*#__PURE__*/function (_React$Component2) {
 
         for (var i = start; i < end; i++) {
           if (this.props.input) {
-            if (this.props.checkBoxTitle.length - 1 === i) chekbox[i] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(Check, {
-              metka: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
+            if (this.props.checkBoxTitle.length - 1 === i) chekbox[i] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Check, {
+              metka: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
                 id: 'checkBoxReasonsForChoosingMBA_other',
                 type: "text",
                 placeholder: "\u0414\u0440\u0443\u0433\u0438\u0435",
@@ -5925,8 +5965,8 @@ var CheckBox = /*#__PURE__*/function (_React$Component2) {
               title: this.props.checkBoxTitle[i],
               value: this.props.checkBoxTitle[i],
               span: this.props.span
-            }, i);else chekbox[i] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(Check, {
-              metka: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("label", {
+            }, i);else chekbox[i] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Check, {
+              metka: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
                 className: " col-lg-8 ms-2",
                 htmlFor: this.props.checkBoxTitle[i] + '_' + i,
                 children: this.props.checkBoxTitle[i]
@@ -5938,8 +5978,8 @@ var CheckBox = /*#__PURE__*/function (_React$Component2) {
               span: this.props.span
             }, i);
           } else {
-            chekbox[i] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(Check, {
-              metka: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("label", {
+            chekbox[i] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Check, {
+              metka: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
                 className: "col-lg-8 ms-2",
                 htmlFor: this.props.checkBoxTitle[i] + '_' + i,
                 children: this.props.checkBoxTitle[i]
@@ -5955,7 +5995,7 @@ var CheckBox = /*#__PURE__*/function (_React$Component2) {
 
         start = end;
         if (this.props.count - end >= Math.ceil(this.props.count / column)) end += Math.ceil(this.props.count / column);else end = this.props.count;
-        all[j] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+        all[j] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
           className: this.props.classN,
           children: chekbox
         }, j);
@@ -5968,9 +6008,9 @@ var CheckBox = /*#__PURE__*/function (_React$Component2) {
     key: "render",
     value: function render() {
       //
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: 'row ',
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("label", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("label", {
           htmlFor: "",
           children: [this.props.title, " ", this.props.span]
         }), this.howMany()]
@@ -5986,23 +6026,37 @@ function Radio(props) {
     width: '1em',
     height: '1em'
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+  var defcheck = props.checked;
+  var hidden = props.hidden;
+  var defValue = '';
+  var popUp = '';
+
+  if (sessionStorage.getItem(props.name)) {
+    if (sessionStorage.getItem(props.name) === props.id) {
+      defcheck = true;
+    }
+  } // console.log(defValue);
+
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     className: "form-check",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: 'position-relative',
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
         className: "form-check-input p-0",
         required: true,
+        defaultValue: props.id,
         type: "radio",
+        defaultChecked: defcheck,
         style: divStyle,
         name: props.name,
-        onChange: props.it.handleClick.bind(this),
+        onChange: props.it,
         id: props.id
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("label", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
         className: "form-check-label col-lg-11 ms-1",
         htmlFor: props.id,
         children: props.title
-      }), props.popUpElement, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+      }), props.popUpElement, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
         className: "invalid-feedback",
         children: "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u043E\u0434\u0438\u043D \u0438\u0437 \u043F\u0443\u043D\u043A\u0442\u0430"
       })]
@@ -6015,38 +6069,40 @@ var RadioB = /*#__PURE__*/function (_React$Component3) {
   var _super3 = _createSuper(RadioB);
 
   function RadioB(props) {
+    var _this3;
+
     _classCallCheck(this, RadioB);
 
-    return _super3.call(this, props);
+    _this3 = _super3.call(this, props);
+
+    _defineProperty(_assertThisInitialized(_this3), "state", {
+      popup: _this3.props.popUpElement,
+      id: _this3.props.checkBoxTitle[0],
+      defaultState: ''
+    });
+
+    _this3.handleClick = _this3.handleClick.bind(_assertThisInitialized(_this3)); // this.setState({defaultState:sessionStorage.getItem(props.name) !== null ? sessionStorage.getItem(props.name) :''})
+
+    return _this3;
   }
 
   _createClass(RadioB, [{
     key: "handleClick",
     value: function handleClick(i) {
-      var countAll = i['target'].parentElement.parentElement.parentElement.childElementCount;
-      var radioElements = i['target'].parentElement.parentElement.parentElement;
-
-      for (var j = 0; j < countAll; j++) {
-        // console.log(radioElements.children[j].children[0].children[0].name);
-        radioElements.children[j].children[0].children[0].value = radioElements.children[j].children[0].children[0].id;
-      }
-
-      for (var _j = 0; _j < countAll; _j++) {
-        if (radioElements.children[_j].children[0].childElementCount > 2) {
-          // console.log(radioElements.children[j].children[0].children[2].className+" off");
-          radioElements.children[_j].children[0].children[2].hidden = true;
-        }
-      }
-
-      if (i['target'].parentElement.childElementCount > 2) {
-        // console.log(  i['target'].parentElement.children[2].className+" on");
-        i['target'].parentElement.children[2].hidden = false;
-      }
+      console.log(i.target);
+      this.setState({
+        id: i.target.id
+      });
+      console.log(this.defaultState);
+      sessionStorage.setItem(i.target.name, i.target.id); // console.log(i.target.value)
+      // console.log(i.target.name);
     }
   }, {
     key: "howMany",
     value: function howMany() {
       var all = [];
+      console.log(this.props.popUpElement);
+      console.log('=================');
       var column = this.props.column;
       var start = 0;
       var end = Math.ceil(this.props.count / column);
@@ -6057,27 +6113,30 @@ var RadioB = /*#__PURE__*/function (_React$Component3) {
         for (var i = start; i < end; i++) {
           if (this.props.input) {
             if (this.props.popupIndex.includes(i)) {
-              chekbox[i] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(Radio, {
-                popUpElement: this.props.popUpElement[i],
+              chekbox[i] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Radio, {
+                popUpElement: this.state.id !== this.props.checkBoxTitle[i] ? this.state.id !== '' ? '' : this.props.popUpElement[i] : this.props.popUpElement[i],
                 popupArray: this.props.popupIndex,
                 name: this.props.name,
-                it: this,
+                it: this.handleClick,
+                checked: i === 0,
                 id: this.props.checkBoxTitle[i],
                 title: this.props.checkBoxTitle[i]
               }, i);
             } else {
-              chekbox[i] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(Radio, {
+              chekbox[i] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Radio, {
                 popupArray: this.props.popupIndex,
                 name: this.props.name,
-                it: this,
+                it: this.handleClick,
+                checked: i === 0,
                 id: this.props.checkBoxTitle[i],
                 title: this.props.checkBoxTitle[i]
               }, i);
             }
           } else {
-            chekbox[i] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(Radio, {
+            chekbox[i] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Radio, {
               name: this.props.name,
-              it: this,
+              it: this.handleClick,
+              checked: i === 0,
               id: this.props.checkBoxTitle[i],
               title: this.props.checkBoxTitle[i]
             }, i);
@@ -6086,7 +6145,7 @@ var RadioB = /*#__PURE__*/function (_React$Component3) {
 
         start = end;
         if (this.props.count - end >= Math.ceil(this.props.count / column)) end += Math.ceil(this.props.count / column);else end = this.props.count;
-        all[j] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+        all[j] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
           className: this.props.classN,
           children: chekbox
         }, j);
@@ -6097,9 +6156,9 @@ var RadioB = /*#__PURE__*/function (_React$Component3) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: 'row',
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("label", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("label", {
           htmlFor: "",
           children: [this.props.title, " ", this.props.span]
         }), this.howMany()]
@@ -6109,39 +6168,94 @@ var RadioB = /*#__PURE__*/function (_React$Component3) {
 
   return RadioB;
 }(React.Component);
+function Star(props) {
+  var divStyle = {
+    marginLeft: '0px',
+    width: '1em',
+    height: '1em'
+  };
+  var allStarArr = [];
+
+  var span = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(RequiredSpan, {
+    id: props.name
+  });
+
+  for (var i = 10; i > 0; i--) {
+    var StarArrinp = [];
+    var StarArrlab = [];
+    StarArrinp.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+      onClick: props.it.handleClick.bind(this),
+      type: "radio",
+      required: true,
+      id: props.id + i.toString(),
+      name: props.name
+    }, i));
+    StarArrlab.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+      htmlFor: props.id + i.toString(),
+      title: "Оценка " + i
+    }, i + 1));
+    allStarArr.push(StarArrinp.concat(StarArrlab)); // props.span['props'].id = props.name;
+  } // console.log(span)
+
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    className: 'col-lg-12  row',
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("label", {
+      htmlFor: "",
+      children: [props.title, span, "  "]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      className: "rating-area col-lg-6",
+      children: [allStarArr, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "invalid-feedback",
+        children: "\u043F\u043E\u0441\u0442\u0430\u0432\u044C\u0442\u0435 \u043E\u0446\u0435\u043D\u043A\u0443"
+      })]
+    })]
+  });
+}
 var MBAPropgramRadio = /*#__PURE__*/function (_React$Component4) {
   _inherits(MBAPropgramRadio, _React$Component4);
 
   var _super4 = _createSuper(MBAPropgramRadio);
 
   function MBAPropgramRadio(props) {
+    var _this4;
+
     _classCallCheck(this, MBAPropgramRadio);
 
-    return _super4.call(this, props);
+    _this4 = _super4.call(this, props);
+
+    _defineProperty(_assertThisInitialized(_this4), "state", {
+      popup: _this4.props.popUpElement,
+      id: _this4.props.checkBoxTitle[0],
+      defaultState: ''
+    });
+
+    return _this4;
   }
 
   _createClass(MBAPropgramRadio, [{
     key: "handleClick",
     value: function handleClick(i) {
-      var countAll = i['target'].parentElement.parentElement.parentElement.childElementCount;
-      var radioElements = i['target'].parentElement.parentElement.parentElement;
-
-      for (var j = 0; j < countAll; j++) {
-        // console.log(radioElements.children[j].children[0].children[0].name);
-        radioElements.children[j].children[0].children[0].value = radioElements.children[j].children[0].children[0].id;
-      }
-
-      for (var _j2 = 0; _j2 < countAll; _j2++) {
-        if (radioElements.children[_j2].children[0].childElementCount > 2) {
-          // console.log(radioElements.children[j].children[0].children[2].className+" off");
-          radioElements.children[_j2].children[0].children[2].hidden = true;
-        }
-      }
-
-      if (i['target'].parentElement.childElementCount > 2) {
-        // console.log(  i['target'].parentElement.children[2].className+" on");
-        i['target'].parentElement.children[2].hidden = false;
-      }
+      this.setState({
+        id: i.target.id
+      }); // let countAll = i['target'].parentElement.parentElement.parentElement.childElementCount;
+      // let  radioElements = i['target'].parentElement.parentElement.parentElement;
+      // for (let j = 0; j < countAll; j++) {
+      //     // console.log(radioElements.children[j].children[0].children[0].name);
+      //     radioElements.children[j].children[0].children[0].value = radioElements.children[j].children[0].children[0].id;
+      // }
+      //
+      // for (let j = 0; j < countAll; j++) {
+      //     if(radioElements.children[j].children[0].childElementCount > 2){
+      //         // console.log(radioElements.children[j].children[0].children[2].className+" off");
+      //         radioElements.children[j].children[0].children[2].hidden = true;
+      //     }
+      // }
+      //
+      // if(i['target'].parentElement.childElementCount > 2){
+      //     // console.log(  i['target'].parentElement.children[2].className+" on");
+      //     i['target'].parentElement.children[2].hidden = false;
+      // }
     }
   }, {
     key: "howMany",
@@ -6156,30 +6270,20 @@ var MBAPropgramRadio = /*#__PURE__*/function (_React$Component4) {
 
         for (var i = start; i < end; i++) {
           if (this.props.input) {
-            // if(this.props.popupIndex.includes(i)) {
-            chekbox[i] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(Radio, {
+            chekbox[i] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Radio, {
               popUpElement: this.props.popUpElement[i],
               popupArray: this.props.popupIndex,
               name: this.props.name,
-              it: this,
+              it: this.handleClick,
               id: this.props.checkBoxTitle[i],
               title: this.props.checkBoxTitle[i]
-            }, i); // }else{
-            //     chekbox[i] = <Radio
-            //         popupArray={this.props.popupIndex}
-            //         name={this.props.name}
-            //         it={this}
-            //         id={this.props.checkBoxTitle[i]}
-            //         title={this.props.checkBoxTitle[i]}
-            //         key={i}
-            //     />
-            // }
+            }, i);
           }
         }
 
         start = end;
         if (this.props.count - end >= Math.ceil(this.props.count / column)) end += Math.ceil(this.props.count / column);else end = this.props.count;
-        all[j] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+        all[j] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
           className: this.props.classN,
           children: chekbox
         }, j);
@@ -6190,9 +6294,9 @@ var MBAPropgramRadio = /*#__PURE__*/function (_React$Component4) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: 'row',
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("label", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("label", {
           htmlFor: "",
           children: [this.props.title, " ", this.props.span]
         }), this.howMany()]
@@ -6202,67 +6306,23 @@ var MBAPropgramRadio = /*#__PURE__*/function (_React$Component4) {
 
   return MBAPropgramRadio;
 }(React.Component);
-function Star(props) {
-  var divStyle = {
-    marginLeft: '0px',
-    width: '1em',
-    height: '1em'
-  };
-  var allStarArr = [];
-
-  var span = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(RequiredSpan, {
-    id: props.name
-  });
-
-  for (var i = 10; i > 0; i--) {
-    var StarArrinp = [];
-    var StarArrlab = [];
-    StarArrinp.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
-      onClick: props.it.handleClick.bind(this),
-      type: "radio",
-      required: true,
-      id: props.id + i.toString(),
-      name: props.name
-    }, i));
-    StarArrlab.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("label", {
-      htmlFor: props.id + i.toString(),
-      title: "Оценка " + i
-    }, i + 1));
-    allStarArr.push(StarArrinp.concat(StarArrlab)); // props.span['props'].id = props.name;
-  } // console.log(span)
-
-
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-    className: 'col-lg-12  row',
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("label", {
-      htmlFor: "",
-      children: [props.title, span, "  "]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-      className: "rating-area col-lg-6",
-      children: [allStarArr, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-        className: "invalid-feedback",
-        children: "\u043F\u043E\u0441\u0442\u0430\u0432\u044C\u0442\u0435 \u043E\u0446\u0435\u043D\u043A\u0443"
-      })]
-    })]
-  });
-}
 var StarFabric = /*#__PURE__*/function (_React$Component5) {
   _inherits(StarFabric, _React$Component5);
 
   var _super5 = _createSuper(StarFabric);
 
   function StarFabric(props) {
-    var _this3;
+    var _this5;
 
     _classCallCheck(this, StarFabric);
 
-    _this3 = _super5.call(this, props);
-    _this3.state = {
+    _this5 = _super5.call(this, props);
+    _this5.state = {
       option1: false,
       option2: false,
       option3: false
     };
-    return _this3;
+    return _this5;
   }
 
   _createClass(StarFabric, [{
@@ -6291,7 +6351,7 @@ var StarFabric = /*#__PURE__*/function (_React$Component5) {
         var star = [];
 
         for (var i = start; i < end; i++) {
-          star[i] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(Star, {
+          star[i] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Star, {
             name: this.props.name[i],
             it: this,
             id: this.props.titleForStar[i],
@@ -6301,14 +6361,14 @@ var StarFabric = /*#__PURE__*/function (_React$Component5) {
 
         start = end;
         if (this.props.count - end >= Math.ceil(this.props.count / column)) end += Math.ceil(this.props.count / column);else end = this.props.count;
-        all[j] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+        all[j] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
           className: this.props.classN,
           children: star
         }, j);
       }
 
       if (this.props.title.length > 0) {
-        all[all.length - 1] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("label", {
+        all[all.length - 1] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("label", {
           htmlFor: "",
           children: [this.props.title, " "]
         }, all.length - 1);
@@ -6319,7 +6379,7 @@ var StarFabric = /*#__PURE__*/function (_React$Component5) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
         className: 'row',
         children: this.howMany()
       });
@@ -6334,35 +6394,35 @@ var FilePicker = /*#__PURE__*/function (_React$Component6) {
   var _super6 = _createSuper(FilePicker);
 
   function FilePicker(props) {
-    var _this4;
+    var _this6;
 
     _classCallCheck(this, FilePicker);
 
-    _this4 = _super6.call(this, props);
+    _this6 = _super6.call(this, props);
 
-    _defineProperty(_assertThisInitialized(_this4), "ul", void 0);
+    _defineProperty(_assertThisInitialized(_this6), "ul", void 0);
 
-    _defineProperty(_assertThisInitialized(_this4), "li", []);
+    _defineProperty(_assertThisInitialized(_this6), "li", []);
 
-    _defineProperty(_assertThisInitialized(_this4), "count", 0);
+    _defineProperty(_assertThisInitialized(_this6), "count", 0);
 
-    _defineProperty(_assertThisInitialized(_this4), "picker", void 0);
+    _defineProperty(_assertThisInitialized(_this6), "picker", void 0);
 
-    _defineProperty(_assertThisInitialized(_this4), "filesArray", []);
+    _defineProperty(_assertThisInitialized(_this6), "filesArray", []);
 
-    _defineProperty(_assertThisInitialized(_this4), "state", {
-      files: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
+    _defineProperty(_assertThisInitialized(_this6), "state", {
+      files: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
         children: "No files selected!"
       })
     });
 
-    return _this4;
+    return _this6;
   }
 
   _createClass(FilePicker, [{
     key: "deleteFile",
     value: function deleteFile(e) {
-      var _this5 = this;
+      var _this7 = this;
 
       var index = e['target'].parentElement.id;
       var name = e['target'].parentElement.children[1].alt; // console.log(name);
@@ -6382,19 +6442,19 @@ var FilePicker = /*#__PURE__*/function (_React$Component6) {
       this.picker.files = dt.files;
 
       if (this.filesArray.length > 0) {
-        this.ul = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("ul", {
+        this.ul = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("ul", {
           className: 'd-flex ',
           children: this.li
         });
         this.setState(function () {
           return {
-            files: _this5.ul
+            files: _this7.ul
           };
         });
       } else {
         this.setState(function () {
           return {
-            files: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
+            files: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
               children: "No files selected!"
             })
           };
@@ -6404,7 +6464,7 @@ var FilePicker = /*#__PURE__*/function (_React$Component6) {
   }, {
     key: "handleFiles",
     value: function handleFiles(e) {
-      var _this6 = this;
+      var _this8 = this;
 
       var liStyle = {
         listStyleType: 'none'
@@ -6424,24 +6484,24 @@ var FilePicker = /*#__PURE__*/function (_React$Component6) {
       var files_ = this.picker.files; // console.log(    files_);
 
       if (!files_.length) {
-        this.setState(files_, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
+        this.setState(files_, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
           children: "No files selected!"
         }));
       } else {
         this.li = [];
 
         for (var i = 0; i < files_.length; i++) {
-          var img = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", {
+          var img = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
             src: window.URL.createObjectURL(files_[i]),
             height: 60,
             alt: files_[i].name
           });
 
-          this.li.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("li", {
+          this.li.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
             style: liStyle,
             id: this.count.toString(),
             className: 'ms-2 position-relative',
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
               type: "button",
               style: closeStyle,
               onClick: this.deleteFile.bind(this),
@@ -6452,13 +6512,13 @@ var FilePicker = /*#__PURE__*/function (_React$Component6) {
           this.count++;
         }
 
-        this.ul = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("ul", {
+        this.ul = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("ul", {
           className: 'd-flex ',
           children: this.li
         });
         this.setState(function () {
           return {
-            files: _this6.ul
+            files: _this8.ul
           };
         });
       }
@@ -6470,15 +6530,15 @@ var FilePicker = /*#__PURE__*/function (_React$Component6) {
       var d_none = {
         display: 'none'
       };
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: 'mt-5',
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("label", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("label", {
           htmlFor: "",
           className: "title ",
           children: [this.props.uploadLabel, " ", this.props.span]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("hr", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("hr", {
           className: 'mt-0'
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
           type: "file",
           multiple: true,
           "aria-label": "file example",
@@ -6487,10 +6547,10 @@ var FilePicker = /*#__PURE__*/function (_React$Component6) {
           className: "form-control",
           id: "exampleFormControlFile1",
           onChange: this.handleFiles.bind(this)
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
           className: "invalid-feedback",
           children: "\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u0435 \u0444\u0430\u0439\u043B\u044B"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
           id: "fileList",
           children: this.state.files
         })]
@@ -6517,6 +6577,144 @@ var FilePicker = /*#__PURE__*/function (_React$Component6) {
     }, false);
   });
 })();
+
+var AddEducation = /*#__PURE__*/function (_React$Component7) {
+  _inherits(AddEducation, _React$Component7);
+
+  var _super7 = _createSuper(AddEducation);
+
+  function AddEducation(props) {
+    var _this9;
+
+    _classCallCheck(this, AddEducation);
+
+    _this9 = _super7.call(this, props);
+
+    _defineProperty(_assertThisInitialized(_this9), "title", ['Второе', 'Третье', 'Четвертое', 'Пятое', 'Шестое', 'Седьмое', 'Восьмое']);
+
+    _defineProperty(_assertThisInitialized(_this9), "array", []);
+
+    _defineProperty(_assertThisInitialized(_this9), "state", {
+      all: []
+    });
+
+    _this9.handleADDClick = _this9.handleADDClick.bind(_assertThisInitialized(_this9));
+    _this9.handleRMEClick = _this9.handleRMEClick.bind(_assertThisInitialized(_this9));
+    return _this9;
+  }
+
+  _createClass(AddEducation, [{
+    key: "handleADDClick",
+    value: function handleADDClick() {
+      var qualification = ['qualification'];
+      var languageEducation = ['languageEducation'];
+      var allcode = [];
+
+      if (this.props.dropdownValues) {
+        qualification = this.props.dropdownValues['qualification'];
+        languageEducation = this.props.dropdownValues['languageEducation'];
+      }
+
+      var sec = [languageEducation, qualification];
+      allcode[0] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: '',
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("label", {
+          htmlFor: "",
+          className: "title mt-3",
+          children: [this.title[this.array.length], " \u043E\u0431\u0440\u0430\u0437\u043E\u0432\u0430\u043D\u0438\u0435"]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("hr", {})]
+      }, 0);
+      var i = [];
+      i.push(dataPiker('Начало обучения', 'dataStartEduc' + this.array.length, 'col-lg-6', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(RequiredSpan, {
+        id: 0
+      }), 0));
+      i.push(dataPiker('Конец обучения', 'dataEndEduc' + this.array.length, 'col-lg-6', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(RequiredSpan, {
+        id: 1
+      }), 1));
+      allcode[1] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "form-group row",
+        children: i
+      }, 1);
+      i = [];
+      i.push(dropDown('Язык обучения', 'nameEduc' + this.array.length, sec[0], null, 'col-lg-4', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(RequiredSpan, {
+        id: 0
+      })));
+      i.push(dropDown('Академическая степень/квалификация', 'stepenEduc' + this.array.length, sec[1], null, 'col-lg-4', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(RequiredSpan, {
+        id: 1
+      })));
+      allcode[2] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "form-group row",
+        children: i
+      }, 2);
+      i = [];
+      i.push(inputField('Полное наименование учебного заведения', 'uchebZavEduc' + this.array.length, 'col-lg-8', null, '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(RequiredSpan, {
+        id: 0
+      })));
+      allcode[3] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "form-group row",
+        children: i
+      }, 3);
+      i = [];
+      i.push(inputField('Специальность (например, юриспруденция или разработка нефтяных и газовых месторождений)', 'specEduc' + this.array.length, 'col-lg-8', null, '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(RequiredSpan, {
+        id: 0
+      })));
+      allcode[4] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "form-group row",
+        children: i
+      }, 4);
+      console.log('new ' + allcode);
+      this.array.unshift(allcode);
+      this.setState({
+        all: this.array
+      });
+    }
+  }, {
+    key: "handleRMEClick",
+    value: function handleRMEClick() {
+      this.array.shift();
+      this.setState({
+        all: this.array
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: 'col-lg-12 d-flex',
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            className: 'd-flex  col-lg-3',
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+              className: 'col-lg-6',
+              htmlFor: "",
+              children: "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u043F\u043E\u043B\u044F \u043E\u0431\u0440\u0430\u0437\u043E\u0432\u0430\u043D\u0438\u0435"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+              onClick: this.handleADDClick,
+              className: 'col-lg-4 btn btn-success',
+              children: "\u0434\u043E\u0431\u0430\u0432\u0438\u0442\u044C"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            className: 'd-flex col-lg-3',
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+              className: 'col-lg-6',
+              htmlFor: "",
+              children: "\u0423\u0431\u0440\u0430\u0442\u044C \u043F\u043E\u043B\u044F \u043E\u0431\u0440\u0430\u0437\u043E\u0432\u0430\u043D\u0438\u0435"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+              onClick: this.handleRMEClick,
+              className: ' col-lg-4 btn btn-danger',
+              children: "\u0443\u0431\u0440\u0430\u0442\u044C"
+            })]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          className: 'mt-4',
+          children: this.state.all
+        })]
+      });
+    }
+  }]);
+
+  return AddEducation;
+}(React.Component);
 
 /***/ }),
 
@@ -6577,11 +6775,13 @@ __webpack_require__.r(__webpack_exports__);
 function getNames() {
   var nameIndex = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
   var N = [];
-  var names1 = ['surname', 'name', 'patronymic', 'gender', 'familyStatus', 'amountOfChildren', 'citizenship', 'nationality', 'dataOfBirth', 'Iin', 'typeDocument', 'numberDocument', 'kemVidanDoc', 'dateMonthYearDoc', 'cityOfResidence', 'homeAdress', 'mobileNumber', 'email'];
+  var names1 = ['surname', 'name', 'patronymic', 'gender', 'familyStatus', 'amountOfChildren', 'citizenship', 'nationality', 'dataOfBirth', 'Iin', 'typeDocument', 'numberDocument', 'kemVidanDoc', 'dateMonthYearDoc', 'cityOfResidence', 'homeAdress', 'mobileNumber', 'mobileNumberTwo', 'email', 'emailTwo'];
   var names2 = ['positionAtWord', 'nameOfTheCompany', 'legalAdress', 'firstWorkExperience', 'upravlencheskiy_stazh', 'jobType', 'fieldOfActivity', 'availabilityOfBusinessTrips', 'availabilityOfBusinessTripsInputYes', 'availabilityOfBusinessTripsInputDuration'];
   var stars;
   var bankRequisites;
-  var names3 = ['startEducation', 'endEducation', 'qualification', 'fullNameUniversity', 'speciality', 'languageEducation', 'checkSecondDegree', 'checkMasterDegree', 'checkLanguageKazakh', 'checkLanguageEnglish', 'checkLanguageFrench', 'checkLanguageGerman', 'checkLanguageChinese', 'checkOtherLanguages', 'englishProficiencyCertificates', 'certificateIssueDate', 'hobby', 'achievements', 'reasonForLearning', 'suite', 'otherSuite', 'socialNetwork', 'PageInFacebook', 'PageInInstagram', 'PageInTwitter', 'checkBoxAboutMBA', 'checkBoxReasonsForChoosingMBA', 'otherReason', stars = ['starsTheQualityOfEducation', 'starsLargeSelectionOfPrograms', 'starsLocationSchool', 'starsDiscounts', 'starsDurationEducation', 'starsСostOfEducation', 'starsReputationMBA', 'starsPartPayment', 'starsFormOfEducation', 'starsCompositionOfTeachers'], 'otherСharacteristics', bankRequisites = ['requisites', 'bin', 'reqYurAdress', 'bank', 'reqEmail', 'fioSupervisor', 'reqName', 'rnn', 'telFax', 'iik', 'reqSuite', 'reqPositionHead'], 'checkBoxSourceOfFinancing', 'checkBoxMBAProgram', 'scanFileDocument', 'resumeFile', 'foto3x4', 'fileScanDiplomWithApplication', 'scanFileCertificateFromWork', 'medicalDoc', 'fileEsse', 'copyPassport', 'recomentedLetter'];
+  var names3 = ['startEducation', 'endEducation', 'languageEducation', 'qualification', 'fullNameUniversity', 'speciality', // 'checkSecondDegree', убрать
+  // 'checkMasterDegree', убрать
+  'checkLanguageKazakh', 'checkLanguageEnglish', 'checkLanguageFrench', 'checkLanguageGerman', 'checkLanguageChinese', 'checkOtherLanguages', 'englishProficiencyCertificates', 'certificateIssueDate', 'hobby', 'achievements', 'reasonForLearning', 'suite', 'otherSuite', 'socialNetwork', 'PageInFacebook', 'PageInInstagram', 'PageInTwitter', 'checkBoxAboutMBA', 'checkBoxReasonsForChoosingMBA', 'otherReason', stars = ['starsTheQualityOfEducation', 'starsLargeSelectionOfPrograms', 'starsLocationSchool', 'starsDiscounts', 'starsDurationEducation', 'starsСostOfEducation', 'starsReputationMBA', 'starsPartPayment', 'starsFormOfEducation', 'starsCompositionOfTeachers'], 'otherСharacteristics', bankRequisites = ['requisites', 'bin', 'reqYurAdress', 'bank', 'reqEmail', 'fioSupervisor', 'reqName', 'rnn', 'telFax', 'iik', 'reqSuite', 'reqPositionHead'], 'checkBoxSourceOfFinancing', 'checkBoxMBAProgram', 'scanFileDocument[]', 'resumeFile[]', 'foto3x4[]', 'fileScanDiplomWithApplication[]', 'scanFileCertificateFromWork[]', 'medicalDoc[]', 'scanCertificate[]', 'fileEsse[]', 'copyPassport[]', 'recomentedLetter[]'];
   N[0] = names1;
   N[1] = names2;
   N[2] = names3;
@@ -6633,27 +6833,7 @@ if (typeof dataArrayForDropDown !== 'undefined') {
 
 
 
-var count = 0; // let names = [
-//              'surname',
-//              'name',
-//              'patronymic',
-//              'gender',
-//              'familyStatus',
-//              'amountOfChildren',
-//              'citizenship',
-//              'nationality',
-//              'dataOfBirth',
-//              'Iin',
-//              'typeDocument',
-//              'numberDocument',
-//              'kemVidanDoc',
-//              'dateMonthYearDoc',
-//              'cityOfResidence',
-//              'homeAdress',
-//              'mobileNumber',
-//              'email',
-// ];
-
+var count = 0;
 function tabs_1(names) {
   var allcode = [];
   var title = ['Фамилия', 'Имя', 'Отчество'];
@@ -6661,7 +6841,7 @@ function tabs_1(names) {
   var sec = [];
 
   for (var i = 0; i < 2; i++) {
-    input[i] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[i], '{{old(' + names[count] + ')}}', "col-lg-4 ", null, '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
+    input[i] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[i], names[count], "col-lg-4 ", null, '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
       id: names[count]
     }));
     count++;
@@ -6694,7 +6874,7 @@ function tabs_1(names) {
   for (var _i = 0; _i < sec.length; _i++) {
     input[_i] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.dropDown)(title[_i], names[count], sec[_i], '', 'col-lg-4', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
       id: names[count]
-    }));
+    }), _i);
     count++;
   }
 
@@ -6714,7 +6894,7 @@ function tabs_1(names) {
   input = [];
   title = ['Гражданство', 'Национальность', 'Дата рождения'];
   var citizenship = ['citizenship', 'citizenship1'];
-  var nationality = ['nationality'];
+  var nationality = ['nationality', '1nationality'];
 
   if (dropdownValues) {
     citizenship = dropdownValues['citizenship'];
@@ -6729,7 +6909,7 @@ function tabs_1(names) {
   count++;
   input[1] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.dropDown)(title[1], names[count], sec[1], '', 'col-lg-4', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
     id: names[count]
-  }));
+  }), 0);
   count++;
   input[2] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.dataPiker)(title[2], names[count], 'col-lg-4', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
     id: names[count]
@@ -6757,7 +6937,7 @@ function tabs_1(names) {
   count++;
   input[1] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.dropDown)(title[1], names[count], sec[0], '', 'col-lg-4', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
     id: names[count]
-  }));
+  }), 0);
   count++;
   allcode[3] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     className: "form-group row",
@@ -6784,14 +6964,12 @@ function tabs_1(names) {
   count--;
   input[1] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.dropDown)(title[1], names[count], sec[0], dop, 'col-lg-4', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
     id: names[count]
-  }));
+  }), 0);
   count += 2;
   allcode[4] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     className: "form-group row",
     children: input
-  }, count); //
-  // // ------------------------------------------------------------------------------------------
-  // ------------------------------------------------------------------------------------------
+  }, count); // ------------------------------------------------------------------------------------------
 
   input = [];
   title = ['Город проживания', 'Домашний адрес', 'Мобильный телефон', 'Второй мобильный номер', 'Личная электронная почта'];
@@ -6820,7 +6998,7 @@ function tabs_1(names) {
     id: names[count]
   }));
   count++;
-  input[1] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputFieldEmail)('Электронная почта (корпоративный)', names[count], 'col-lg-6', null, '');
+  input[1] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputField)('Электронная почта (корпоративный)', names[count], 'col-lg-6', null, '');
   count++;
   allcode[6] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     className: "form-group row",
@@ -6877,20 +7055,7 @@ if (typeof dataArrayForDropDown !== 'undefined') {
 
 
 
-var count = 0; // let names = [
-//              'positionAtWord',
-//              'nameOfTheCompany',
-//              'legalAdress',
-//
-//              'firstWorkExperience',
-//              'upravlencheskiy_stazh',
-//              'jobType',
-//              'fieldOfActivity',
-//              'availabilityOfBusinessTrips',
-//     'availabilityOfBusinessTripsInputYes',
-//     'availabilityOfBusinessTripsInputDuration'
-// ];
-
+var count = 0;
 function tabs_2(names) {
   var allcode = [];
   var title = ['Занимаемая должность', 'Компания (полное наименование)'];
@@ -6948,11 +7113,11 @@ function tabs_2(names) {
   count++;
   input[1] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.dropDown)(title[1], names[count], sec[0], '', 'col-lg-4', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
     id: names[count]
-  }));
+  }), 0);
   count++;
   input[2] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.dropDown)(title[2], names[count], sec[1], null, null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
     id: names[count]
-  }));
+  }), 1);
   count++;
   allcode[3] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     className: "form-group row",
@@ -6965,24 +7130,18 @@ function tabs_2(names) {
   var arraycount = count;
 
   var one = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-    className: 'col-lg-8 ms-5',
-    hidden: true,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-      type: "text",
-      name: names[arraycount + 1],
-      placeholder: "\u0415\u0441\u043B\u0438 \xAB\u0414\u0430\xBB, \u0441\u043A\u043E\u043B\u044C\u043A\u043E \u0440\u0430\u0437 \u0432 \u0433\u043E\u0434",
-      className: " user-how_many_trips col-lg-8"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-      type: "text",
-      name: names[arraycount + 2],
-      placeholder: "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C",
-      className: " user-how_long_trips col-lg-8 "
-    })]
+    className: 'col-lg-8 ms-5 d-flex',
+    children: [(0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputFieldOnlyNumber)('Сколько раз в год', names[arraycount + 1], 'col-lg-6 me-2', '', '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
+      id: names[arraycount + 1]
+    })), (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputFieldOnlyNumber)('Продолжительность', names[arraycount + 2], 'col-lg-6', '', '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
+      id: names[arraycount + 2]
+    }))]
   });
 
   var popUpElement = [one];
   input[0] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.RadioB, {
     input: true,
+    hidden: true,
     popupIndex: [0],
     popUpElement: popUpElement,
     classN: 'col-lg-8',
@@ -7054,7 +7213,7 @@ if (typeof dataArrayForDropDown !== 'undefined') {
 
 var MBAprogram = null;
 
-if (typeof MBAprogram !== 'undefined') {
+if (typeof programMBA !== 'undefined') {
   MBAprogram = JSON.parse(JSON.stringify(programMBA));
 }
 
@@ -7066,84 +7225,11 @@ if (typeof MBAprogram !== 'undefined') {
 
 
 
-var count = 0; // let stars;
-// let bankRequisites;
-// let names;
-// names = [
-//     'startEducation',
-//     'endEducation',
-//     'qualification',
-//     'fullNameUniversity',
-//     'speciality',
-//     'languageEducation',
-//     'checkSecondDegree',
-//     'checkMasterDegree',
-//     'checkLanguageKazakh',
-//     'checkLanguageEnglish',
-//     'checkLanguageFrench',
-//     'checkLanguageGerman',
-//     'checkLanguageChinese',
-//     'checkOtherLanguages',
-//     'englishProficiencyCertificates',
-//     'certificateIssueDate',
-//     'hobby',
-//     'achievements',
-//     'reasonForLearning',
-//     'suite',
-//     'otherSuite',
-//     'socialNetwork',
-//     'PageInFacebook',
-//     'PageInInstagram',
-//     'PageInTwitter',
-//     'checkBoxAboutMBA',
-//     'checkBoxReasonsForChoosingMBA',
-//     'otherReason',
-//     stars = [
-//         'starsTheQualityOfEducation',
-//         'starsLargeSelectionOfPrograms',
-//         'starsLocationSchool',
-//         'starsDiscounts',
-//         'starsDurationEducation',
-//         'starsСostOfEducation',
-//         'starsReputationMBA',
-//         'starsPartPayment',
-//         'starsFormOfEducation',
-//         'starsCompositionOfTeachers',
-//     ],
-//     'otherСharacteristics',
-//     bankRequisites = [
-//         'requisites',
-//         'bin',
-//         'reqYurAdress',
-//         'bank',
-//         'reqEmail',
-//         'fioSupervisor',
-//         'reqName',
-//         'rnn',
-//         'telFax',
-//         'iik',
-//         'reqSuite',
-//         'reqPositionHead'
-//     ],
-//     'checkBoxSourceOfFinancing',
-//     'checkBoxMBAProgram',
-//
-//     'scanFileDocument',
-//     'scanFileCertificateFromWork',
-//     'resumeFile',
-//     'fileScanDiplomWithApplication',
-//     'scanCertificate',
-//     'fileEsse',
-//     'copyPassport',
-//     'foto3x4',
-//     'medicalDoc',
-//     'recomentedLetter'
-// ];
-
+var count = 0;
 function tabs_3(names) {
   // console.log(names);
   var allcode = [];
-  var title = ['Начало обучения', 'Конец обучения '];
+  var title = ['Начало обучения', 'Конец обучения'];
   var input = [];
   var sec = [];
 
@@ -7153,15 +7239,15 @@ function tabs_3(names) {
       className: "title mb-3",
       children: "\u041E\u0431\u0440\u0430\u0437\u043E\u0432\u0430\u043D\u0438\u0435"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("hr", {})]
-  });
+  }, 0);
 
   input[0] = (0,_components__WEBPACK_IMPORTED_MODULE_0__.dataPiker)(title[0], names[count], 'col-lg-6', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
     id: names[count]
-  }));
+  }), 0);
   count++;
   input[1] = (0,_components__WEBPACK_IMPORTED_MODULE_0__.dataPiker)(title[1], names[count], 'col-lg-6', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
     id: names[count]
-  }));
+  }), 1);
   count++;
   allcode[0] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
     className: "form-group row",
@@ -7169,23 +7255,36 @@ function tabs_3(names) {
   }, count); //----------------------------------------------------------------------------------
 
   input = [];
-  title = ['Академическая степень/квалификация', 'Полное наименование учебного заведения'];
+  title = ['Язык обучения', 'Академическая степень/квалификация'];
   var qualification = ['qualification'];
+  var languageEducation = ['languageEducation'];
 
   if (dropdownValues) {
     qualification = dropdownValues['qualification'];
+    languageEducation = dropdownValues['languageEducation'];
   }
 
-  sec = [qualification];
+  sec = [languageEducation, qualification];
   input[0] = (0,_components__WEBPACK_IMPORTED_MODULE_0__.dropDown)(title[0], names[count], sec[0], null, 'col-lg-4', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
     id: names[count]
-  }));
+  }), 0);
   count++;
-  input[1] = (0,_components__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[1], names[count], 'col-lg-8', null, '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
+  input[1] = (0,_components__WEBPACK_IMPORTED_MODULE_0__.dropDown)(title[1], names[count], sec[1], null, 'col-lg-4', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
+    id: names[count]
+  }), 1);
+  count++;
+  allcode[1] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+    className: "form-group row",
+    children: input
+  }, count); // ------------------------------------------------------------------------------------------
+
+  input = [];
+  title = ['Полное наименование учебного заведения'];
+  input[0] = (0,_components__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[0], names[count], 'col-lg-8', null, '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
     id: names[count]
   }));
   count++;
-  allcode[1] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+  allcode[2] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     className: "form-group row",
     children: input
   }, count); // ------------------------------------------------------------------------------------------
@@ -7196,36 +7295,46 @@ function tabs_3(names) {
     id: names[count]
   }));
   count++;
-  allcode[2] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+  allcode[3] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     className: "form-group row",
     children: input
   }, count); // ------------------------------------------------------------------------------------------
 
   input = [];
-  title = ['Язык обучения', 'Имеется ли второе высшее образование ', 'Имеется ли магистерская степень'];
-  var languageEducation = ['languageEducation'];
-  var checkSecondDegree = ['checkSecondDegree'];
-  var checkMasterDegree = ['checkMasterDegree'];
-
-  if (dropdownValues) {
-    languageEducation = dropdownValues['languageEducation'];
-    checkSecondDegree = dropdownValues['checkSecondDegree'];
-    checkMasterDegree = dropdownValues['checkMasterDegree'];
-  }
-
-  sec = [languageEducation, checkSecondDegree, checkMasterDegree];
-
-  for (var i = 0; i < sec.length; i++) {
-    input[i] = (0,_components__WEBPACK_IMPORTED_MODULE_0__.dropDown)(title[i], names[count], sec[i], null, 'col-lg-4', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
-      id: names[count]
-    }));
-    count++;
-  }
-
-  allcode[3] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+  labelvar = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
+      htmlFor: "",
+      className: "title mb-3",
+      children: "\u0415\u0441\u043B\u0438 \u0443 \u0412\u0430\u0441 \u0435\u0441\u0442\u044C \u0435\u0449\u0435 \u043E\u0431\u0440\u0430\u0437\u043E\u0432\u0430\u043D\u0438\u0435 \u043D\u0430\u0436\u043C\u0438\u0442\u0435 \u043A\u043D\u043E\u043F\u043A\u0443 \"\u0434\u043E\u0431\u0430\u0432\u0438\u0442\u044C\""
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("hr", {})]
+  }, 0);
+  input[0] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.AddEducation, {
+      dropdownValues: dropdownValues
+    })
+  }, 1);
+  allcode[4] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
     className: "form-group row",
-    children: input
-  }, count); // ------------------------------------------------------------------------------------------
+    children: [labelvar, input]
+  }, 8); // console.log(allcode);
+  //     input = [];
+  //     title = ['Язык обучения','Имеется ли второе высшее образование ','Имеется ли магистерская степень'];
+  //
+  //     // let languageEducation = ['languageEducation'];
+  //     let checkSecondDegree = ['checkSecondDegree'];
+  //     let checkMasterDegree = ['checkMasterDegree'];
+  //     if(dropdownValues){
+  //          languageEducation = dropdownValues['languageEducation'];
+  //          checkSecondDegree = dropdownValues['checkSecondDegree'];
+  //          checkMasterDegree = dropdownValues['checkMasterDegree'];
+  //     }
+  //
+  //     sec = [languageEducation];
+  //     for (let i = 0; i < sec.length ; i++) {
+  //         input[i] = dropDown(title[i], names[count], sec[i],null,'col-lg-4',<RequiredSpan id={names[count]}/>);
+  //         count++;
+  //     }
+  // ------------------------------------------------------------------------------------------
 
   input = [];
   var checkLanguageKazakh = ['levellanguages'];
@@ -7252,27 +7361,27 @@ function tabs_3(names) {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("hr", {})]
   });
 
-  for (var _i = 0; _i < sec.length; _i++) {
-    input[_i] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+  for (var i = 0; i < sec.length; i++) {
+    input[i] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
         className: 'col-lg-12 row',
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
           className: 'col-lg-4 d-lg-flex align-items-center',
-          children: (0,_components__WEBPACK_IMPORTED_MODULE_0__.label)(language[_i], 'col-lg-4 my-3')
-        }), (0,_components__WEBPACK_IMPORTED_MODULE_0__.dropDown)('', names[count], sec[_i], null, 'col-lg-7')]
+          children: (0,_components__WEBPACK_IMPORTED_MODULE_0__.label)(language[i], 'col-lg-4 my-3')
+        }), (0,_components__WEBPACK_IMPORTED_MODULE_0__.dropDown)('', names[count], sec[i], null, 'col-lg-7', null, i)]
       })
-    }, _i);
+    }, i);
     count++;
   }
 
   var arrayFromBack = ['qualification'];
-  allcode[4] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+  allcode[5] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
     id: 'lang',
     className: "form-group row",
     children: [labelvar, input, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.OtherLanguageButton, {
       dropdown: arrayFromBack
     })]
-  }, '0');
+  }, count);
   count++; // ------------------------------------------------------------------------------------------
 
   input = [];
@@ -7284,11 +7393,11 @@ function tabs_3(names) {
   }
 
   sec = [certificateIssueDate];
-  input[0] = (0,_components__WEBPACK_IMPORTED_MODULE_0__.dropDown)(title[0], names[count], sec[0], null, 'col-lg-6');
+  input[0] = (0,_components__WEBPACK_IMPORTED_MODULE_0__.dropDown)(title[0], names[count], sec[0], null, 'col-lg-6', null, 0);
   count++;
   input[1] = (0,_components__WEBPACK_IMPORTED_MODULE_0__.dataPiker)(title[1], names[count], 'col-lg-6');
   count++;
-  allcode[5] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+  allcode[6] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     className: "form-group row",
     children: input
   }, count); // ------------------------------------------------------------------------------------------
@@ -7304,7 +7413,7 @@ function tabs_3(names) {
     checkBoxTitle: titleForCheckBox
   }, count);
   count++;
-  allcode[6] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+  allcode[7] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     className: "form-group row",
     children: input
   }, count); // ------------------------------------------------------------------------------------------
@@ -7315,7 +7424,7 @@ function tabs_3(names) {
     id: names[count]
   }));
   count++;
-  allcode[7] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+  allcode[8] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     className: "form-group row",
     children: input
   }, count); // ------------------------------------------------------------------------------------------
@@ -7326,7 +7435,7 @@ function tabs_3(names) {
     id: names[count]
   }));
   count++;
-  allcode[8] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+  allcode[9] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     className: "form-group row",
     children: input
   }, count); // ------------------------------------------------------------------------------------------
@@ -7348,7 +7457,7 @@ function tabs_3(names) {
   count++;
   input[1] = (0,_components__WEBPACK_IMPORTED_MODULE_0__.inputField)('', names[count], 'col-lg-12', '', 'Другое');
   count++;
-  allcode[9] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+  allcode[10] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     className: "form-group row",
     children: input
   }, count); // ------------------------------------------------------------------------------------------
@@ -7368,7 +7477,7 @@ function tabs_3(names) {
     })
   }, count);
   count++;
-  allcode[10] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+  allcode[11] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     className: "form-group row",
     children: input
   }, count); // ------------------------------------------------------------------------------------------
@@ -7380,12 +7489,12 @@ function tabs_3(names) {
   }, '0');
   count++;
 
-  for (var _i2 = 1; _i2 < 3; _i2++) {
-    input[_i2] = (0,_components__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[_i2], names[count], 'col-lg-12', '', '');
+  for (var _i = 1; _i < 3; _i++) {
+    input[_i] = (0,_components__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[_i], names[count], 'col-lg-12', '', '');
     count++;
   }
 
-  allcode[11] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+  allcode[12] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     className: "form-group row",
     children: input
   }, count); // ------------------------------------------------------------------------------------------
@@ -7406,7 +7515,7 @@ function tabs_3(names) {
   }, count);
   count++; //
 
-  allcode[12] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+  allcode[13] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     className: "form-group row",
     children: input
   }, count); // ------------------------------------------------------------------------------------------
@@ -7427,7 +7536,7 @@ function tabs_3(names) {
     })
   }, count);
   count += 2;
-  allcode[13] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+  allcode[14] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     className: "form-group row",
     children: input
   }, count); // ------------------------------------------------------------------------------------------
@@ -7452,7 +7561,7 @@ function tabs_3(names) {
     titleForStar: titleForStar
   }, count);
   count++;
-  allcode[14] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+  allcode[15] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
     className: "form-group row",
     children: [labelvar, input]
   }, count); // ------------------------------------------------------------------------------------------
@@ -7461,7 +7570,7 @@ function tabs_3(names) {
   title = ['Другое'];
   input[0] = (0,_components__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[0], names[count], 'col-lg-12', '', '');
   count++;
-  allcode[15] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+  allcode[16] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     className: "form-group row",
     children: input
   }, count); // ------------------------------------------------------------------------------------------
@@ -7472,7 +7581,6 @@ function tabs_3(names) {
 
   var pop = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     className: "financing_company",
-    hidden: true,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
       className: "row",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
@@ -7567,6 +7675,7 @@ function tabs_3(names) {
   var popUpElement = ['', pop, pop];
   input[0] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RadioB, {
     input: true,
+    hidden: true,
     popupIndex: [1, 2],
     popUpElement: popUpElement,
     classN: 'col-lg-12',
@@ -7580,43 +7689,35 @@ function tabs_3(names) {
     })
   }, count);
   count++;
-  allcode[16] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+  allcode[17] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     className: "form-group row",
     children: input
   }, count); // ------------------------------------------------------------------------------------------
 
   input = [];
-  title = ['Выберите программу МВА']; // titleForCheckBox = ['General MBA - Казахстанская программа MBA',
-  //                     'Казахстанская модульно-дистанционная программа',
-  //                     'xecutive MBA Двудипломная программа с Высшей Школой Менеджмента Санкт-Петербургского Государственного Университета (Россия)',
-  //                     'МВА Финансовый инжиниринг',
-  //                     'МВА Менеджмент в здравоохранении',
-  //                     'МВА Менеджмент в социальной сфере(г. Нур-Султан)',
-  //                     'МВА (г. Ташкент)',
-  //                     'МВА (г. Душанбе)'
-  //                     ];
+  title = ['Выберите программу МВА']; //окончательная версия
 
+  var underMBAprogram = [[]];
   titleForCheckBox = [];
   popUpElement = [];
 
-  for (var _i3 = 0, _Object$keys = Object.keys(MBAprogram); _i3 < _Object$keys.length; _i3++) {
-    var key = _Object$keys[_i3];
+  for (var _i2 = 0, _Object$keys = Object.keys(MBAprogram); _i2 < _Object$keys.length; _i2++) {
+    var key = _Object$keys[_i2];
     titleForCheckBox.push(key);
     var popupArr = [];
 
-    for (var _i4 = 0; _i4 < MBAprogram[key].length; _i4++) {
-      if (MBAprogram[key][_i4] === 'null') break;
+    for (var _i3 = 0; _i3 < MBAprogram[key].length; _i3++) {
       popupArr.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
         className: "radio source_label_",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
           type: "radio",
           name: names[count],
           defaultChecked: true,
-          value: key + " -> " + MBAprogram[key][_i4]
+          value: MBAprogram[key] + " -> " + MBAprogram[key][_i3]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-          children: MBAprogram[key][_i4]
+          children: MBAprogram[key][_i3]
         })]
-      }, _i4));
+      }));
     }
 
     var popup = '';
@@ -7631,72 +7732,153 @@ function tabs_3(names) {
     }
 
     popUpElement.push(popup);
-  } //  let one = <div className="label_in_ ms-5" id="label_in_1_" hidden>
-  //                  <label className="radio source_label_">
-  //                      <input type="radio" name={names[count]} defaultChecked={true} value="General MBA - Казахстанская программа MBA -> вечерняя программа в г. Алматы"/>
-  //                      <span>вечерняя программа в г. Алматы</span>
-  //                  </label>
-  //      <label className="radio source_label_">
-  //          <input type="radio" name={names[count]}   value="General MBA - Казахстанская программа MBA -> модульная программа в г. Алматы"/>
-  //          <span>модульная программа в г. Алматы</span>
-  //      </label>
-  //      <label className="radio source_label_">
-  //          <input type="radio" name={names[count]}   value="General MBA - Казахстанская программа MBA -> обучение программа в г. Нур-Султан"/>
-  //          <span>обучение в г. Нур-Султан</span>
-  //      </label>
-  //      <label className="radio source_label_">
-  //          <input type="radio" name={names[count]} value="General MBA - Казахстанская программа MBA -> обучение программа в г. Атырау"/>
-  //          <span>обучение в г. Атырау</span>
-  //      </label>
-  //      <label className="radio source_label_">
-  //          <input type="radio" name={names[count]} value="General MBA - Казахстанская программа MBA -> обучение программа в г.Актау"/>
-  //          <span>обучение в г. Актау</span>
-  //      </label>
-  //      <label className="radio  source_label_">
-  //          <input type="radio" name={names[count]} value="General MBA - Казахстанская программа MBA -> обучение программа в г.Актобе"/>
-  //          <span>обучение в г.Актобе</span>
-  //      </label>
-  //      <label className="radio source_label_ ">
-  //          <input type="radio" name={names[count]} value="General MBA - Казахстанская программа MBA -> обучение программа в г.Кызылорда"/>
-  //          <span>обучение в г.Кызылорда</span>
-  //      </label>
-  //      <label className="radio source_label_ ">
-  //          <input type="radio" name={names[count]} value="General MBA - Казахстанская программа MBA -> обучение в г.Шымкент"/>
-  //          <span>обучение в г. Шымкент</span>
-  //      </label>
-  //  </div>;
-  //
-  // let two = <div className="label_in_ ms-5" id="label_in_2_" hidden>
-  //     <label className="radio source_label_ ">
-  //         <input type="radio" name={names[count]} value="Казахстанская модульно-дистанционная программа -> обучение в г. Алматы"  />
-  //         <span>обучение в г. Алматы</span>
-  //     </label>
-  // </div>;
-  //
-  // let three = <div className="label_in_ ms-5" id="label_in_5_" hidden>
-  //     <label className="radio source_label_">
-  //         <input type="radio" name={names[count]} value="МВА Финансовый инжиниринг -> вечерняя программа в г. Алматы"   />
-  //         <span>вечерняя программа в г. Алматы</span>
-  //     </label>
-  //     <label className="radio source_label_">
-  //         <input type="radio" name={names[count]} value="МВА Финансовый инжиниринг -> обучение в г. Нур-Султан"/>
-  //         <span>обучение в г. Нур-Султан</span>
-  //     </label>
-  // </div>;
-  //
-  // let four =  <div className="label_in_ ms-5" id="label_in_6_" hidden>
-  //     <label className="radio source_label_">
-  //         <input type="radio" name={names[count]} value="МВА Менеджмент в здравоохранении -> обучение в г. Алматы"  />
-  //         <span>обучение в г. Алматы</span>
-  //     </label>
-  //     <label className="radio source_label_">
-  //         <input type="radio" name={names[count]} value="МВА Менеджмент в здравоохранении -> обучение в г. Нур-Султан"/>
-  //         <span>обучение в г. Нур-Султан</span>
-  //     </label>
-  // </div>
-  // popUpElement = [one, two, '', three, four];
+  }
 
+  titleForCheckBox = ['General MBA - Казахстанская программа MBA', 'Казахстанская модульно-дистанционная программа', 'xecutive MBA Двудипломная программа с Высшей Школой Менеджмента Санкт-Петербургского Государственного Университета (Россия)', 'МВА Финансовый инжиниринг', 'МВА Менеджмент в здравоохранении', 'МВА Менеджмент в социальной сфере(г. Нур-Султан)', 'МВА (г. Ташкент)', 'МВА (г. Душанбе)'];
 
+  var one = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+    className: "label_in_ ms-5",
+    id: "label_in_1_",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
+      className: "radio source_label_",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+        type: "radio",
+        name: names[count],
+        defaultChecked: true,
+        value: "General MBA - \u041A\u0430\u0437\u0430\u0445\u0441\u0442\u0430\u043D\u0441\u043A\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 MBA -> \u0432\u0435\u0447\u0435\u0440\u043D\u044F\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+        children: "\u0432\u0435\u0447\u0435\u0440\u043D\u044F\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
+      className: "radio source_label_",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+        type: "radio",
+        name: names[count],
+        value: "General MBA - \u041A\u0430\u0437\u0430\u0445\u0441\u0442\u0430\u043D\u0441\u043A\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 MBA -> \u043C\u043E\u0434\u0443\u043B\u044C\u043D\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+        children: "\u043C\u043E\u0434\u0443\u043B\u044C\u043D\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
+      className: "radio source_label_",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+        type: "radio",
+        name: names[count],
+        value: "General MBA - \u041A\u0430\u0437\u0430\u0445\u0441\u0442\u0430\u043D\u0441\u043A\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 MBA -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433. \u041D\u0443\u0440-\u0421\u0443\u043B\u0442\u0430\u043D"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u041D\u0443\u0440-\u0421\u0443\u043B\u0442\u0430\u043D"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
+      className: "radio source_label_",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+        type: "radio",
+        name: names[count],
+        value: "General MBA - \u041A\u0430\u0437\u0430\u0445\u0441\u0442\u0430\u043D\u0441\u043A\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 MBA -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433. \u0410\u0442\u044B\u0440\u0430\u0443"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u0410\u0442\u044B\u0440\u0430\u0443"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
+      className: "radio source_label_",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+        type: "radio",
+        name: names[count],
+        value: "General MBA - \u041A\u0430\u0437\u0430\u0445\u0441\u0442\u0430\u043D\u0441\u043A\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 MBA -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433.\u0410\u043A\u0442\u0430\u0443"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u0410\u043A\u0442\u0430\u0443"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
+      className: "radio  source_label_",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+        type: "radio",
+        name: names[count],
+        value: "General MBA - \u041A\u0430\u0437\u0430\u0445\u0441\u0442\u0430\u043D\u0441\u043A\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 MBA -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433.\u0410\u043A\u0442\u043E\u0431\u0435"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433.\u0410\u043A\u0442\u043E\u0431\u0435"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
+      className: "radio source_label_ ",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+        type: "radio",
+        name: names[count],
+        value: "General MBA - \u041A\u0430\u0437\u0430\u0445\u0441\u0442\u0430\u043D\u0441\u043A\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 MBA -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433.\u041A\u044B\u0437\u044B\u043B\u043E\u0440\u0434\u0430"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433.\u041A\u044B\u0437\u044B\u043B\u043E\u0440\u0434\u0430"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
+      className: "radio source_label_ ",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+        type: "radio",
+        name: names[count],
+        value: "General MBA - \u041A\u0430\u0437\u0430\u0445\u0441\u0442\u0430\u043D\u0441\u043A\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 MBA -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433.\u0428\u044B\u043C\u043A\u0435\u043D\u0442"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u0428\u044B\u043C\u043A\u0435\u043D\u0442"
+      })]
+    })]
+  });
+
+  var two = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+    className: "label_in_ ms-5",
+    id: "label_in_2_",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
+      className: "radio source_label_ ",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+        type: "radio",
+        name: names[count],
+        value: "\u041A\u0430\u0437\u0430\u0445\u0441\u0442\u0430\u043D\u0441\u043A\u0430\u044F \u043C\u043E\u0434\u0443\u043B\u044C\u043D\u043E-\u0434\u0438\u0441\u0442\u0430\u043D\u0446\u0438\u043E\u043D\u043D\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
+      })]
+    })
+  });
+
+  var three = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+    className: "label_in_ ms-5",
+    id: "label_in_5_",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
+      className: "radio source_label_",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+        type: "radio",
+        name: names[count],
+        value: "\u041C\u0412\u0410 \u0424\u0438\u043D\u0430\u043D\u0441\u043E\u0432\u044B\u0439 \u0438\u043D\u0436\u0438\u043D\u0438\u0440\u0438\u043D\u0433 -> \u0432\u0435\u0447\u0435\u0440\u043D\u044F\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+        children: "\u0432\u0435\u0447\u0435\u0440\u043D\u044F\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
+      className: "radio source_label_",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+        type: "radio",
+        name: names[count],
+        value: "\u041C\u0412\u0410 \u0424\u0438\u043D\u0430\u043D\u0441\u043E\u0432\u044B\u0439 \u0438\u043D\u0436\u0438\u043D\u0438\u0440\u0438\u043D\u0433 -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u041D\u0443\u0440-\u0421\u0443\u043B\u0442\u0430\u043D"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u041D\u0443\u0440-\u0421\u0443\u043B\u0442\u0430\u043D"
+      })]
+    })]
+  });
+
+  var four = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+    className: "label_in_ ms-5",
+    id: "label_in_6_",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
+      className: "radio source_label_",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+        type: "radio",
+        name: names[count],
+        value: "\u041C\u0412\u0410 \u041C\u0435\u043D\u0435\u0434\u0436\u043C\u0435\u043D\u0442 \u0432 \u0437\u0434\u0440\u0430\u0432\u043E\u043E\u0445\u0440\u0430\u043D\u0435\u043D\u0438\u0438 -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
+      className: "radio source_label_",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+        type: "radio",
+        name: names[count],
+        value: "\u041C\u0412\u0410 \u041C\u0435\u043D\u0435\u0434\u0436\u043C\u0435\u043D\u0442 \u0432 \u0437\u0434\u0440\u0430\u0432\u043E\u043E\u0445\u0440\u0430\u043D\u0435\u043D\u0438\u0438 -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u041D\u0443\u0440-\u0421\u0443\u043B\u0442\u0430\u043D"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u041D\u0443\u0440-\u0421\u0443\u043B\u0442\u0430\u043D"
+      })]
+    })]
+  });
+
+  popUpElement = [one, two, '', three, four];
   input[0] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.MBAPropgramRadio, {
     input: true,
     popUpElement: popUpElement,
@@ -7710,14 +7892,29 @@ function tabs_3(names) {
       id: names[count]
     })
   }, count);
+  input[0] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RadioB, {
+    input: true,
+    hidden: true,
+    popupIndex: [0, 1, 3, 4],
+    popUpElement: popUpElement,
+    classN: 'col-lg-12',
+    name: 'notname',
+    column: 1,
+    count: titleForCheckBox.length,
+    title: title,
+    checkBoxTitle: titleForCheckBox,
+    span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
+      id: names[count]
+    })
+  }, count);
   count++;
-  allcode[17] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+  allcode[18] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
     className: "form-group row",
     children: [" ", input]
   }, count + 100); // ------------------------------------------------------------------------------------------
   // console.log(count);
 
-  allcode[18] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
+  allcode[19] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
     name: names[count],
     uploadLabel: 'Прикрепить скан удостоверение личности (.pdf или .jpg, .png)',
     span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
@@ -7725,7 +7922,7 @@ function tabs_3(names) {
     })
   }, count);
   count++;
-  allcode[19] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
+  allcode[20] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
     name: names[count],
     uploadLabel: 'Прикрепить резюме (.pdf или .doc)',
     span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
@@ -7733,7 +7930,7 @@ function tabs_3(names) {
     })
   }, count);
   count++;
-  allcode[20] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
+  allcode[21] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
     name: names[count],
     uploadLabel: '6 фото 3х4 (.pdf или .doc)',
     span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
@@ -7741,7 +7938,7 @@ function tabs_3(names) {
     })
   }, count);
   count++;
-  allcode[21] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
+  allcode[22] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
     name: names[count],
     uploadLabel: 'Прикрепить скан диплома с приложением (.pdf или .jpg, .png)',
     span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
@@ -7749,7 +7946,7 @@ function tabs_3(names) {
     })
   }, count);
   count++;
-  allcode[22] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
+  allcode[23] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
     name: names[count],
     uploadLabel: 'Прикрепить скан справки с места работы с указанием должности (.pdf или .jpg, .png)',
     span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
@@ -7757,7 +7954,7 @@ function tabs_3(names) {
     })
   }, count);
   count++;
-  allcode[23] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
+  allcode[24] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
     name: names[count],
     uploadLabel: 'Медицинская справка (форма 075У) (.pdf или .doc)',
     span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
@@ -7765,7 +7962,15 @@ function tabs_3(names) {
     })
   }, count);
   count++;
-  allcode[24] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
+  allcode[25] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
+    name: names[count],
+    uploadLabel: 'Прикрепить скан сертификата на знание Английского языка (.pdf или .jpg)',
+    span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
+      id: names[count]
+    })
+  }, count);
+  count++;
+  allcode[26] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
     name: names[count],
     uploadLabel: 'Прикрепить мотивационное эссе (.pdf или .doc)',
     span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
@@ -7773,7 +7978,7 @@ function tabs_3(names) {
     })
   }, count);
   count++;
-  allcode[25] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
+  allcode[27] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
     name: names[count],
     uploadLabel: 'Копия паспорта (.pdf или .jpg, .png)',
     span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
@@ -7781,7 +7986,7 @@ function tabs_3(names) {
     })
   }, count);
   count++;
-  allcode[26] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
+  allcode[28] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
     name: names[count],
     uploadLabel: '2 рекомендательных письма (.pdf или .jpg, .png)',
     span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
@@ -7790,7 +7995,7 @@ function tabs_3(names) {
   }, count);
   count++; // ------------------------------------------------------------------------------------------
 
-  allcode[27] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+  allcode[29] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("small", {
       className: " ",
       children: ["\u041D\u0430\u0436\u0438\u043C\u0430\u044F \u043D\u0430 \u043A\u043D\u043E\u043F\u043A\u0443, \u044F \u0434\u0430\u044E \u0441\u0432\u043E\u0435 \u0441\u043E\u0433\u043B\u0430\u0441\u0438\u0435 \u043D\u0430 \u043E\u0431\u0440\u0430\u0431\u043E\u0442\u043A\u0443 \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u043B\u044C\u043D\u044B\u0445 \u0434\u0430\u043D\u043D\u044B\u0445 \u0438 \u0441\u043E\u0433\u043B\u0430\u0448\u0430\u044E\u0441\u044C ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
@@ -7802,7 +8007,7 @@ function tabs_3(names) {
   }, count);
   count++; // ------------------------------------------------------------------------------------------
 
-  allcode[28] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_validateWindow__WEBPACK_IMPORTED_MODULE_1__.ValidateAndSubmitButton, {
+  allcode[30] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_validateWindow__WEBPACK_IMPORTED_MODULE_1__.ValidateAndSubmitButton, {
     allName: (0,_names__WEBPACK_IMPORTED_MODULE_5__.getNames)()
   }, count);
   count++;
@@ -7909,6 +8114,8 @@ var ValidateAndSubmitButton = /*#__PURE__*/function (_React$Component) {
             });
 
             var spanElement = null;
+            console.log(allInputs[i].width + ":" + allInputs[i].height);
+            console.log(allInputs[i]);
 
             for (var j = 0; j < allspan.length; j++) {
               if (allspan[j].id.trim() === allInputs[i].name.trim()) {
@@ -8213,6 +8420,9 @@ var DocWindow = /*#__PURE__*/function (_React$Component) {
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
                 style: p,
                 children: "- \u0421\u043F\u0440\u0430\u0432\u043A\u0430 \u0441 \u043C\u0435\u0441\u0442\u0430 \u0440\u0430\u0431\u043E\u0442\u044B \u0441 \u0443\u043A\u0430\u0437\u0430\u043D\u0438\u0435\u043C \u0434\u043E\u043B\u0436\u043D\u043E\u0441\u0442\u0438"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
+                style: p,
+                children: "- \u0421\u043A\u0430\u043D \u0441\u0435\u0440\u0442\u0438\u0444\u0438\u043A\u0430\u0442\u0430 \u043D\u0430 \u0437\u043D\u0430\u043D\u0438\u0435 \u0410\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E \u044F\u0437\u044B\u043A\u0430"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
                 style: p,
                 children: "- \u041C\u0435\u0434\u0438\u0446\u0438\u043D\u0441\u043A\u0430\u044F \u0441\u043F\u0440\u0430\u0432\u043A\u0430 (\u0444\u043E\u0440\u043C\u0430 075\u0423)"

@@ -1167,17 +1167,21 @@ var SelectQuiz = /*#__PURE__*/function (_React$Component) {
         return [Number(key), questions[key]];
       });
 
+      for (var i = 0; i < result.length; i++) {
+        console.log(Array.isArray(result[i][1]));
+      }
+
       switch (this.state.quizSel) {
         case '-1':
           {
-            var quiz_Type = [];
+            var quiz_Type = []; // for (let i = 0; i < this.title.length; i++) {
 
-            for (var i = 0; i < this.title.length; i++) {
-              quiz_Type.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(QuizType, {
-                title: this.title[i],
+            for (var _i = 0; _i < result.length; _i++) {
+              if (!Array.isArray(result[_i][1])) quiz_Type.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(QuizType, {
+                title: this.title[_i],
                 onClick: this.handleClick,
-                id: i + 1
-              }, i));
+                id: _i + 1
+              }, _i));
             }
 
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
@@ -1196,13 +1200,13 @@ var SelectQuiz = /*#__PURE__*/function (_React$Component) {
         case '1':
           {
             typeTest = 1;
-            var _i = 0;
+            var _i2 = 0;
 
-            for (var _i2 = 0, _Object$values = Object.values(result[0]); _i2 < _Object$values.length; _i2++) {
-              var key1 = _Object$values[_i2];
+            for (var _i3 = 0, _Object$values = Object.values(result[0]); _i3 < _Object$values.length; _i3++) {
+              var key1 = _Object$values[_i3];
 
-              for (var _i3 = 0, _Object$entries = Object.entries(key1); _i3 < _Object$entries.length; _i3++) {
-                var _Object$entries$_i = _slicedToArray(_Object$entries[_i3], 2),
+              for (var _i4 = 0, _Object$entries = Object.entries(key1); _i4 < _Object$entries.length; _i4++) {
+                var _Object$entries$_i = _slicedToArray(_Object$entries[_i4], 2),
                     key = _Object$entries$_i[0],
                     valio = _Object$entries$_i[1];
 
@@ -1216,7 +1220,7 @@ var SelectQuiz = /*#__PURE__*/function (_React$Component) {
                   title.push(valio[j]);
                 }
 
-                if (_i < 30) {
+                if (_i2 < 30) {
                   radio.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
                     className: 'my-3',
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RadioB, {
@@ -1226,27 +1230,27 @@ var SelectQuiz = /*#__PURE__*/function (_React$Component) {
                       count: title.length,
                       title: key,
                       checkBoxTitle: title,
-                      identifier: _i,
+                      identifier: _i2,
                       span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
                         id: key
                       })
-                    }, _i)
-                  }, '1_' + _i));
+                    }, _i2)
+                  }, '1_' + _i2));
                 } else {
                   radio.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
                     className: 'my-3',
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.CheckBox, {
-                      identifier: _i,
-                      name: key + '&' + _i,
+                      identifier: _i2,
+                      name: key + '&' + _i2,
                       column: 1,
                       count: title.length,
                       title: key,
                       checkBoxTitle: title
                     })
-                  }, '1_' + _i));
+                  }, '1_' + _i2));
                 }
 
-                _i++;
+                _i2++;
               }
             }
 
@@ -1256,13 +1260,13 @@ var SelectQuiz = /*#__PURE__*/function (_React$Component) {
         case '2':
           {
             typeTest = 2;
-            var _i4 = 0;
+            var _i5 = 0;
 
-            for (var _i5 = 0, _Object$values2 = Object.values(result[1]); _i5 < _Object$values2.length; _i5++) {
-              var _key = _Object$values2[_i5];
+            for (var _i6 = 0, _Object$values2 = Object.values(result[1]); _i6 < _Object$values2.length; _i6++) {
+              var _key = _Object$values2[_i6];
 
-              for (var _i6 = 0, _Object$entries2 = Object.entries(_key); _i6 < _Object$entries2.length; _i6++) {
-                var _Object$entries2$_i = _slicedToArray(_Object$entries2[_i6], 2),
+              for (var _i7 = 0, _Object$entries2 = Object.entries(_key); _i7 < _Object$entries2.length; _i7++) {
+                var _Object$entries2$_i = _slicedToArray(_Object$entries2[_i7], 2),
                     _key2 = _Object$entries2$_i[0],
                     _valio = _Object$entries2$_i[1];
 
@@ -1277,7 +1281,7 @@ var SelectQuiz = /*#__PURE__*/function (_React$Component) {
                   _title.push(_valio[_j]);
                 }
 
-                if (_i4 < 30) {
+                if (_i5 < 30) {
                   radio.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
                     className: 'my-3',
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RadioB, {
@@ -1287,27 +1291,27 @@ var SelectQuiz = /*#__PURE__*/function (_React$Component) {
                       count: _title.length,
                       title: _key2,
                       checkBoxTitle: _title,
-                      identifier: _i4,
+                      identifier: _i5,
                       span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
                         id: _key2
                       })
-                    }, _i4)
-                  }, '2_' + _i4));
+                    }, _i5)
+                  }, '2_' + _i5));
                 } else {
                   radio.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
                     className: 'my-3',
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.CheckBox, {
-                      identifier: _i4,
-                      name: _key2 + '&' + _i4,
+                      identifier: _i5,
+                      name: _key2 + '&' + _i5,
                       column: 1,
                       count: _title.length,
                       title: _key2,
                       checkBoxTitle: _title
                     })
-                  }, '2_' + _i4));
+                  }, '2_' + _i5));
                 }
 
-                _i4++;
+                _i5++;
               }
             }
 
@@ -1317,13 +1321,13 @@ var SelectQuiz = /*#__PURE__*/function (_React$Component) {
         case '3':
           {
             typeTest = 3;
-            var _i7 = 0;
+            var _i8 = 0;
 
-            for (var _i8 = 0, _Object$values3 = Object.values(result[2]); _i8 < _Object$values3.length; _i8++) {
-              var _key3 = _Object$values3[_i8];
+            for (var _i9 = 0, _Object$values3 = Object.values(result[2]); _i9 < _Object$values3.length; _i9++) {
+              var _key3 = _Object$values3[_i9];
 
-              for (var _i9 = 0, _Object$entries3 = Object.entries(_key3); _i9 < _Object$entries3.length; _i9++) {
-                var _Object$entries3$_i = _slicedToArray(_Object$entries3[_i9], 2),
+              for (var _i10 = 0, _Object$entries3 = Object.entries(_key3); _i10 < _Object$entries3.length; _i10++) {
+                var _Object$entries3$_i = _slicedToArray(_Object$entries3[_i10], 2),
                     _key4 = _Object$entries3$_i[0],
                     _valio2 = _Object$entries3$_i[1];
 
@@ -1338,7 +1342,7 @@ var SelectQuiz = /*#__PURE__*/function (_React$Component) {
                   _title2.push(_valio2[_j2]);
                 }
 
-                if (_i7 < 30) {
+                if (_i8 < 30) {
                   radio.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
                     className: 'my-3',
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RadioB, {
@@ -1348,27 +1352,27 @@ var SelectQuiz = /*#__PURE__*/function (_React$Component) {
                       count: _title2.length,
                       title: _key4,
                       checkBoxTitle: _title2,
-                      identifier: _i7,
+                      identifier: _i8,
                       span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
                         id: _key4
                       })
-                    }, _i7)
-                  }, '3_' + _i7));
+                    }, _i8)
+                  }, '3_' + _i8));
                 } else {
                   radio.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
                     className: 'my-3',
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.CheckBox, {
-                      identifier: _i7,
-                      name: _key4 + '&' + _i7,
+                      identifier: _i8,
+                      name: _key4 + '&' + _i8,
                       column: 1,
                       count: _title2.length,
                       title: _key4,
                       checkBoxTitle: _title2
                     })
-                  }, '3_' + _i7));
+                  }, '3_' + _i8));
                 }
 
-                _i7++;
+                _i8++;
               }
             }
 

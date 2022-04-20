@@ -72,7 +72,7 @@
 <div class="container-fluid">
 
 
-
+{{--        @dump($datas)--}}
     {{--    <div class="col-md-8 section offset-md-2">--}}
     <div class="col-md-12 section offset-md-2">
 
@@ -90,11 +90,12 @@
 
 
             {{--            <div class="panel-body mt-5" style="border: 1px solid #000000">--}}
-            @isset($datas)
+
 
             <div class="panel-body mt-5" style="border: 2px solid #8c8b8b">
 
                 <div class="main-div">
+                    @isset($datas)
 {{--                     @dd($ym->id)--}}
 {{--                    @isset($datas->surname)--}}
                         <span>Фамилия: {{ $datas->surname}}</span>
@@ -102,8 +103,8 @@
                     <hr class="style1">
                     <span>Имя: {{ $datas->name }}</span>
                     <hr class="style1">
-                    <span>Отчество: {{ $datas->patronymic }}</span>
-                    <hr class="style1">
+                        <span>Отчество: {{ $datas->patronymic }}</span>
+                        <hr class="style1">
                     <span>Пол: {{ $datas->gender }}</span>
                     <hr class="style1">
 {{--                    <span>Возраст (полных лет): {{ $datas-> }}</span>--}}
@@ -156,6 +157,8 @@
                     <span>Домашний адрес:  {{ $datas->homeAdress }}</span>
                     <hr class="style1">
                     <span>Мобильный телефон: {{ $datas->mobileNumber }}</span>
+                    <hr class="style1"> <span>
+                        Второй мобильный номер: {{ $datas->mobileNumberTwo }}</span>
                     <hr class="style1">
                     <span>Электронная почта: {{ $datas->email }}</span>
                     <hr class="style1">
@@ -229,20 +232,32 @@
 
             <div class="panel-body mt-4" style="border: 2px solid #8c8b8b">
                 <div class="main-div">
-                    @php
-                        $get = json_decode($datas->hobby);
-                        $sss = "";
-                    @endphp
-                    @for($i = 0; $i < count($get ); $i++ )
-                    @if($i + 1 == count($get))
-                            @push($sss .= $get[$i]. "") @endpush
-                        @else
-                            @push($sss .= $get[$i]. ", ") @endpush
-                        @endif
+{{--                    @dd($datas->hobby)--}}
+                    @if($datas->hobby != null)
+                        <span>Пожалуйста, поделитесь с нами деятельностью и/или интересами, которые имеют для Вас большое значение: {{ $datas->hobby }}</span>
+                    @endif
 
-                    @endfor
-                    <span>Пожалуйста, поделитесь с нами деятельностью и/или интересами, которые имеют для Вас большое значение: {{ $sss }}</span>
+{{--                @if($datas->hobby != null)--}}
+{{--                    @php--}}
+{{--                        if (json_decode($datas->hobby) !== null) {--}}
+{{--                        $get = json_decode($datas->hobby);--}}
+{{--                        $sss = "";--}}
+{{--                        }--}}
+{{--                    @endphp--}}
+{{--                    --}}
+{{--                    @for($i = 0; $i < count($get ); $i++ )--}}
+{{--                    @if($i + 1 == count($get))--}}
+{{--                            @push($sss .= $get[$i]. "") @endpush--}}
+{{--                        @else--}}
+{{--                            @push($sss .= $get[$i]. ", ") @endpush--}}
+{{--                        @endif--}}
 
+{{--                    @endfor--}}
+
+
+
+{{--                        --}}{{--                    <span>Пожалуйста, поделитесь с нами деятельностью и/или интересами, которые имеют для Вас большое значение: {{ $sss }}</span>--}}
+{{--                    @endif--}}
                 </div>
             </div>
 
@@ -253,6 +268,7 @@
                     <span>Почему вы решили обучаться на программе MBA?: {{ $datas->reasonForLearning }}</span>
                     <hr class="style1">
                     <span>Какие информационные сайты вы читаете?  {{ $datas->suite }}</span>
+
                 </div>
             </div>
 
@@ -260,20 +276,25 @@
                 <div class="main-div">
                     <span>Другие: {{ $datas->otherSuite }}</span>
                     <hr class="style1">
-                    @php
-                        $get = json_decode($datas->socialNetwork);
-                        $sss1 = "";
-                    @endphp
-                    @for($i = 0; $i < count($get ); $i++ )
-                        @if($i + 1 == count($get))
-                            @push($sss1 .= $get[$i]. "") @endpush
-                        @else
-                            @push($sss1 .= $get[$i]. ", ") @endpush
-                        @endif
 
-                    @endfor
+                    @if($datas->socialNetwork != null)
+                        <span>Какими социальными сетями/мессенжерами вы пользуетесь? {{ $datas->socialNetwork }}</span>
+                    @endif
 
-                    <span>Какими социальными сетями/мессенжерами вы пользуетесь? {{  $sss1  }}</span>
+{{--                    @php--}}
+{{--                        $get = json_decode($datas->socialNetwork);--}}
+{{--                        $sss1 = "";--}}
+{{--                    @endphp--}}
+{{--                    @for($i = 0; $i < count($get ); $i++ )--}}
+{{--                        @if($i + 1 == count($get))--}}
+{{--                            @push($sss1 .= $get[$i]. "") @endpush--}}
+{{--                        @else--}}
+{{--                            @push($sss1 .= $get[$i]. ", ") @endpush--}}
+{{--                        @endif--}}
+
+{{--                    @endfor--}}
+{{--                    <span>Какими социальными сетями/мессенжерами вы пользуетесь? {{  $sss1  }}</span>--}}
+
                     <hr class="style1">
                     <span>Ваша страница в Facebook: {{ $datas->PageInFacebook }}</span>
                     <hr class="style1">
