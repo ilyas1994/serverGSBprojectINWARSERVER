@@ -497,7 +497,7 @@ export function tabs_3(names) {
 
     // ------------------------------------------------------------------------------------------
 
-    // console.log(count);
+
     allcode[19] = <FilePicker name={names[count]+'[]'} uploadLabel={'Прикрепить скан удостоверение личности (.pdf или .jpg, .png)'} key={count} span={<RequiredSpan id={names[count]}/>} />
     count++;
     allcode[20] = <FilePicker name={names[count]+'[]'} uploadLabel={'Прикрепить резюме (.pdf или .doc)'} key={count} span={<RequiredSpan id={names[count]}/>}/>
