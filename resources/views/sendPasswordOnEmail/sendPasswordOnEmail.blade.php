@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-12">
 
-                <h3>Ссылка на тест - http://servergsbprojectinwarserver/public/index</h3>
+                 <a href="http://servergsbprojectinwarserver/public/login/"><h3>Ссылка на тест</h3></a>
                 <h4>Ваш Email для авторизации <p style="">{{ $email }}</p></h4>
                 <h4>Ваш пароль : <p>{{ $password }}</p></h4>
             </div>

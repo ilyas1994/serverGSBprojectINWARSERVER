@@ -24,7 +24,7 @@
 
 
     <div class="col-5 d-flex">
-        @if(auth()->user()->city == 'almaty')
+        @if(auth()->user()->city == 'Алматы')
         @php
             $citys = ['Выберите','Алматы','Нур-Султан','Атырау','Актау','Актобе','Кызылорда','Шымкент'];
         @endphp

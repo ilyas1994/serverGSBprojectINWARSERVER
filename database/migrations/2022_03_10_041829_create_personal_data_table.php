@@ -25,7 +25,7 @@ class CreatePersonalDataTable extends Migration
             //             Имя *
             $table->string('name')->nullable();
 //            Отчество
-            $table->string('patronymic');
+            $table->string('patronymic')->nullable();
             //      Пол        *
             $table->string('gender')->nullable();
             //      Гражданский статус *         *
