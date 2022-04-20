@@ -555,88 +555,7 @@ export class RadioB extends React.Component{
 
 
 
-export class MBAPropgramRadio extends React.Component{
 
-    constructor(props) {
-        super(props);
-
-    }
-
-    handleClick(i){
-        let countAll = i['target'].parentElement.parentElement.parentElement.childElementCount;
-        let  radioElements = i['target'].parentElement.parentElement.parentElement;
-        for (let j = 0; j < countAll; j++) {
-            // console.log(radioElements.children[j].children[0].children[0].name);
-            radioElements.children[j].children[0].children[0].value = radioElements.children[j].children[0].children[0].id;
-        }
-
-        for (let j = 0; j < countAll; j++) {
-            if(radioElements.children[j].children[0].childElementCount > 2){
-                // console.log(radioElements.children[j].children[0].children[2].className+" off");
-                radioElements.children[j].children[0].children[2].hidden = true;
-            }
-        }
-
-        if(i['target'].parentElement.childElementCount > 2){
-            // console.log(  i['target'].parentElement.children[2].className+" on");
-            i['target'].parentElement.children[2].hidden = false;
-        }
-    }
-
-    howMany(){
-        let all = [];
-
-        let column = this.props.column;
-        let start = 0;
-        let end = Math.ceil(this.props.count/column);
-        for (let j = 0; j < column; j++){
-            let chekbox = [];
-            for (let i = start; i < end; i++) {
-                if(this.props.input) {
-                    // if(this.props.popupIndex.includes(i)) {
-                        chekbox[i] = <Radio
-                            popUpElement={this.props.popUpElement[i]}
-                            popupArray={this.props.popupIndex}
-                            name={this.props.name}
-                            it={this}
-                            id={this.props.checkBoxTitle[i]}
-                            title={this.props.checkBoxTitle[i]}
-                            key={i}
-                        />
-                    // }else{
-                    //     chekbox[i] = <Radio
-                    //         popupArray={this.props.popupIndex}
-                    //         name={this.props.name}
-                    //         it={this}
-                    //         id={this.props.checkBoxTitle[i]}
-                    //         title={this.props.checkBoxTitle[i]}
-                    //         key={i}
-                    //     />
-                    // }
-                }
-            }
-            start = end;
-            if(this.props.count-end >= Math.ceil(this.props.count/column))
-                end += Math.ceil(this.props.count/column);
-            else end = this.props.count;
-            all[j] =  <div key={j} className={this.props.classN}>
-                            {chekbox}
-                      </div>;
-        }
-
-        return  all
-    }
-
-    render(){
-        return(
-            <div className={'row'}>
-
-                <label  htmlFor="">{this.props.title} {this.props.span}</label>
-                {this.howMany()}
-
-            </div>
-        )}
-}
 
 export function Star(props) {
     const divStyle = {
@@ -674,7 +593,7 @@ export class MBAPropgramRadio extends React.Component{
 
     constructor(props) {
         super(props);
-
+        this.handleClick =  this.handleClick.bind(this);
     }
     state = {
         popup:this.props.popUpElement,
@@ -706,6 +625,8 @@ export class MBAPropgramRadio extends React.Component{
 
     howMany(){
         let all = [];
+        console.log(this.props.popUpElement);
+        console.log('=================');
 
         let column = this.props.column;
         let start = 0;
@@ -714,20 +635,22 @@ export class MBAPropgramRadio extends React.Component{
             let chekbox = [];
             for (let i = start; i < end; i++) {
                 if(this.props.input) {
+
                     chekbox[i] = <Radio
-                        popUpElement={this.props.popUpElement[i]}
+                        popUpElement={(this.state.id !== this.props.checkBoxTitle[i]) ? (this.state.id !== '') ? '' : this.props.popUpElement[i] : this.props.popUpElement[i]}
                         popupArray={this.props.popupIndex}
                         name={this.props.name}
                         it={this.handleClick}
+                        checked={(i === 0)}
                         id={this.props.checkBoxTitle[i]}
                         title={this.props.checkBoxTitle[i]}
                         key={i}
                     />
                 }
+
             }
             start = end;
-            if(this.props.count-end >= Math.ceil(this.props.count/column))
-                end += Math.ceil(this.props.count/column);
+            if(this.props.count-end >= Math.ceil(this.props.count/column)) end += Math.ceil(this.props.count/column);
             else end = this.props.count;
             all[j] =  <div key={j} className={this.props.classN}>
                 {chekbox}
