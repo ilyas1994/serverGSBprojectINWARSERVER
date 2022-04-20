@@ -498,25 +498,25 @@ export function tabs_3(names) {
     // ------------------------------------------------------------------------------------------
 
     // console.log(count);
-    allcode[19] = <FilePicker name={names[count]} uploadLabel={'Прикрепить скан удостоверение личности (.pdf или .jpg, .png)'} key={count} span={<RequiredSpan id={names[count]}/>} />
+    allcode[19] = <FilePicker name={names[count]+'[]'} uploadLabel={'Прикрепить скан удостоверение личности (.pdf или .jpg, .png)'} key={count} span={<RequiredSpan id={names[count]}/>} />
     count++;
-    allcode[20] = <FilePicker name={names[count]} uploadLabel={'Прикрепить резюме (.pdf или .doc)'} key={count} span={<RequiredSpan id={names[count]}/>}/>
+    allcode[20] = <FilePicker name={names[count]+'[]'} uploadLabel={'Прикрепить резюме (.pdf или .doc)'} key={count} span={<RequiredSpan id={names[count]}/>}/>
     count++;
-    allcode[21] = <FilePicker name={names[count]} uploadLabel={'6 фото 3х4 (.pdf или .doc)'} key={count} span={<RequiredSpan id={names[count]}/>}/>
+    allcode[21] = <FilePicker name={names[count]+'[]'} uploadLabel={'6 фото 3х4 (.pdf или .doc)'} key={count} span={<RequiredSpan id={names[count]}/>}/>
     count++;
-    allcode[22] = <FilePicker name={names[count]} uploadLabel={'Прикрепить скан диплома с приложением (.pdf или .jpg, .png)'} key={count} span={<RequiredSpan id={names[count]}/>}/>
+    allcode[22] = <FilePicker name={names[count]+'[]'} uploadLabel={'Прикрепить скан диплома с приложением (.pdf или .jpg, .png)'} key={count} span={<RequiredSpan id={names[count]}/>}/>
     count++;
-    allcode[23] = <FilePicker name={names[count]} uploadLabel={'Прикрепить скан справки с места работы с указанием должности (.pdf или .jpg, .png)'} key={count} span={<RequiredSpan id={names[count]}/>}/>
+    allcode[23] = <FilePicker name={names[count]+'[]'} uploadLabel={'Прикрепить скан справки с места работы с указанием должности (.pdf или .jpg, .png)'} key={count} span={<RequiredSpan id={names[count]}/>}/>
     count++;
-    allcode[24] = <FilePicker name={names[count]} uploadLabel={'Медицинская справка (форма 075У) (.pdf или .doc)'} key={count} span={<RequiredSpan id={names[count]}/>}/>
+    allcode[24] = <FilePicker name={names[count]+'[]'} uploadLabel={'Медицинская справка (форма 075У) (.pdf или .doc)'} key={count} span={<RequiredSpan id={names[count]}/>}/>
     count++;
-    allcode[25] = <FilePicker name={names[count]} uploadLabel={'Прикрепить скан сертификата на знание Английского языка (.pdf или .jpg)'} key={count} span={<RequiredSpan id={names[count]}/>}/>
+    allcode[25] = <FilePicker name={names[count]+'[]'} uploadLabel={'Прикрепить скан сертификата на знание Английского языка (.pdf или .jpg)'} key={count} span={<RequiredSpan id={names[count]}/>}/>
     count++;
-    allcode[26] = <FilePicker name={names[count]} uploadLabel={'Прикрепить мотивационное эссе (.pdf или .doc)'} key={count} span={<RequiredSpan id={names[count]}/>}/>
+    allcode[26] = <FilePicker name={names[count]+'[]'} uploadLabel={'Прикрепить мотивационное эссе (.pdf или .doc)'} key={count} span={<RequiredSpan id={names[count]}/>}/>
     count++;
-    allcode[27] = <FilePicker name={names[count]} uploadLabel={'Копия паспорта (.pdf или .jpg, .png)'} key={count} span={<RequiredSpan id={names[count]}/>}/>
+    allcode[27] = <FilePicker name={names[count]+'[]'} uploadLabel={'Копия паспорта (.pdf или .jpg, .png)'} key={count} span={<RequiredSpan id={names[count]}/>}/>
     count++;
-    allcode[28] = <FilePicker name={names[count]} uploadLabel={'2 рекомендательных письма (.pdf или .jpg, .png)'} key={count} span={<RequiredSpan id={names[count]}/>}/>
+    allcode[28] = <FilePicker name={names[count]+'[]'} uploadLabel={'2 рекомендательных письма (.pdf или .jpg, .png)'} key={count} span={<RequiredSpan id={names[count]}/>}/>
     count++;
 
     // ------------------------------------------------------------------------------------------
