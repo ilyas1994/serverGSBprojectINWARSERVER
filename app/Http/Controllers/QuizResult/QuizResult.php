@@ -7,6 +7,7 @@ use App\Models\Quiz\Answer;
 use App\Models\Quiz\Questions;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use mysql_xdevapi\Exception;
 use PhpParser\Node\Expr\Array_;
 
 class QuizResult extends Controller
@@ -16,13 +17,13 @@ class QuizResult extends Controller
     {
 
         $requestData = $request->all();
+//        dump($request->all());
         $typeTest = $requestData['typeTest'];
         $question = DB::select("SELECT * FROM questions WHERE type_id = '" . $typeTest . "' ");
         $answer = DB::select("SELECT * FROM true_answer_for_questions");
             $getEmail = auth()->user()->email;
 //            $count = 0;
         $arr = [];
-
         unset($requestData['_token']);
         unset($requestData['typeTest']);
 
@@ -89,6 +90,11 @@ class QuizResult extends Controller
 //
 //            }
 //        $rr = [];
+
+
+
+
+
         $arr_quest = [];
         $arr_answer = [];
 
@@ -103,47 +109,99 @@ class QuizResult extends Controller
                 if ($valQues->id == $valAnsw->question_id) {
                     if ($valAnsw->true_answer == 1) {
                         array_unshift($arrEmpty, $valAnsw->name);
+
                     }
                 }
             }
             $allQuestAndAnswer[$valQues->name] = $arrEmpty;
 
         }
-//        dump($allQuestAndAnswer);
+//        dump($requestData);
+//        dd(123);
+//        $char = array('_____');
+        $str_repo = "";
+        // _____
+//        foreach ($requestData as $key => $val) {
+//
+//            $str_repo = str_replace('_', ' ', $key);
+
+//        for ($i = 0; $i < count(array($key)); $i++) {
+//
+//            for ($j = 0; $j < count($char); $j++) {
+//                $counter = 0;
+//                if ($key[$i] == $char[$j]) {
+////                    $str_repo = str_replace('_____', '_____', $key);
+//                    }
+//
+//                }
+////            if ($counter > 5 ) {
+////                $str_repo = str_replace($char[$j], '_____', $key);
+//////                        $counter = 0;
+////            } else if ($counter < 2) {
+////                $str_repo = str_replace( '_', ' ', $key);
+////            }
+//
+//        }
+//            dump($str_repo);
+//
+//
+//        }
+
+//          $qwe =  lcfirst(str_replace('_', ' ', ucwords(str_replace(['', ' '], ' ', $key))));
+//            dump($qwe);
+//        }
+
 
         foreach ($requestData as $key => $value) {
+
+            $str = explode("_", $key)[0];
+
+
+
+
             $str_repo = str_replace('_', ' ', $key);
+
             $arr = [];
 
             $str_question = explode('&', $str_repo)[0];
+
+
             $arr_val = [];
+
             for ($i = 0; $i < count($value); $i++) {
                 $arr_val[] = explode('&',  $value[$i])[0];
             }
 
             $arr[$str_question] = $arr_val;
 
-
-
+//            dump($str_question);
+//            dd(123);
                 foreach ($arr as $vopros => $otvetarr){
+//
 
                     if (count($allQuestAndAnswer[$vopros]) > 1){
                         //checkbox
                         $counterCheck = 0;
+
                         for ($i = 0; $i < count($allQuestAndAnswer[$vopros]); $i++) {
                             for ($j = 0; $j < count($otvetarr); $j++) {
 
                                 if ($allQuestAndAnswer[$vopros][$i] == $otvetarr[$j]) {
+
                                     $mainCheckBox++;
                                 }
                             }
                         }
+
 //                        if($counterCheck == 2) {
 //                            $mainCounter++;
 //                        }
 
                     }else{
+
+
                         //radio
+
                         if ($allQuestAndAnswer[$vopros][0] == $otvetarr[0]) {
                             $mainRadio++;
                         }
@@ -173,6 +231,7 @@ class QuizResult extends Controller
                     $radioResult = $mainRadio;
                 }
                 if ($mainCheckBox < 20) {
+
                     $checkBoxResult = random_int(20,30);
                 } else {
                     $checkBoxResult = $mainCheckBox;
@@ -181,6 +240,7 @@ class QuizResult extends Controller
             }
             case '2': {
                 $currentTest = 2;
+
                 $testName = 'Тест на определение готовности';
                 break;
             }
@@ -199,13 +259,14 @@ class QuizResult extends Controller
                 \App\Models\Quiz\QuizResult::query()->create([
                     'email_user' => $getEmail,
                     'type_test' => $currentTest,
-                    'checkTest' => $testName,
+                    'testName' => $testName,
                     'result' => $countRandomTest15_30
                 ]);
                 DB::commit();
                 return redirect()->route('home')->with('success', 'success');
             } catch (\Exception $exception) {
                 DB::rollBack();
+//                dd($exception);
                 abort(404);
 
             }
