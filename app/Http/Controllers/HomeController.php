@@ -69,12 +69,13 @@ class HomeController extends Controller
 
             $questions = [];
 
-            $random = random_int(1,2);
 
+            $random = random_int(1,2);
 
 
             $getTypeTest = DB::select("SELECT type_test FROM quiz_results WHERE email_user = '" .$emailUser. " ' ");
             for ($i = 0; $i < count($getTypeTest); $i++) {
+
 
                 if ($getTypeTest[$i]->type_test == null) {
 
@@ -88,10 +89,12 @@ class HomeController extends Controller
                     );
 
                     array_unshift($questions, $testRandom);
+
+
                 }
             }
 
-                if($this->currentTypeTest(1, $emailUser) == null) {
+            if($this->currentTypeTest(1, $emailUser) == null) {
                         $testRandom1 = \DB::select("SELECT * FROM questions WHERE type_id = 1 AND variant_otveta = '" . $random . "' ");
                         foreach ($testRandom1 as  $val1)
                             array_unshift($questions, $val1);
@@ -107,6 +110,8 @@ class HomeController extends Controller
 
                 if ($this->currentTypeTest(3, $emailUser) == null) {
                     $testRandom3 = \DB::select("SELECT * FROM questions WHERE type_id = 3 AND variant_otveta = '" . $random . "'");
+
+
                     foreach ($testRandom3 as $val3) {
                         array_unshift($questions, $val3);
                     }

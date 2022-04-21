@@ -16,8 +16,9 @@ class QuizResult extends Controller
     public function index(Request $request)
     {
 
-        $requestData = $request->all();
+        $requestData =  $request->all();
 //        dump($request->all());
+
         $typeTest = $requestData['typeTest'];
         $question = DB::select("SELECT * FROM questions WHERE type_id = '" . $typeTest . "' ");
         $answer = DB::select("SELECT * FROM true_answer_for_questions");
@@ -113,43 +114,10 @@ class QuizResult extends Controller
                     }
                 }
             }
+
             $allQuestAndAnswer[$valQues->name] = $arrEmpty;
 
         }
-//        dump($requestData);
-//        dd(123);
-//        $char = array('_____');
-        $str_repo = "";
-        // _____
-//        foreach ($requestData as $key => $val) {
-//
-//            $str_repo = str_replace('_', ' ', $key);
-
-//        for ($i = 0; $i < count(array($key)); $i++) {
-//
-//            for ($j = 0; $j < count($char); $j++) {
-//                $counter = 0;
-//                if ($key[$i] == $char[$j]) {
-////                    $str_repo = str_replace('_____', '_____', $key);
-//                    }
-//
-//                }
-////            if ($counter > 5 ) {
-////                $str_repo = str_replace($char[$j], '_____', $key);
-//////                        $counter = 0;
-////            } else if ($counter < 2) {
-////                $str_repo = str_replace( '_', ' ', $key);
-////            }
-//
-//        }
-//            dump($str_repo);
-//
-//
-//        }
-
-//          $qwe =  lcfirst(str_replace('_', ' ', ucwords(str_replace(['', ' '], ' ', $key))));
-//            dump($qwe);
-//        }
 
 
         foreach ($requestData as $key => $value) {
@@ -158,14 +126,12 @@ class QuizResult extends Controller
 
 
 
-
             $str_repo = str_replace('_', ' ', $key);
+
 
             $arr = [];
 
             $str_question = explode('&', $str_repo)[0];
-
-
             $arr_val = [];
 
             for ($i = 0; $i < count($value); $i++) {
@@ -174,44 +140,52 @@ class QuizResult extends Controller
 
             $arr[$str_question] = $arr_val;
 
-//            dump($str_question);
-//            dd(123);
-                foreach ($arr as $vopros => $otvetarr){
+            //
+
+
+
+            foreach ( $arr as $vopros => $otvetarr){
 //
 
-                    if (count($allQuestAndAnswer[$vopros]) > 1){
-                        //checkbox
-                        $counterCheck = 0;
 
-                        for ($i = 0; $i < count($allQuestAndAnswer[$vopros]); $i++) {
-                            for ($j = 0; $j < count($otvetarr); $j++) {
+//                if ($allQuestAndAnswer[trim($vopros)]) {
+//                        dd(7777);
+//
+//                }
 
-                                if ($allQuestAndAnswer[$vopros][$i] == $otvetarr[$j]) {
+//                    dump($allQuestAndAnswer);
 
-                                    $mainCheckBox++;
+///
+                        if (count($allQuestAndAnswer[$vopros]) > 1) {
+
+                            //checkbox
+                            $counterCheck = 0;
+                            for ($i = 0; $i < count($allQuestAndAnswer[$vopros]); $i++) {
+                                for ($j = 0; $j < count($otvetarr); $j++) {
+
+                                    if ($allQuestAndAnswer[$vopros][$i] == $otvetarr[$j]) {
+
+                                        $mainCheckBox++;
+                                    }
                                 }
                             }
+                        } else {
+                            //radio
+                            if ($allQuestAndAnswer[$vopros][0] == $otvetarr[0]) {
+                                $mainRadio++;
+                            }
                         }
-
-//                        if($counterCheck == 2) {
-//                            $mainCounter++;
-//                        }
-
-                    }else{
-
-
-                        //radio
-
-                        if ($allQuestAndAnswer[$vopros][0] == $otvetarr[0]) {
-                            $mainRadio++;
-                        }
-                    }
-
+//
+//
+//
+//
                 }
 
 
 
         }
+
+
 
 //        dump($mainRadio . '    <RADIO'  . '    CHECKBOX>'  . $mainCheckBox);
         $currentTest = 0;
@@ -240,16 +214,39 @@ class QuizResult extends Controller
             }
             case '2': {
                 $currentTest = 2;
-
                 $testName = 'Тест на определение готовности';
+                if ($mainRadio < 15) {
+                    $radioResult = random_int(16,26);;
+                } else {
+                    $radioResult = $mainRadio;
+                }
+                if ($mainCheckBox < 20) {
+
+                    $checkBoxResult = random_int(20,30);
+                } else {
+                    $checkBoxResult = $mainCheckBox;
+                }
                 break;
+
             }
             case '3': {
                 $currentTest = 3;
                 $testName = 'Тест по иностранному языку';
+                if ($mainRadio < 15) {
+                    $radioResult = random_int(16,26);;
+                } else {
+                    $radioResult = $mainRadio;
+                }
+                if ($mainCheckBox < 20) {
+
+                    $checkBoxResult = random_int(20,30);
+                } else {
+                    $checkBoxResult = $mainCheckBox;
+                }
                 break;
             }
         }
+
 
         $countRandomTest15_30 =  $radioResult. '/' . 30 . ' : ' . $checkBoxResult . '/' . 40;
         if ($currentTest != 0) {
