@@ -1174,7 +1174,7 @@ var SelectQuiz = /*#__PURE__*/function (_React$Component) {
       switch (this.state.quizSel) {
         case '-1':
           {
-            var quiz_Type = []; // for (let i = 0; i < this.title.length; i++) {
+            var quiz_Type = [];
 
             for (var _i = 0; _i < result.length; _i++) {
               if (!Array.isArray(result[_i][1])) quiz_Type.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(QuizType, {
@@ -1340,37 +1340,35 @@ var SelectQuiz = /*#__PURE__*/function (_React$Component) {
                   console.log(_valio2[_j2]);
 
                   _title2.push(_valio2[_j2]);
-                }
+                } // if(i < 30){
 
-                if (_i8 < 30) {
-                  radio.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                    className: 'my-3',
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RadioB, {
-                      classN: 'col-lg-12',
-                      name: _key4 + '[]',
-                      column: 1,
-                      count: _title2.length,
-                      title: _key4,
-                      checkBoxTitle: _title2,
-                      identifier: _i8,
-                      span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
-                        id: _key4
-                      })
-                    }, _i8)
-                  }, '3_' + _i8));
-                } else {
-                  radio.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                    className: 'my-3',
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.CheckBox, {
-                      identifier: _i8,
-                      name: _key4 + '&' + _i8,
-                      column: 1,
-                      count: _title2.length,
-                      title: _key4,
-                      checkBoxTitle: _title2
+
+                radio.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                  className: 'my-3',
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RadioB, {
+                    classN: 'col-lg-12',
+                    name: _key4 + '[]',
+                    column: 1,
+                    count: _title2.length,
+                    title: _key4,
+                    checkBoxTitle: _title2,
+                    identifier: _i8,
+                    span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
+                      id: _key4
                     })
-                  }, '3_' + _i8));
-                }
+                  }, _i8)
+                }, '3_' + _i8)); // }else{
+                //     radio.push(<div className={'my-3'}    key={'3_'+i}>
+                //         <CheckBox
+                //             identifier ={i}
+                //             name = {key+'&'+i}
+                //             column={1}
+                //             count={title.length}
+                //             title={key}
+                //             checkBoxTitle={title}
+                //         />
+                //     </div>);
+                // }
 
                 _i8++;
               }
