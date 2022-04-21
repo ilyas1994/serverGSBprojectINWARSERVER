@@ -603,24 +603,7 @@ export class MBAPropgramRadio extends React.Component{
 
     handleClick(i){
         this.setState({id:i.target.id});
-        // let countAll = i['target'].parentElement.parentElement.parentElement.childElementCount;
-        // let  radioElements = i['target'].parentElement.parentElement.parentElement;
-        // for (let j = 0; j < countAll; j++) {
-        //     // console.log(radioElements.children[j].children[0].children[0].name);
-        //     radioElements.children[j].children[0].children[0].value = radioElements.children[j].children[0].children[0].id;
-        // }
-        //
-        // for (let j = 0; j < countAll; j++) {
-        //     if(radioElements.children[j].children[0].childElementCount > 2){
-        //         // console.log(radioElements.children[j].children[0].children[2].className+" off");
-        //         radioElements.children[j].children[0].children[2].hidden = true;
-        //     }
-        // }
-        //
-        // if(i['target'].parentElement.childElementCount > 2){
-        //     // console.log(  i['target'].parentElement.children[2].className+" on");
-        //     i['target'].parentElement.children[2].hidden = false;
-        // }
+
     }
 
     howMany(){
