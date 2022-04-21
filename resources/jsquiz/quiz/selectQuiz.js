@@ -35,7 +35,7 @@ export class SelectQuiz extends React.Component{
             case '-1':{
                 let quiz_Type = [];
 
-                // for (let i = 0; i < this.title.length; i++) {
+
                 for (let i = 0; i < result.length; i++) {
                     if(!Array.isArray(result[i][1]))
                       quiz_Type.push(<QuizType key={i} title={this.title[i]}  onClick={this.handleClick} id={i+1}/>);
@@ -150,7 +150,7 @@ export class SelectQuiz extends React.Component{
                             console.log(valio[j])
                             title.push(valio[j])
                         }
-                        if(i < 30){
+                        // if(i < 30){
                             radio.push(<div className={'my-3'}    key={'3_'+i}>
                                 <RadioB
                                     classN={'col-lg-12'} name={key+'[]'} column={1}
@@ -159,18 +159,18 @@ export class SelectQuiz extends React.Component{
                                     identifier={i}
                                     span={<RequiredSpan id={key}/>}/>
                             </div>);
-                        }else{
-                            radio.push(<div className={'my-3'}    key={'3_'+i}>
-                                <CheckBox
-                                    identifier ={i}
-                                    name = {key+'&'+i}
-                                    column={1}
-                                    count={title.length}
-                                    title={key}
-                                    checkBoxTitle={title}
-                                />
-                            </div>);
-                        }
+                        // }else{
+                        //     radio.push(<div className={'my-3'}    key={'3_'+i}>
+                        //         <CheckBox
+                        //             identifier ={i}
+                        //             name = {key+'&'+i}
+                        //             column={1}
+                        //             count={title.length}
+                        //             title={key}
+                        //             checkBoxTitle={title}
+                        //         />
+                        //     </div>);
+                        // }
                         i++;
                     }
                 }
