@@ -1049,7 +1049,7 @@ export class AddEducation extends React.Component {
                         keys={0}
                         value={this.state.seconDate}
                         title={'Конец обучения'}
-                        name={'dataEndEduc' + this.state.allState.length}
+                        name={'dataEndEduc&' + this.state.allState.length}
                         className={'col-lg-6'} span={<RequiredSpan
             id={1}/>}/>);
         allcode[1] = <div className={"form-group row"} key={1}>{i}</div>;
@@ -1061,7 +1061,7 @@ export class AddEducation extends React.Component {
 
         i.push(<DropEduc
             title={'Язык обучения'}
-            name={'nameEduc' + this.state.allState.length}
+            name={'nameEduc&' + this.state.allState.length}
             section={sec[0]}
             className={'col-lg-4'}
             span={<RequiredSpan id={0}/>}
@@ -1098,8 +1098,8 @@ export class AddEducation extends React.Component {
                                   span={<RequiredSpan id={0}/>}
         />);
 
-        allcode[4] = <div className={"form-group row"} key={4}>{i}</div>;
-        allcode[5] =  <input hidden={true} type="text" name={'titleEduc&'+this.state.allState.length} defaultValue={this.title[this.state.allState.length] + ' образование'}/>
+        allcode[4] =  <div className={"form-group row"} key={4}>{i}</div>;
+        allcode[5] =  <input key={5} hidden={true} type="text" name={'titleEduc&'+this.state.allState.length} readOnly={true} value={this.title[this.state.allState.length] + ' образование'}/>
 
         this.setState(function (prevState) {
             return (
@@ -1133,7 +1133,7 @@ export class AddEducation extends React.Component {
                     <label className={'col-lg-6'} htmlFor="">Убрать поля образование</label>
                     <button onClick={this.DeleteElement} className={' col-lg-4 btn btn-danger'}>убрать</button>
                 </div>
-                <input hidden={true} type="text" name={'counterEduc'} defaultValue={this.state.allState.length}/>
+                <input hidden={true} type="text" name={'counterEduc'} readOnly={true} value={this.state.allState.length}/>
             </div>
             <div className={'mt-4'}>
                 {this.state.allState}
