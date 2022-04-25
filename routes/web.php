@@ -62,7 +62,7 @@ Route::get('pdf/generate{iin}', [PDFController::class, 'generatePDF'])->name('pd
 // Отображение файлов с input полей
 
 // Удв
-Route::get('pdf/iin{iin}/udv{copyUdv}', [PDFController::class, 'getUdvFile'])->name('pdf.getUdvFile');
+Route::get('pdf/iin{iin}/udv{copyUdv}', [PDFController::class, 'getUdvFile'])->name('pdf.getUdvFile')->middleware('admin');
 // Pdf файлы
 Route::get('pdf/iin{iin}/typeFile/{typeFile}', [PDFController::class, 'getResumeFile'])->name('pdf.getTypeFile');
 
@@ -71,7 +71,7 @@ Route::get('pdf/iin{iin}/typeFile/{typeFile}', [PDFController::class, 'getResume
 
 
 
-Route::get('pdf/sortBy/', [\App\Http\Controllers\SortingController::class, 'index'])->name('sort');
+Route::get('pdf/sortBy/', [\App\Http\Controllers\SortingController::class, 'index'])->name('sort')->middleware('admin');
 
 
 // Quiz

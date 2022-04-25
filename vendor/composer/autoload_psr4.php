@@ -71,8 +71,6 @@ return array(
     'Laravel\\Ui\\' => array($vendorDir . '/laravel/ui/src'),
     'Laravel\\Tinker\\' => array($vendorDir . '/laravel/tinker/src'),
     'Laravel\\SerializableClosure\\' => array($vendorDir . '/laravel/serializable-closure/src'),
-    'Laravel\\Sanctum\\' => array($vendorDir . '/laravel/sanctum/src'),
-    'Laravel\\Breeze\\' => array($vendorDir . '/laravel/breeze/src'),
     'KodiComponents\\Support\\' => array($vendorDir . '/kodicomponents/support/src'),
     'KodiComponents\\Navigation\\' => array($vendorDir . '/kodicomponents/navigation/src'),
     'KodiCMS\\Assets\\' => array($vendorDir . '/kodicms/laravel-assets/src'),

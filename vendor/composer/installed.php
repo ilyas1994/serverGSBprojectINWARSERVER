@@ -538,15 +538,6 @@
                 0 => '*',
             ),
         ),
-        'laravel/breeze' => array(
-            'pretty_version' => 'v1.9.0',
-            'version' => '1.9.0.0',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../laravel/breeze',
-            'aliases' => array(),
-            'reference' => '0d7633380c81d0827f40f6064d38f8884f5c5441',
-            'dev_requirement' => true,
-        ),
         'laravel/framework' => array(
             'pretty_version' => 'v8.83.9',
             'version' => '8.83.9.0',
@@ -563,15 +554,6 @@
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
             'reference' => NULL,
-            'dev_requirement' => false,
-        ),
-        'laravel/sanctum' => array(
-            'pretty_version' => 'v2.15.1',
-            'version' => '2.15.1.0',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../laravel/sanctum',
-            'aliases' => array(),
-            'reference' => '31fbe6f85aee080c4dc2f9b03dc6dd5d0ee72473',
             'dev_requirement' => false,
         ),
         'laravel/serializable-closure' => array(
@@ -658,12 +640,12 @@
             'dev_requirement' => false,
         ),
         'maatwebsite/excel' => array(
-            'pretty_version' => '3.1.38',
-            'version' => '3.1.38.0',
+            'pretty_version' => '3.1.39',
+            'version' => '3.1.39.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../maatwebsite/excel',
             'aliases' => array(),
-            'reference' => 'dff132ce4d30b19863f4e84de1613fca99604992',
+            'reference' => '5165334de44c6f7788a5818a1d019aa71a43e092',
             'dev_requirement' => false,
         ),
         'maennchen/zipstream-php' => array(
@@ -853,12 +835,12 @@
             'dev_requirement' => false,
         ),
         'phpoffice/phpspreadsheet' => array(
-            'pretty_version' => '1.22.0',
-            'version' => '1.22.0.0',
+            'pretty_version' => '1.23.0',
+            'version' => '1.23.0.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpoffice/phpspreadsheet',
             'aliases' => array(),
-            'reference' => '3a9e29b4f386a08a151a33578e80ef1747037a48',
+            'reference' => '21e4cf62699eebf007db28775f7d1554e612ed9e',
             'dev_requirement' => false,
         ),
         'phpoption/phpoption' => array(
@@ -1029,8 +1011,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0',
-                1 => '1.0.0 || 2.0.0 || 3.0.0',
+                0 => '1.0.0 || 2.0.0 || 3.0.0',
+                1 => '1.0|2.0',
             ),
         ),
         'psr/simple-cache' => array(

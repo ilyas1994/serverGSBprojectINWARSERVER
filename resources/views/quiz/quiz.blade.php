@@ -63,8 +63,9 @@
 
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('dropdownState', 1) }}">Менеджмент</a></li>
-                            <li><a class="dropdown-item" href="{{ route('dropdownState', 2) }}">Second test</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li><a class="dropdown-item" href="{{ route('dropdownState', 2) }}">Тест на определение готовности/a></li>
+                            <li><a class="dropdown-item" href="{{ route('dropdownState', 3) }}">Тест по иностранному языку</a></li>
+
                             {{--                    <li><a class="dropdown-item" href="#">Something else here</a></li>--}}
 
                         </ul>

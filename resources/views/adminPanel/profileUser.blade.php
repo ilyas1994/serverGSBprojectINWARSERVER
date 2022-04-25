@@ -39,19 +39,6 @@
 
                 <option onclick=switchSelect(this)  name="city" value="Алматы">Алматы</option>
                 <option onclick=switchSelect(this)  name="city2" value="Нур-Султан">Нур-Султан</option>
-{{--                    @for($i = 0; $i < count($citys); $i++)--}}
-{{--                            @if (Session::has('city'))--}}
-
-{{--                               @if(Session::get('city') == $i)--}}
-{{--                                  <option selected value="Алматы">{{$citys[$i]}}</option>--}}
-{{--                               @else--}}
-{{--                                   <option value="Almaty">{{$citys[$i]}}</option>--}}
-{{--                               @endif--}}
-{{--                            @else--}}
-{{--                               <option value="Almaty">{{$citys[$i]}}</option>--}}
-{{--                            @endif--}}
-{{--                    @endfor--}}
-
 
             </select>
 {{--                <input type="hidden" id="countryVal" name="countryVal">--}}
@@ -62,23 +49,11 @@
 
             @endif
 
-{{--    </div>--}}
 
-
-
-
-{{--    <div class="col-2 justify-content-end">--}}
 
     <div class="col-5 justify-content-end d-flex align-items-center">
 
             <p class="pt-3 pe-3">Фильтр по</p>
-
-{{--        <select class="col-5 h-75  form-select" aria-label="Default select example">--}}
-
-{{--        <option name="sortByData" selected>Дате</option>--}}
-{{--        <option name="sortByName" value="1">Имени</option>--}}
-{{--        <option name="sortBySurnamee" onclick="event.preventDefault(); document.getElementById('qwe').submit()" value="4">Фамилии</option>--}}
-
 
 
         @isset($fail)
@@ -102,11 +77,9 @@
 
 
 {{--        </select>--}}
-        <select id="selection" class="col-5 h-75  form-select" aria-label="Default select example">
 
-{{--            <option  onclick="send('name')" selected>Имени</option>--}}
-{{--            <option  onclick="send('surname')">Фамилии</option>--}}
-{{--            <option  onclick="send('iin')">ИИН</option>--}}
+
+        <select id="selection" class="col-5 h-75  form-select" aria-label="Default select example">
 
             @if(isset($hidoption))
 
@@ -138,20 +111,10 @@
                 <option  name="Iin">ИИН</option>
             @endif
 
-{{--                <option selected>Имени</option>--}}
-{{--                <option>Фамилии</option>--}}
-{{--                <option>ИИН</option>--}}
 
-{{--            <option selected>Имени</option>--}}
-{{--            <option>Фамилии</option>--}}
-{{--            <option>ИИН</option>--}}
 
         </select>
 
-{{--        <form id="formSend" action="{{ route('search') }}" method="get">--}}
-{{--            <input id="setVal" type="hidden" name="sortBy">--}}
-{{--            <input id="btn" type="submit"  hidden>--}}
-{{--        </form>--}}
 
     </div>
 
@@ -178,6 +141,9 @@
     </div>
 
 </div>
+
+
+
 <div class="col-12" id="trr">
 
 
@@ -326,12 +292,12 @@
 
 <script>
 
-    let cityVal = document.getElementById('cityVal');
+    // let city = document.getElementById('cityVal');
 
     function switchSelect(e) {
         // alert(e.value);
-
-        cityVal
+      document.getElementById('cityVal').value = e.value;
+        // alert(city);
         document.getElementById('sendForrmm').submit();
     }
 

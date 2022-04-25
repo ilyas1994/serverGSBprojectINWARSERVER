@@ -5,6 +5,7 @@ namespace App\Http\Controllers\switchStateDropDownQuiz;
 use App\Http\Controllers\Controller;
 use App\Models\Quiz\Answer;
 use App\Models\Quiz\Questions;
+use App\Models\Quiz\TrueAnswerForQuestion;
 use DB;
 use SleepingOwl\Admin\Admin;
 
@@ -15,22 +16,22 @@ class SwitchStateDropDownController extends Controller
 
     public function index($id)
     {
-//        dd($id);
+        $dropDown = "";
         switch ($id) {
             case 1:
                  $dropDown = 'Менеджмент';
                 break;
             case 2:
-                 $dropDown = 'Second Test';
+                 $dropDown = 'Тест на определение готовности';
                 break;
             case 3:
-                 $dropDown = 'Third Test';
+                 $dropDown = 'Тест по иностранному языку';
                 break;
         }
 
         $questions = DB::select("SELECT * from questions where type_id = {$id}");
 //        $questions = Questions::all()->where('type_id', '=',    $id);
-        $answers = Answer::all();
+        $answers = TrueAnswerForQuestion::all();
 
 //        dd($questions);
         $data = [];
