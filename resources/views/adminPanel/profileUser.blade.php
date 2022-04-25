@@ -5,8 +5,10 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
     <link rel="stylesheet" href="{{ asset('admincss.css') }}">
     <title>Document</title>
 
@@ -34,14 +36,17 @@
         <div class="col-2">
             <form id="sendForrmm" action="{{ route('switchCountry' ) }}" method="get">
 {{--            <select onchange=switchCountry(this) class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">--}}
-            <select   class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-{{--                <option >Выберите</option>--}}
 
-                <option onclick=switchSelect(this)  name="city" value="Алматы">Алматы</option>
-                <option onclick=switchSelect(this)  name="city2" value="Нур-Султан">Нур-Султан</option>
 
+            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+
+                <option onclick=switchSelect(this.value,)  name="city" value="Алматы">Алматы</option>
+                <option onclick=switchSelect(this.value)  name="city2" value="Нур-Султан">Нур-Султан</option>
             </select>
-{{--                <input type="hidden" id="countryVal" name="countryVal">--}}
+
+
+
+           <input type="hidden" id="countryVal" name="countryVal">
                 <input id="cityVal" type="hidden" name="city">
                 <button type="submit" hidden></button>
             </form>
@@ -281,9 +286,10 @@
     @endforeach
 @endisset
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+{{--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"--}}
+{{--        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"--}}
+{{--        crossorigin="anonymous"></script>--}}
+
 
 
 </body>
@@ -294,11 +300,15 @@
 
     // let city = document.getElementById('cityVal');
 
+
+
     function switchSelect(e) {
-        // alert(e.value);
-      document.getElementById('cityVal').value = e.value;
-        // alert(city);
-        document.getElementById('sendForrmm').submit();
+        alert(123);
+
+
+      // document.getElementById('cityVal').value = e.value;
+
+        // document.getElementById('sendForrmm').submit();
     }
 
     function btnFormInput() {

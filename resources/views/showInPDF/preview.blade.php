@@ -48,17 +48,6 @@
         color: black;
     }
 
-    /* Чтобы не было проблемы с кодировками типа ??????? на всей странице включаем это и нужно чтобы весь
-    текст был span
-    */
-
-
-    /** {*/
-    /*    font-family: "DejaVu Sans", sans-serif;*/
-    /*}*/
-
-
-
     pHeaderStyle {
         font-weight: bold;
 
@@ -72,7 +61,7 @@
 <div class="container-fluid">
 
 
-{{--        @dump($datas)--}}
+{{--        @dd($datas)--}}
     {{--    <div class="col-md-8 section offset-md-2">--}}
     <div class="col-md-12 section offset-md-2">
 
@@ -96,8 +85,7 @@
 
                 <div class="main-div">
                     @isset($datas)
-{{--                     @dd($ym->id)--}}
-{{--                    @isset($datas->surname)--}}
+
                         <span>Фамилия: {{ $datas->surname}}</span>
 {{--                    @endisset--}}
                     <hr class="style1">
@@ -267,6 +255,7 @@
                     <hr class="style1">
                     <span>Почему вы решили обучаться на программе MBA?: {{ $datas->reasonForLearning }}</span>
                     <hr class="style1">
+
                     <span>Какие информационные сайты вы читаете?  {{ $datas->suite }}</span>
 
                 </div>
@@ -372,18 +361,28 @@
                     <hr class="style1">
                     <span>Должность руководителя компании: {{ $datas->reqPositionHead }}</span>
                     <hr class="style1">
-{{--                     end  --}}
+
                     <span>Выберите программу МВА {{ $datas->checkBoxMBAProgram }}</span>
+                    <hr class="style1">
+                    <hr class="style1">
+                    <hr class="style1">
+                    <hr class="style1">
 
-{{--
+                    @if(isset($arr2) && count($arr2) > 0)
+                        <span>Дополнительное образование</span>
+                        <hr class="style1">
+                        <hr class="style1">
+                        <hr class="style1">
+                        @for($i = 0; $i < count($arr2[0]); $i++)
+
+                           @foreach($arr2[0][$i] as $key => $val)
+                            <span>{{ $key }} : {{ $val }}</span>
+                            <hr class="style1">
+                            @endforeach
+                        @endfor
+                    @endif
 
 
-{{--            <div class="text-center pdf-btn">--}}
-{{--                @isset($data)--}}
-{{--                    <a href="{{ route('pdf.generate', $data[0]->iin) }}" class="btn btn-primary">Generate PDF</a>--}}
-{{--                @endisset--}}
-
-{{--            </div>--}}
 
             @endisset
 

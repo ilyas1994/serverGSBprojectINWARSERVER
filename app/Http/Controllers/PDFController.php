@@ -23,12 +23,50 @@ class PDFController extends Controller
 
         $getIIN = $iin;
         $data = \DB::select("SELECT * FROM personal_datamba WHERE Iin={$getIIN}")[0];
+
+
+        $arrData = [];
+        $arr = [];
+
+        if ($data->OtherDynamicEducation != null) {
+
+            for ($i = 0; $i < count(json_decode($data->OtherDynamicEducation)); $i++) {
+//                dump(json_decode($data->OtherDynamicEducation)[$i] );
+                            $arr[] = [
+                               'Дата начала обучения'  => json_decode($data->OtherDynamicEducation)[$i][0], // 'Дата начала обучения'
+                                'Дата окончания обучения' => json_decode($data->OtherDynamicEducation)[$i][1], //'Дата окончания обучения
+                                'Язык обучения' => json_decode($data->OtherDynamicEducation)[$i][2], // язык обучения
+                                'Академическая степень/квалификация' => json_decode($data->OtherDynamicEducation)[$i][3], // Академическая степень/квалификация
+                                'Полное наименование учебного заведения' => json_decode($data->OtherDynamicEducation)[$i][4], // Полное наименование учебного заведения
+                                'Специальность' => json_decode($data->OtherDynamicEducation)[$i][2], // Специальность
+                            ];
+//                $arr[] = [
+//                    'startEduc'  => json_decode($data->OtherDynamicEducation)[$i][0], // 'Дата начала обучения'
+//                    'finishData' => json_decode($data->OtherDynamicEducation)[$i][1], //'Дата окончания обучения
+//                    'langEduc' => json_decode($data->OtherDynamicEducation)[$i][2], // язык обучения
+//                    'academQual' => json_decode($data->OtherDynamicEducation)[$i][3], // Академическая степень/квалификация
+//                    'fullName' => json_decode($data->OtherDynamicEducation)[$i][4], // Полное наименование учебного заведения
+//                    'speciality' => json_decode($data->OtherDynamicEducation)[$i][2], // Специальность
+//                ];
+
+
+            }
+
+            $arrData[] = $arr;
+        }
+
+
+
+
         $data = [
 
-            'datas' => $data
+            'datas' => $data,
+            'arr2' => $arrData
         ];
 
-        $pdf = PDF::loadView('showInPDF.preview', $data);
+//        dump($arrData);
+
+        $pdf = PDF::loadView('showInPDF.preview', $data, $arr);
         return $pdf->download('almau.pdf');
     }
 

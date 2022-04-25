@@ -39,11 +39,11 @@ class CreatePersonalDataTable extends Migration
             //      Дата рождения        *
             $table->string('dataOfBirth')->nullable();
             //      ИИН/ПИНФЛ          *
-            $table->integer('Iin')->nullable();
+            $table->bigInteger('Iin')->nullable();
             //      Документ удостоверяющий личность *         *
             $table->string('typeDocument')->nullable();
             //       № документа удостоверяющий личность*         *
-            $table->integer('numberDocument')->nullable();
+            $table->bigInteger('numberDocument')->nullable();
             //       Кем и когда выдан *
             $table->string('kemVidanDoc')->nullable();
             //      дд.мм.гггг        *
@@ -264,6 +264,12 @@ class CreatePersonalDataTable extends Migration
             // Новые данные
             $table->string('mobileNumberTwo')->nullable();
             $table->string('emailTwo')->nullable();
+
+            // Доп. образование
+            $table->json('OtherDynamicEducation')->nullable();
+
+
+
 
             $table->timestamps();
         });

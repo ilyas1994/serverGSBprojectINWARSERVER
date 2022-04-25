@@ -626,8 +626,8 @@ class QuizResult extends Controller
                 return redirect()->route('home')->with('success', 'success');
             } catch (\Exception $exception) {
                 DB::rollBack();
-                dd($exception);
-//                abort(404);
+//                dd($exception);
+                abort(404);
 
             }
 

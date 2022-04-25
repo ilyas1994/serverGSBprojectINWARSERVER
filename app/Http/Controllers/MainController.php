@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\RequestInputs;
 use App\Mail\SendPassword;
+use App\Models\DropDownLanguageEducation;
 use App\Models\PersonalData;
 use App\Models\User;
 use File;
@@ -26,7 +27,7 @@ class MainController extends Controller
     public function index(RequestInputs $request)
     {
 
-
+//        dump($request->all());
 
         $res = array_merge($this->tab1($request), $this->tab2($request), $this->tab3($request), $this->files($request));
 
@@ -72,12 +73,47 @@ class MainController extends Controller
                 break;
             }
         }
-//        dd($city);
+
+
+
+        $getLanEducation =  DB::select("SELECT name FROM drop_down_language_education");
+        $getStepenEducation = DB::select("SELECT name FROM drop_down_qualifications");
+        $countEduc = $request->input('counterEduc');
+        if ($countEduc > 0) {
+
+        for ($i = 0; $i < $countEduc; $i++) {
+
+            $arrInputEducation[$i] = [
+                $request->input('dataStartEduc&' . $i),
+                $request->input('dataEndEduc&' . $i),
+                $getLanEducation[$request->input('nameEduc&' . $i)]->name,
+                $getStepenEducation[$request->input('stepenEduc&'  . $i)]->name,
+                $request->input('uchebZavEduc&'  . $i),
+                $request->input('specEduc&'  . $i),
+            ];
+
+        }
+
+       $toJson =  json_encode($arrInputEducation);
+            $res['OtherDynamicEducation'] = $toJson;
+
+//            dump($toJson);
+        }
+
+//        dd(888);
         try {
             DB::beginTransaction();
+
             PersonalData::query()->create($res);
 
 
+
+////                $request->input('dataStartEduc&' . $i);
+////                $request->input('dataEndEduc&' . $i);
+////                $request->input('nameEduc&' . $i );
+////                $request->input('stepenEduc&' . $i);
+////                $request->input('uchebZavEduc&' . $i);
+////                 $request->input('specEduc&' . $i);
 
             $password = Str::random(5);
             $toHash = Hash::make($password);
@@ -244,6 +280,12 @@ class MainController extends Controller
     function tab3($request)
     {
 
+
+
+
+
+
+
         $InputName = [
             'startEducation',
             'endEducation',
@@ -300,6 +342,7 @@ class MainController extends Controller
             'reqSuite',
             'reqPositionHead'
         ];
+
          return $this->getKeyValue($InputName, $request);
 
     }

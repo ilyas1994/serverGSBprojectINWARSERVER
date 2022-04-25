@@ -5415,7 +5415,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "AddEducation": () => (/* binding */ AddEducation),
 /* harmony export */   "Check": () => (/* binding */ Check),
 /* harmony export */   "CheckBox": () => (/* binding */ CheckBox),
+/* harmony export */   "DataPik": () => (/* binding */ DataPik),
+/* harmony export */   "DropEduc": () => (/* binding */ DropEduc),
 /* harmony export */   "FilePicker": () => (/* binding */ FilePicker),
+/* harmony export */   "InputFieldForEduc": () => (/* binding */ InputFieldForEduc),
 /* harmony export */   "MBAPropgramRadio": () => (/* binding */ MBAPropgramRadio),
 /* harmony export */   "OtherLanguageButton": () => (/* binding */ OtherLanguageButton),
 /* harmony export */   "Radio": () => (/* binding */ Radio),
@@ -5436,6 +5439,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -5455,8 +5460,6 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
@@ -5520,49 +5523,17 @@ function dropDownClick(title, name, section) {
     switch (e['target'].selectedIndex) {
       case 0:
         {
-          iin[0].setAttribute('minlength', '9');
-          iin[0].setAttribute('maxlength', '9');
-          iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 9 цифр!';
+          iin[0].setAttribute('minlength', '12');
+          iin[0].setAttribute('maxlength', '12');
+          iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 12 цифр!';
           break;
         }
 
       case 1:
         {
-          iin[0].setAttribute('minlength', '11');
-          iin[0].setAttribute('maxlength', '11');
-          iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 11 цифр!';
-          break;
-        }
-
-      case 2:
-        {
-          iin[0].setAttribute('minlength', '12');
-          iin[0].setAttribute('maxlength', '12');
-          iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 12 цифр!';
-          break;
-        }
-
-      case 3:
-        {
-          iin[0].setAttribute('minlength', '12');
-          iin[0].setAttribute('maxlength', '12');
-          iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 12 цифр!';
-          break;
-        }
-
-      case 4:
-        {
-          iin[0].setAttribute('minlength', '12');
-          iin[0].setAttribute('maxlength', '12');
-          iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 12 цифр!';
-          break;
-        }
-
-      case 5:
-        {
-          iin[0].setAttribute('minlength', '12');
-          iin[0].setAttribute('maxlength', '12');
-          iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 12 цифр!';
+          iin[0].setAttribute('minlength', '9');
+          iin[0].setAttribute('maxlength', '9');
+          iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 9 цифр!';
           break;
         }
     }
@@ -5609,8 +5580,8 @@ function inputFieldOnlyNumber(title, name) {
   var minlength = 0;
 
   if (name === 'Iin') {
-    maxlength = 9;
-    minlength = 9;
+    maxlength = 12;
+    minlength = 12;
     tooltip = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: "invalid-tooltip",
       children: ["\u041F\u043E\u043B\u0435 \u0434\u043E\u043B\u0436\u043D\u043E \u0431\u044B\u0442\u044C \u043D\u0435 \u043C\u0435\u043D\u044C\u0448\u0435 ", minlength, " \u0446\u0438\u0444\u0440!"]
@@ -5691,7 +5662,7 @@ function inputField(title, name) {
         placeholder: placeholder,
         className: 'user-surname ' + reqClass,
         defaultValue: value,
-        maxLength: 33
+        maxLength: 500
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "invalid-tooltip",
         children: ["\u0417\u0430\u043F\u043E\u043B\u043D\u0438\u0442\u0435 \u043E\u0431\u044F\u0437\u0430\u0442\u0435\u043B\u044C\u043D\u043E\u0435 \u043F\u043E\u043B\u0435 ", title]
@@ -5752,6 +5723,187 @@ function inputFieldEmail(title, name) {
   }, name);
   return input;
 }
+var InputFieldForEduc = /*#__PURE__*/function (_React$Component) {
+  _inherits(InputFieldForEduc, _React$Component);
+
+  var _super = _createSuper(InputFieldForEduc);
+
+  function InputFieldForEduc(props) {
+    _classCallCheck(this, InputFieldForEduc);
+
+    return _super.call(this, props);
+  } // input = '';
+  // req = span !== null
+  // reqClass = span !== null ? 'form-control ' : '';
+
+
+  _createClass(InputFieldForEduc, [{
+    key: "save",
+    value: function save(arg) {
+      sessionStorage.setItem(arg.target.name, arg.target.value);
+      console.log(arg.target.value);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var val = '';
+
+      if (sessionStorage.getItem(this.props.name)) {
+        val = sessionStorage.getItem(this.props.name);
+      }
+
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: this.props.className,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: 'position-relative',
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("label", {
+            className: '',
+            htmlFor: "",
+            children: [this.props.title, this.props.span]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+            type: "text",
+            name: this.props.name,
+            onChange: this.save.bind(this),
+            required: true,
+            placeholder: this.props.placeholder,
+            className: 'user-surname ' + this.reqClass,
+            defaultValue: val,
+            maxLength: 33
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            className: "invalid-tooltip",
+            children: ["\u0417\u0430\u043F\u043E\u043B\u043D\u0438\u0442\u0435 \u043E\u0431\u044F\u0437\u0430\u0442\u0435\u043B\u044C\u043D\u043E\u0435 \u043F\u043E\u043B\u0435 ", this.props.title]
+          })]
+        })
+      }, this.props.name);
+    }
+  }]);
+
+  return InputFieldForEduc;
+}(React.Component);
+var DropEduc = /*#__PURE__*/function (_React$Component2) {
+  _inherits(DropEduc, _React$Component2);
+
+  var _super2 = _createSuper(DropEduc);
+
+  function DropEduc(props) {
+    var _this;
+
+    _classCallCheck(this, DropEduc);
+
+    _this = _super2.call(this, props);
+
+    _defineProperty(_assertThisInitialized(_this), "sec", []);
+
+    _this.DropEducsave = _this.DropEducsave.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(DropEduc, [{
+    key: "DropEducsave",
+    value: function DropEducsave(arg) {
+      sessionStorage.setItem(arg.target.name, arg.target.selectedIndex); // console.log(arg.target.selectedIndex)
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      for (var i = 0; i < this.props.section.length; i++) {
+        this.sec[i] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+          value: i,
+          children: this.props.section[i]
+        }, i);
+      }
+
+      var t = 0;
+
+      if (sessionStorage.getItem(this.props.name)) {
+        t = parseInt(sessionStorage.getItem(this.props.name));
+      }
+
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: this.props.className,
+        children: [this.props.title !== '' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("label", {
+          htmlFor: "",
+          children: [this.props.title, this.props.span]
+        }) : "", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("select", {
+          name: this.props.name,
+          defaultValue: t,
+          onChange: this.DropEducsave,
+          className: "col-lg-0 selectpicker user-gender",
+          children: this.sec
+        })]
+      }, this.props.name);
+    }
+  }]);
+
+  return DropEduc;
+}(React.Component);
+var DataPik = /*#__PURE__*/function (_React$Component3) {
+  _inherits(DataPik, _React$Component3);
+
+  var _super3 = _createSuper(DataPik);
+
+  function DataPik(props) {
+    var _this2;
+
+    _classCallCheck(this, DataPik);
+
+    _this2 = _super3.call(this, props);
+
+    _defineProperty(_assertThisInitialized(_this2), "val", '');
+
+    _this2.DatapikClick = _this2.DatapikClick.bind(_assertThisInitialized(_this2));
+    console.log('new component = ' + _this2.props.name + ' -> ' + _this2.props.value);
+    _this2.state = {
+      val: _this2.props.value
+    };
+    return _this2;
+  }
+
+  _createClass(DataPik, [{
+    key: "DatapikClick",
+    value: function DatapikClick(i) {
+      this.props.onChange(i); // console.log(i.target.value);
+
+      this.setState(function (prevState) {
+        return prevState.val.set(i.target.name, i.target.value);
+      }); // console.log(this.props.value);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var tooltip = this.props.span !== null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "invalid-tooltip",
+        children: ["\u0417\u0430\u043F\u043E\u043B\u043D\u0438\u0442\u0435 \u043E\u0431\u044F\u0437\u0430\u0442\u0435\u043B\u044C\u043D\u043E\u0435 \u043F\u043E\u043B\u0435 ", this.props.title]
+      }) : ''; // let req = this.props.span !== null;
+
+      console.log(this.props.name + ' tewoRENDER ' + this.state.val);
+      var date = '';
+      if (this.state.val.has(this.props.name)) date = this.state.val.get(this.props.name);
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: this.props.className,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: 'position-relative',
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("label", {
+            htmlFor: "",
+            children: [this.props.title, this.props.span]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+              value: date,
+              onChange: this.DatapikClick,
+              type: "date",
+              autoComplete: 'off',
+              required: true,
+              name: this.props.name,
+              className: "user-dateofbirth"
+            })
+          }), tooltip]
+        })
+      }, this.props.keys);
+    }
+  }]);
+
+  return DataPik;
+}(React.Component);
 function dataPiker(title, name) {
   var className = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'col-lg-4';
   var span = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
@@ -5834,30 +5986,30 @@ function dropDown(title, name, section) {
     }), sample]
   }, name);
 }
-var OtherLanguageButton = /*#__PURE__*/function (_React$Component) {
-  _inherits(OtherLanguageButton, _React$Component);
+var OtherLanguageButton = /*#__PURE__*/function (_React$Component4) {
+  _inherits(OtherLanguageButton, _React$Component4);
 
-  var _super = _createSuper(OtherLanguageButton);
+  var _super4 = _createSuper(OtherLanguageButton);
 
   function OtherLanguageButton(props) {
-    var _this;
+    var _this3;
 
     _classCallCheck(this, OtherLanguageButton);
 
-    _this = _super.call(this, props);
+    _this3 = _super4.call(this, props);
 
-    _defineProperty(_assertThisInitialized(_this), "newLang", []);
+    _defineProperty(_assertThisInitialized(_this3), "newLang", []);
 
-    _defineProperty(_assertThisInitialized(_this), "langCount", 0);
+    _defineProperty(_assertThisInitialized(_this3), "langCount", 0);
 
-    _defineProperty(_assertThisInitialized(_this), "drop", void 0);
+    _defineProperty(_assertThisInitialized(_this3), "drop", void 0);
 
-    _this.state = {
+    _this3.state = {
       newStateLang: []
     };
-    _this.input = _this.props.input;
-    _this.drop = _this.props.dropdown;
-    return _this;
+    _this3.input = _this3.props.input;
+    _this3.drop = _this3.props.dropdown;
+    return _this3;
   }
 
   _createClass(OtherLanguageButton, [{
@@ -5920,24 +6072,24 @@ function Check(props) {
     })
   });
 }
-var CheckBox = /*#__PURE__*/function (_React$Component2) {
-  _inherits(CheckBox, _React$Component2);
+var CheckBox = /*#__PURE__*/function (_React$Component5) {
+  _inherits(CheckBox, _React$Component5);
 
-  var _super2 = _createSuper(CheckBox);
+  var _super5 = _createSuper(CheckBox);
 
   function CheckBox(props) {
-    var _this2;
+    var _this4;
 
     _classCallCheck(this, CheckBox);
 
-    _this2 = _super2.call(this, props);
+    _this4 = _super5.call(this, props);
 
-    _defineProperty(_assertThisInitialized(_this2), "allArr", void 0);
+    _defineProperty(_assertThisInitialized(_this4), "allArr", void 0);
 
-    _this2.state = {
+    _this4.state = {
       allcheck: null
     };
-    return _this2;
+    return _this4;
   }
 
   _createClass(CheckBox, [{
@@ -6095,27 +6247,27 @@ function Radio(props) {
     })
   });
 }
-var RadioB = /*#__PURE__*/function (_React$Component3) {
-  _inherits(RadioB, _React$Component3);
+var RadioB = /*#__PURE__*/function (_React$Component6) {
+  _inherits(RadioB, _React$Component6);
 
-  var _super3 = _createSuper(RadioB);
+  var _super6 = _createSuper(RadioB);
 
   function RadioB(props) {
-    var _this3;
+    var _this5;
 
     _classCallCheck(this, RadioB);
 
-    _this3 = _super3.call(this, props);
+    _this5 = _super6.call(this, props);
 
-    _defineProperty(_assertThisInitialized(_this3), "state", {
-      popup: _this3.props.popUpElement,
-      id: _this3.props.checkBoxTitle[0],
+    _defineProperty(_assertThisInitialized(_this5), "state", {
+      popup: _this5.props.popUpElement,
+      id: _this5.props.checkBoxTitle[0],
       defaultState: ''
     });
 
-    _this3.handleClick = _this3.handleClick.bind(_assertThisInitialized(_this3)); // this.setState({defaultState:sessionStorage.getItem(props.name) !== null ? sessionStorage.getItem(props.name) :''})
+    _this5.handleClick = _this5.handleClick.bind(_assertThisInitialized(_this5)); // this.setState({defaultState:sessionStorage.getItem(props.name) !== null ? sessionStorage.getItem(props.name) :''})
 
-    return _this3;
+    return _this5;
   }
 
   _createClass(RadioB, [{
@@ -6244,26 +6396,26 @@ function Star(props) {
     })]
   });
 }
-var MBAPropgramRadio = /*#__PURE__*/function (_React$Component4) {
-  _inherits(MBAPropgramRadio, _React$Component4);
+var MBAPropgramRadio = /*#__PURE__*/function (_React$Component7) {
+  _inherits(MBAPropgramRadio, _React$Component7);
 
-  var _super4 = _createSuper(MBAPropgramRadio);
+  var _super7 = _createSuper(MBAPropgramRadio);
 
   function MBAPropgramRadio(props) {
-    var _this4;
+    var _this6;
 
     _classCallCheck(this, MBAPropgramRadio);
 
-    _this4 = _super4.call(this, props);
+    _this6 = _super7.call(this, props);
 
-    _defineProperty(_assertThisInitialized(_this4), "state", {
-      popup: _this4.props.popUpElement,
-      id: _this4.props.checkBoxTitle[0],
+    _defineProperty(_assertThisInitialized(_this6), "state", {
+      popup: _this6.props.popUpElement,
+      id: _this6.props.checkBoxTitle[0],
       defaultState: ''
     });
 
-    _this4.handleClick = _this4.handleClick.bind(_assertThisInitialized(_this4));
-    return _this4;
+    _this6.handleClick = _this6.handleClick.bind(_assertThisInitialized(_this6));
+    return _this6;
   }
 
   _createClass(MBAPropgramRadio, [{
@@ -6325,23 +6477,23 @@ var MBAPropgramRadio = /*#__PURE__*/function (_React$Component4) {
 
   return MBAPropgramRadio;
 }(React.Component);
-var StarFabric = /*#__PURE__*/function (_React$Component5) {
-  _inherits(StarFabric, _React$Component5);
+var StarFabric = /*#__PURE__*/function (_React$Component8) {
+  _inherits(StarFabric, _React$Component8);
 
-  var _super5 = _createSuper(StarFabric);
+  var _super8 = _createSuper(StarFabric);
 
   function StarFabric(props) {
-    var _this5;
+    var _this7;
 
     _classCallCheck(this, StarFabric);
 
-    _this5 = _super5.call(this, props);
-    _this5.state = {
+    _this7 = _super8.call(this, props);
+    _this7.state = {
       option1: false,
       option2: false,
       option3: false
     };
-    return _this5;
+    return _this7;
   }
 
   _createClass(StarFabric, [{
@@ -6407,41 +6559,41 @@ var StarFabric = /*#__PURE__*/function (_React$Component5) {
 
   return StarFabric;
 }(React.Component);
-var FilePicker = /*#__PURE__*/function (_React$Component6) {
-  _inherits(FilePicker, _React$Component6);
+var FilePicker = /*#__PURE__*/function (_React$Component9) {
+  _inherits(FilePicker, _React$Component9);
 
-  var _super6 = _createSuper(FilePicker);
+  var _super9 = _createSuper(FilePicker);
 
   function FilePicker(props) {
-    var _this6;
+    var _this8;
 
     _classCallCheck(this, FilePicker);
 
-    _this6 = _super6.call(this, props);
+    _this8 = _super9.call(this, props);
 
-    _defineProperty(_assertThisInitialized(_this6), "ul", void 0);
+    _defineProperty(_assertThisInitialized(_this8), "ul", void 0);
 
-    _defineProperty(_assertThisInitialized(_this6), "li", []);
+    _defineProperty(_assertThisInitialized(_this8), "li", []);
 
-    _defineProperty(_assertThisInitialized(_this6), "count", 0);
+    _defineProperty(_assertThisInitialized(_this8), "count", 0);
 
-    _defineProperty(_assertThisInitialized(_this6), "picker", void 0);
+    _defineProperty(_assertThisInitialized(_this8), "picker", void 0);
 
-    _defineProperty(_assertThisInitialized(_this6), "filesArray", []);
+    _defineProperty(_assertThisInitialized(_this8), "filesArray", []);
 
-    _defineProperty(_assertThisInitialized(_this6), "state", {
+    _defineProperty(_assertThisInitialized(_this8), "state", {
       files: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
         children: "No files selected!"
       })
     });
 
-    return _this6;
+    return _this8;
   }
 
   _createClass(FilePicker, [{
     key: "deleteFile",
     value: function deleteFile(e) {
-      var _this7 = this;
+      var _this9 = this;
 
       var index = e['target'].parentElement.id;
       var name = e['target'].parentElement.children[1].alt; // console.log(name);
@@ -6467,7 +6619,7 @@ var FilePicker = /*#__PURE__*/function (_React$Component6) {
         });
         this.setState(function () {
           return {
-            files: _this7.ul
+            files: _this9.ul
           };
         });
       } else {
@@ -6483,7 +6635,7 @@ var FilePicker = /*#__PURE__*/function (_React$Component6) {
   }, {
     key: "handleFiles",
     value: function handleFiles(e) {
-      var _this8 = this;
+      var _this10 = this;
 
       var liStyle = {
         listStyleType: 'none'
@@ -6537,7 +6689,7 @@ var FilePicker = /*#__PURE__*/function (_React$Component6) {
         });
         this.setState(function () {
           return {
-            files: _this8.ul
+            files: _this10.ul
           };
         });
       }
@@ -6597,34 +6749,52 @@ var FilePicker = /*#__PURE__*/function (_React$Component6) {
   });
 })();
 
-var AddEducation = /*#__PURE__*/function (_React$Component7) {
-  _inherits(AddEducation, _React$Component7);
+var AddEducation = /*#__PURE__*/function (_React$Component10) {
+  _inherits(AddEducation, _React$Component10);
 
-  var _super7 = _createSuper(AddEducation);
+  var _super10 = _createSuper(AddEducation);
 
   function AddEducation(props) {
-    var _this9;
+    var _this11;
 
     _classCallCheck(this, AddEducation);
 
-    _this9 = _super7.call(this, props);
+    _this11 = _super10.call(this, props);
 
-    _defineProperty(_assertThisInitialized(_this9), "title", ['Второе', 'Третье', 'Четвертое', 'Пятое', 'Шестое', 'Седьмое', 'Восьмое']);
+    _defineProperty(_assertThisInitialized(_this11), "title", ['Второе', 'Третье', 'Четвертое', 'Пятое', 'Шестое', 'Седьмое', 'Восьмое']);
 
-    _defineProperty(_assertThisInitialized(_this9), "array", []);
-
-    _defineProperty(_assertThisInitialized(_this9), "state", {
-      all: []
+    _defineProperty(_assertThisInitialized(_this11), "state", {
+      allState: [],
+      fristDate: new Map(),
+      seconDate: new Map(),
+      uchebZavEduc: new Map(),
+      specEduc: new Map()
     });
 
-    _this9.handleADDClick = _this9.handleADDClick.bind(_assertThisInitialized(_this9));
-    _this9.handleRMEClick = _this9.handleRMEClick.bind(_assertThisInitialized(_this9));
-    return _this9;
+    _this11.AddElement = _this11.AddElement.bind(_assertThisInitialized(_this11));
+    _this11.DeleteElement = _this11.DeleteElement.bind(_assertThisInitialized(_this11));
+    _this11.StartDate = _this11.StartDate.bind(_assertThisInitialized(_this11));
+    return _this11;
   }
 
   _createClass(AddEducation, [{
-    key: "handleADDClick",
-    value: function handleADDClick() {
+    key: "StartDate",
+    value: function StartDate(i) {
+      console.log(i.target.name + '=' + i.target.value);
+      this.setState(function (prevState) {
+        return prevState.fristDate.set(i.target.name, i.target.value), prevState.seconDate.set(i.target.name, i.target.value);
+      });
+    }
+  }, {
+    key: "ucheZav",
+    value: function ucheZav(i) {
+      this.setState(function (prevState) {
+        return prevState.uchebZavEduc.set(i.target.name, i.target.value), prevState.specEduc.set(i.target.name, i.target.value);
+      });
+    }
+  }, {
+    key: "AddElement",
+    value: function AddElement() {
       var qualification = ['qualification'];
       var languageEducation = ['languageEducation'];
       var allcode = [];
@@ -6640,64 +6810,129 @@ var AddEducation = /*#__PURE__*/function (_React$Component7) {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("label", {
           htmlFor: "",
           className: "title mt-3",
-          children: [this.title[this.array.length], " \u043E\u0431\u0440\u0430\u0437\u043E\u0432\u0430\u043D\u0438\u0435"]
+          children: [this.title[this.state.allState.length], " \u043E\u0431\u0440\u0430\u0437\u043E\u0432\u0430\u043D\u0438\u0435"]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("hr", {})]
       }, 0);
-      var i = [];
-      i.push(dataPiker('Начало обучения', 'dataStartEduc' + this.array.length, 'col-lg-6', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(RequiredSpan, {
-        id: 0
-      }), 0));
-      i.push(dataPiker('Конец обучения', 'dataEndEduc' + this.array.length, 'col-lg-6', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(RequiredSpan, {
-        id: 1
-      }), 1));
+      var i = []; // i.push(dataPiker('Начало обучения', 'dataStartEduc'+ this.array.length,'col-lg-6', <RequiredSpan id={0}/>, 0));
+
+      if (this.state.allState.length === 0) {
+        this.state.fristDate.set('dataStartEduc&0', "");
+        this.state.seconDate.set('dataStartEduc&0', "");
+      } else {
+        this.state.fristDate.set('dataStartEduc&' + this.state.allState.length, "");
+        this.state.seconDate.set('dataStartEduc&' + this.state.allState.length, "");
+      }
+
+      i.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(DataPik, {
+        onChange: this.StartDate,
+        keys: 0,
+        value: this.state.fristDate,
+        title: 'Начало обучения',
+        name: 'dataStartEduc&' + this.state.allState.length,
+        className: 'col-lg-6',
+        span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(RequiredSpan, {
+          id: 0
+        })
+      })); // i.push(dataPiker('Конец обучения', 'dataEndEduc' + this.state.allState.length, 'col-lg-6', <RequiredSpan
+      //     id={1}/>, 1));
+
+      i.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(DataPik, {
+        onChange: this.StartDate,
+        keys: 0,
+        value: this.state.seconDate,
+        title: 'Конец обучения',
+        name: 'dataEndEduc&' + this.state.allState.length,
+        className: 'col-lg-6',
+        span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(RequiredSpan, {
+          id: 1
+        })
+      }));
       allcode[1] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
         className: "form-group row",
         children: i
       }, 1);
-      i = [];
-      i.push(dropDown('Язык обучения', 'nameEduc' + this.array.length, sec[0], null, 'col-lg-4', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(RequiredSpan, {
-        id: 0
-      })));
-      i.push(dropDown('Академическая степень/квалификация', 'stepenEduc' + this.array.length, sec[1], null, 'col-lg-4', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(RequiredSpan, {
-        id: 1
-      })));
+      i = []; // i.push(dropDown('Язык обучения', 'nameEduc' + this.state.allState.length, sec[0], null, 'col-lg-4',
+      //     <RequiredSpan id={0}/>));
+
+      i.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(DropEduc, {
+        title: 'Язык обучения',
+        name: 'nameEduc&' + this.state.allState.length,
+        section: sec[0],
+        className: 'col-lg-4',
+        span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(RequiredSpan, {
+          id: 0
+        })
+      })); // i.push(dropDown('Академическая степень/квалификация', 'stepenEduc&' + this.state.allState.length, sec[1], null, 'col-lg-4', <RequiredSpan id={1}/>));
+
+      i.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(DropEduc, {
+        title: 'Академическая степень/квалификация',
+        name: 'stepenEduc&' + this.state.allState.length,
+        section: sec[1],
+        className: 'col-lg-4',
+        span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(RequiredSpan, {
+          id: 1
+        })
+      }));
       allcode[2] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
         className: "form-group row",
         children: i
       }, 2);
       i = [];
-      i.push(inputField('Полное наименование учебного заведения', 'uchebZavEduc' + this.array.length, 'col-lg-8', null, '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(RequiredSpan, {
-        id: 0
-      })));
+      i.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(InputFieldForEduc, {
+        title: 'Полное наименование учебного заведения',
+        name: 'uchebZavEduc&' + this.state.allState.length,
+        className: 'col-lg-8',
+        value: this.state.uchebZavEduc,
+        placeholder: '',
+        span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(RequiredSpan, {
+          id: 0
+        })
+      }));
       allcode[3] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
         className: "form-group row",
         children: i
       }, 3);
       i = [];
-      i.push(inputField('Специальность (например, юриспруденция или разработка нефтяных и газовых месторождений)', 'specEduc' + this.array.length, 'col-lg-8', null, '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(RequiredSpan, {
-        id: 0
-      })));
+      i.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(InputFieldForEduc, {
+        title: 'Специальность (например, юриспруденция или разработка нефтяных и газовых месторождений)',
+        name: 'specEduc&' + this.state.allState.length,
+        className: 'col-lg-8',
+        value: this.state.specEduc,
+        placeholder: '',
+        span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(RequiredSpan, {
+          id: 0
+        })
+      }));
       allcode[4] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
         className: "form-group row",
         children: i
       }, 4);
-      console.log('new ' + allcode);
-      this.array.unshift(allcode);
-      this.setState({
-        all: this.array
+      allcode[5] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+        hidden: true,
+        type: "text",
+        name: 'titleEduc&' + this.state.allState.length,
+        readOnly: true,
+        value: this.title[this.state.allState.length] + ' образование'
+      }, 5);
+      this.setState(function (prevState) {
+        return prevState.allState.unshift(allcode);
       });
     }
   }, {
-    key: "handleRMEClick",
-    value: function handleRMEClick() {
-      this.array.shift();
-      this.setState({
-        all: this.array
+    key: "DeleteElement",
+    value: function DeleteElement() {
+      this.setState(function (prevState) {
+        return prevState.allState.shift();
       });
     }
   }, {
     key: "render",
     value: function render() {
+      // this.state.allState = this.state.allState.reverse();
+      console.log(this.state.allState);
+      console.log(this.state.fristDate); // const renderAgain = this.handleADDClick();
+
+      console.log('UPrender');
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           className: 'col-lg-12 d-flex',
@@ -6708,7 +6943,7 @@ var AddEducation = /*#__PURE__*/function (_React$Component7) {
               htmlFor: "",
               children: "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u043F\u043E\u043B\u044F \u043E\u0431\u0440\u0430\u0437\u043E\u0432\u0430\u043D\u0438\u0435"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-              onClick: this.handleADDClick,
+              onClick: this.AddElement,
               className: 'col-lg-4 btn btn-success',
               children: "\u0434\u043E\u0431\u0430\u0432\u0438\u0442\u044C"
             })]
@@ -6719,14 +6954,20 @@ var AddEducation = /*#__PURE__*/function (_React$Component7) {
               htmlFor: "",
               children: "\u0423\u0431\u0440\u0430\u0442\u044C \u043F\u043E\u043B\u044F \u043E\u0431\u0440\u0430\u0437\u043E\u0432\u0430\u043D\u0438\u0435"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-              onClick: this.handleRMEClick,
+              onClick: this.DeleteElement,
               className: ' col-lg-4 btn btn-danger',
               children: "\u0443\u0431\u0440\u0430\u0442\u044C"
             })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+            hidden: true,
+            type: "text",
+            name: 'counterEduc',
+            readOnly: true,
+            value: this.state.allState.length
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
           className: 'mt-4',
-          children: this.state.all
+          children: this.state.allState
         })]
       });
     }
@@ -7335,8 +7576,7 @@ function tabs_3(names) {
   allcode[4] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
     className: "form-group row",
     children: [labelvar, input]
-  }, 8); // console.log(allcode);
-  //     input = [];
+  }, 8); //     input = [];
   //     title = ['Язык обучения','Имеется ли второе высшее образование ','Имеется ли магистерская степень'];
   //
   //     // let languageEducation = ['languageEducation'];
@@ -7731,11 +7971,11 @@ function tabs_3(names) {
           type: "radio",
           name: names[count],
           defaultChecked: true,
-          value: MBAprogram[key] + " -> " + MBAprogram[key][_i3]
+          value: key + " -> " + MBAprogram[key][_i3]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
           children: MBAprogram[key][_i3]
         })]
-      }));
+      }, _i3));
     }
 
     var popup = '';
