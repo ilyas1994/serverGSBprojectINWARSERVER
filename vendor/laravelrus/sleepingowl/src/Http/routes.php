@@ -31,8 +31,6 @@ $router->group(['as' => 'admin.', 'namespace' => 'SleepingOwl\Admin\Http\Control
         'uses' => 'AdminController@getEdit',
     ]);
 
-
-
     $router->post('{adminModel}/{adminModelId?}/edit', [
         'as' => 'model.update',
         'uses' => 'AdminController@postUpdate',

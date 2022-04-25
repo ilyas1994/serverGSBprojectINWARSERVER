@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminCrudQuiz\QuizCrud;
 use App\Http\Controllers\downloadFilesController;
+use App\Http\Controllers\ExcelExportControl\ExcelCreate;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\QuizResult\QuizResult;
 use App\Http\Controllers\ResetPassword\ResetPasswordController;
@@ -118,3 +119,4 @@ Route::get('/zxc', [\App\Http\Controllers\Test\TestController::class, 'index'])-
 Route::get('/answer-list/{id}/{type_test}', [\App\Http\Controllers\Quiz\AnswerListController ::class, 'index'])->name('answerList');
 
 
+Route::get('/admin/users/export/', [ExcelCreate::class, 'export'])->name('excel');

@@ -439,7 +439,6 @@ export function Radio(props) {
         if(sessionStorage.getItem(props.name) === props.id){
             defcheck = true;
         }
-
     }
     // console.log(defValue);
 
