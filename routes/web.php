@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminCrudQuiz\QuizCrud;
 use App\Http\Controllers\downloadFilesController;
+use App\Http\Controllers\ExcelExportControl\ExcelCreate;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\QuizResult\QuizResult;
 use App\Http\Controllers\ResetPassword\ResetPasswordController;
@@ -112,3 +113,4 @@ Route::get('/asdasd', function () {
 Route::get('/zxc', [\App\Http\Controllers\Test\TestController::class, 'index'])->name('asd');
 
 
+Route::get('/admin/users/export/', [ExcelCreate::class, 'export'])->name('excel');

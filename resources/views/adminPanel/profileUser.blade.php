@@ -23,13 +23,13 @@
 <div class="col-sm-12 d-flex mt-2">
 
 
-    <div class="col-5 d-flex">
+{{--    <div class="col-5 d-flex">--}}
         @if(auth()->user()->city == 'Алматы')
         @php
             $citys = ['Выберите','Алматы','Нур-Султан','Атырау','Актау','Актобе','Кызылорда','Шымкент'];
         @endphp
 
-        <div class="col-5">
+        <div class="col-2">
             <form id="sendForrmm" action="{{ route('switchCountry' ) }}" method="get">
 {{--            <select onchange=switchCountry(this) class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">--}}
             <select   class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
@@ -60,14 +60,14 @@
 
             @endif
 
-    </div>
+{{--    </div>--}}
 
 
 
 
 {{--    <div class="col-2 justify-content-end">--}}
 
-    <div class="col-3 justify-content-end d-flex align-items-center">
+    <div class="col-5 justify-content-end d-flex align-items-center">
 
             <p class="pt-3 pe-3">Фильтр по</p>
 
@@ -153,6 +153,10 @@
 
     </div>
 
+{{--      вместе идут --}}
+     <button class="btn btn-success"   onclick="document.getElementById('link').click() ">Экспорт Excel</button>
+     <a id="link" hidden href={{route('excel')}}></a>
+{{--      вместе идут --}}
 
 
     <div class="col-md-4 col-sm-4 align-items-center">

@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
-
-    <title>Admin panel</title>
-    {!! $template->renderMeta($title) !!}
+	{!! $template->renderMeta($title) !!}
 	@if(null !== ($favicon = config('sleeping_owl.favicon')))
 		<link rel="icon" href="{{ $favicon }}">
 	@endif

@@ -1,4 +1,11 @@
-<p align="center"><h2>[Unreleased] (Only in SleepingOwl <code class="language-php">8+</code> branch)</h2></p>
+# [Unreleased] (Only in SleepingOwl <code class="language-php">8+</code> branch)
+
+## 2021-11-15
+* [Add] Add class for `icheck indeterminate`
+* [Rebuild] Rebuild assets and add use `dev_assets` in config (use `ADMIN_DEV_ASSETS=true` in `.env`)
+
+## 2021-11-15
+* [Add] Add `->setTarget(string)` for Navigations
 
 ## 2021-10-03
 * [Add] Add `->setMaxLists(int)` for `AdminColumn::lists`
