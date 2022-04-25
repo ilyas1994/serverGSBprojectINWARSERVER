@@ -399,10 +399,11 @@ export function tabs_3(names) {
         let popupArr = [];
 
         for (let i = 0; i < MBAprogram[key].length; i++) {
+
             popupArr.push(<label className="radio source_label_">
-                <input type="radio" name={names[count]} defaultChecked={true} value={MBAprogram[key]+" -> "+MBAprogram[key][i]}/>
-                <span>{MBAprogram[key][i]}</span>
-            </label>);
+                                <input type="radio" name={names[count]} defaultChecked={true} value={key+" -> "+MBAprogram[key][i]}/>
+                                <span>{MBAprogram[key][i]}</span>
+                            </label>);
         }
         let popup = ''
         if(popupArr.length > 0){
