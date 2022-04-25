@@ -96,7 +96,6 @@ export function tabs_3(names) {
                     {labelvar}
                     {input}
                 </div>;
-    // console.log(allcode);
 //     input = [];
 //     title = ['Язык обучения','Имеется ли второе высшее образование ','Имеется ли магистерская степень'];
 //
@@ -400,7 +399,7 @@ export function tabs_3(names) {
 
         for (let i = 0; i < MBAprogram[key].length; i++) {
 
-            popupArr.push(<label className="radio source_label_">
+            popupArr.push(<label key={i} className="radio source_label_">
                                 <input type="radio" name={names[count]} defaultChecked={true} value={key+" -> "+MBAprogram[key][i]}/>
                                 <span>{MBAprogram[key][i]}</span>
                             </label>);
