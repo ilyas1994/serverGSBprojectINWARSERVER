@@ -99,6 +99,10 @@ Route::get('/asd', function (){
 
 });
 
+Route::get('ress', function () {
+   return view('quiz.answerList');
+});
+
 Route::get('/test', [\App\Http\Controllers\Test\TestController::class, 'index'])->name('test');
 
 // Switch Country
@@ -110,5 +114,7 @@ Route::get('/asdasd', function () {
 });
 
 Route::get('/zxc', [\App\Http\Controllers\Test\TestController::class, 'index'])->name('asd');
+
+Route::get('/answer-list/{id}/{type_test}', [\App\Http\Controllers\Quiz\AnswerListController ::class, 'index'])->name('answerList');
 
 

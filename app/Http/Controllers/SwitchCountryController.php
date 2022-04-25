@@ -15,7 +15,7 @@ class SwitchCountryController extends Controller
     public function index(Request $request) {
 //        dd($request->all());
 
-       dd($request->all());
+
 
 //        $profileData = $this->getCountry('General MBA - Казахстанская программа MBA -> вечерняя программа в г. Алматы');
 //                return redirect()->back()->with('profileData', $profileData)->with('city',$city[1]);

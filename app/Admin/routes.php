@@ -21,10 +21,11 @@ Route::get('', ['as' => 'admin.dashboard', function () {
 Route::get('quiz', ['as' => 'admin.quiz', function () {
 
 
-    $questions = DB::select("SELECT * from questions where type_id = 1");
+    $questions = DB::select("SELECT * from questions");
+//    $questions = DB::select("SELECT * from questions where type_id = 1");
 
 //    dd($questions);
-    $answers = Answer::all();
+    $answers = \App\Models\Quiz\TrueAnswerForQuestion::all();
     $data = [];
 
         for ($i = 0; $i < count($questions); $i++) {
@@ -48,6 +49,7 @@ Route::get('quiz', ['as' => 'admin.quiz', function () {
             $data[] = [$questions[$i]->name => $arr];
 
             }
+
 
         $dropDown = 1;
         if ($questions == null) {

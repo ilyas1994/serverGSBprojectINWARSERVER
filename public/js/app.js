@@ -5520,17 +5520,49 @@ function dropDownClick(title, name, section) {
     switch (e['target'].selectedIndex) {
       case 0:
         {
+          iin[0].setAttribute('minlength', '9');
+          iin[0].setAttribute('maxlength', '9');
+          iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 9 цифр!';
+          break;
+        }
+
+      case 1:
+        {
+          iin[0].setAttribute('minlength', '11');
+          iin[0].setAttribute('maxlength', '11');
+          iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 11 цифр!';
+          break;
+        }
+
+      case 2:
+        {
           iin[0].setAttribute('minlength', '12');
           iin[0].setAttribute('maxlength', '12');
           iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 12 цифр!';
           break;
         }
 
-      case 1:
+      case 3:
         {
-          iin[0].setAttribute('minlength', '9');
-          iin[0].setAttribute('maxlength', '9');
-          iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 9 цифр!';
+          iin[0].setAttribute('minlength', '12');
+          iin[0].setAttribute('maxlength', '12');
+          iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 12 цифр!';
+          break;
+        }
+
+      case 4:
+        {
+          iin[0].setAttribute('minlength', '12');
+          iin[0].setAttribute('maxlength', '12');
+          iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 12 цифр!';
+          break;
+        }
+
+      case 5:
+        {
+          iin[0].setAttribute('minlength', '12');
+          iin[0].setAttribute('maxlength', '12');
+          iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 12 цифр!';
           break;
         }
     }
@@ -5577,8 +5609,8 @@ function inputFieldOnlyNumber(title, name) {
   var minlength = 0;
 
   if (name === 'Iin') {
-    maxlength = 12;
-    minlength = 12;
+    maxlength = 9;
+    minlength = 9;
     tooltip = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: "invalid-tooltip",
       children: ["\u041F\u043E\u043B\u0435 \u0434\u043E\u043B\u0436\u043D\u043E \u0431\u044B\u0442\u044C \u043D\u0435 \u043C\u0435\u043D\u044C\u0448\u0435 ", minlength, " \u0446\u0438\u0444\u0440!"]
@@ -6230,6 +6262,7 @@ var MBAPropgramRadio = /*#__PURE__*/function (_React$Component4) {
       defaultState: ''
     });
 
+    _this4.handleClick = _this4.handleClick.bind(_assertThisInitialized(_this4));
     return _this4;
   }
 
@@ -6238,29 +6271,14 @@ var MBAPropgramRadio = /*#__PURE__*/function (_React$Component4) {
     value: function handleClick(i) {
       this.setState({
         id: i.target.id
-      }); // let countAll = i['target'].parentElement.parentElement.parentElement.childElementCount;
-      // let  radioElements = i['target'].parentElement.parentElement.parentElement;
-      // for (let j = 0; j < countAll; j++) {
-      //     // console.log(radioElements.children[j].children[0].children[0].name);
-      //     radioElements.children[j].children[0].children[0].value = radioElements.children[j].children[0].children[0].id;
-      // }
-      //
-      // for (let j = 0; j < countAll; j++) {
-      //     if(radioElements.children[j].children[0].childElementCount > 2){
-      //         // console.log(radioElements.children[j].children[0].children[2].className+" off");
-      //         radioElements.children[j].children[0].children[2].hidden = true;
-      //     }
-      // }
-      //
-      // if(i['target'].parentElement.childElementCount > 2){
-      //     // console.log(  i['target'].parentElement.children[2].className+" on");
-      //     i['target'].parentElement.children[2].hidden = false;
-      // }
+      });
     }
   }, {
     key: "howMany",
     value: function howMany() {
       var all = [];
+      console.log(this.props.popUpElement);
+      console.log('=================');
       var column = this.props.column;
       var start = 0;
       var end = Math.ceil(this.props.count / column);
@@ -6271,10 +6289,11 @@ var MBAPropgramRadio = /*#__PURE__*/function (_React$Component4) {
         for (var i = start; i < end; i++) {
           if (this.props.input) {
             chekbox[i] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Radio, {
-              popUpElement: this.props.popUpElement[i],
+              popUpElement: this.state.id !== this.props.checkBoxTitle[i] ? this.state.id !== '' ? '' : this.props.popUpElement[i] : this.props.popUpElement[i],
               popupArray: this.props.popupIndex,
               name: this.props.name,
               it: this.handleClick,
+              checked: i === 0,
               id: this.props.checkBoxTitle[i],
               title: this.props.checkBoxTitle[i]
             }, i);
@@ -6781,7 +6800,7 @@ function getNames() {
   var bankRequisites;
   var names3 = ['startEducation', 'endEducation', 'languageEducation', 'qualification', 'fullNameUniversity', 'speciality', // 'checkSecondDegree', убрать
   // 'checkMasterDegree', убрать
-  'checkLanguageKazakh', 'checkLanguageEnglish', 'checkLanguageFrench', 'checkLanguageGerman', 'checkLanguageChinese', 'checkOtherLanguages', 'englishProficiencyCertificates', 'certificateIssueDate', 'hobby', 'achievements', 'reasonForLearning', 'suite', 'otherSuite', 'socialNetwork', 'PageInFacebook', 'PageInInstagram', 'PageInTwitter', 'checkBoxAboutMBA', 'checkBoxReasonsForChoosingMBA', 'otherReason', stars = ['starsTheQualityOfEducation', 'starsLargeSelectionOfPrograms', 'starsLocationSchool', 'starsDiscounts', 'starsDurationEducation', 'starsСostOfEducation', 'starsReputationMBA', 'starsPartPayment', 'starsFormOfEducation', 'starsCompositionOfTeachers'], 'otherСharacteristics', bankRequisites = ['requisites', 'bin', 'reqYurAdress', 'bank', 'reqEmail', 'fioSupervisor', 'reqName', 'rnn', 'telFax', 'iik', 'reqSuite', 'reqPositionHead'], 'checkBoxSourceOfFinancing', 'checkBoxMBAProgram', 'scanFileDocument[]', 'resumeFile[]', 'foto3x4[]', 'fileScanDiplomWithApplication[]', 'scanFileCertificateFromWork[]', 'medicalDoc[]', 'scanCertificate[]', 'fileEsse[]', 'copyPassport[]', 'recomentedLetter[]'];
+  'checkLanguageKazakh', 'checkLanguageEnglish', 'checkLanguageFrench', 'checkLanguageGerman', 'checkLanguageChinese', 'checkOtherLanguages', 'englishProficiencyCertificates', 'certificateIssueDate', 'hobby', 'achievements', 'reasonForLearning', 'suite', 'otherSuite', 'socialNetwork', 'PageInFacebook', 'PageInInstagram', 'PageInTwitter', 'checkBoxAboutMBA', 'checkBoxReasonsForChoosingMBA', 'otherReason', stars = ['starsTheQualityOfEducation', 'starsLargeSelectionOfPrograms', 'starsLocationSchool', 'starsDiscounts', 'starsDurationEducation', 'starsСostOfEducation', 'starsReputationMBA', 'starsPartPayment', 'starsFormOfEducation', 'starsCompositionOfTeachers'], 'otherСharacteristics', bankRequisites = ['requisites', 'bin', 'reqYurAdress', 'bank', 'reqEmail', 'fioSupervisor', 'reqName', 'rnn', 'telFax', 'iik', 'reqSuite', 'reqPositionHead'], 'checkBoxSourceOfFinancing', 'checkBoxMBAProgram', 'scanFileDocument', 'resumeFile', 'foto3x4', 'fileScanDiplomWithApplication', 'scanFileCertificateFromWork', 'medicalDoc', 'scanCertificate', 'fileEsse', 'copyPassport', 'recomentedLetter'];
   N[0] = names1;
   N[1] = names2;
   N[2] = names3;
@@ -7697,7 +7716,6 @@ function tabs_3(names) {
   input = [];
   title = ['Выберите программу МВА']; //окончательная версия
 
-  var underMBAprogram = [[]];
   titleForCheckBox = [];
   popUpElement = [];
 
@@ -7726,7 +7744,6 @@ function tabs_3(names) {
       popup = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
         className: "label_in_ ms-5",
         id: "label_in_1_",
-        hidden: true,
         children: popupArr
       });
     }
@@ -7735,150 +7752,6 @@ function tabs_3(names) {
   }
 
   titleForCheckBox = ['General MBA - Казахстанская программа MBA', 'Казахстанская модульно-дистанционная программа', 'xecutive MBA Двудипломная программа с Высшей Школой Менеджмента Санкт-Петербургского Государственного Университета (Россия)', 'МВА Финансовый инжиниринг', 'МВА Менеджмент в здравоохранении', 'МВА Менеджмент в социальной сфере(г. Нур-Султан)', 'МВА (г. Ташкент)', 'МВА (г. Душанбе)'];
-
-  var one = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-    className: "label_in_ ms-5",
-    id: "label_in_1_",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
-      className: "radio source_label_",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
-        type: "radio",
-        name: names[count],
-        defaultChecked: true,
-        value: "General MBA - \u041A\u0430\u0437\u0430\u0445\u0441\u0442\u0430\u043D\u0441\u043A\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 MBA -> \u0432\u0435\u0447\u0435\u0440\u043D\u044F\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-        children: "\u0432\u0435\u0447\u0435\u0440\u043D\u044F\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
-      className: "radio source_label_",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
-        type: "radio",
-        name: names[count],
-        value: "General MBA - \u041A\u0430\u0437\u0430\u0445\u0441\u0442\u0430\u043D\u0441\u043A\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 MBA -> \u043C\u043E\u0434\u0443\u043B\u044C\u043D\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-        children: "\u043C\u043E\u0434\u0443\u043B\u044C\u043D\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
-      className: "radio source_label_",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
-        type: "radio",
-        name: names[count],
-        value: "General MBA - \u041A\u0430\u0437\u0430\u0445\u0441\u0442\u0430\u043D\u0441\u043A\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 MBA -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433. \u041D\u0443\u0440-\u0421\u0443\u043B\u0442\u0430\u043D"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u041D\u0443\u0440-\u0421\u0443\u043B\u0442\u0430\u043D"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
-      className: "radio source_label_",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
-        type: "radio",
-        name: names[count],
-        value: "General MBA - \u041A\u0430\u0437\u0430\u0445\u0441\u0442\u0430\u043D\u0441\u043A\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 MBA -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433. \u0410\u0442\u044B\u0440\u0430\u0443"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u0410\u0442\u044B\u0440\u0430\u0443"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
-      className: "radio source_label_",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
-        type: "radio",
-        name: names[count],
-        value: "General MBA - \u041A\u0430\u0437\u0430\u0445\u0441\u0442\u0430\u043D\u0441\u043A\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 MBA -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433.\u0410\u043A\u0442\u0430\u0443"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u0410\u043A\u0442\u0430\u0443"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
-      className: "radio  source_label_",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
-        type: "radio",
-        name: names[count],
-        value: "General MBA - \u041A\u0430\u0437\u0430\u0445\u0441\u0442\u0430\u043D\u0441\u043A\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 MBA -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433.\u0410\u043A\u0442\u043E\u0431\u0435"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433.\u0410\u043A\u0442\u043E\u0431\u0435"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
-      className: "radio source_label_ ",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
-        type: "radio",
-        name: names[count],
-        value: "General MBA - \u041A\u0430\u0437\u0430\u0445\u0441\u0442\u0430\u043D\u0441\u043A\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 MBA -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433.\u041A\u044B\u0437\u044B\u043B\u043E\u0440\u0434\u0430"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433.\u041A\u044B\u0437\u044B\u043B\u043E\u0440\u0434\u0430"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
-      className: "radio source_label_ ",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
-        type: "radio",
-        name: names[count],
-        value: "General MBA - \u041A\u0430\u0437\u0430\u0445\u0441\u0442\u0430\u043D\u0441\u043A\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 MBA -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433.\u0428\u044B\u043C\u043A\u0435\u043D\u0442"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u0428\u044B\u043C\u043A\u0435\u043D\u0442"
-      })]
-    })]
-  });
-
-  var two = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-    className: "label_in_ ms-5",
-    id: "label_in_2_",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
-      className: "radio source_label_ ",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
-        type: "radio",
-        name: names[count],
-        value: "\u041A\u0430\u0437\u0430\u0445\u0441\u0442\u0430\u043D\u0441\u043A\u0430\u044F \u043C\u043E\u0434\u0443\u043B\u044C\u043D\u043E-\u0434\u0438\u0441\u0442\u0430\u043D\u0446\u0438\u043E\u043D\u043D\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
-      })]
-    })
-  });
-
-  var three = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-    className: "label_in_ ms-5",
-    id: "label_in_5_",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
-      className: "radio source_label_",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
-        type: "radio",
-        name: names[count],
-        value: "\u041C\u0412\u0410 \u0424\u0438\u043D\u0430\u043D\u0441\u043E\u0432\u044B\u0439 \u0438\u043D\u0436\u0438\u043D\u0438\u0440\u0438\u043D\u0433 -> \u0432\u0435\u0447\u0435\u0440\u043D\u044F\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-        children: "\u0432\u0435\u0447\u0435\u0440\u043D\u044F\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
-      className: "radio source_label_",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
-        type: "radio",
-        name: names[count],
-        value: "\u041C\u0412\u0410 \u0424\u0438\u043D\u0430\u043D\u0441\u043E\u0432\u044B\u0439 \u0438\u043D\u0436\u0438\u043D\u0438\u0440\u0438\u043D\u0433 -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u041D\u0443\u0440-\u0421\u0443\u043B\u0442\u0430\u043D"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u041D\u0443\u0440-\u0421\u0443\u043B\u0442\u0430\u043D"
-      })]
-    })]
-  });
-
-  var four = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-    className: "label_in_ ms-5",
-    id: "label_in_6_",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
-      className: "radio source_label_",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
-        type: "radio",
-        name: names[count],
-        value: "\u041C\u0412\u0410 \u041C\u0435\u043D\u0435\u0434\u0436\u043C\u0435\u043D\u0442 \u0432 \u0437\u0434\u0440\u0430\u0432\u043E\u043E\u0445\u0440\u0430\u043D\u0435\u043D\u0438\u0438 -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
-      className: "radio source_label_",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
-        type: "radio",
-        name: names[count],
-        value: "\u041C\u0412\u0410 \u041C\u0435\u043D\u0435\u0434\u0436\u043C\u0435\u043D\u0442 \u0432 \u0437\u0434\u0440\u0430\u0432\u043E\u043E\u0445\u0440\u0430\u043D\u0435\u043D\u0438\u0438 -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u041D\u0443\u0440-\u0421\u0443\u043B\u0442\u0430\u043D"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u041D\u0443\u0440-\u0421\u0443\u043B\u0442\u0430\u043D"
-      })]
-    })]
-  });
-
-  popUpElement = [one, two, '', three, four];
   input[0] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.MBAPropgramRadio, {
     input: true,
     popUpElement: popUpElement,
@@ -7891,31 +7764,16 @@ function tabs_3(names) {
     span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
       id: names[count]
     })
-  }, count);
-  input[0] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RadioB, {
-    input: true,
-    hidden: true,
-    popupIndex: [0, 1, 3, 4],
-    popUpElement: popUpElement,
-    classN: 'col-lg-12',
-    name: 'notname',
-    column: 1,
-    count: titleForCheckBox.length,
-    title: title,
-    checkBoxTitle: titleForCheckBox,
-    span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
-      id: names[count]
-    })
-  }, count);
+  }, count); // input[0] = <RadioB input={true} hidden={true} popupIndex={[0,1,3,4]} popUpElement={popUpElement} classN={'col-lg-12'} name={'notname'} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} span={<RequiredSpan id={names[count]}/>}/>;
+
   count++;
   allcode[18] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
     className: "form-group row",
     children: [" ", input]
   }, count + 100); // ------------------------------------------------------------------------------------------
-  // console.log(count);
 
   allcode[19] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
-    name: names[count],
+    name: names[count] + '[]',
     uploadLabel: 'Прикрепить скан удостоверение личности (.pdf или .jpg, .png)',
     span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
       id: names[count]
@@ -7923,7 +7781,7 @@ function tabs_3(names) {
   }, count);
   count++;
   allcode[20] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
-    name: names[count],
+    name: names[count] + '[]',
     uploadLabel: 'Прикрепить резюме (.pdf или .doc)',
     span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
       id: names[count]
@@ -7931,7 +7789,7 @@ function tabs_3(names) {
   }, count);
   count++;
   allcode[21] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
-    name: names[count],
+    name: names[count] + '[]',
     uploadLabel: '6 фото 3х4 (.pdf или .doc)',
     span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
       id: names[count]
@@ -7939,7 +7797,7 @@ function tabs_3(names) {
   }, count);
   count++;
   allcode[22] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
-    name: names[count],
+    name: names[count] + '[]',
     uploadLabel: 'Прикрепить скан диплома с приложением (.pdf или .jpg, .png)',
     span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
       id: names[count]
@@ -7947,7 +7805,7 @@ function tabs_3(names) {
   }, count);
   count++;
   allcode[23] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
-    name: names[count],
+    name: names[count] + '[]',
     uploadLabel: 'Прикрепить скан справки с места работы с указанием должности (.pdf или .jpg, .png)',
     span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
       id: names[count]
@@ -7955,7 +7813,7 @@ function tabs_3(names) {
   }, count);
   count++;
   allcode[24] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
-    name: names[count],
+    name: names[count] + '[]',
     uploadLabel: 'Медицинская справка (форма 075У) (.pdf или .doc)',
     span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
       id: names[count]
@@ -7963,7 +7821,7 @@ function tabs_3(names) {
   }, count);
   count++;
   allcode[25] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
-    name: names[count],
+    name: names[count] + '[]',
     uploadLabel: 'Прикрепить скан сертификата на знание Английского языка (.pdf или .jpg)',
     span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
       id: names[count]
@@ -7971,7 +7829,7 @@ function tabs_3(names) {
   }, count);
   count++;
   allcode[26] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
-    name: names[count],
+    name: names[count] + '[]',
     uploadLabel: 'Прикрепить мотивационное эссе (.pdf или .doc)',
     span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
       id: names[count]
@@ -7979,7 +7837,7 @@ function tabs_3(names) {
   }, count);
   count++;
   allcode[27] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
-    name: names[count],
+    name: names[count] + '[]',
     uploadLabel: 'Копия паспорта (.pdf или .jpg, .png)',
     span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
       id: names[count]
@@ -7987,7 +7845,7 @@ function tabs_3(names) {
   }, count);
   count++;
   allcode[28] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
-    name: names[count],
+    name: names[count] + '[]',
     uploadLabel: '2 рекомендательных письма (.pdf или .jpg, .png)',
     span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
       id: names[count]

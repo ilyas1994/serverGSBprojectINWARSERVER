@@ -261,6 +261,10 @@ class CreatePersonalDataTable extends Migration
             $table->string('reqPositionHead')->nullable();
 
 
+            // Новые данные
+            $table->string('mobileNumberTwo')->nullable();
+            $table->string('emailTwo')->nullable();
+
             $table->timestamps();
         });
 

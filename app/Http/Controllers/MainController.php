@@ -214,7 +214,9 @@ class MainController extends Controller
             'dateMonthYearDoc',
             'cityOfResidence',
             'homeAdress',
-            'mobileNumber'
+            'mobileNumber',
+            'mobileNumberTwo',
+            'emailTwo'
         ];
 
 

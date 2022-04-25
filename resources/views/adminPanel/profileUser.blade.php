@@ -20,6 +20,8 @@
 
 {{--@dd($profileData)--}}
 
+
+
 <div class="col-sm-12 d-flex mt-2">
 
 
@@ -244,9 +246,46 @@
                         <a class="aStyle" target="_blank" href="{{ route('pdf.getTypeFile', [$value->Iin, 'scanCertificate']) }}">Скан сертификата</a>
                     </td>
 
+{{--                        @dd($quizResult[1]->type_test)--}}
 
-                    <td>{{ ('Тест')}}</td>
+                        <td>
+                            @if(isset($quizResult))
+{{--                            @dd($quizResult)--}}
+                            @for($i = 0; $i < count($quizResult); $i++)
+
+                            {{--                        {{ ('Тесты еще не сданы')}}--}}
+                        @if($quizResult[$i]->type_test == 1)
+{{--                        <a target="_blank" href="{{ route('answerList', auth()->id(), $quizResult[$i]->type_test) }}">Менеджмент - <br> {{ $quizResult[$i]->result }}</a>--}}
+                        <a target="_blank" href="{{ route('answerList', [auth()->id(), 1]) }}">Менеджмент - <br> {{ $quizResult[$i]->result }}</a>
+                        {{--                   Менеджмент              --}}
+                        <br>
+                        <br>
+                            @endif
+
+                            @if($quizResult[$i]->type_test == 2)
+
+                        <a  target="_blank" href="{{ route('answerList', [auth()->id(), 2 ] )}}">Тест на определение готовности <br> {{ $quizResult[$i]->result }}</a>
+                        {{--                    Тест на определение готовности --}}
+                        <br>
+                        <br>
+                            @endif
+
+                            @if($quizResult[$i]->type_test == 3)
+                        <a  target="_blank" href="{{ route('answerList', [auth()->id(), 3]) }}">Тест на определение готовности <br> {{ $quizResult[$i]->result }}</a>
+                        {{--                    Тест по иностранному языку--}}
+                        <br>
+                            @endif
+
+                            @endfor
+{{--                              1  Менеджмент--}}
+{{--                               2 Тест на определение готовности--}}
+                            @else
+                               Тесты еще не сданы
+                            @endif
+                        </td>
                     <td>
+
+
                         <form action={{ route('pdf.generate', $value->Iin) }} method="get">
                             @csrf
                             <button class="btn btn-primary" name="sendIIN" value="{{ $value->Iin }}" formtarget="_blank" type="submit">Просмотр</button>
