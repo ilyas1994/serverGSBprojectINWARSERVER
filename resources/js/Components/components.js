@@ -144,7 +144,7 @@ export function inputField(title, name, className = null, value = null, placehol
             {/*<input type="text" name={name} onChange={sessionStor.bind(this)} required={req} placeholder={placeholder}  className={'user-surname '+reqClass} defaultValue={value}*/}
             <input type="text" name={name} onChange={save.bind(this)} required={req} placeholder={placeholder}
                    className={'user-surname ' + reqClass} defaultValue={value}
-                   maxLength={33}/>
+                   maxLength={500}/>
             <div className="invalid-tooltip">
                 Заполните обязательное поле {title}
             </div>
@@ -214,7 +214,7 @@ export class InputFieldForEduc extends React.Component{
             <div key={this.props.name} className={this.props.className}>
                     <div className={'position-relative'}>
                         <label className={''} htmlFor="">{this.props.title}{this.props.span}</label>
-                        <input type="text" name={this.props.name} onChange={this.save.bind(this)} required={this.req} placeholder={this.props.placeholder}
+                        <input type="text" name={this.props.name} onChange={this.save.bind(this)} required={true} placeholder={this.props.placeholder}
                                className={'user-surname ' + this.reqClass} defaultValue={val}
                                maxLength={33}/>
                         <div className="invalid-tooltip">
@@ -243,28 +243,17 @@ export class DropEduc extends React.Component {
 
     render() {
         for (let i = 0; i < this.props.section.length; i++) {
-            // if (sessionStorage.getItem(this.props.name)) {
-                //     if (sessionStorage.getItem(this.props.name) === i.toString()) {
-                //         this.sec[i] = <option defaultChecked={true} value={i + 1} key={i}>{this.props.section[i]}</option>;
-                //     }
-                // } else
-                this.sec[i] = <option value={i + 1} key={i}>{this.props.section[i]}</option>;
-            // }
+                this.sec[i] = <option value={i} key={i}>{this.props.section[i]}</option>;
         }
-
-        // if(sessionStorage.getItem(this.props.name)){
-        //     console.log(sessionStorage.getItem(this.props.name));
-        //     console.log(parseInt(sessionStorage.getItem(this.props.name)));
-        //     let t = parseInt(sessionStorage.getItem(this.props.name));
-        //     this.sec[t] =
-        //         <option defaultChecked={true} value={t + 1} key={t}>{this.props.section[t]}</option>;
-        //     console.log( this.sec);
-        // }
+        let t = 0 ;
+        if(sessionStorage.getItem(this.props.name)){
+             t = parseInt(sessionStorage.getItem(this.props.name));
+        }
 
 
             return <div key={this.props.name} className={this.props.className}>
                 {this.props.title !== '' ? <label htmlFor="">{this.props.title}{this.props.span}</label> : ""}
-                <select name={this.props.name} onChange={this.DropEducsave}
+                <select name={this.props.name} defaultValue={t} onChange={this.DropEducsave}
                         className={"col-lg-0 selectpicker user-gender"}>
                     {this.sec}
                 </select>
@@ -300,11 +289,12 @@ export class DataPik extends React.Component {
 
 
     render() {
-        let tooltip = this.props.span !== null ? <div className="invalid-tooltip">
+        let tooltip = this.props.span !== null ?
+            <div className="invalid-tooltip">
             Заполните обязательное поле {this.props.title}
         </div> : '';
 
-        let req = this.props.span !== null;
+        // let req = this.props.span !== null;
         console.log(this.props.name + ' tewoRENDER ' + this.state.val);
 
 
@@ -316,9 +306,9 @@ export class DataPik extends React.Component {
             <div className={'position-relative'}>
                 <label htmlFor={""}>{this.props.title}{this.props.span}</label>
                 <div>
-                    {/*<h1>{this.state.val.get(this.props.name)}</h1>*/}
+
                     <input  value={date} onChange={this.DatapikClick} type="date"
-                           autoComplete={'off'} required={this.props.req} name={this.props.name}
+                           autoComplete={'off'} required={true} name={this.props.name}
                            className={"user-dateofbirth"}/>
                 </div>
                 {tooltip}
@@ -1078,7 +1068,15 @@ export class AddEducation extends React.Component {
         />);
 
 
-        i.push(dropDown('Академическая степень/квалификация', 'stepenEduc&' + this.state.allState.length, sec[1], null, 'col-lg-4', <RequiredSpan id={1}/>));
+        // i.push(dropDown('Академическая степень/квалификация', 'stepenEduc&' + this.state.allState.length, sec[1], null, 'col-lg-4', <RequiredSpan id={1}/>));
+        i.push(<DropEduc
+            title={'Академическая степень/квалификация'}
+            name={'stepenEduc&' + this.state.allState.length}
+            section={sec[1]}
+            className={'col-lg-4'}
+            span={<RequiredSpan id={1}/>}
+        />);
+
         allcode[2] = <div className={"form-group row"} key={2}>{i}</div>;
 
         i = [];
@@ -1100,8 +1098,9 @@ export class AddEducation extends React.Component {
                                   span={<RequiredSpan id={0}/>}
         />);
 
-
         allcode[4] = <div className={"form-group row"} key={4}>{i}</div>;
+        allcode[5] =  <input hidden={true} type="text" name={'titleEduc&'+this.state.allState.length} defaultValue={this.title[this.state.allState.length] + ' образование'}/>
+
         this.setState(function (prevState) {
             return (
                 prevState.allState.unshift(allcode)
