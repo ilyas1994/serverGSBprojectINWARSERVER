@@ -21,7 +21,7 @@ export function TextArea(title, name, className = 'col-lg-4', value = null, span
         <div className={'position-relative'}>
             <label className={'form-label'} htmlFor="">{title} {span}</label>
             <textarea type="text" onChange={save.bind(this)} name={name} required={true} className={'form-control '}
-                      defaultValue={value} maxLength={32}/>
+                      defaultValue={value} maxLength={500}/>
             <div className="invalid-feedback">
                 Заполните {title}
             </div>
@@ -41,15 +41,21 @@ export function dropDownClick(title, name, section, sample = null, className = '
         let iin = document.getElementsByName('Iin');
         switch (e['target'].selectedIndex) {
             case 0: {
-                iin[0].setAttribute('minlength', '12');
-                iin[0].setAttribute('maxlength', '12');
-                iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 12 цифр!';
-                break;
-            }
-            case 1: {
                 iin[0].setAttribute('minlength', '9');
                 iin[0].setAttribute('maxlength', '9');
                 iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 9 цифр!';
+                break;
+            }
+            case 1: {
+                iin[0].setAttribute('minlength', '11');
+                iin[0].setAttribute('maxlength', '11');
+                iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 11 цифр!';
+                break;
+            }
+            default:{
+                iin[0].setAttribute('minlength', '12');
+                iin[0].setAttribute('maxlength', '12');
+                iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 12 цифр!';
                 break;
             }
         }
@@ -74,8 +80,7 @@ export function dropDownClick(title, name, section, sample = null, className = '
         {sample}
     </div>
 }
-
-export function inputFieldOnlyNumber(title, name, className = null, value = null, placeholder = '', span = null) {
+export function inputFieldOnlyNumber(title, name, className = null, value = null, placeholder = '', span = null, prefix = null) {
     let input = '';
     let req = span !== null
     let reqClass = span !== null ? 'form-control ' : ''
@@ -99,7 +104,19 @@ export function inputFieldOnlyNumber(title, name, className = null, value = null
 
     function isNumberKey(evt) {
 
-        evt.returnValue = (evt.keyCode !== 46 && evt.keyCode > 31 && (evt.keyCode < 48 || evt.keyCode > 57));
+        // evt.returnValue = (evt.keyCode !== 46 && evt.keyCode > 31 && (evt.keyCode < 48 || evt.keyCode > 57));
+
+            let la;
+            if(evt.keyCode > 47 && evt.keyCode < 58)
+                la = false
+            else if(evt.keyCode === 8)
+                la = false;
+            else if(evt.keyCode > 95 && evt.keyCode < 106)
+                         la = false;
+                  else la = true;
+            evt.returnValue = la;
+
+
         if (evt.returnValue) evt.preventDefault();
         sessionStorage.setItem(evt.target.name, evt.target.value);
 
@@ -113,11 +130,83 @@ export function inputFieldOnlyNumber(title, name, className = null, value = null
         <div className={'position-relative'}>
             <label className={''} htmlFor="">{title}{span}</label>
             <input type="text" name={name} required={req} onKeyDown={isNumberKey.bind(this)} placeholder={placeholder}
-                   className={'user-surname ' + reqClass} defaultValue={value}
+                   className={'user-surname ' + reqClass}  defaultValue={value}
                    maxLength={maxlength}
                    minLength={minlength}/>
             {tooltip}
         </div>
+
+    </div>
+    return (input)
+}
+
+export function inputFieldOnlyNumberForMobile(title, name, className = null, value = null, placeholder = '', span = null, prefix = null) {
+    let input = '';
+    let req = span !== null
+    let reqClass = span !== null ? 'form-control ' : ''
+    let tooltip = '';
+    let maxlength = 0;
+    let minlength = 0;
+    if (name === 'Iin') {
+        maxlength = 12;
+        minlength = 12;
+
+        tooltip = <div className="invalid-tooltip">
+            Поле должно быть не меньше {minlength} цифр!
+        </div>
+    } else {
+        maxlength = 32;
+        minlength = 0;
+        tooltip = <div className="invalid-tooltip">
+            Заполните обязательное поле {title}
+        </div>
+    }
+
+    function isNumberKey(evt) {
+        // console.log(evt.keyCode);
+        // console.log((evt.keyCode < 47 && evt.keyCode > 62 ));
+        // console.log(!(evt.keyCode < 47 && evt.keyCode > 62 ));
+        // evt.returnValue = (evt.keyCode !== 46 && evt.keyCode > 31 && (evt.keyCode < 48 || evt.keyCode > 57));
+        if(evt.target.value.length > 2){
+            let la;
+            if(evt.keyCode > 47 && evt.keyCode < 62)
+                la = false
+            else if(evt.keyCode === 8){
+                la = false;
+                if(evt.target.value.length > 2)
+                    evt.target.value = '+7 ';
+            }
+            else if(evt.keyCode > 95 && evt.keyCode < 106)
+                la = false;
+            else if(evt.keyCode === 107)
+                la = false;
+            else la = true;
+            evt.returnValue = la;
+        }else{
+            evt.target.value = '+7 ';
+        }
+
+
+
+
+        if (evt.returnValue) evt.preventDefault();
+        sessionStorage.setItem(evt.target.name, evt.target.value);
+
+    }
+
+    if (sessionStorage.getItem(name) !== null) {
+        value = sessionStorage.getItem(name);
+    }
+
+    input = <div key={name} className={className}>
+                    <div className={'position-relative'}>
+                        <label className={''} htmlFor="">{title}{span}</label>
+                         <input type="text" name={name} required={req} onKeyDown={isNumberKey.bind(this)} placeholder={placeholder}
+                               className={'user-surname ' + reqClass}  defaultValue={'+7 '+value}
+                               maxLength={maxlength}
+                               minLength={minlength}/>
+                        {tooltip}
+                    </div>
 
     </div>
     return (input)
@@ -216,7 +305,7 @@ export class InputFieldForEduc extends React.Component{
                         <label className={''} htmlFor="">{this.props.title}{this.props.span}</label>
                         <input type="text" name={this.props.name} onChange={this.save.bind(this)} required={true} placeholder={this.props.placeholder}
                                className={'user-surname ' + this.reqClass} defaultValue={val}
-                               maxLength={33}/>
+                               maxLength={200}/>
                         <div className="invalid-tooltip">
                             Заполните обязательное поле {this.props.title}
                         </div>
@@ -379,7 +468,133 @@ export function dropDown(title, name, section, sample = null, className = 'col-l
                 {sample}
             </div>
 }
+export class DropDownKemVidanDoc extends React.Component {
+    // (title, name, section, sample = null, className = 'col-lg-4', span = null, key = 0)
+    constructor(props) {
+        super(props);
+        this.save = this.save.bind(this);
+    }
+    state = {
+        dopMenu:''
 
+    }
+    sec = [];
+
+    save(arg) {
+        sessionStorage.setItem(arg.target.name, arg.target.selectedIndex);
+        if (arg.target.selectedIndex === arg.target.childElementCount-1){
+            this.setState(function (prevState) {
+                return (
+                    prevState.dopMenu = <div className={'position-relative d-lg-grid'}>
+                        <label htmlFor={this.props.otherName}>Укажите{this.props.span}</label>
+                        <input id={this.props.otherName}
+                               type="text"
+                               className={'col-lg-8 form-control '}
+                               name={this.props.otherName}
+                               required={true}
+                        />
+                        <div className="invalid-tooltip">
+                            Заполните обязательное поле
+                        </div>
+                    </div>
+                )
+            });
+        }else{
+            // console.log( arg.target.selectedIndex +':'+arg.target.childElementCount);
+            this.setState({dopMenu:''})
+
+        }
+        // console.log(arg.target.selectedIndex)
+    }
+
+    render(){
+        for (let i = 0; i < this.props.section.length; i++) {
+            this.sec[i] = <option  value={i + 1} key={i}>{this.props.section[i]}</option>;
+        }
+        let t = 0;
+        if(sessionStorage.getItem(this.props.name))
+            t = sessionStorage.getItem(this.props.name);
+
+        return <div key={this.props.name} className={this.props.className +' d-lg-grid'}>
+            {this.props.title !== '' ? <label htmlFor="">{this.props.title}{this.props.span}</label> : ""}
+            <select name={this.props.name} defaultValue={t} onChange={this.save} className={"col-lg-4 selectpicker user-gender"}>
+                {this.sec}
+            </select>
+            {this.state.dopMenu}
+            {this.props.sample}
+        </div>
+    }
+
+}
+export class DropDownfieldOfActivity extends React.Component {
+    // (title, name, section, sample = null, className = 'col-lg-4', span = null, key = 0)
+         constructor(props) {
+             super(props);
+             this.save = this.save.bind(this);
+         }
+         state = {
+             dopMenu:''
+
+         }
+     sec = [];
+
+     save(arg) {
+        sessionStorage.setItem(arg.target.name, arg.target.selectedIndex);
+         // console.log( arg.target.childElementCount);
+        if(arg.target.selectedIndex === 1){
+            this.setState(function (prevState){
+                return(
+                    prevState.dopMenu = <select name={this.props.dopmenuname} defaultValue={0}  className={"col-lg-8 selectpicker user-gender"}>
+                                                       <option   key={0}>Горнодобывающая промышленность и разработка карьеров</option>
+                                                       <option   key={1}>Обрабатывающая промышленность</option>
+                                                       <option   key={2}>Электроснабжение, подача газа, пара и воздушное кондиционирование</option>
+                                                       <option   key={3}>Водоснабжение; канализационная система, контроль над сбором и распределением отходов</option>
+                                        </select>
+                )
+            })
+        }else if (arg.target.selectedIndex === arg.target.childElementCount-1){
+            this.setState(function (prevState) {
+                return (
+                    prevState.dopMenu = <div className={'position-relative d-lg-grid'}>
+                        <label htmlFor={this.props.otherName}>Укажите{this.props.span}</label>
+                        <input id={this.props.otherName}
+                               type="text"
+                               className={'col-lg-8 form-control '}
+                               name={this.props.otherName}
+                               required={true}
+                        />
+                        <div className="invalid-tooltip">
+                            Заполните обязательное поле
+                        </div>
+                    </div>
+                )
+            });
+        }else{
+            // console.log( arg.target.selectedIndex +':'+arg.target.childElementCount);
+             this.setState({dopMenu:''})
+
+         }
+        // console.log(arg.target.selectedIndex)
+      }
+
+    render(){
+        for (let i = 0; i < this.props.section.length; i++) {
+           this.sec[i] = <option  value={i + 1} key={i}>{this.props.section[i]}</option>;
+        }
+        let t = 0;
+        if(sessionStorage.getItem(this.props.name))
+            t = sessionStorage.getItem(this.props.name);
+
+        return <div key={this.props.name} className={this.props.className}>
+            {this.props.title !== '' ? <label htmlFor="">{this.props.title}{this.props.span}</label> : ""}
+            <select name={this.props.name} defaultValue={t} onChange={this.save} className={"col-lg-0 selectpicker user-gender"}>
+                {this.sec}
+            </select>
+            {this.state.dopMenu}
+        </div>
+    }
+
+}
 
 export class OtherLanguageButton extends React.Component {
     newLang = [];

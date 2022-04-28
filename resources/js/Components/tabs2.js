@@ -3,7 +3,16 @@ if(typeof dataArrayForDropDown !== 'undefined'){
      dropdownValues =  JSON.parse( JSON.stringify(dataArrayForDropDown));
 }
 
-import {dropDown, inputField, inputFieldOnlyNumber, label, RadioB, RadioButton, RequiredSpan} from "./components.js";
+import {
+    dropDown,
+    DropDownfieldOfActivity,
+    inputField,
+    inputFieldOnlyNumber,
+    label,
+    RadioB,
+    RadioButton,
+    RequiredSpan
+} from "./components.js";
 
 let count = 0;
 
@@ -52,7 +61,7 @@ export function tabs_2(names) {
 
     input = [];
     title = ['Управленческий стаж','Вы являетесь','Сфера деятельности'];
-    let fieldOfActivity = ['fieldOfActivity'];
+    let fieldOfActivity = ['fieldOfActivity','sadsa','asdsad'];
     let jobType = ['jobType'];
     if(dropdownValues){
          fieldOfActivity = dropdownValues['fieldOfActivity'];
@@ -67,8 +76,13 @@ export function tabs_2(names) {
         count++;
         input[1] = dropDown(title[1],names[count],sec[0],'','col-lg-4',<RequiredSpan id={names[count]}/>, 0);
         count++;
-        input[2] = dropDown(title[2],names[count],sec[1],null,null, <RequiredSpan id={names[count]}/>, 1);
-        count++;
+        input[2] = <DropDownfieldOfActivity title={title[2]}
+                                            name={names[count]}
+                                            dopmenuname={names[count+1]}
+                                            otherName={names[count+2]}
+                                            section={sec[1]}
+                                            span={<RequiredSpan id={names[count]}/>} key={1}/>;
+        count+=3;
 
         allcode[3] =  <div className={"form-group row"} key={count}>{input}</div>;
 // ------------------------------------------------------------------------------------------

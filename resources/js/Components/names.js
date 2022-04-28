@@ -15,6 +15,7 @@ export function getNames(nameIndex = 0) {
         'typeDocument',
         'numberDocument',
         'kemVidanDoc',
+        'otherKemVidanDoc',
         'dateMonthYearDoc',
         'cityOfResidence',
         'homeAdress',
@@ -33,6 +34,9 @@ export function getNames(nameIndex = 0) {
         'upravlencheskiy_stazh',
         'jobType',
         'fieldOfActivity',
+        'additionally',
+        'fieldOfActivityOther',
+
         'availabilityOfBusinessTrips',
         'availabilityOfBusinessTripsInputYes',
         'availabilityOfBusinessTripsInputDuration'
@@ -67,8 +71,11 @@ export function getNames(nameIndex = 0) {
         'PageInInstagram',
         'PageInTwitter',
         'checkBoxAboutMBA',
+
         'checkBoxReasonsForChoosingMBA',
-        'otherReason',
+        'otherProgramViewMBA',
+         'checkBoxMBACharacteristics',
+
         stars = [
             'starsTheQualityOfEducation',
             'starsLargeSelectionOfPrograms',
