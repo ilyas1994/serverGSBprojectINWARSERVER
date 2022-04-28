@@ -131,8 +131,8 @@ input.error {
   cursor: pointer;
 }
 .header_title h2, .header_title p{
-  color: #666666;
-  font-family: 'Roboto Condensed';
+  color: black;
+    font-family: 'Roboto Condensed', sans-serif;
   letter-spacing: 0.05em;
   text-align: center;
 }

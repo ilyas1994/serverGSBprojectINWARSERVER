@@ -34,9 +34,9 @@
     </div>
 </div>
 <div id="message"></div>
-<div class="container-fluid">
+<div class="container">
     <div class="row">
-        <div class="col-lg-12 header_title">
+        <div class="col-lg-12 header_title" style="font-family:'Roboto Condensed'">
             <h2>Добро пожаловать на портал регистрации на программу MBA</h2>
 
             <p>Благодарим Вас за интерес к программам MBA в Высшей Школе Бизнеса AlmaU. </p>
@@ -61,11 +61,10 @@
 <script>
     let dataArrayForDropDown = null;
     @isset($dataArrayForDropDown)
-       dataArrayForDropDown ={!!json_encode($dataArrayForDropDown)!!};
+      let dataArrayForDropDown ={!!json_encode($dataArrayForDropDown)!!};
     @endisset
 
     let programMBA = null;
-
     @isset($programMBA)
         programMBA ={!!json_encode($programMBA)!!};
     console.log(programMBA)
