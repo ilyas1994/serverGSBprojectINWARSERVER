@@ -46,6 +46,7 @@ class CreatePersonalDataTable extends Migration
             $table->bigInteger('numberDocument')->nullable();
             //       Кем и когда выдан *
             $table->string('kemVidanDoc')->nullable();
+            $table->string('otherKemVidanDoc')->nullable();
             //      дд.мм.гггг        *
             $table->text('dateMonthYearDoc')->nullable();
             //        Прикрепить скан документа (.pdf)   *
@@ -104,7 +105,7 @@ class CreatePersonalDataTable extends Migration
             //     Домашний адрес *         *
             $table->string('homeAdress')->nullable();;
             //       Мобильный телефон *         *
-            $table->bigInteger('mobileNumber')->nullable();;
+            $table->string('mobileNumber')->nullable();;
             //      Электронная почта *          *
             $table->string('email')->nullable();
 
@@ -128,6 +129,8 @@ class CreatePersonalDataTable extends Migration
             $table->string('jobType')->nullable();
             //          Сфера деятельности *    *
             $table->string('fieldOfActivity')->nullable();
+            $table->string('fieldOfActivityAdditionally')->nullable();
+            $table->string('fieldOfActivityOther')->nullable();
             //           Наличие командировок *     *
             $table->string('availabilityOfBusinessTrips')->nullable();
             $table->string('availabilityOfBusinessTripsInputYes')->nullable();
@@ -196,10 +199,12 @@ class CreatePersonalDataTable extends Migration
             $table->string('PageInTwitter')->nullable();
 //            Как вы узнали о программах MBA
             $table->string('checkBoxAboutMBA')->nullable();
+            $table->text('otherProgramViewMBA')->nullable();
 ////             Причины, по которым Вы выбрали МВА Высшей Школы Бизнеса AlmaU *
             $table->json('checkBoxReasonsForChoosingMBA')->nullable();
+            $table->json('checkBoxMBACharacteristics')->nullable();
             //       Другие       *
-            $table->text('otherReason')->nullable()->nullable();
+            $table->text('otherReason')->nullable();
 
 //             Какие характеристики программы МВА для Вас важны (отметьте каждый пункт) *
 

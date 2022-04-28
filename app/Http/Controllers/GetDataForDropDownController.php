@@ -15,7 +15,8 @@ class GetDataForDropDownController extends Controller
 
         for ($i = 0; $i < count($data); $i++) {
 
-            array_unshift($arrayData, $data[$i]->name);
+//            array_unshift($arrayData, $data[$i]->name);
+            array_push($arrayData, $data[$i]->name);
         }
 
 
@@ -33,7 +34,8 @@ class GetDataForDropDownController extends Controller
             for ($j = 0; $j < count($getProgramVal); $j ++ ) {
 
                 if ($getProgramVal[$j]->key_id == $getProgramKey[$i]->id) {
-                   array_unshift($val, $getProgramVal[$j]->valueProgram);
+//                   array_unshift($val, $getProgramVal[$j]->valueProgram);
+                   array_push($val, $getProgramVal[$j]->valueProgram);
                 }
 
             }

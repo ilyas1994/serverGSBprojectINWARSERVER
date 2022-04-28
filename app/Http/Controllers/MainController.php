@@ -100,7 +100,7 @@ class MainController extends Controller
 //            dump($toJson);
         }
 
-//        dd(888);
+//        dd($res);
         try {
             DB::beginTransaction();
 
@@ -247,6 +247,7 @@ class MainController extends Controller
             'typeDocument',
             'numberDocument',
             'kemVidanDoc',
+            'otherKemVidanDoc',
             'dateMonthYearDoc',
             'cityOfResidence',
             'homeAdress',
@@ -271,7 +272,9 @@ class MainController extends Controller
             'upravlencheskiy_stazh',
             'jobType',
             'fieldOfActivity',
-            'availabilityOfBusinessTrips'
+            'availabilityOfBusinessTrips',
+            'fieldOfActivityAdditionally',
+            'fieldOfActivityOther'
         ];
 
        return  $this->getKeyValue($InputName, $request);
@@ -313,8 +316,9 @@ class MainController extends Controller
             'PageInFacebook',
             'PageInInstagram',
             'PageInTwitter',
-            'checkBoxAboutMBA',
+            'otherProgramViewMBA',
             'checkBoxReasonsForChoosingMBA',
+            'checkBoxMBACharacteristics',
             'otherReason',
             'starsTheQualityOfEducation',
             'starsLargeSelectionOfPrograms',
@@ -341,6 +345,8 @@ class MainController extends Controller
             'iik',
             'reqSuite',
             'reqPositionHead'
+
+
         ];
 
          return $this->getKeyValue($InputName, $request);
@@ -354,6 +360,8 @@ class MainController extends Controller
 
                 switch ($InputName[$i]){
                     case 'checkBoxReasonsForChoosingMBA':
+                    case 'checkBoxMBACharacteristics':
+                    case 'checkBoxAboutMBA':
                     case 'suite':
                     case 'socialNetwork':
                     case 'hobby':{

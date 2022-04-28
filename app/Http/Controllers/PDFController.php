@@ -23,6 +23,44 @@ class PDFController extends Controller
 
         $getIIN = $iin;
         $data = \DB::select("SELECT * FROM personal_datamba WHERE Iin={$getIIN}")[0];
+//                dd(gettype(strval(intval($data->gender)-1)));
+//        $q = strval(intval($data->gender)-1);
+        $dropDowngender = \DB::select("SELECT name FROM drop_down_genders WHERE id = {$data->gender} ")[0]->name;
+        $dropDownfamilyStatus = \DB::select("SELECT name FROM drop_down_family_statuses WHERE id = {$data->familyStatus} ")[0]->name;
+        $dropDowncitizenship = \DB::select("SELECT name FROM drop_downсitizenships WHERE id = {$data->citizenship} ")[0]->name;
+        $dropDownkemVidanDoc = \DB::select("SELECT name FROM drop_down_kem_vidan_docs WHERE id = {$data->kemVidanDoc} ")[0]->name;
+        $dropDownjobType = \DB::select("SELECT name FROM drop_down_job_types WHERE id = {$data->jobType} ")[0]->name;
+        $dropDownfieldOfActivity = \DB::select("SELECT name FROM drop_down_field_of_activities WHERE id = {$data->fieldOfActivity} ")[0]->name;
+        $dropDownlanguageEducation = \DB::select("SELECT name FROM drop_down_language_education WHERE id = {$data->languageEducation} ")[0]->name;
+        $dropDownqualification = \DB::select("SELECT name FROM drop_down_qualifications WHERE id = {$data->qualification} ")[0]->name;
+        $dropDowncheckLanguageKazakh = \DB::select("SELECT name FROM drop_down_level_languages WHERE id = {$data->checkLanguageKazakh} ")[0]->name;
+        $dropDowncheckLanguageEnglish = \DB::select("SELECT name FROM drop_down_level_languages WHERE id = {$data->checkLanguageEnglish} ")[0]->name;
+        $dropDowncheckLanguageFrench = \DB::select("SELECT name FROM drop_down_level_languages WHERE id = {$data->checkLanguageFrench} ")[0]->name;
+        $dropDowncheckLanguageGerman = \DB::select("SELECT name FROM drop_down_level_languages WHERE id = {$data->checkLanguageGerman} ")[0]->name;
+        $dropDowncheckLanguageChinese = \DB::select("SELECT name FROM drop_down_level_languages WHERE id = {$data->checkLanguageChinese} ")[0]->name;
+        $dropDownenglishProficiencyCertificates = \DB::select("SELECT name FROM drop_down_english_proficiency_certificates WHERE id = {$data->englishProficiencyCertificates} ")[0]->name;
+        $dropDowndrop_down_nationalities = \DB::select("SELECT name FROM drop_down_nationalities WHERE id = {$data->englishProficiencyCertificates} ")[0]->name;
+        $dropDowndropdrop_down_type_documents = \DB::select("SELECT name FROM drop_down_type_documents WHERE id = {$data->englishProficiencyCertificates} ")[0]->name;
+
+        $dropDownArr['dropDowngender'] = $dropDowngender;
+        $dropDownArr['dropDownfamilyStatus'] = $dropDownfamilyStatus;
+        $dropDownArr['dropDowncitizenship'] = $dropDowncitizenship;
+        $dropDownArr['dropDownkemVidanDoc'] = $dropDownkemVidanDoc;
+        $dropDownArr['dropDownjobType'] = $dropDownjobType;
+        $dropDownArr['dropDownfieldOfActivity'] = $dropDownfieldOfActivity;
+        $dropDownArr['dropDownlanguageEducation'] = $dropDownlanguageEducation;
+        $dropDownArr['dropDownqualification'] = $dropDownqualification;
+        $dropDownArr['dropDowncheckLanguageKazakh'] = $dropDowncheckLanguageKazakh;
+        $dropDownArr['dropDowncheckLanguageEnglish'] = $dropDowncheckLanguageEnglish;
+        $dropDownArr['dropDowncheckLanguageFrench'] = $dropDowncheckLanguageFrench;
+        $dropDownArr['dropDowncheckLanguageGerman'] = $dropDowncheckLanguageGerman;
+        $dropDownArr['dropDowncheckLanguageChinese'] = $dropDowncheckLanguageChinese;
+        $dropDownArr['dropDownenglishProficiencyCertificates'] = $dropDownenglishProficiencyCertificates;
+        $dropDownArr['dropDowndrop_down_nationalities'] = $dropDowndrop_down_nationalities;
+        $dropDownArr['drop_down_type_documents'] = $dropDowndropdrop_down_type_documents;
+
+
+//                dd($dropDownArr);
 
 
         $arrData = [];
@@ -61,8 +99,10 @@ class PDFController extends Controller
         $data = [
 
             'datas' => $data,
-            'arr2' => $arrData
+            'arr2' => $arrData,
+            'dropdown' => $dropDownArr
         ];
+
 
 //        dump($arrData);
 

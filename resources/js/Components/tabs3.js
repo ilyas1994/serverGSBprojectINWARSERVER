@@ -2,6 +2,10 @@ let dropdownValues = null;
 if(typeof dataArrayForDropDown !== 'undefined'){
      dropdownValues =  JSON.parse( JSON.stringify(dataArrayForDropDown));
 }
+let MBAprogram = null;
+if(typeof programMBA !== 'undefined'){
+    MBAprogram =  JSON.parse( JSON.stringify(programMBA));
+}
 
 import {
     AddEducation, App,
@@ -13,7 +17,8 @@ import {
     label,
     OtherLanguageButton, RadioB, RequiredSpan,
     StarFabric,
-    TextArea
+    TextArea,
+    MBAPropgramRadio
 } from "./components";
 
 import {ValidateAndSubmitButton} from "./validateWindow";
@@ -60,7 +65,7 @@ export function tabs_3(names) {
     count++;
     input[1] = dropDown(title[1], names[count], sec[1],null,'col-lg-4', <RequiredSpan id={names[count]}/>, 1);
     count++;
-    allcode.push( <div className={"form-group row"} key={count}>{labelvar}{input}</div>);
+    allcode.push( <div className={"form-group row"} key={count}>{input}</div>);
 
 
 // ------------------------------------------------------------------------------------------
@@ -69,7 +74,7 @@ export function tabs_3(names) {
 
     input[0] = inputField(title[0], names[count],'col-lg-8',null,'', <RequiredSpan id={names[count]}/>);
     count++;
-    allcode.push( <div className={"form-group row"} key={count}>{labelvar}{input}</div>);
+    allcode.push( <div className={"form-group row"} key={count}>{input}</div>);
 
 
 // ------------------------------------------------------------------------------------------
@@ -77,7 +82,7 @@ export function tabs_3(names) {
     title = ['Специальность (например, юриспруденция или разработка нефтяных и газовых месторождений)'];
     input[0] = inputField(title[0], names[count],'col-lg-12',null,'', <RequiredSpan id={names[count]}/>);
     count++;
-    allcode.push( <div className={"form-group row"} key={count}>{labelvar}{input}</div>);
+    allcode.push( <div className={"form-group row"} key={count}>{input}</div>);
 
 
 // ------------------------------------------------------------------------------------------
@@ -431,105 +436,105 @@ export function tabs_3(names) {
     title = ['Выберите программу МВА'];
 
     //окончательная версия
-    // let underMBAprogram = [[]];
-    // titleForCheckBox = [];
-    // popUpElement = [];
-//     for (const key of Object.keys(MBAprogram)) {
-//     titleForCheckBox.push(key);
-//     let popupArr = [];
-//
-//     for (let i = 0; i < MBAprogram[key].length; i++) {
-//
-//         popupArr.push(<label className="radio source_label_">
-//             <input type="radio" name={names[count]} defaultChecked={true} value={key+" -> "+MBAprogram[key][i]}/>
-//             <span>{MBAprogram[key][i]}</span>
-//         </label>);
-//     }
-//     let popup = ''
-//     if(popupArr.length > 0){
-//         popup = <div className="label_in_ ms-5" id="label_in_1_" >
-//             {popupArr}
-//         </div>
-//     }
-//     popUpElement.push(popup);
-// }
-    titleForCheckBox = ['General MBA - Казахстанская программа MBA',
-        'Казахстанская модульно-дистанционная программа',
-        'xecutive MBA Двудипломная программа с Высшей Школой Менеджмента Санкт-Петербургского Государственного Университета (Россия)',
-        'МВА Финансовый инжиниринг',
-        'МВА Менеджмент в здравоохранении',
-        'МВА Менеджмент в социальной сфере(г. Нур-Султан)',
-        'МВА (г. Ташкент)',
-        'МВА (г. Душанбе)'
-    ];
-     let one = <div className="label_in_ ms-5" id="label_in_1_" >
-         <label className="radio source_label_">
-             <input type="radio" name={names[count]} defaultChecked={true} value="General MBA - Казахстанская программа MBA -> вечерняя программа в г. Алматы"/>
-             <span>вечерняя программа в г. Алматы</span>
-         </label>
-         <label className="radio source_label_">
-             <input type="radio" name={names[count]}   value="General MBA - Казахстанская программа MBA -> модульная программа в г. Алматы"/>
-             <span>модульная программа в г. Алматы</span>
-         </label>
-         <label className="radio source_label_">
-             <input type="radio" name={names[count]}   value="General MBA - Казахстанская программа MBA -> обучение программа в г. Нур-Султан"/>
-             <span>обучение в г. Нур-Султан</span>
-         </label>
-         <label className="radio source_label_">
-             <input type="radio" name={names[count]} value="General MBA - Казахстанская программа MBA -> обучение программа в г. Атырау"/>
-             <span>обучение в г. Атырау</span>
-         </label>
-         <label className="radio source_label_">
-             <input type="radio" name={names[count]} value="General MBA - Казахстанская программа MBA -> обучение программа в г.Актау"/>
-             <span>обучение в г. Актау</span>
-         </label>
-         <label className="radio  source_label_">
-             <input type="radio" name={names[count]} value="General MBA - Казахстанская программа MBA -> обучение программа в г.Актобе"/>
-             <span>обучение в г.Актобе</span>
-         </label>
-         <label className="radio source_label_ ">
-             <input type="radio" name={names[count]} value="General MBA - Казахстанская программа MBA -> обучение программа в г.Кызылорда"/>
-             <span>обучение в г.Кызылорда</span>
-         </label>
-         <label className="radio source_label_ ">
-             <input type="radio" name={names[count]} value="General MBA - Казахстанская программа MBA -> обучение в г.Шымкент"/>
-             <span>обучение в г. Шымкент</span>
-         </label>
-     </div>;
+    let underMBAprogram = [[]];
+    titleForCheckBox = [];
+    popUpElement = [];
+    for (const key of Object.keys(MBAprogram)) {
+    titleForCheckBox.push(key);
+    let popupArr = [];
 
-    let two = <div className="label_in_ ms-5" id="label_in_2_" >
-        <label className="radio source_label_ ">
-            <input type="radio" name={names[count]} value="Казахстанская модульно-дистанционная программа -> обучение в г. Алматы"  />
-            <span>обучение в г. Алматы</span>
-        </label>
-    </div>;
+    for (let i = 0; i < MBAprogram[key].length; i++) {
 
-    let three = <div className="label_in_ ms-5" id="label_in_5_" >
-        <label className="radio source_label_">
-            <input type="radio" name={names[count]} value="МВА Финансовый инжиниринг -> вечерняя программа в г. Алматы"   />
-            <span>вечерняя программа в г. Алматы</span>
-        </label>
-        <label className="radio source_label_">
-            <input type="radio" name={names[count]} value="МВА Финансовый инжиниринг -> обучение в г. Нур-Султан"/>
-            <span>обучение в г. Нур-Султан</span>
-        </label>
-    </div>;
+        popupArr.push(<label className="radio source_label_">
+            <input type="radio" name={names[count]} defaultChecked={true} value={key+" -> "+MBAprogram[key][i]}/>
+            <span>{MBAprogram[key][i]}</span>
+        </label>);
+    }
+    let popup = ''
+    if(popupArr.length > 0){
+        popup = <div className="label_in_ ms-5" id="label_in_1_" >
+            {popupArr}
+        </div>
+    }
+    popUpElement.push(popup);
+}
+    // titleForCheckBox = ['General MBA - Казахстанская программа MBA',
+    //     'Казахстанская модульно-дистанционная программа',
+    //     'xecutive MBA Двудипломная программа с Высшей Школой Менеджмента Санкт-Петербургского Государственного Университета (Россия)',
+    //     'МВА Финансовый инжиниринг',
+    //     'МВА Менеджмент в здравоохранении',
+    //     'МВА Менеджмент в социальной сфере(г. Нур-Султан)',
+    //     'МВА (г. Ташкент)',
+    //     'МВА (г. Душанбе)'
+    // ];
+    //  let one = <div className="label_in_ ms-5" id="label_in_1_" >
+    //      <label className="radio source_label_">
+    //          <input type="radio" name={names[count]} defaultChecked={true} value="General MBA - Казахстанская программа MBA -> вечерняя программа в г. Алматы"/>
+    //          <span>вечерняя программа в г. Алматы</span>
+    //      </label>
+    //      <label className="radio source_label_">
+    //          <input type="radio" name={names[count]}   value="General MBA - Казахстанская программа MBA -> модульная программа в г. Алматы"/>
+    //          <span>модульная программа в г. Алматы</span>
+    //      </label>
+    //      <label className="radio source_label_">
+    //          <input type="radio" name={names[count]}   value="General MBA - Казахстанская программа MBA -> обучение программа в г. Нур-Султан"/>
+    //          <span>обучение в г. Нур-Султан</span>
+    //      </label>
+    //      <label className="radio source_label_">
+    //          <input type="radio" name={names[count]} value="General MBA - Казахстанская программа MBA -> обучение программа в г. Атырау"/>
+    //          <span>обучение в г. Атырау</span>
+    //      </label>
+    //      <label className="radio source_label_">
+    //          <input type="radio" name={names[count]} value="General MBA - Казахстанская программа MBA -> обучение программа в г.Актау"/>
+    //          <span>обучение в г. Актау</span>
+    //      </label>
+    //      <label className="radio  source_label_">
+    //          <input type="radio" name={names[count]} value="General MBA - Казахстанская программа MBA -> обучение программа в г.Актобе"/>
+    //          <span>обучение в г.Актобе</span>
+    //      </label>
+    //      <label className="radio source_label_ ">
+    //          <input type="radio" name={names[count]} value="General MBA - Казахстанская программа MBA -> обучение программа в г.Кызылорда"/>
+    //          <span>обучение в г.Кызылорда</span>
+    //      </label>
+    //      <label className="radio source_label_ ">
+    //          <input type="radio" name={names[count]} value="General MBA - Казахстанская программа MBA -> обучение в г.Шымкент"/>
+    //          <span>обучение в г. Шымкент</span>
+    //      </label>
+    //  </div>;
+    //
+    // let two = <div className="label_in_ ms-5" id="label_in_2_" >
+    //     <label className="radio source_label_ ">
+    //         <input type="radio" name={names[count]} value="Казахстанская модульно-дистанционная программа -> обучение в г. Алматы"  />
+    //         <span>обучение в г. Алматы</span>
+    //     </label>
+    // </div>;
+    //
+    // let three = <div className="label_in_ ms-5" id="label_in_5_" >
+    //     <label className="radio source_label_">
+    //         <input type="radio" name={names[count]} value="МВА Финансовый инжиниринг -> вечерняя программа в г. Алматы"   />
+    //         <span>вечерняя программа в г. Алматы</span>
+    //     </label>
+    //     <label className="radio source_label_">
+    //         <input type="radio" name={names[count]} value="МВА Финансовый инжиниринг -> обучение в г. Нур-Султан"/>
+    //         <span>обучение в г. Нур-Султан</span>
+    //     </label>
+    // </div>;
+    //
+    // let four =  <div className="label_in_ ms-5" id="label_in_6_" >
+    //     <label className="radio source_label_">
+    //         <input type="radio" name={names[count]} value="МВА Менеджмент в здравоохранении -> обучение в г. Алматы"  />
+    //         <span>обучение в г. Алматы</span>
+    //     </label>
+    //     <label className="radio source_label_">
+    //         <input type="radio" name={names[count]} value="МВА Менеджмент в здравоохранении -> обучение в г. Нур-Султан"/>
+    //         <span>обучение в г. Нур-Султан</span>
+    //     </label>
+    // </div>
+    //
+    // popUpElement = [one, two, '', three, four];
+     input[0] = <MBAPropgramRadio input={true}  popUpElement={popUpElement} classN={'col-lg-12'} name={names[count]} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} span={<RequiredSpan id={names[count]}/>}/>;
 
-    let four =  <div className="label_in_ ms-5" id="label_in_6_" >
-        <label className="radio source_label_">
-            <input type="radio" name={names[count]} value="МВА Менеджмент в здравоохранении -> обучение в г. Алматы"  />
-            <span>обучение в г. Алматы</span>
-        </label>
-        <label className="radio source_label_">
-            <input type="radio" name={names[count]} value="МВА Менеджмент в здравоохранении -> обучение в г. Нур-Султан"/>
-            <span>обучение в г. Нур-Султан</span>
-        </label>
-    </div>
-
-    popUpElement = [one, two, '', three, four];
-     // input[0] = <MBAPropgramRadio input={true}  popUpElement={popUpElement} classN={'col-lg-12'} name={'notname'} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} span={<RequiredSpan id={names[count]}/>}/>;
-
-    input[0] = <RadioB input={true} hidden={true} popupIndex={[0,1,3,4]} popUpElement={popUpElement} classN={'col-lg-12'} name={names[count]} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} span={<RequiredSpan id={names[count]}/>}/>;
+    // input[0] = <RadioB input={true} hidden={true} popupIndex={[0,1,3,4]} popUpElement={popUpElement} classN={'col-lg-12'} name={names[count]} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} span={<RequiredSpan id={names[count]}/>}/>;
     count++;
 
     allcode.push( <div className={"form-group row"} key={count+100}>{input}</div>);
@@ -540,25 +545,25 @@ export function tabs_3(names) {
     // ------------------------------------------------------------------------------------------
 
     // console.log(count);
-    allcode.push( <FilePicker name={names[count]} uploadLabel={'Прикрепить скан удостоверение личности (.pdf или .jpg, .png)'} key={count} span={<RequiredSpan id={names[count]}/>} />);
+    allcode.push( <FilePicker name={names[count] + '[]'} uploadLabel={'Прикрепить скан удостоверение личности (.pdf или .jpg, .png)'} key={count} span={<RequiredSpan id={names[count]}/>} />);
     count++;
-    allcode.push( <FilePicker name={names[count]} uploadLabel={'Прикрепить резюме (.pdf или .doc)'} key={count} span={<RequiredSpan id={names[count]}/>}/>);
+    allcode.push( <FilePicker name={names[count] + '[]'} uploadLabel={'Прикрепить резюме (.pdf или .doc)'} key={count} span={<RequiredSpan id={names[count]}/>}/>);
     count++;
-    allcode.push( <FilePicker name={names[count]} uploadLabel={'6 фото 3х4 (.pdf или .doc)'} key={count} span={<RequiredSpan id={names[count]}/>}/>);
+    allcode.push( <FilePicker name={names[count] + '[]'} uploadLabel={'6 фото 3х4 (.pdf или .doc)'} key={count} span={<RequiredSpan id={names[count]}/>}/>);
     count++;
-    allcode.push(<FilePicker name={names[count]} uploadLabel={'Прикрепить скан диплома с приложением (.pdf или .jpg, .png)'} key={count} span={<RequiredSpan id={names[count]}/>}/>);
+    allcode.push(<FilePicker name={names[count] + '[]'} uploadLabel={'Прикрепить скан диплома с приложением (.pdf или .jpg, .png)'} key={count} span={<RequiredSpan id={names[count]}/>}/>);
     count++;
-    allcode.push(<FilePicker name={names[count]} uploadLabel={'Прикрепить скан справки с места работы с указанием должности (.pdf или .jpg, .png)'} key={count} span={<RequiredSpan id={names[count]}/>}/>);
+    allcode.push(<FilePicker name={names[count] + '[]'} uploadLabel={'Прикрепить скан справки с места работы с указанием должности (.pdf или .jpg, .png)'} key={count} span={<RequiredSpan id={names[count]}/>}/>);
     count++;
-    allcode.push(<FilePicker name={names[count]} uploadLabel={'Медицинская справка (форма 075У) (.pdf или .doc)'} key={count} span={<RequiredSpan id={names[count]}/>}/>);
+    allcode.push(<FilePicker name={names[count] + '[]'} uploadLabel={'Медицинская справка (форма 075У) (.pdf или .doc)'} key={count} span={<RequiredSpan id={names[count]}/>}/>);
     count++;
-    allcode.push(<FilePicker name={names[count]} uploadLabel={'Прикрепить скан сертификата на знание Английского языка (.pdf или .jpg)'} key={count} span={<RequiredSpan id={names[count]}/>}/>);
+    allcode.push(<FilePicker name={names[count] + '[]'} uploadLabel={'Прикрепить скан сертификата на знание Английского языка (.pdf или .jpg)'} key={count} span={<RequiredSpan id={names[count]}/>}/>);
     count++;
-    allcode.push(<FilePicker name={names[count]} uploadLabel={'Прикрепить мотивационное эссе (.pdf или .doc)'} key={count} span={<RequiredSpan id={names[count]}/>}/>);
+    allcode.push(<FilePicker name={names[count] + '[]'} uploadLabel={'Прикрепить мотивационное эссе (.pdf или .doc)'} key={count} span={<RequiredSpan id={names[count]}/>}/>);
     count++;
-    allcode.push( <FilePicker name={names[count]} uploadLabel={'Копия паспорта (.pdf или .jpg, .png)'} key={count} span={<RequiredSpan id={names[count]}/>}/>);
+    allcode.push( <FilePicker name={names[count] + '[]'} uploadLabel={'Копия паспорта (.pdf или .jpg, .png)'} key={count} span={<RequiredSpan id={names[count]}/>}/>);
     count++;
-    allcode.push(  <FilePicker name={names[count]} uploadLabel={'2 рекомендательных письма (.pdf или .jpg, .png)'} key={count} span={<RequiredSpan id={names[count]}/>}/>);
+    allcode.push(  <FilePicker name={names[count] + '[]'} uploadLabel={'2 рекомендательных письма (.pdf или .jpg, .png)'} key={count} span={<RequiredSpan id={names[count]}/>}/>);
     count++;
 
 

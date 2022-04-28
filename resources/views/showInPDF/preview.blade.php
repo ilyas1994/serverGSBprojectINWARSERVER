@@ -93,17 +93,19 @@
                     <hr class="style1">
                         <span>Отчество: {{ $datas->patronymic }}</span>
                         <hr class="style1">
-                    <span>Пол: {{ $datas->gender }}</span>
+
+
+                    <span>Пол: {{ $dropdown['dropDowngender'] }}</span>
                     <hr class="style1">
 {{--                    <span>Возраст (полных лет): {{ $datas-> }}</span>--}}
 {{--                    <hr class="style1">--}}
-                    <span>Гражданский статус : {{ $datas->familyStatus }}</span>
+                    <span>Гражданский статус : {{ $dropdown['dropDownfamilyStatus'] }}</span>
                     <hr class="style1">
                     <span>Кол-во детей : {{ $datas->amountOfChildren }}</span>
                     <hr class="style1">
-                    <span>Гражданство: {{ $datas->citizenship }}</span>
+                    <span>Гражданство: {{ $dropdown['dropDowncitizenship'] }}</span>
                     <hr class="style1">
-                    <span>Национальность: {{ $datas->nationality }}</span>
+                    <span>Национальность: {{ $dropdown['dropDowndrop_down_nationalities'] }}</span>
                 </div>
             </div>
 
@@ -115,16 +117,16 @@
                     <hr class="style1">
                     <span>ИИН/ПИНФЛ: {{ $datas->Iin }}</span>
                     <hr class="style1">
-                    <span>Документ удостоверяющий личность: {{ $datas->typeDocument }}</span>
+                    <span>Документ удостоверяющий личность: {{ $dropdown['drop_down_type_documents'] }}</span>
                 </div>
             </div>
 
             <div class="panel-body mt-4" style="border: 2px solid #8c8b8b">
-
+{{--            @dd($datas->kemVidanDoc)--}}
                 <div class="main-div">
                     <span>№ документа удостоверяющий личность : {{ $datas->numberDocument }}</span>
                     <hr class="style1">
-                    <span>Кем и когда выдан : {{ $datas->kemVidanDoc }}</span>
+                    <span>Кем и когда выдан : {{ $dropdown['dropDownkemVidanDoc'] }}</span>
                     <hr class="style1">
                     <span>дд.мм.гггг: {{ $datas->dateMonthYearDoc }}</span>
                     <hr class="style1">
@@ -165,9 +167,11 @@
                     <hr class="style1">
                     <span>Управленческий стаж: {{ $datas->upravlencheskiy_stazh }}</span>
                     <hr class="style1">
-                    <span>Вы являетесь: {{ $datas->jobType }}</span>
+                    <span>Вы являетесь: {{ $dropdown['dropDownjobType'] }}</span>
                     <hr class="style1">
-                    <span>Сфера деятельности: {{ $datas->fieldOfActivity }}</span>
+                    <span>Сфера деятельности: {{ $dropdown['dropDownfieldOfActivity'] }}</span>
+                    <hr class="style1">
+                    <span>Другое: {{ $datas->fieldOfActivityOther }}</span>
                     <hr class="style1">
                     <span>Наличие командировок: {{ $datas->availabilityOfBusinessTrips }}</span>
                 </div>
@@ -180,13 +184,13 @@
                     <hr class="style1">
                     <span>Конец обучения: {{ $datas->endEducation }}</span>
                     <hr class="style1">
-                    <span>Академическая степень/квалификация: {{ $datas->qualification }}</span>
+                    <span>Академическая степень/квалификация: {{ $dropdown['dropDownqualification'] }}</span>
                     <hr class="style1">
                     <span>Полное наименование учебного заведения: {{ $datas->fullNameUniversity }}</span>
                     <hr class="style1">
                     <span>Специальность (например, юриспруденция или разработка нефтяных и газовых месторождений): {{ $datas->speciality }}</span>
                     <hr class="style1">
-                    <span>Язык обучения: {{ $datas->languageEducation }}</span>
+                    <span>Язык обучения: {{ $dropdown['dropDownlanguageEducation'] }}</span>
                     <hr class="style1">
                     <span>Имеется ли второе высшее образование: {{ $datas->checkSecondDegree }}</span>
                 </div>
@@ -196,15 +200,15 @@
                 <div class="main-div">
                     <span>Имеется ли магистерская степень: {{ $datas->checkMasterDegree }} </span>
                     <hr class="style1">
-                    <span>Казахский: {{ $datas->checkLanguageKazakh }}</span>
+                    <span>Казахский: {{ $dropdown['dropDowncheckLanguageKazakh'] }}</span>
                     <hr class="style1">
-                    <span>Английский: {{ $datas->checkLanguageEnglish }}</span>
+                    <span>Английский: {{ $dropdown['dropDowncheckLanguageEnglish'] }}</span>
                     <hr class="style1">
-                    <span>Французский: {{ $datas->checkLanguageFrench }}</span>
+                    <span>Французский: {{ $dropdown['dropDowncheckLanguageFrench'] }}</span>
                     <hr class="style1">
-                    <span>Немецкий: {{ $datas->checkLanguageGerman }}</span>
+                    <span>Немецкий: {{ $dropdown['dropDowncheckLanguageGerman'] }}</span>
                     <hr class="style1">
-                    <span>Китайский: {{ $datas->checkLanguageChinese }}</span>
+                    <span>Китайский: {{ $dropdown['dropDowncheckLanguageChinese'] }}</span>
                     <hr class="style1">
                     <span>Доп язык:  {{ $datas->checkOtherLanguages }}</span>
                 </div>
@@ -212,7 +216,7 @@
 
             <div class="panel-body mt-4" style="border: 2px solid #8c8b8b">
                 <div class="main-div">
-                    <span>Наличие сертификатов на знание Английского языка: {{ $datas->englishProficiencyCertificates }}</span>
+                    <span>Наличие сертификатов на знание Английского языка: {{ $dropdown['dropDownenglishProficiencyCertificates'] }}</span>
                     <hr class="style1">
                     <span>Дата выдачи сертификата: {{ $datas->certificateIssueDate }}</span>
                 </div>
@@ -222,7 +226,12 @@
                 <div class="main-div">
 {{--                    @dd($datas->hobby)--}}
                     @if($datas->hobby != null)
-                        <span>Пожалуйста, поделитесь с нами деятельностью и/или интересами, которые имеют для Вас большое значение: {{ $datas->hobby }}</span>
+                       @php
+                       $dataHobby = json_decode($datas->hobby);
+                       @endphp
+                    @for($i = 0; $i < count($dataHobby); $i++)
+                        <span>Пожалуйста, поделитесь с нами деятельностью и/или интересами, которые имеют для Вас большое значение: <br> {{ ($i+1) . ') ' . $dataHobby[$i] }}</span>
+                        @endfor
                     @endif
 
 {{--                @if($datas->hobby != null)--}}
@@ -256,7 +265,14 @@
                     <span>Почему вы решили обучаться на программе MBA?: {{ $datas->reasonForLearning }}</span>
                     <hr class="style1">
 
-                    <span>Какие информационные сайты вы читаете?  {{ $datas->suite }}</span>
+                    @if($datas->suite != null)
+                        @php
+                            $suite = json_decode($datas->suite);
+                        @endphp
+                        @for($i = 0; $i < count($suite); $i++)
+                            <span>Какие информационные сайты вы читаете? <br> {{ ($i+1) . ') ' . $suite[$i] }}</span>
+                        @endfor
+                    @endif
 
                 </div>
             </div>
@@ -265,11 +281,16 @@
                 <div class="main-div">
                     <span>Другие: {{ $datas->otherSuite }}</span>
                     <hr class="style1">
-
                     @if($datas->socialNetwork != null)
-                        <span>Какими социальными сетями/мессенжерами вы пользуетесь? {{ $datas->socialNetwork }}</span>
+                        @php
+                            $socialNetwork = json_decode($datas->socialNetwork);
+                        @endphp
+                        @for($i = 0; $i < count($socialNetwork); $i++)
+                            <span>Какими социальными сетями/мессенжерами вы пользуетесь? <br> {{ ($i+1) . ') ' . $socialNetwork[$i] }}</span>
+                        @endfor
                     @endif
 
+{{--                qwe--}}
 {{--                    @php--}}
 {{--                        $get = json_decode($datas->socialNetwork);--}}
 {{--                        $sss1 = "";--}}
@@ -291,22 +312,49 @@
                     <hr class="style1">
                     <span>Ваша страница в Twitter: {{ $datas->PageInTwitter }}</span>
                     <hr class="style1">
-                    <span>Как Вы узнали о программах МВА Высшей Школы Бизнеса AlmaU: {{ $datas->checkBoxAboutMBA }}</span>
-                    <hr class="style1">
-                    @php
-                        $get = json_decode($datas->checkBoxReasonsForChoosingMBA);
-                        $sss2 = "";
-                    @endphp
-                    @for($i = 0; $i < count($get ); $i++ )
-                        @if($i + 1 == count($get))
-                            @push($sss2 .= $get[$i]. "") @endpush
-                        @else
-                            @push($sss2 .= $get[$i]. ", ") @endpush
-                        @endif
 
-                    @endfor
-                    <span>Причины, по которым Вы выбрали МВА Высшей Школы Бизнеса AlmaU: {{ $sss2 }}</span>
+                    @if($datas->checkBoxAboutMBA != null)
+                        @php
+                            $checkBoxAboutMBA = json_decode($datas->checkBoxAboutMBA);
+                        @endphp
+                        @for($i = 0; $i < count($checkBoxAboutMBA); $i++)
+                            <span>Как Вы узнали о программах МВА Высшей Школы Бизнеса AlmaU:
+                                <br> {{ ($i+1) . ') ' . $checkBoxAboutMBA[$i] }}</span>
+                        @endfor
+                    @endif
+
                     <hr class="style1">
+
+
+                    @if($datas->checkBoxReasonsForChoosingMBA != null)
+                        @php
+                            $checkBoxReasonsForChoosingMBA = json_decode($datas->checkBoxReasonsForChoosingMBA);
+                        @endphp
+                        @for($i = 0; $i < count($checkBoxReasonsForChoosingMBA); $i++)
+                            @if($checkBoxReasonsForChoosingMBA[$i] != null)
+                            <span>Причины, по которым Вы выбрали МВА Высшей Школы Бизнеса AlmaU:
+                                <br> {{ ($i+1) . ') ' . $checkBoxReasonsForChoosingMBA[$i] }}</span>
+                            @endif
+                            @endfor
+
+                    @endif
+
+                    <hr class="style1">
+                    <span>Какие еще программы Вы рассматривали?: {{ $datas->otherProgramViewMBA }}</span>
+                    <hr class="style1">
+
+
+
+                    @if($datas->checkBoxMBACharacteristics != null)
+                        @php
+                            $checkBoxMBACharacteristics = json_decode($datas->checkBoxMBACharacteristics);
+                        @endphp
+                        @for($i = 0; $i < count($checkBoxMBACharacteristics); $i++)
+                            <span>Выберите характеристики программы МВА, которые для Вас важны:
+                                <br> {{ ($i+1) . ') ' . $checkBoxMBACharacteristics[$i] }}</span>
+                        @endfor
+                    @endif
+
                     <span>Другие: {{ $datas->otherReason }}</span>
                     <hr class="style1">
                     <span>Качество образования: {{ $datas->starsTheQualityOfEducation }}</span>
