@@ -5416,6 +5416,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "Check": () => (/* binding */ Check),
 /* harmony export */   "CheckBox": () => (/* binding */ CheckBox),
 /* harmony export */   "DataPik": () => (/* binding */ DataPik),
+/* harmony export */   "DropDownKemVidanDoc": () => (/* binding */ DropDownKemVidanDoc),
+/* harmony export */   "DropDownfieldOfActivity": () => (/* binding */ DropDownfieldOfActivity),
 /* harmony export */   "DropEduc": () => (/* binding */ DropEduc),
 /* harmony export */   "FilePicker": () => (/* binding */ FilePicker),
 /* harmony export */   "InputFieldForEduc": () => (/* binding */ InputFieldForEduc),
@@ -5433,6 +5435,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "inputField": () => (/* binding */ inputField),
 /* harmony export */   "inputFieldEmail": () => (/* binding */ inputFieldEmail),
 /* harmony export */   "inputFieldOnlyNumber": () => (/* binding */ inputFieldOnlyNumber),
+/* harmony export */   "inputFieldOnlyNumberForMobile": () => (/* binding */ inputFieldOnlyNumberForMobile),
 /* harmony export */   "label": () => (/* binding */ label)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
@@ -5501,7 +5504,7 @@ function TextArea(title, name) {
         required: true,
         className: 'form-control ',
         defaultValue: value,
-        maxLength: 32
+        maxLength: 500
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "invalid-feedback",
         children: ["\u0417\u0430\u043F\u043E\u043B\u043D\u0438\u0442\u0435 ", title]
@@ -5523,17 +5526,25 @@ function dropDownClick(title, name, section) {
     switch (e['target'].selectedIndex) {
       case 0:
         {
-          iin[0].setAttribute('minlength', '12');
-          iin[0].setAttribute('maxlength', '12');
-          iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 12 цифр!';
+          iin[0].setAttribute('minlength', '9');
+          iin[0].setAttribute('maxlength', '9');
+          iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 9 цифр!';
           break;
         }
 
       case 1:
         {
-          iin[0].setAttribute('minlength', '9');
-          iin[0].setAttribute('maxlength', '9');
-          iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 9 цифр!';
+          iin[0].setAttribute('minlength', '11');
+          iin[0].setAttribute('maxlength', '11');
+          iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 11 цифр!';
+          break;
+        }
+
+      default:
+        {
+          iin[0].setAttribute('minlength', '12');
+          iin[0].setAttribute('maxlength', '12');
+          iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 12 цифр!';
           break;
         }
     }
@@ -5572,6 +5583,7 @@ function inputFieldOnlyNumber(title, name) {
   var value = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
   var placeholder = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : '';
   var span = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : null;
+  var prefix = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : null;
   var input = '';
   var req = span !== null;
   var reqClass = span !== null ? 'form-control ' : '';
@@ -5596,7 +5608,10 @@ function inputFieldOnlyNumber(title, name) {
   }
 
   function isNumberKey(evt) {
-    evt.returnValue = evt.keyCode !== 46 && evt.keyCode > 31 && (evt.keyCode < 48 || evt.keyCode > 57);
+    // evt.returnValue = (evt.keyCode !== 46 && evt.keyCode > 31 && (evt.keyCode < 48 || evt.keyCode > 57));
+    var la;
+    if (evt.keyCode > 47 && evt.keyCode < 58) la = false;else if (evt.keyCode === 8) la = false;else if (evt.keyCode > 95 && evt.keyCode < 106) la = false;else la = true;
+    evt.returnValue = la;
     if (evt.returnValue) evt.preventDefault();
     sessionStorage.setItem(evt.target.name, evt.target.value);
   }
@@ -5605,6 +5620,101 @@ function inputFieldOnlyNumber(title, name) {
     value = sessionStorage.getItem(name);
   }
 
+  input = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    className: className,
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      className: 'position-relative',
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("label", {
+        className: '',
+        htmlFor: "",
+        children: [title, span]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+        type: "text",
+        name: name,
+        required: req,
+        onKeyDown: isNumberKey.bind(this),
+        placeholder: placeholder,
+        className: 'user-surname ' + reqClass,
+        defaultValue: value,
+        maxLength: maxlength,
+        minLength: minlength
+      }), tooltip]
+    })
+  }, name);
+  return input;
+}
+function inputFieldOnlyNumberForMobile(title, name) {
+  var className = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+  var value = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
+  var placeholder = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : '';
+  var span = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : null;
+  var prefix = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : null;
+  var input = '';
+  var req = span !== null;
+  var reqClass = span !== null ? 'form-control ' : '';
+  var tooltip = '';
+  var maxlength = 0;
+  var minlength = 0;
+
+  if (name === 'Iin') {
+    maxlength = 12;
+    minlength = 12;
+    tooltip = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      className: "invalid-tooltip",
+      children: ["\u041F\u043E\u043B\u0435 \u0434\u043E\u043B\u0436\u043D\u043E \u0431\u044B\u0442\u044C \u043D\u0435 \u043C\u0435\u043D\u044C\u0448\u0435 ", minlength, " \u0446\u0438\u0444\u0440!"]
+    });
+  } else {
+    maxlength = 32;
+    minlength = 0;
+    tooltip = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      className: "invalid-tooltip",
+      children: ["\u0417\u0430\u043F\u043E\u043B\u043D\u0438\u0442\u0435 \u043E\u0431\u044F\u0437\u0430\u0442\u0435\u043B\u044C\u043D\u043E\u0435 \u043F\u043E\u043B\u0435 ", title]
+    });
+  }
+
+  function isNumberKey(evt) {
+    // console.log(evt.keyCode);
+    // console.log((evt.keyCode < 47 && evt.keyCode > 62 ));
+    // console.log(!(evt.keyCode < 47 && evt.keyCode > 62 ));
+    // evt.returnValue = (evt.keyCode !== 46 && evt.keyCode > 31 && (evt.keyCode < 48 || evt.keyCode > 57));
+    if (evt.target.value.length > 2) {
+      var la;
+      if (evt.keyCode > 47 && evt.keyCode < 62) la = false;else if (evt.keyCode === 8) {
+        la = false;
+        console.log(evt.target.value.length);
+
+        if (evt.target.value.length === 3) {
+          evt.target.value = '';
+        }
+      } else if (evt.keyCode > 95 && evt.keyCode < 106) {
+        la = false;
+        console.log(1);
+
+        if (evt.target.value.length == 2) {
+          evt.target.value = '';
+        }
+
+        evt.target.placeholder = '+7';
+      } else if (evt.keyCode === 107) {
+        console.log(2);
+        la = false;
+        evt.target.placeholder = '+7';
+      } else la = true;
+      evt.returnValue = la;
+    } else {
+      console.log(4);
+      evt.target.value = '+7';
+    }
+
+    if (evt.returnValue) evt.preventDefault();
+    sessionStorage.setItem(evt.target.name, evt.target.value);
+  }
+
+  if (sessionStorage.getItem(name) !== null) {
+    value = sessionStorage.getItem(name);
+  }
+
+  placeholder = '+7 ';
   input = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     className: className,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
@@ -5768,7 +5878,7 @@ var InputFieldForEduc = /*#__PURE__*/function (_React$Component) {
             placeholder: this.props.placeholder,
             className: 'user-surname ' + this.reqClass,
             defaultValue: val,
-            maxLength: 33
+            maxLength: 200
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
             className: "invalid-tooltip",
             children: ["\u0417\u0430\u043F\u043E\u043B\u043D\u0438\u0442\u0435 \u043E\u0431\u044F\u0437\u0430\u0442\u0435\u043B\u044C\u043D\u043E\u0435 \u043F\u043E\u043B\u0435 ", this.props.title]
@@ -5986,30 +6096,217 @@ function dropDown(title, name, section) {
     }), sample]
   }, name);
 }
-var OtherLanguageButton = /*#__PURE__*/function (_React$Component4) {
-  _inherits(OtherLanguageButton, _React$Component4);
+var DropDownKemVidanDoc = /*#__PURE__*/function (_React$Component4) {
+  _inherits(DropDownKemVidanDoc, _React$Component4);
 
-  var _super4 = _createSuper(OtherLanguageButton);
+  var _super4 = _createSuper(DropDownKemVidanDoc);
 
-  function OtherLanguageButton(props) {
+  // (title, name, section, sample = null, className = 'col-lg-4', span = null, key = 0)
+  function DropDownKemVidanDoc(props) {
     var _this3;
 
-    _classCallCheck(this, OtherLanguageButton);
+    _classCallCheck(this, DropDownKemVidanDoc);
 
     _this3 = _super4.call(this, props);
 
-    _defineProperty(_assertThisInitialized(_this3), "newLang", []);
+    _defineProperty(_assertThisInitialized(_this3), "state", {
+      dopMenu: ''
+    });
 
-    _defineProperty(_assertThisInitialized(_this3), "langCount", 0);
+    _defineProperty(_assertThisInitialized(_this3), "sec", []);
 
-    _defineProperty(_assertThisInitialized(_this3), "drop", void 0);
+    _this3.save = _this3.save.bind(_assertThisInitialized(_this3));
+    return _this3;
+  }
 
-    _this3.state = {
+  _createClass(DropDownKemVidanDoc, [{
+    key: "save",
+    value: function save(arg) {
+      sessionStorage.setItem(arg.target.name, arg.target.selectedIndex);
+
+      if (arg.target.selectedIndex === arg.target.childElementCount - 1) {
+        this.setState(function (prevState) {
+          return prevState.dopMenu = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            className: 'position-relative d-lg-grid',
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("label", {
+              htmlFor: this.props.otherName,
+              children: ["\u0423\u043A\u0430\u0436\u0438\u0442\u0435", this.props.span]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+              id: this.props.otherName,
+              type: "text",
+              className: 'col-lg-8 form-control ',
+              name: this.props.otherName,
+              required: true
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+              className: "invalid-tooltip",
+              children: "\u0417\u0430\u043F\u043E\u043B\u043D\u0438\u0442\u0435 \u043E\u0431\u044F\u0437\u0430\u0442\u0435\u043B\u044C\u043D\u043E\u0435 \u043F\u043E\u043B\u0435"
+            })]
+          });
+        });
+      } else {
+        // console.log( arg.target.selectedIndex +':'+arg.target.childElementCount);
+        this.setState({
+          dopMenu: ''
+        });
+      } // console.log(arg.target.selectedIndex)
+
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      for (var i = 0; i < this.props.section.length; i++) {
+        this.sec[i] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+          value: i + 1,
+          children: this.props.section[i]
+        }, i);
+      }
+
+      var t = 0;
+      if (sessionStorage.getItem(this.props.name)) t = sessionStorage.getItem(this.props.name);
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: this.props.className + ' d-lg-grid',
+        children: [this.props.title !== '' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("label", {
+          htmlFor: "",
+          children: [this.props.title, this.props.span]
+        }) : "", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("select", {
+          name: this.props.name,
+          defaultValue: t,
+          onChange: this.save,
+          className: "col-lg-4 selectpicker user-gender",
+          children: this.sec
+        }), this.state.dopMenu, this.props.sample]
+      }, this.props.name);
+    }
+  }]);
+
+  return DropDownKemVidanDoc;
+}(React.Component);
+var DropDownfieldOfActivity = /*#__PURE__*/function (_React$Component5) {
+  _inherits(DropDownfieldOfActivity, _React$Component5);
+
+  var _super5 = _createSuper(DropDownfieldOfActivity);
+
+  // (title, name, section, sample = null, className = 'col-lg-4', span = null, key = 0)
+  function DropDownfieldOfActivity(props) {
+    var _this4;
+
+    _classCallCheck(this, DropDownfieldOfActivity);
+
+    _this4 = _super5.call(this, props);
+
+    _defineProperty(_assertThisInitialized(_this4), "state", {
+      dopMenu: ''
+    });
+
+    _defineProperty(_assertThisInitialized(_this4), "sec", []);
+
+    _this4.save = _this4.save.bind(_assertThisInitialized(_this4));
+    return _this4;
+  }
+
+  _createClass(DropDownfieldOfActivity, [{
+    key: "save",
+    value: function save(arg) {
+      sessionStorage.setItem(arg.target.name, arg.target.selectedIndex); // console.log( arg.target.childElementCount);
+
+      if (arg.target.selectedIndex === 1) {
+        this.setState(function (prevState) {
+          return prevState.dopMenu = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("select", {
+            name: this.props.dopmenuname,
+            defaultValue: 0,
+            className: "col-lg-8 selectpicker user-gender",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+              children: "\u0413\u043E\u0440\u043D\u043E\u0434\u043E\u0431\u044B\u0432\u0430\u044E\u0449\u0430\u044F \u043F\u0440\u043E\u043C\u044B\u0448\u043B\u0435\u043D\u043D\u043E\u0441\u0442\u044C \u0438 \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u043A\u0430 \u043A\u0430\u0440\u044C\u0435\u0440\u043E\u0432"
+            }, 0), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+              children: "\u041E\u0431\u0440\u0430\u0431\u0430\u0442\u044B\u0432\u0430\u044E\u0449\u0430\u044F \u043F\u0440\u043E\u043C\u044B\u0448\u043B\u0435\u043D\u043D\u043E\u0441\u0442\u044C"
+            }, 1), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+              children: "\u042D\u043B\u0435\u043A\u0442\u0440\u043E\u0441\u043D\u0430\u0431\u0436\u0435\u043D\u0438\u0435, \u043F\u043E\u0434\u0430\u0447\u0430 \u0433\u0430\u0437\u0430, \u043F\u0430\u0440\u0430 \u0438 \u0432\u043E\u0437\u0434\u0443\u0448\u043D\u043E\u0435 \u043A\u043E\u043D\u0434\u0438\u0446\u0438\u043E\u043D\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435"
+            }, 2), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+              children: "\u0412\u043E\u0434\u043E\u0441\u043D\u0430\u0431\u0436\u0435\u043D\u0438\u0435; \u043A\u0430\u043D\u0430\u043B\u0438\u0437\u0430\u0446\u0438\u043E\u043D\u043D\u0430\u044F \u0441\u0438\u0441\u0442\u0435\u043C\u0430, \u043A\u043E\u043D\u0442\u0440\u043E\u043B\u044C \u043D\u0430\u0434 \u0441\u0431\u043E\u0440\u043E\u043C \u0438 \u0440\u0430\u0441\u043F\u0440\u0435\u0434\u0435\u043B\u0435\u043D\u0438\u0435\u043C \u043E\u0442\u0445\u043E\u0434\u043E\u0432"
+            }, 3)]
+          });
+        });
+      } else if (arg.target.selectedIndex === arg.target.childElementCount - 1) {
+        this.setState(function (prevState) {
+          return prevState.dopMenu = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            className: 'position-relative d-lg-grid',
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("label", {
+              htmlFor: this.props.otherName,
+              children: ["\u0423\u043A\u0430\u0436\u0438\u0442\u0435", this.props.span]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+              id: this.props.otherName,
+              type: "text",
+              className: 'col-lg-8 form-control ',
+              name: this.props.otherName,
+              required: true
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+              className: "invalid-tooltip",
+              children: "\u0417\u0430\u043F\u043E\u043B\u043D\u0438\u0442\u0435 \u043E\u0431\u044F\u0437\u0430\u0442\u0435\u043B\u044C\u043D\u043E\u0435 \u043F\u043E\u043B\u0435"
+            })]
+          });
+        });
+      } else {
+        // console.log( arg.target.selectedIndex +':'+arg.target.childElementCount);
+        this.setState({
+          dopMenu: ''
+        });
+      } // console.log(arg.target.selectedIndex)
+
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      for (var i = 0; i < this.props.section.length; i++) {
+        this.sec[i] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+          value: i + 1,
+          children: this.props.section[i]
+        }, i);
+      }
+
+      var t = 0;
+      if (sessionStorage.getItem(this.props.name)) t = sessionStorage.getItem(this.props.name);
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: this.props.className,
+        children: [this.props.title !== '' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("label", {
+          htmlFor: "",
+          children: [this.props.title, this.props.span]
+        }) : "", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("select", {
+          name: this.props.name,
+          defaultValue: t,
+          onChange: this.save,
+          className: "col-lg-0 selectpicker user-gender",
+          children: this.sec
+        }), this.state.dopMenu]
+      }, this.props.name);
+    }
+  }]);
+
+  return DropDownfieldOfActivity;
+}(React.Component);
+var OtherLanguageButton = /*#__PURE__*/function (_React$Component6) {
+  _inherits(OtherLanguageButton, _React$Component6);
+
+  var _super6 = _createSuper(OtherLanguageButton);
+
+  function OtherLanguageButton(props) {
+    var _this5;
+
+    _classCallCheck(this, OtherLanguageButton);
+
+    _this5 = _super6.call(this, props);
+
+    _defineProperty(_assertThisInitialized(_this5), "newLang", []);
+
+    _defineProperty(_assertThisInitialized(_this5), "langCount", 0);
+
+    _defineProperty(_assertThisInitialized(_this5), "drop", void 0);
+
+    _this5.state = {
       newStateLang: []
     };
-    _this3.input = _this3.props.input;
-    _this3.drop = _this3.props.dropdown;
-    return _this3;
+    _this5.input = _this5.props.input;
+    _this5.drop = _this5.props.dropdown;
+    return _this5;
   }
 
   _createClass(OtherLanguageButton, [{
@@ -6072,24 +6369,24 @@ function Check(props) {
     })
   });
 }
-var CheckBox = /*#__PURE__*/function (_React$Component5) {
-  _inherits(CheckBox, _React$Component5);
+var CheckBox = /*#__PURE__*/function (_React$Component7) {
+  _inherits(CheckBox, _React$Component7);
 
-  var _super5 = _createSuper(CheckBox);
+  var _super7 = _createSuper(CheckBox);
 
   function CheckBox(props) {
-    var _this4;
+    var _this6;
 
     _classCallCheck(this, CheckBox);
 
-    _this4 = _super5.call(this, props);
+    _this6 = _super7.call(this, props);
 
-    _defineProperty(_assertThisInitialized(_this4), "allArr", void 0);
+    _defineProperty(_assertThisInitialized(_this6), "allArr", void 0);
 
-    _this4.state = {
+    _this6.state = {
       allcheck: null
     };
-    return _this4;
+    return _this6;
   }
 
   _createClass(CheckBox, [{
@@ -6247,39 +6544,82 @@ function Radio(props) {
     })
   });
 }
-var RadioB = /*#__PURE__*/function (_React$Component6) {
-  _inherits(RadioB, _React$Component6);
+var RadioB = /*#__PURE__*/function (_React$Component8) {
+  _inherits(RadioB, _React$Component8);
 
-  var _super6 = _createSuper(RadioB);
+  var _super8 = _createSuper(RadioB);
 
   function RadioB(props) {
-    var _this5;
+    var _this7;
 
     _classCallCheck(this, RadioB);
 
-    _this5 = _super6.call(this, props);
+    _this7 = _super8.call(this, props);
 
-    _defineProperty(_assertThisInitialized(_this5), "state", {
-      popup: _this5.props.popUpElement,
-      id: _this5.props.checkBoxTitle[0],
-      defaultState: ''
+    _defineProperty(_assertThisInitialized(_this7), "state", {
+      popup: _this7.props.popUpElement,
+      id: _this7.props.checkBoxTitle[0],
+      defaultState: '',
+      filePick: []
     });
 
-    _this5.handleClick = _this5.handleClick.bind(_assertThisInitialized(_this5)); // this.setState({defaultState:sessionStorage.getItem(props.name) !== null ? sessionStorage.getItem(props.name) :''})
+    _this7.handleClick = _this7.handleClick.bind(_assertThisInitialized(_this7)); // this.setState({defaultState:sessionStorage.getItem(props.name) !== null ? sessionStorage.getItem(props.name) :''})
 
-    return _this5;
+    if (_this7.props.filePikBox) {
+      var op = Array.from(_this7.props.filePikBox);
+
+      for (var i = 0; i < op.length - 3; i++) {
+        console.log(op[i]);
+
+        _this7.state.filePick.push(op[i]);
+      }
+    }
+
+    return _this7;
   }
 
   _createClass(RadioB, [{
     key: "handleClick",
     value: function handleClick(i) {
-      console.log(i.target);
+      console.log(i.target.value);
+
+      if (this.props.filePikBox) {
+        if (i.target.value.includes('Executive')) {
+          this.setState(function (prevState) {
+            this.state.filePick = [];
+            var op = Array.from(this.props.filePikBox);
+
+            for (var _i = 0; _i < op.length; _i++) {
+              console.log(op[_i]);
+              this.state.filePick.push(op[_i]);
+            }
+
+            return prevState.filePick;
+          });
+        } else {
+          this.setState(function (prevState) {
+            this.state.filePick = [];
+            var op = Array.from(this.props.filePikBox);
+
+            for (var _i2 = 0; _i2 < op.length - 3; _i2++) {
+              console.log(op[_i2]);
+              this.state.filePick.push(op[_i2]);
+            }
+
+            return prevState.filePick;
+          });
+        }
+      }
+
       this.setState({
         id: i.target.id
-      });
-      console.log(this.defaultState);
-      sessionStorage.setItem(i.target.name, i.target.id); // console.log(i.target.value)
-      // console.log(i.target.name);
+      }); // console.log(this.defaultState);
+
+      sessionStorage.setItem(i.target.name, i.target.id);
+
+      if (i.target.value === 'Нет') {
+        sessionStorage.removeItem(i.target.name);
+      }
     }
   }, {
     key: "howMany",
@@ -6341,11 +6681,15 @@ var RadioB = /*#__PURE__*/function (_React$Component6) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-        className: 'row',
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("label", {
-          htmlFor: "",
-          children: [this.props.title, " ", this.props.span]
-        }), this.howMany()]
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: 'row',
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("label", {
+            htmlFor: "",
+            children: [this.props.title, " ", this.props.span]
+          }), this.howMany()]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          children: this.state.filePick
+        })]
       });
     }
   }]);
@@ -6396,34 +6740,83 @@ function Star(props) {
     })]
   });
 }
-var MBAPropgramRadio = /*#__PURE__*/function (_React$Component7) {
-  _inherits(MBAPropgramRadio, _React$Component7);
+var MBAPropgramRadio = /*#__PURE__*/function (_React$Component9) {
+  _inherits(MBAPropgramRadio, _React$Component9);
 
-  var _super7 = _createSuper(MBAPropgramRadio);
+  var _super9 = _createSuper(MBAPropgramRadio);
 
   function MBAPropgramRadio(props) {
-    var _this6;
+    var _this8;
 
     _classCallCheck(this, MBAPropgramRadio);
 
-    _this6 = _super7.call(this, props);
+    _this8 = _super9.call(this, props);
 
-    _defineProperty(_assertThisInitialized(_this6), "state", {
-      popup: _this6.props.popUpElement,
-      id: _this6.props.checkBoxTitle[0],
-      defaultState: ''
+    _defineProperty(_assertThisInitialized(_this8), "state", {
+      popup: _this8.props.popUpElement,
+      id: _this8.props.checkBoxTitle[0],
+      defaultState: '',
+      filePick: []
     });
 
-    _this6.handleClick = _this6.handleClick.bind(_assertThisInitialized(_this6));
-    return _this6;
+    _this8.handleClick = _this8.handleClick.bind(_assertThisInitialized(_this8));
+
+    if (_this8.props.filePikBox) {
+      var op = Array.from(_this8.props.filePikBox);
+
+      for (var i = 0; i < op.length - 3; i++) {
+        console.log(op[i]);
+
+        _this8.state.filePick.push(op[i]);
+      }
+    }
+
+    return _this8;
   }
 
   _createClass(MBAPropgramRadio, [{
     key: "handleClick",
     value: function handleClick(i) {
+      // this.setState({id: i.target.id});
+      console.log(i.target.value);
+
+      if (this.props.filePikBox) {
+        if (i.target.value.includes('Executive')) {
+          this.setState(function (prevState) {
+            this.state.filePick = [];
+            var op = Array.from(this.props.filePikBox);
+
+            for (var _i3 = 0; _i3 < op.length; _i3++) {
+              console.log(op[_i3]);
+              this.state.filePick.push(op[_i3]);
+            }
+
+            return prevState.filePick;
+          });
+        } else {
+          this.setState(function (prevState) {
+            this.state.filePick = [];
+            var op = Array.from(this.props.filePikBox);
+
+            for (var _i4 = 0; _i4 < op.length - 3; _i4++) {
+              console.log(op[_i4]);
+              this.state.filePick.push(op[_i4]);
+            }
+
+            return prevState.filePick;
+          });
+        }
+      }
+
       this.setState({
         id: i.target.id
-      });
+      }); // console.log(this.defaultState);
+
+      sessionStorage.setItem(i.target.name, i.target.id);
+
+      if (i.target.value === 'Нет') {
+        sessionStorage.removeItem(i.target.name);
+      }
     }
   }, {
     key: "howMany",
@@ -6466,34 +6859,38 @@ var MBAPropgramRadio = /*#__PURE__*/function (_React$Component7) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-        className: 'row',
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("label", {
-          htmlFor: "",
-          children: [this.props.title, " ", this.props.span]
-        }), this.howMany()]
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: 'row',
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("label", {
+            htmlFor: "",
+            children: [this.props.title, " ", this.props.span]
+          }), this.howMany()]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          children: this.state.filePick
+        })]
       });
     }
   }]);
 
   return MBAPropgramRadio;
 }(React.Component);
-var StarFabric = /*#__PURE__*/function (_React$Component8) {
-  _inherits(StarFabric, _React$Component8);
+var StarFabric = /*#__PURE__*/function (_React$Component10) {
+  _inherits(StarFabric, _React$Component10);
 
-  var _super8 = _createSuper(StarFabric);
+  var _super10 = _createSuper(StarFabric);
 
   function StarFabric(props) {
-    var _this7;
+    var _this9;
 
     _classCallCheck(this, StarFabric);
 
-    _this7 = _super8.call(this, props);
-    _this7.state = {
+    _this9 = _super10.call(this, props);
+    _this9.state = {
       option1: false,
       option2: false,
       option3: false
     };
-    return _this7;
+    return _this9;
   }
 
   _createClass(StarFabric, [{
@@ -6559,41 +6956,85 @@ var StarFabric = /*#__PURE__*/function (_React$Component8) {
 
   return StarFabric;
 }(React.Component);
-var FilePicker = /*#__PURE__*/function (_React$Component9) {
-  _inherits(FilePicker, _React$Component9);
+var FilePicker = /*#__PURE__*/function (_React$Component11) {
+  _inherits(FilePicker, _React$Component11);
 
-  var _super9 = _createSuper(FilePicker);
+  var _super11 = _createSuper(FilePicker);
 
   function FilePicker(props) {
-    var _this8;
+    var _this10;
 
     _classCallCheck(this, FilePicker);
 
-    _this8 = _super9.call(this, props);
+    _this10 = _super11.call(this, props);
 
-    _defineProperty(_assertThisInitialized(_this8), "ul", void 0);
+    _defineProperty(_assertThisInitialized(_this10), "ul", void 0);
 
-    _defineProperty(_assertThisInitialized(_this8), "li", []);
+    _defineProperty(_assertThisInitialized(_this10), "li", []);
 
-    _defineProperty(_assertThisInitialized(_this8), "count", 0);
+    _defineProperty(_assertThisInitialized(_this10), "count", 0);
 
-    _defineProperty(_assertThisInitialized(_this8), "picker", void 0);
+    _defineProperty(_assertThisInitialized(_this10), "picker", void 0);
 
-    _defineProperty(_assertThisInitialized(_this8), "filesArray", []);
+    _defineProperty(_assertThisInitialized(_this10), "filesArray", []);
 
-    _defineProperty(_assertThisInitialized(_this8), "state", {
+    _defineProperty(_assertThisInitialized(_this10), "filesTypes", new Map());
+
+    _defineProperty(_assertThisInitialized(_this10), "namePikers", new Map());
+
+    _defineProperty(_assertThisInitialized(_this10), "state", {
       files: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
         children: "No files selected!"
       })
     });
 
-    return _this8;
+    _this10.filesTypes.set('scanFileDocument[]', ['image/jpeg', 'image/jpg', 'image/png', 'application/pdf']);
+
+    _this10.filesTypes.set('resumeFile[]', ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document']);
+
+    _this10.filesTypes.set('foto3x4[]', ['image/jpeg', 'image/jpg', 'image/png', 'application/pdf']);
+
+    _this10.filesTypes.set('fileScanDiplomWithApplication[]', ['image/jpeg', 'image/jpg', 'image/png', 'application/pdf']);
+
+    _this10.filesTypes.set('scanFileCertificateFromWork[]', ['image/jpeg', 'image/jpg', 'image/png', 'application/pdf']);
+
+    _this10.filesTypes.set('medicalDoc[]', ['image/jpeg', 'image/jpg', 'image/png', 'application/pdf']);
+
+    _this10.filesTypes.set('scanCertificate[]', ['image/jpeg', 'image/jpg', 'image/png', 'application/pdf']);
+
+    _this10.filesTypes.set('fileEsse[]', ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document']);
+
+    _this10.filesTypes.set('copyPassport[]', ['image/jpeg', 'image/jpg', 'image/png', 'application/pdf']);
+
+    _this10.filesTypes.set('recomentedLetter[]', ['image/jpeg', 'image/jpg', 'image/png', 'application/pdf']);
+
+    _this10.namePikers.set('scanFileDocument[]', 'Загружаймый файл должен быть формата .pdf или .jpg, .png');
+
+    _this10.namePikers.set('resumeFile[]', 'Загружаймый файл должен быть формата .pdf или .doc');
+
+    _this10.namePikers.set('foto3x4[]', 'Загружаймый файл должен быть формата .pdf или .jpg, .png');
+
+    _this10.namePikers.set('fileScanDiplomWithApplication[]', 'Загружаймый файл должен быть формата .pdf или .jpg, .png');
+
+    _this10.namePikers.set('scanFileCertificateFromWork[]', 'Загружаймый файл должен быть формата .pdf или .jpg, .png');
+
+    _this10.namePikers.set('medicalDoc[]', 'Загружаймый файл должен быть формата .pdf или .jpg, .png');
+
+    _this10.namePikers.set('scanCertificate[]', 'Загружаймый файл должен быть формата .pdf или .jpg .png');
+
+    _this10.namePikers.set('fileEsse[]', 'Загружаймый файл должен быть формата .pdf или .doc');
+
+    _this10.namePikers.set('copyPassport[]', 'Загружаймый файл должен быть формата .pdf или .jpg, .png');
+
+    _this10.namePikers.set('recomentedLetter[]', 'Загружаймый файл должен быть формата .pdf или .jpg, .png');
+
+    return _this10;
   }
 
   _createClass(FilePicker, [{
     key: "deleteFile",
     value: function deleteFile(e) {
-      var _this9 = this;
+      var _this11 = this;
 
       var index = e['target'].parentElement.id;
       var name = e['target'].parentElement.children[1].alt; // console.log(name);
@@ -6619,7 +7060,7 @@ var FilePicker = /*#__PURE__*/function (_React$Component9) {
         });
         this.setState(function () {
           return {
-            files: _this9.ul
+            files: _this11.ul
           };
         });
       } else {
@@ -6635,8 +7076,10 @@ var FilePicker = /*#__PURE__*/function (_React$Component9) {
   }, {
     key: "handleFiles",
     value: function handleFiles(e) {
-      var _this10 = this;
+      var _this12 = this;
 
+      // e.target.name
+      console.log(e.target.name);
       var liStyle = {
         listStyleType: 'none'
       };
@@ -6649,15 +7092,29 @@ var FilePicker = /*#__PURE__*/function (_React$Component9) {
       this.filesArray = this.filesArray.concat(Array.from(this.picker.files));
       var dt1 = new DataTransfer();
       this.filesArray.forEach(function (file) {
-        dt1.items.add(file);
+        if (!_this12.fileValidation(file, _this12.filesTypes, e.target.name)) {
+          alert(_this12.namePikers.get(e.target.name));
+
+          _this12.filesArray.pop();
+        } else {
+          if (!_this12.filesizeCheck(file)) {
+            alert('Размер файла ' + Math.round(file.size / 1024 / 1024) + ' МБ, превышает допустимые 12 МБ');
+
+            _this12.filesArray.pop();
+          } else {
+            dt1.items.add(file);
+          }
+        }
       });
       this.picker.files = dt1.files;
       var files_ = this.picker.files; // console.log(    files_);
 
       if (!files_.length) {
-        this.setState(files_, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-          children: "No files selected!"
-        }));
+        this.setState({
+          files_: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+            children: "No files selected!"
+          })
+        });
       } else {
         this.li = [];
 
@@ -6689,10 +7146,38 @@ var FilePicker = /*#__PURE__*/function (_React$Component9) {
         });
         this.setState(function () {
           return {
-            files: _this10.ul
+            files: _this12.ul
           };
         });
       }
+    }
+  }, {
+    key: "filesizeCheck",
+    value: function filesizeCheck(file) {
+      if (file.size < 12000000) {
+        return true;
+      }
+
+      return false;
+    }
+  }, {
+    key: "fileValidation",
+    value: function fileValidation(file, types, name) {
+      // let fileTypes = [
+      //     'image/jpeg',
+      //     'image/jpg',
+      //     'image/png',
+      //     'application/pdf'
+      // ]
+      console.log(types.get(name));
+
+      for (var i = 0; i < types.get(name).length; i++) {
+        if (file.type === types.get(name)[i]) {
+          return true;
+        }
+      }
+
+      return false;
     }
   }, {
     key: "render",
@@ -6749,21 +7234,21 @@ var FilePicker = /*#__PURE__*/function (_React$Component9) {
   });
 })();
 
-var AddEducation = /*#__PURE__*/function (_React$Component10) {
-  _inherits(AddEducation, _React$Component10);
+var AddEducation = /*#__PURE__*/function (_React$Component12) {
+  _inherits(AddEducation, _React$Component12);
 
-  var _super10 = _createSuper(AddEducation);
+  var _super12 = _createSuper(AddEducation);
 
   function AddEducation(props) {
-    var _this11;
+    var _this13;
 
     _classCallCheck(this, AddEducation);
 
-    _this11 = _super10.call(this, props);
+    _this13 = _super12.call(this, props);
 
-    _defineProperty(_assertThisInitialized(_this11), "title", ['Второе', 'Третье', 'Четвертое', 'Пятое', 'Шестое', 'Седьмое', 'Восьмое']);
+    _defineProperty(_assertThisInitialized(_this13), "title", ['Второе', 'Третье', 'Четвертое', 'Пятое', 'Шестое', 'Седьмое', 'Восьмое']);
 
-    _defineProperty(_assertThisInitialized(_this11), "state", {
+    _defineProperty(_assertThisInitialized(_this13), "state", {
       allState: [],
       fristDate: new Map(),
       seconDate: new Map(),
@@ -6771,10 +7256,10 @@ var AddEducation = /*#__PURE__*/function (_React$Component10) {
       specEduc: new Map()
     });
 
-    _this11.AddElement = _this11.AddElement.bind(_assertThisInitialized(_this11));
-    _this11.DeleteElement = _this11.DeleteElement.bind(_assertThisInitialized(_this11));
-    _this11.StartDate = _this11.StartDate.bind(_assertThisInitialized(_this11));
-    return _this11;
+    _this13.AddElement = _this13.AddElement.bind(_assertThisInitialized(_this13));
+    _this13.DeleteElement = _this13.DeleteElement.bind(_assertThisInitialized(_this13));
+    _this13.StartDate = _this13.StartDate.bind(_assertThisInitialized(_this13));
+    return _this13;
   }
 
   _createClass(AddEducation, [{
@@ -7035,13 +7520,13 @@ __webpack_require__.r(__webpack_exports__);
 function getNames() {
   var nameIndex = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
   var N = [];
-  var names1 = ['surname', 'name', 'patronymic', 'gender', 'familyStatus', 'amountOfChildren', 'citizenship', 'nationality', 'dataOfBirth', 'Iin', 'typeDocument', 'numberDocument', 'kemVidanDoc', 'dateMonthYearDoc', 'cityOfResidence', 'homeAdress', 'mobileNumber', 'mobileNumberTwo', 'email', 'emailTwo'];
-  var names2 = ['positionAtWord', 'nameOfTheCompany', 'legalAdress', 'firstWorkExperience', 'upravlencheskiy_stazh', 'jobType', 'fieldOfActivity', 'availabilityOfBusinessTrips', 'availabilityOfBusinessTripsInputYes', 'availabilityOfBusinessTripsInputDuration'];
+  var names1 = ['surname', 'name', 'patronymic', 'gender', 'familyStatus', 'amountOfChildren', 'citizenship', 'nationality', 'dataOfBirth', 'Iin', 'typeDocument', 'numberDocument', 'kemVidanDoc', 'otherKemVidanDoc', 'dateMonthYearDoc', 'cityOfResidence', 'homeAdress', 'mobileNumber', 'mobileNumberTwo', 'email', 'emailTwo'];
+  var names2 = ['positionAtWord', 'nameOfTheCompany', 'legalAdress', 'firstWorkExperience', 'upravlencheskiy_stazh', 'jobType', 'fieldOfActivity', 'additionally', 'fieldOfActivityOther', 'availabilityOfBusinessTrips', 'availabilityOfBusinessTripsInputYes', 'availabilityOfBusinessTripsInputDuration'];
   var stars;
   var bankRequisites;
   var names3 = ['startEducation', 'endEducation', 'languageEducation', 'qualification', 'fullNameUniversity', 'speciality', // 'checkSecondDegree', убрать
   // 'checkMasterDegree', убрать
-  'checkLanguageKazakh', 'checkLanguageEnglish', 'checkLanguageFrench', 'checkLanguageGerman', 'checkLanguageChinese', 'checkOtherLanguages', 'englishProficiencyCertificates', 'certificateIssueDate', 'hobby', 'achievements', 'reasonForLearning', 'suite', 'otherSuite', 'socialNetwork', 'PageInFacebook', 'PageInInstagram', 'PageInTwitter', 'checkBoxAboutMBA', 'checkBoxReasonsForChoosingMBA', 'otherReason', stars = ['starsTheQualityOfEducation', 'starsLargeSelectionOfPrograms', 'starsLocationSchool', 'starsDiscounts', 'starsDurationEducation', 'starsСostOfEducation', 'starsReputationMBA', 'starsPartPayment', 'starsFormOfEducation', 'starsCompositionOfTeachers'], 'otherСharacteristics', bankRequisites = ['requisites', 'bin', 'reqYurAdress', 'bank', 'reqEmail', 'fioSupervisor', 'reqName', 'rnn', 'telFax', 'iik', 'reqSuite', 'reqPositionHead'], 'checkBoxSourceOfFinancing', 'checkBoxMBAProgram', 'scanFileDocument', 'resumeFile', 'foto3x4', 'fileScanDiplomWithApplication', 'scanFileCertificateFromWork', 'medicalDoc', 'scanCertificate', 'fileEsse', 'copyPassport', 'recomentedLetter'];
+  'checkLanguageKazakh', 'checkLanguageEnglish', 'checkLanguageFrench', 'checkLanguageGerman', 'checkLanguageChinese', 'checkOtherLanguages', 'englishProficiencyCertificates', 'certificateIssueDate', 'hobby', 'achievements', 'reasonForLearning', 'suite', 'otherSuite', 'socialNetwork', 'PageInFacebook', 'PageInInstagram', 'PageInTwitter', 'checkBoxAboutMBA', 'checkBoxReasonsForChoosingMBA', 'otherProgramViewMBA', 'checkBoxMBACharacteristics', stars = ['starsTheQualityOfEducation', 'starsLargeSelectionOfPrograms', 'starsLocationSchool', 'starsDiscounts', 'starsDurationEducation', 'starsСostOfEducation', 'starsReputationMBA', 'starsPartPayment', 'starsFormOfEducation', 'starsCompositionOfTeachers'], 'otherСharacteristics', bankRequisites = ['requisites', 'bin', 'reqYurAdress', 'bank', 'reqEmail', 'fioSupervisor', 'reqName', 'rnn', 'telFax', 'iik', 'reqSuite', 'reqPositionHead'], 'checkBoxSourceOfFinancing', 'checkBoxMBAProgram', 'scanFileDocument', 'resumeFile', 'foto3x4', 'fileScanDiplomWithApplication', 'scanFileCertificateFromWork', 'medicalDoc', 'scanCertificate', 'fileEsse', 'copyPassport', 'recomentedLetter'];
   N[0] = names1;
   N[1] = names2;
   N[2] = names3;
@@ -7206,7 +7691,7 @@ function tabs_1(names) {
 
   input = [];
   title = ['№ документа удостоверяющий личность', 'Кем выдан'];
-  var kemVidanDoc = ['kemVidanDoc'];
+  var kemVidanDoc = ['МЮ РК', 'МВД РК', 'Другое'];
 
   if (dropdownValues) {
     kemVidanDoc = dropdownValues['kemVidanDoc'];
@@ -7218,41 +7703,58 @@ function tabs_1(names) {
   }));
   count += 2; // let dop = <input type="date" name={names[count]} className={"col-lg-0 user-cardissueddate"}/>;
 
-  var dop = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.dataPiker)('когда', names[count], 'col-lg-6', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
+  var dop = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.dataPiker)('когда', names[count + 1], 'col-lg-6', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
     id: names[count]
   }));
   count--;
-  input[1] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.dropDown)(title[1], names[count], sec[0], dop, 'col-lg-4', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
-    id: names[count]
-  }), 0);
-  count += 2;
+  input[1] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.DropDownKemVidanDoc, {
+    title: title[1],
+    name: names[count],
+    otherName: names[count + 1],
+    section: sec[0],
+    sample: dop,
+    className: 'col-lg-6',
+    span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
+      id: names[count]
+    })
+  });
+  count += 3;
   allcode[4] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     className: "form-group row",
     children: input
   }, count); // ------------------------------------------------------------------------------------------
 
   input = [];
-  title = ['Город проживания', 'Домашний адрес', 'Мобильный телефон', 'Второй мобильный номер', 'Личная электронная почта'];
+  title = ['Город проживания', 'Домашний адрес'];
 
-  for (var _i2 = 0; _i2 < title.length - 1; _i2++) {
-    if (_i2 === 2) {
-      // input[i] = inputField(title[i], names[count], 'col-lg-3', '','', RequiredSpan());
-      input[_i2] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputFieldOnlyNumber)(title[_i2], names[count], 'col-lg-3', '', '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
-        id: names[count]
-      }));
-    } else if (_i2 === 3) {
-      input[_i2] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputFieldOnlyNumber)(title[_i2], names[count], 'col-lg-3', '', '');
-    } else input[_i2] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[_i2], names[count], 'col-lg-3', null, '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
+  for (var _i2 = 0; _i2 < title.length; _i2++) {
+    input[_i2] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[_i2], names[count], 'col-lg-6', null, '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
       id: names[count]
     }));
-
-    count++;
+    count++; // if(i === 2 ) {
+    //     // input[i] = inputField(title[i], names[count], 'col-lg-3', '','', RequiredSpan());
+    //     input[i] = inputFieldOnlyNumber(title[i], names[count], 'col-lg-3', '','', <RequiredSpan id={names[count]}/>);
+    // }
   }
 
   allcode[5] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     className: "form-group row",
     children: input
-  }, count);
+  }, count); //------------------------------------------------------------------------------------
+
+  input = [];
+  title = ['Мобильный телефон', 'Второй мобильный номер'];
+  input[0] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputFieldOnlyNumberForMobile)(title[0], names[count], 'col-lg-3 d-flex', '', '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
+    id: names[count]
+  }), '+7 ');
+  count++;
+  input[1] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputFieldOnlyNumberForMobile)(title[1], names[count], 'col-lg-3 d-flex', '', '', null, '+7 ');
+  count++;
+  allcode[6] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    className: "form-group row",
+    children: input
+  }, count); //------------------------------------------------------------------------------------
+
   input = [];
   input[0] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputFieldEmail)('Личная электронная почта', names[count], 'col-lg-6', null, '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
     id: names[count]
@@ -7260,7 +7762,7 @@ function tabs_1(names) {
   count++;
   input[1] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.inputField)('Электронная почта (корпоративный)', names[count], 'col-lg-6', null, '');
   count++;
-  allcode[6] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+  allcode[7] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     className: "form-group row",
     children: input
   }, count);
@@ -7270,7 +7772,7 @@ function tabs_1(names) {
     marginTop: '20px'
   };
   var tab2 = document.getElementById('2-tab');
-  allcode[7] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+  allcode[8] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     className: "",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
       className: "d-flex align-items-lg-end",
@@ -7358,7 +7860,7 @@ function tabs_2(names) {
 
   input = [];
   title = ['Управленческий стаж', 'Вы являетесь', 'Сфера деятельности'];
-  var fieldOfActivity = ['fieldOfActivity'];
+  var fieldOfActivity = ['fieldOfActivity', 'sadsa', 'asdsad'];
   var jobType = ['jobType'];
 
   if (dropdownValues) {
@@ -7375,10 +7877,17 @@ function tabs_2(names) {
     id: names[count]
   }), 0);
   count++;
-  input[2] = (0,_components_js__WEBPACK_IMPORTED_MODULE_0__.dropDown)(title[2], names[count], sec[1], null, null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
-    id: names[count]
-  }), 1);
-  count++;
+  input[2] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.DropDownfieldOfActivity, {
+    title: title[2],
+    name: names[count],
+    dopmenuname: names[count + 1],
+    otherName: names[count + 2],
+    section: sec[1],
+    span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_js__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
+      id: names[count]
+    })
+  }, 1);
+  count += 3;
   allcode[3] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     className: "form-group row",
     children: input
@@ -7509,10 +8018,10 @@ function tabs_3(names) {
     id: names[count]
   }), 1);
   count++;
-  allcode[0] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+  allcode.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
     className: "form-group row",
     children: [labelvar, input]
-  }, count); //----------------------------------------------------------------------------------
+  }, count)); //----------------------------------------------------------------------------------
 
   input = [];
   title = ['Язык обучения', 'Академическая степень/квалификация'];
@@ -7533,10 +8042,10 @@ function tabs_3(names) {
     id: names[count]
   }), 1);
   count++;
-  allcode[1] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+  allcode.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     className: "form-group row",
     children: input
-  }, count); // ------------------------------------------------------------------------------------------
+  }, count)); // ------------------------------------------------------------------------------------------
 
   input = [];
   title = ['Полное наименование учебного заведения'];
@@ -7544,10 +8053,10 @@ function tabs_3(names) {
     id: names[count]
   }));
   count++;
-  allcode[2] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+  allcode.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     className: "form-group row",
     children: input
-  }, count); // ------------------------------------------------------------------------------------------
+  }, count)); // ------------------------------------------------------------------------------------------
 
   input = [];
   title = ['Специальность (например, юриспруденция или разработка нефтяных и газовых месторождений)'];
@@ -7555,10 +8064,10 @@ function tabs_3(names) {
     id: names[count]
   }));
   count++;
-  allcode[3] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+  allcode.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     className: "form-group row",
     children: input
-  }, count); // ------------------------------------------------------------------------------------------
+  }, count)); // ------------------------------------------------------------------------------------------
 
   input = [];
   labelvar = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
@@ -7573,10 +8082,11 @@ function tabs_3(names) {
       dropdownValues: dropdownValues
     })
   }, 1);
-  allcode[4] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+  allcode.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
     className: "form-group row",
     children: [labelvar, input]
-  }, 8); //     input = [];
+  }, 8)); // console.log(allcode);
+  //     input = [];
   //     title = ['Язык обучения','Имеется ли второе высшее образование ','Имеется ли магистерская степень'];
   //
   //     // let languageEducation = ['languageEducation'];
@@ -7634,13 +8144,18 @@ function tabs_3(names) {
   }
 
   var arrayFromBack = ['qualification'];
-  allcode[5] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+  allcode.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
     id: 'lang',
     className: "form-group row",
     children: [labelvar, input, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.OtherLanguageButton, {
       dropdown: arrayFromBack
     })]
-  }, count);
+  }, count)); // allcode[5] = <div id={'lang'} className={"form-group row"} key={count}>
+  //                         {labelvar}
+  //                         {input}
+  //                         <OtherLanguageButton  dropdown={arrayFromBack}/>
+  //                 </div>;
+
   count++; // ------------------------------------------------------------------------------------------
 
   input = [];
@@ -7656,10 +8171,10 @@ function tabs_3(names) {
   count++;
   input[1] = (0,_components__WEBPACK_IMPORTED_MODULE_0__.dataPiker)(title[1], names[count], 'col-lg-6');
   count++;
-  allcode[6] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+  allcode.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     className: "form-group row",
     children: input
-  }, count); // ------------------------------------------------------------------------------------------
+  }, count)); // ------------------------------------------------------------------------------------------
 
   input = [];
   title = ['Пожалуйста, поделитесь с нами деятельностью и/или интересами, которые имеют для Вас большое значение.'];
@@ -7672,10 +8187,10 @@ function tabs_3(names) {
     checkBoxTitle: titleForCheckBox
   }, count);
   count++;
-  allcode[7] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+  allcode.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     className: "form-group row",
     children: input
-  }, count); // ------------------------------------------------------------------------------------------
+  }, count)); // ------------------------------------------------------------------------------------------
 
   input = [];
   title = ['Пожалуйста, перечислите три ваших самых больших достижения'];
@@ -7683,10 +8198,10 @@ function tabs_3(names) {
     id: names[count]
   }));
   count++;
-  allcode[8] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+  allcode.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     className: "form-group row",
     children: input
-  }, count); // ------------------------------------------------------------------------------------------
+  }, count)); // ------------------------------------------------------------------------------------------
 
   input = [];
   title = ['Почему вы решили обучаться на программе MBA?'];
@@ -7694,10 +8209,10 @@ function tabs_3(names) {
     id: names[count]
   }));
   count++;
-  allcode[9] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+  allcode.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     className: "form-group row",
     children: input
-  }, count); // ------------------------------------------------------------------------------------------
+  }, count)); // ------------------------------------------------------------------------------------------
 
   input = [];
   title = ['Какие информационные сайты вы читаете?'];
@@ -7716,10 +8231,10 @@ function tabs_3(names) {
   count++;
   input[1] = (0,_components__WEBPACK_IMPORTED_MODULE_0__.inputField)('', names[count], 'col-lg-12', '', 'Другое');
   count++;
-  allcode[10] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+  allcode.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     className: "form-group row",
     children: input
-  }, count); // ------------------------------------------------------------------------------------------
+  }, count)); // ------------------------------------------------------------------------------------------
 
   input = [];
   title = ['Какими социальными сетями/мессенжерами вы пользуетесь?'];
@@ -7736,10 +8251,10 @@ function tabs_3(names) {
     })
   }, count);
   count++;
-  allcode[11] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+  allcode.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     className: "form-group row",
     children: input
-  }, count); // ------------------------------------------------------------------------------------------
+  }, count)); // ------------------------------------------------------------------------------------------
 
   input = [];
   title = ['Ваша страница в Facebook', 'Ваша страница в Instagram', 'Ваша страница в Twitter'];
@@ -7753,16 +8268,17 @@ function tabs_3(names) {
     count++;
   }
 
-  allcode[12] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+  allcode.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     className: "form-group row",
     children: input
-  }, count); // ------------------------------------------------------------------------------------------
+  }, count)); // ------------------------------------------------------------------------------------------
 
   input = [];
   title = ['Как Вы узнали о программах МВА Высшей Школы Бизнеса AlmaU '];
-  titleForCheckBox = ['Рекомендация родственников, друзей, коллег, знакомых', 'Работодатель/Отдел кадров', 'Целенаправленный поиск МВА', 'Выставки/конференции/мероприятия', 'Реклама в медиа'];
-  input[0] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RadioB, {
-    classN: 'col-lg-8',
+  titleForCheckBox = ['Рекомендация родственников, друзей, коллег', 'Работодатель/Отдел кадров', 'Целенаправленный поиск МВА', 'Реклама в медиа', 'Реклама в Facebook', 'Реклама в Instagram', 'Поиск в Google', 'Поиск в Яндекс', 'Выставки/конференции/мероприятия'];
+  input[0] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.CheckBox, {
+    input: true,
+    classN: 'col-lg-12',
     name: names[count],
     column: 1,
     count: titleForCheckBox.length,
@@ -7771,17 +8287,18 @@ function tabs_3(names) {
     span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
       id: names[count]
     })
-  }, count);
+  }, count); // input[0] = <RadioB classN={'col-lg-8'} name={names[count]} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} span={<RequiredSpan id={names[count]}/>}/>;
+
   count++; //
 
-  allcode[13] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+  allcode.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     className: "form-group row",
     children: input
-  }, count); // ------------------------------------------------------------------------------------------
+  }, count)); // ------------------------------------------------------------------------------------------
 
   input = [];
   title = ['Причины, по которым Вы выбрали МВА Высшей Школы Бизнеса AlmaU'];
-  titleForCheckBox = ['Положительная репутация вуза на рынке бизнес-образования', 'Практическая направленность обучения, приближенная к казахстанским реалиям', 'Высококвалифицированный профессорско-преподавательский состав', 'Клиентоориентированность персонала, индивидуальный подход', 'Удобная форма обучения', 'Доступная цена', 'Гибкий график оплаты', 'Наличие системы скидок', 'Рекомендации родственников, друзей, коллег, знакомых', 'Удобное месторасположение', 'Нет или не знаю альтернативы', 'Международная аккредитация', 'Возможность обучения без отрыва от работы', ''];
+  titleForCheckBox = ['Положительная репутация бизнес-школы на рынке бизнес-образования', 'Практическая направленность обучения, приближенная к казахстанским реалиям', 'Высококвалифицированный профессорско-преподавательский состав', 'Клиентоориентированность персонала, индивидуальный подход', 'Удобная форма обучения', 'Доступная цена', 'Гибкий график оплаты', 'Наличие системы скидок', 'Рекомендации родственников, друзей, коллег', 'Удобное месторасположение', 'Международная аккредитация', 'Возможность обучения без отрыва от работы', 'Нет или не знаю альтернативы', ''];
   input[0] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.CheckBox, {
     input: true,
     classN: 'col-lg-12',
@@ -7794,11 +8311,43 @@ function tabs_3(names) {
       id: names[count]
     })
   }, count);
-  count += 2;
-  allcode[14] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+  count++;
+  allcode.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     className: "form-group row",
     children: input
-  }, count); // ------------------------------------------------------------------------------------------
+  }, count)); //-------------------------------------------------------------------------------------
+
+  input = [];
+  title = ['Какие еще программы Вы рассматривали?'];
+  input[0] = (0,_components__WEBPACK_IMPORTED_MODULE_0__.TextArea)(title[0], names[count], 'col-lg-12', null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
+    id: names[count]
+  }));
+  count++;
+  allcode.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+    className: "form-group row",
+    children: input
+  }, count)); //------------------------------------------------------------------------------------------
+
+  input = [];
+  title = ['Выберите характеристики программы МВА, которые для Вас важны'];
+  titleForCheckBox = ['Качество образования', 'Стоимость обучения', 'Большой выбор программ', 'Репутация бизнес-школы /университета', 'Месторасположение бизнес-школы', 'Наличие гибкой системы оплаты', 'Наличие скидок', 'Форма обучения', 'Продолжительность обучения', 'Состав преподавателей', ''];
+  input[0] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.CheckBox, {
+    input: true,
+    classN: 'col-lg-12',
+    name: names[count],
+    column: 1,
+    count: titleForCheckBox.length,
+    title: title,
+    checkBoxTitle: titleForCheckBox,
+    span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
+      id: names[count]
+    })
+  }, count);
+  count++;
+  allcode.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+    className: "form-group row",
+    children: input
+  }, count)); // ------------------------------------------------------------------------------------------
 
   input = [];
   title = [];
@@ -7820,19 +8369,19 @@ function tabs_3(names) {
     titleForStar: titleForStar
   }, count);
   count++;
-  allcode[15] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+  allcode.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
     className: "form-group row",
     children: [labelvar, input]
-  }, count); // ------------------------------------------------------------------------------------------
+  }, count)); // ------------------------------------------------------------------------------------------
 
   input = [];
   title = ['Другое'];
   input[0] = (0,_components__WEBPACK_IMPORTED_MODULE_0__.inputField)(title[0], names[count], 'col-lg-12', '', '');
   count++;
-  allcode[16] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+  allcode.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     className: "form-group row",
     children: input
-  }, count); // ------------------------------------------------------------------------------------------
+  }, count)); // ------------------------------------------------------------------------------------------
 
   input = [];
   title = ['Источник финансирования Вашего обучения'];
@@ -7948,13 +8497,14 @@ function tabs_3(names) {
     })
   }, count);
   count++;
-  allcode[17] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+  allcode.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     className: "form-group row",
     children: input
-  }, count); // ------------------------------------------------------------------------------------------
+  }, count)); // ------------------------------------------------------------------------------------------
 
   input = [];
   title = ['Выберите программу МВА']; //окончательная версия
+  // let underMBAprogram = [[]];
 
   titleForCheckBox = [];
   popUpElement = [];
@@ -7975,7 +8525,7 @@ function tabs_3(names) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
           children: MBAprogram[key][_i3]
         })]
-      }, _i3));
+      }));
     }
 
     var popup = '';
@@ -7989,14 +8539,247 @@ function tabs_3(names) {
     }
 
     popUpElement.push(popup);
-  }
+  } //     titleForCheckBox = ['General MBA - Казахстанская программа MBA',
+  //         'Казахстанская модульно-дистанционная программа',
+  //         'Executive MBA Двудипломная программа с Высшей Школой Менеджмента Санкт-Петербургского Государственного Университета (Россия)',
+  //         'МВА Финансовый инжиниринг',
+  //         'МВА Менеджмент в здравоохранении',
+  //         'МВА Менеджмент в социальной сфере(г. Нур-Султан)',
+  //         'МВА (г. Ташкент)',
+  //         'МВА (г. Душанбе)'
+  //     ];
 
-  titleForCheckBox = ['General MBA - Казахстанская программа MBA', 'Казахстанская модульно-дистанционная программа', 'xecutive MBA Двудипломная программа с Высшей Школой Менеджмента Санкт-Петербургского Государственного Университета (Россия)', 'МВА Финансовый инжиниринг', 'МВА Менеджмент в здравоохранении', 'МВА Менеджмент в социальной сфере(г. Нур-Султан)', 'МВА (г. Ташкент)', 'МВА (г. Душанбе)'];
+
+  var one = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+    className: "label_in_ ms-5",
+    id: "label_in_1_",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
+      className: "radio source_label_",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+        type: "radio",
+        name: names[count],
+        defaultChecked: true,
+        value: "General MBA - \u041A\u0430\u0437\u0430\u0445\u0441\u0442\u0430\u043D\u0441\u043A\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 MBA -> \u0432\u0435\u0447\u0435\u0440\u043D\u044F\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+        children: "\u0432\u0435\u0447\u0435\u0440\u043D\u044F\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
+      className: "radio source_label_",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+        type: "radio",
+        name: names[count],
+        value: "General MBA - \u041A\u0430\u0437\u0430\u0445\u0441\u0442\u0430\u043D\u0441\u043A\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 MBA -> \u043C\u043E\u0434\u0443\u043B\u044C\u043D\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+        children: "\u043C\u043E\u0434\u0443\u043B\u044C\u043D\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
+      className: "radio source_label_",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+        type: "radio",
+        name: names[count],
+        value: "General MBA - \u041A\u0430\u0437\u0430\u0445\u0441\u0442\u0430\u043D\u0441\u043A\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 MBA -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433. \u041D\u0443\u0440-\u0421\u0443\u043B\u0442\u0430\u043D"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u041D\u0443\u0440-\u0421\u0443\u043B\u0442\u0430\u043D"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
+      className: "radio source_label_",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+        type: "radio",
+        name: names[count],
+        value: "General MBA - \u041A\u0430\u0437\u0430\u0445\u0441\u0442\u0430\u043D\u0441\u043A\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 MBA -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433. \u0410\u0442\u044B\u0440\u0430\u0443"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u0410\u0442\u044B\u0440\u0430\u0443"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
+      className: "radio source_label_",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+        type: "radio",
+        name: names[count],
+        value: "General MBA - \u041A\u0430\u0437\u0430\u0445\u0441\u0442\u0430\u043D\u0441\u043A\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 MBA -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433.\u0410\u043A\u0442\u0430\u0443"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u0410\u043A\u0442\u0430\u0443"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
+      className: "radio  source_label_",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+        type: "radio",
+        name: names[count],
+        value: "General MBA - \u041A\u0430\u0437\u0430\u0445\u0441\u0442\u0430\u043D\u0441\u043A\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 MBA -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433.\u0410\u043A\u0442\u043E\u0431\u0435"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433.\u0410\u043A\u0442\u043E\u0431\u0435"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
+      className: "radio source_label_ ",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+        type: "radio",
+        name: names[count],
+        value: "General MBA - \u041A\u0430\u0437\u0430\u0445\u0441\u0442\u0430\u043D\u0441\u043A\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 MBA -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433.\u041A\u044B\u0437\u044B\u043B\u043E\u0440\u0434\u0430"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433.\u041A\u044B\u0437\u044B\u043B\u043E\u0440\u0434\u0430"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
+      className: "radio source_label_ ",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+        type: "radio",
+        name: names[count],
+        value: "General MBA - \u041A\u0430\u0437\u0430\u0445\u0441\u0442\u0430\u043D\u0441\u043A\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 MBA -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433.\u0428\u044B\u043C\u043A\u0435\u043D\u0442"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u0428\u044B\u043C\u043A\u0435\u043D\u0442"
+      })]
+    })]
+  });
+
+  var two = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+    className: "label_in_ ms-5",
+    id: "label_in_2_",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
+      className: "radio source_label_ ",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+        type: "radio",
+        name: names[count],
+        value: "\u041A\u0430\u0437\u0430\u0445\u0441\u0442\u0430\u043D\u0441\u043A\u0430\u044F \u043C\u043E\u0434\u0443\u043B\u044C\u043D\u043E-\u0434\u0438\u0441\u0442\u0430\u043D\u0446\u0438\u043E\u043D\u043D\u0430\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
+      })]
+    })
+  });
+
+  var three = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+    className: "label_in_ ms-5",
+    id: "label_in_5_",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
+      className: "radio source_label_",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+        type: "radio",
+        name: names[count],
+        value: "\u041C\u0412\u0410 \u0424\u0438\u043D\u0430\u043D\u0441\u043E\u0432\u044B\u0439 \u0438\u043D\u0436\u0438\u043D\u0438\u0440\u0438\u043D\u0433 -> \u0432\u0435\u0447\u0435\u0440\u043D\u044F\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+        children: "\u0432\u0435\u0447\u0435\u0440\u043D\u044F\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
+      className: "radio source_label_",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+        type: "radio",
+        name: names[count],
+        value: "\u041C\u0412\u0410 \u0424\u0438\u043D\u0430\u043D\u0441\u043E\u0432\u044B\u0439 \u0438\u043D\u0436\u0438\u043D\u0438\u0440\u0438\u043D\u0433 -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u041D\u0443\u0440-\u0421\u0443\u043B\u0442\u0430\u043D"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u041D\u0443\u0440-\u0421\u0443\u043B\u0442\u0430\u043D"
+      })]
+    })]
+  });
+
+  var four = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+    className: "label_in_ ms-5",
+    id: "label_in_6_",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
+      className: "radio source_label_",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+        type: "radio",
+        name: names[count],
+        value: "\u041C\u0412\u0410 \u041C\u0435\u043D\u0435\u0434\u0436\u043C\u0435\u043D\u0442 \u0432 \u0437\u0434\u0440\u0430\u0432\u043E\u043E\u0445\u0440\u0430\u043D\u0435\u043D\u0438\u0438 -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u0410\u043B\u043C\u0430\u0442\u044B"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
+      className: "radio source_label_",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+        type: "radio",
+        name: names[count],
+        value: "\u041C\u0412\u0410 \u041C\u0435\u043D\u0435\u0434\u0436\u043C\u0435\u043D\u0442 \u0432 \u0437\u0434\u0440\u0430\u0432\u043E\u043E\u0445\u0440\u0430\u043D\u0435\u043D\u0438\u0438 -> \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u041D\u0443\u0440-\u0421\u0443\u043B\u0442\u0430\u043D"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+        children: "\u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u0432 \u0433. \u041D\u0443\u0440-\u0421\u0443\u043B\u0442\u0430\u043D"
+      })]
+    })]
+  });
+
+  popUpElement = [one, two, '', three, four];
+  var pickArr = [];
+  var co = count + 1;
+  pickArr.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
+    name: names[co] + '[]',
+    uploadLabel: 'Прикрепить скан удостоверение личности (.pdf или .jpg, .png)',
+    span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
+      id: names[co]
+    })
+  }, co));
+  co++;
+  pickArr.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
+    name: names[co] + '[]',
+    uploadLabel: 'Прикрепить резюме (.pdf или .doc)',
+    span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
+      id: names[co]
+    })
+  }, co));
+  co++;
+  pickArr.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
+    name: names[co] + '[]',
+    uploadLabel: 'фото 3х4 6шт (.pdf или .doc)',
+    span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
+      id: names[co]
+    })
+  }, co));
+  co++;
+  pickArr.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
+    name: names[co] + '[]',
+    uploadLabel: 'Прикрепить скан диплома с приложением (.pdf или .jpg, .png)',
+    span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
+      id: names[co]
+    })
+  }, co));
+  co++;
+  pickArr.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
+    name: names[co] + '[]',
+    uploadLabel: 'Прикрепить скан справки с места работы с указанием должности (.pdf или .jpg, .png)',
+    span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
+      id: names[co]
+    })
+  }, co));
+  co++;
+  pickArr.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
+    name: names[co] + '[]',
+    uploadLabel: 'Медицинская справка (форма 075У) (.pdf или .doc)',
+    span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
+      id: names[co]
+    })
+  }, co));
+  co++;
+  pickArr.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
+    name: names[co] + '[]',
+    uploadLabel: 'Прикрепить скан сертификата на знание Английского языка (.pdf или .jpg)',
+    span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
+      id: names[co]
+    })
+  }, co));
+  co++;
+  pickArr.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
+    name: names[co] + '[]',
+    uploadLabel: 'Прикрепить мотивационное эссе (.pdf или .doc)',
+    span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
+      id: names[co]
+    })
+  }, co));
+  co++;
+  pickArr.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
+    name: names[co] + '[]',
+    uploadLabel: 'Копия паспорта (.pdf или .jpg, .png)',
+    span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
+      id: names[co]
+    })
+  }, co));
+  co++;
+  pickArr.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
+    name: names[co] + '[]',
+    uploadLabel: '2 рекомендательных письма (.pdf или .jpg, .png)',
+    span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
+      id: names[co]
+    })
+  }, co));
   input[0] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.MBAPropgramRadio, {
+    filePikBox: pickArr,
     input: true,
     popUpElement: popUpElement,
     classN: 'col-lg-12',
-    name: 'notname',
+    name: names[count],
     column: 1,
     count: titleForCheckBox.length,
     title: title,
@@ -8004,96 +8787,38 @@ function tabs_3(names) {
     span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
       id: names[count]
     })
-  }, count); // input[0] = <RadioB input={true} hidden={true} popupIndex={[0,1,3,4]} popUpElement={popUpElement} classN={'col-lg-12'} name={'notname'} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} span={<RequiredSpan id={names[count]}/>}/>;
+  }, count); // input[0] = <RadioB filePikBox={pickArr} input={true} hidden={true} popupIndex={[0,1,3,4]} popUpElement={popUpElement} classN={'col-lg-12'} name={names[count]} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} span={<RequiredSpan id={names[count]}/>}/>;
 
   count++;
-  allcode[18] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+  allcode.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     className: "form-group row",
-    children: [" ", input]
-  }, count + 100); // ------------------------------------------------------------------------------------------
+    children: input
+  }, count + 100)); // allcode[18] =  <div className={"form-group row"} key={count+100} > {input}</div>;
+  // ------------------------------------------------------------------------------------------
+  // console.log(count);
+  // allcode.push( <FilePicker name={names[count]+'[]'} uploadLabel={'Прикрепить скан удостоверение личности (.pdf или .jpg, .png)'} key={count} span={<RequiredSpan id={names[count]}/>} />);
+  // count++;
+  // allcode.push( <FilePicker name={names[count]+'[]'} uploadLabel={'Прикрепить резюме (.pdf или .doc)'} key={count} span={<RequiredSpan id={names[count]}/>}/>);
+  // count++;
+  // allcode.push( <FilePicker name={names[count]+'[]'} uploadLabel={'6 фото 3х4 (.pdf или .doc)'} key={count} span={<RequiredSpan id={names[count]}/>}/>);
+  // count++;
+  // allcode.push(<FilePicker name={names[count]+'[]'} uploadLabel={'Прикрепить скан диплома с приложением (.pdf или .jpg, .png)'} key={count} span={<RequiredSpan id={names[count]}/>}/>);
+  // count++;
+  // allcode.push(<FilePicker name={names[count]+'[]'} uploadLabel={'Прикрепить скан справки с места работы с указанием должности (.pdf или .jpg, .png)'} key={count} span={<RequiredSpan id={names[count]}/>}/>);
+  // count++;
+  // allcode.push(<FilePicker name={names[count]+'[]'} uploadLabel={'Медицинская справка (форма 075У) (.pdf или .doc)'} key={count} span={<RequiredSpan id={names[count]}/>}/>);
+  // count++;
+  // allcode.push(<FilePicker name={names[count]+'[]'} uploadLabel={'Прикрепить скан сертификата на знание Английского языка (.pdf или .jpg)'} key={count} span={<RequiredSpan id={names[count]}/>}/>);
+  // count++;
+  // allcode.push(<FilePicker name={names[count]+'[]'} uploadLabel={'Прикрепить мотивационное эссе (.pdf или .doc)'} key={count} span={<RequiredSpan id={names[count]}/>}/>);
+  // count++;
+  // allcode.push( <FilePicker name={names[count]+'[]'} uploadLabel={'Копия паспорта (.pdf или .jpg, .png)'} key={count} span={<RequiredSpan id={names[count]}/>}/>);
+  // count++;
+  // allcode.push(  <FilePicker name={names[count]+'[]'} uploadLabel={'2 рекомендательных письма (.pdf или .jpg, .png)'} key={count} span={<RequiredSpan id={names[count]}/>}/>);
+  // count++;
+  // ------------------------------------------------------------------------------------------
 
-  allcode[19] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
-    name: names[count] + '[]',
-    uploadLabel: 'Прикрепить скан удостоверение личности (.pdf или .jpg, .png)',
-    span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
-      id: names[count]
-    })
-  }, count);
-  count++;
-  allcode[20] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
-    name: names[count] + '[]',
-    uploadLabel: 'Прикрепить резюме (.pdf или .doc)',
-    span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
-      id: names[count]
-    })
-  }, count);
-  count++;
-  allcode[21] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
-    name: names[count] + '[]',
-    uploadLabel: '6 фото 3х4 (.pdf или .doc)',
-    span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
-      id: names[count]
-    })
-  }, count);
-  count++;
-  allcode[22] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
-    name: names[count] + '[]',
-    uploadLabel: 'Прикрепить скан диплома с приложением (.pdf или .jpg, .png)',
-    span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
-      id: names[count]
-    })
-  }, count);
-  count++;
-  allcode[23] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
-    name: names[count] + '[]',
-    uploadLabel: 'Прикрепить скан справки с места работы с указанием должности (.pdf или .jpg, .png)',
-    span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
-      id: names[count]
-    })
-  }, count);
-  count++;
-  allcode[24] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
-    name: names[count] + '[]',
-    uploadLabel: 'Медицинская справка (форма 075У) (.pdf или .doc)',
-    span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
-      id: names[count]
-    })
-  }, count);
-  count++;
-  allcode[25] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
-    name: names[count] + '[]',
-    uploadLabel: 'Прикрепить скан сертификата на знание Английского языка (.pdf или .jpg)',
-    span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
-      id: names[count]
-    })
-  }, count);
-  count++;
-  allcode[26] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
-    name: names[count] + '[]',
-    uploadLabel: 'Прикрепить мотивационное эссе (.pdf или .doc)',
-    span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
-      id: names[count]
-    })
-  }, count);
-  count++;
-  allcode[27] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
-    name: names[count] + '[]',
-    uploadLabel: 'Копия паспорта (.pdf или .jpg, .png)',
-    span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
-      id: names[count]
-    })
-  }, count);
-  count++;
-  allcode[28] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.FilePicker, {
-    name: names[count] + '[]',
-    uploadLabel: '2 рекомендательных письма (.pdf или .jpg, .png)',
-    span: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_0__.RequiredSpan, {
-      id: names[count]
-    })
-  }, count);
-  count++; // ------------------------------------------------------------------------------------------
-
-  allcode[29] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+  allcode.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("small", {
       className: " ",
       children: ["\u041D\u0430\u0436\u0438\u043C\u0430\u044F \u043D\u0430 \u043A\u043D\u043E\u043F\u043A\u0443, \u044F \u0434\u0430\u044E \u0441\u0432\u043E\u0435 \u0441\u043E\u0433\u043B\u0430\u0441\u0438\u0435 \u043D\u0430 \u043E\u0431\u0440\u0430\u0431\u043E\u0442\u043A\u0443 \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u043B\u044C\u043D\u044B\u0445 \u0434\u0430\u043D\u043D\u044B\u0445 \u0438 \u0441\u043E\u0433\u043B\u0430\u0448\u0430\u044E\u0441\u044C ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
@@ -8102,12 +8827,12 @@ function tabs_3(names) {
         children: "c \u043F\u043E\u043B\u0438\u0442\u0438\u043A\u043E\u0439 \u043A\u043E\u043D\u0444\u0438\u0434\u0435\u043D\u0446\u0438\u0430\u043B\u044C\u043D\u043E\u0441\u0442\u0438"
       })]
     })
-  }, count);
+  }, count));
   count++; // ------------------------------------------------------------------------------------------
 
-  allcode[30] = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_validateWindow__WEBPACK_IMPORTED_MODULE_1__.ValidateAndSubmitButton, {
+  allcode.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_validateWindow__WEBPACK_IMPORTED_MODULE_1__.ValidateAndSubmitButton, {
     allName: (0,_names__WEBPACK_IMPORTED_MODULE_5__.getNames)()
-  }, count);
+  }, count));
   count++;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     className: 'm-5',
@@ -8395,11 +9120,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "DocWindow": () => (/* binding */ DocWindow)
 /* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var bootstrap_js_src_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap/js/src/util */ "./node_modules/bootstrap/js/src/util/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-
-
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -8422,6 +9145,9 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
 
 var DocWindow = /*#__PURE__*/function (_React$Component) {
   _inherits(DocWindow, _React$Component);
@@ -8465,10 +9191,22 @@ var DocWindow = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+      if (document.readyState === 'loading') {
+        document.documentElement.scrollTop = 0; // document.body.scrollTop = 0;
 
-      document.body.scrollTop = 0;
-      this.body.style.overflowY = this.state.bodyStyle.overflowY;
+        setTimeout(function () {
+          var body = document.getElementsByTagName('body')[0];
+          body.scrollIntoView({
+            block: "start",
+            behavior: "auto"
+          });
+        }, 500);
+      } // console.log(this.state.bodyStyle.overflowY);
+      // document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+      // document.body.scrollTop = 0;
+      // this.body.style.overflowY = this.state.bodyStyle.overflowY;
+
+
       var styleAbs = {
         top: '50%',
         left: '50%',
@@ -8487,59 +9225,59 @@ var DocWindow = /*#__PURE__*/function (_React$Component) {
       var h4 = {
         marginTop: '30px'
       };
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
         className: 'position-absolute vh-100 w-100',
         style: styleAbs,
         hidden: this.state.hide,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
           className: 'col-lg-5 position-relative ',
           style: stPlane,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
             className: 'p-5',
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
               className: 'py-5',
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h4", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h4", {
                 children: "\u041F\u0435\u0440\u0435\u0434 \u0437\u0430\u043F\u043E\u043B\u043D\u0435\u043D\u0438\u0435\u043C \u0444\u043E\u0440\u043C\u044B, \u043F\u0440\u0438\u0433\u043E\u0442\u043E\u0432\u044C\u0442\u0435 \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0438\u0435 \u0441\u043A\u0430\u043D \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B: "
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
                 style: p,
                 children: "- \u0423\u0434\u043E\u0441\u0442\u043E\u0432\u0435\u0440\u0435\u043D\u0438\u0435 \u043B\u0438\u0447\u043D\u043E\u0441\u0442\u0438"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
                 style: p,
                 children: "- \u0420\u0435\u0437\u044E\u043C\u0435"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
                 style: p,
                 children: "- 6 \u0444\u043E\u0442\u043E 3\u04454"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
                 style: p,
                 children: "- \u0414\u0438\u043F\u043B\u043E\u043C\u0430 \u043E \u0432\u044B\u0441\u0448\u0435\u043C \u043E\u0431\u0440\u0430\u0437\u043E\u0432\u0430\u043D\u0438\u0438"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
                 style: p,
                 children: "- \u041F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F \u043A \u0434\u0438\u043F\u043B\u043E\u043C\u0443 \u043E \u0432\u044B\u0441\u0448\u0435\u043C \u043E\u0431\u0440\u0430\u0437\u043E\u0432\u0430\u043D\u0438\u0438"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
                 style: p,
                 children: "- \u0421\u043F\u0440\u0430\u0432\u043A\u0430 \u0441 \u043C\u0435\u0441\u0442\u0430 \u0440\u0430\u0431\u043E\u0442\u044B \u0441 \u0443\u043A\u0430\u0437\u0430\u043D\u0438\u0435\u043C \u0434\u043E\u043B\u0436\u043D\u043E\u0441\u0442\u0438"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
                 style: p,
                 children: "- \u0421\u043A\u0430\u043D \u0441\u0435\u0440\u0442\u0438\u0444\u0438\u043A\u0430\u0442\u0430 \u043D\u0430 \u0437\u043D\u0430\u043D\u0438\u0435 \u0410\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E \u044F\u0437\u044B\u043A\u0430"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
                 style: p,
                 children: "- \u041C\u0435\u0434\u0438\u0446\u0438\u043D\u0441\u043A\u0430\u044F \u0441\u043F\u0440\u0430\u0432\u043A\u0430 (\u0444\u043E\u0440\u043C\u0430 075\u0423)"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h4", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h4", {
                 style: h4,
                 children: "\u0414\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0435 \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B \u0434\u043B\u044F EXECUTIVE MBA: "
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
                 style: p,
                 children: "- \u041C\u043E\u0442\u0438\u0432\u0430\u0446\u0438\u043E\u043D\u043D\u043E\u0435 \u044D\u0441\u0441\u0435 \u0432 word"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
                 style: p,
                 children: "- \u041A\u043E\u043F\u0438\u044F \u043F\u0430\u0441\u043F\u043E\u0440\u0442\u0430"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
                 style: p,
                 children: "- 2 \u0440\u0435\u043A\u043E\u043C\u0435\u043D\u0434\u0430\u0442\u0435\u043B\u044C\u043D\u044B\u0445 \u043F\u0438\u0441\u044C\u043C\u0430"
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
               className: 'd-flex justify-content-center p-1',
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
                 onClick: this.hundleOnClick.bind(this),
                 className: 'btn btn-success',
                 children: "\u0423 \u043C\u0435\u043D\u044F \u0435\u0441\u0442\u044C \u0441\u043A\u0430\u043D \u0432\u0441\u0435\u0445 \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u043E\u0432"

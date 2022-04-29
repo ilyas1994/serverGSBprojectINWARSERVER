@@ -31,6 +31,21 @@ class HomeController extends Controller
         return DB::select("SELECT type_test FROM quiz_results WHERE email_user = '" .$emailUser. " ' AND type_test = {$typeTest} ");
     }
 
+    private function getFiles() {
+        return DB::select("SELECT 
+                                    scanFileCertificateFromWork, 
+                                    scanFileDocument,
+                                    resumeFile,
+                                    fileScanDiplomWithApplication,
+                                    scanCertificate,
+                                    fileEsse,
+                                    copyPassport,
+                                    foto3x4,
+                                    recomentedLetter,
+                                    medicalDoc
+                                    FROM personal_datamba");
+    }
+
     /**
      * Show the application dashboard.
      *
@@ -42,6 +57,7 @@ class HomeController extends Controller
 
     public function index()
     {
+        $getFiles = $this->getFiles();
 
         if (auth()->user()->role == 1) {
 
@@ -58,8 +74,11 @@ class HomeController extends Controller
 
             }
             if(!$quizResult->isEmpty()) {
-                $content = view('adminPanel.profileUser')->with('profileData', $profileData)->with('quizResult', $quizResult);
-            } else $content = view('adminPanel.profileUser')->with('profileData', $profileData);
+
+                $content = view('adminPanel.profileUser')->with('profileData', $profileData)
+                    ->with('quizResult', $quizResult)
+                    ->with('getFiles', $getFiles);
+            } else $content = view('adminPanel.profileUser')->with('profileData', $profileData) ->with('getFiles', $getFiles);
             return \SleepingOwl\Admin\Facades\Admin::view($content);
 
         }

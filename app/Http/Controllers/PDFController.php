@@ -119,8 +119,9 @@ class PDFController extends Controller
     public function getResumeFile($iin, $typeFile)
     {
 
-
         $data = $this->getFileFromInputs($iin, $typeFile);
+
+
 
         $formatFile = json_decode($data[0]->$typeFile);
         $png = '.png';
@@ -128,20 +129,21 @@ class PDFController extends Controller
         $pdf = '.pdf';
         $datass = [];
         $check = false;
+
         if (count($formatFile) > 1) {
 
             for ($i = 0; $i < count($formatFile); $i++) {
 
-                $searchPng = stristr($formatFile[$i], $png);
-                $searchJpg = stristr($formatFile[$i], $jpg);
-                $searchPDF = stristr($formatFile[$i], $pdf);
-                if ($searchJpg || $searchPng) {
-                    $strRep = str_replace('public/', '', $formatFile[$i]);
-                    array_unshift($datass, $strRep);
-                }
-                if ($searchPDF) {
-                    $check = true;
-                }
+                    $searchPng = stristr($formatFile[$i], $png);
+                    $searchJpg = stristr($formatFile[$i], $jpg);
+                    $searchPDF = stristr($formatFile[$i], $pdf);
+                    if ($searchJpg || $searchPng) {
+                        $strRep = str_replace('public/', '', $formatFile[$i]);
+                        array_unshift($datass, $strRep);
+                    }
+                    if ($searchPDF) {
+                        $check = true;
+                    }
             }
             $arr = $datass;
             if ($check == true) {

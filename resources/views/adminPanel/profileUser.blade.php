@@ -18,10 +18,12 @@
 
 
 
+
 {{--@dd(auth()->user()->name)--}}
 
 {{--@dd($profileData)--}}
 
+{{--@dd($getFiles)--}}
 
 
 <div class="col-sm-12 d-flex mt-2">
@@ -187,39 +189,66 @@
                     <td>{{ $value->mobileNumber }}</td>
 
                     <td>
+
+                        @isset($getFiles)
+                        @if($getFiles[0]->resumeFile != null)
                         {{--                    Показать  Резюме--}}
                         <a class="aStyle" target="_blank" href="{{ route('pdf.getTypeFile', [$value->Iin, 'resumeFile']) }}">Резюме</a>
                         <br>
+                        @endif
+                        @if($getFiles[0]->scanFileDocument != null)
                         {{--                    Показать Удв--}}
                         <a class="aStyle" target="_blank" href="{{ route('pdf.getTypeFile', [$value->Iin, 'scanFileDocument']) }}">Удв. личности</a>
                         {{--                    Показать Мотивационное эссе только на EXECUTIVE MBA--}}
                         <br>
+                            @endif
+
+                            @if($getFiles[0]->copyPassport != null)
                         <a class="aStyle" target="_blank" href="{{ route('pdf.getTypeFile', [$value->Iin, 'copyPassport']) }}">Коп. Паспорта</a>
                         {{--                    Копия паспорта (.pdf или .jpg, .png)--}}
                         <br>
+                            @endif
+                            @if($getFiles[0]->fileEsse != null)
                         <a class="aStyle" target="_blank" href="{{ route('pdf.getTypeFile', [$value->Iin, 'fileEsse']) }}">Мотивационное эссе</a>
                                                 {{--Показать foto3x4--}}
                         <br>
+                            @endif
+                            @if($getFiles[0]->foto3x4 != null)
                         <a class="aStyle" target="_blank" href="{{ route('pdf.getTypeFile', [$value->Iin, 'foto3x4']) }}">Фото 3х4</a>
                         {{--                    Показать Копия диплома о высшем образовании + приложения к диплому о высшем образовании (.pdf) --}}
                         <br>
+                            @endif
+                            @if($getFiles[0]->fileScanDiplomWithApplication != null)
                         <a class="aStyle" target="_blank" href="{{ route('pdf.getTypeFile', [$value->Iin, 'fileScanDiplomWithApplication']) }}">Копия диплома + приложения </a>
                         {{--                    Показать Справка с места работы с указанием должности (.pdf)--}}
                         <br>
+                            @endif
+                            @if($getFiles[0]->scanFileCertificateFromWork != null)
                         <a class="aStyle" target="_blank" href="{{ route('pdf.getTypeFile', [$value->Iin, 'scanFileCertificateFromWork']) }}">Справка с места работы</a>
                         {{--                    Показать Рекомендательных письма только на EXECUTIVE MBA null--}}
                         <br>
+                            @endif
+                            @if($getFiles[0]->recomentedLetter != null)
                         <a class="aStyle" target="_blank" href="{{ route('pdf.getTypeFile', [$value->Iin, 'recomentedLetter']) }}">Рекомендательные письма</a>
                         {{--                    Показать Медицинская справка (форма 075У)--}}
                         <br>
+                            @endif
+                            @if($getFiles[0]->medicalDoc != null)
                         <a class="aStyle" target="_blank" href="{{ route('pdf.getTypeFile', [$value->Iin, 'medicalDoc']) }}">Медицинская справка</a>
                         {{--                    Показать Прикрепить скан сертификата (.pdf)--}}
                         <br>
-                        <a class="aStyle" target="_blank" href="{{ route('pdf.getTypeFile', [$value->Iin, 'fileScanDiplomWithApplication']) }}">Сертиф. Англ. языка</a>
+                            @endif
+
+                            @if($getFiles[0]->fileScanDiplomWithApplication != null)
+                        <a class="aStyle" target="_blank" href="{{ route('pdf.getTypeFile', [$value->Iin, 'scanCertificate']) }}">Сертиф. Англ. языка</a>
                         {{--                    Прикрепить скан сертификата на знание Английского языка (.pdf или .jpg)--}}
                         <br>
-                        <a class="aStyle" target="_blank" href="{{ route('pdf.getTypeFile', [$value->Iin, 'scanCertificate']) }}">Скан сертификата</a>
-                    </td>
+                            @endif
+{{--                            @if($getFiles[0]->scanCertificate != null)--}}
+{{--                        <a class="aStyle" target="_blank" href="{{ route('pdf.getTypeFile', [$value->Iin, 'scanCertificate']) }}">Скан сертификата</a>--}}
+{{--                            @endif--}}
+                            @endisset
+                     </td>
 
 {{--                        @dd($quizResult[1]->type_test)--}}
 
