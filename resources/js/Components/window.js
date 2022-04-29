@@ -1,3 +1,5 @@
+import {getElement} from "bootstrap/js/src/util";
+
 export class DocWindow extends React.Component{
     constructor(props) {
         super(props);
@@ -20,9 +22,21 @@ export class DocWindow extends React.Component{
      }
 
     render() {
-        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-        document.body.scrollTop = 0;
-       this.body.style.overflowY = this.state.bodyStyle.overflowY;
+         if(document.readyState === 'loading'){
+             document.documentElement.scrollTop = 0;
+             // document.body.scrollTop = 0;
+             setTimeout(() => {
+                 let body = document.getElementsByTagName('body')[0];
+                 body.scrollIntoView({
+                     block: "start",
+                     behavior: "auto"
+                 });
+             }, 500)
+         }
+        // console.log(this.state.bodyStyle.overflowY);
+        // document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        // document.body.scrollTop = 0;
+       // this.body.style.overflowY = this.state.bodyStyle.overflowY;
        let styleAbs = {
             top:'50%',
             left:'50%',
