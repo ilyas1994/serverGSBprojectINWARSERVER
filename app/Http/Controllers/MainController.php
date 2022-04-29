@@ -357,7 +357,7 @@ class MainController extends Controller
     {
         $arr = [];
         for ($i = 0; $i < count($InputName); $i++){
-
+// ssss
                 switch ($InputName[$i]){
                     case 'checkBoxReasonsForChoosingMBA':
                     case 'checkBoxMBACharacteristics':
