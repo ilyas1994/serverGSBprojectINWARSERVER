@@ -52,7 +52,7 @@ export function dropDownClick(title, name, section, sample = null, className = '
                 iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 11 цифр!';
                 break;
             }
-            default:{
+            default: {
                 iin[0].setAttribute('minlength', '12');
                 iin[0].setAttribute('maxlength', '12');
                 iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 12 цифр!';
@@ -80,6 +80,7 @@ export function dropDownClick(title, name, section, sample = null, className = '
         {sample}
     </div>
 }
+
 export function inputFieldOnlyNumber(title, name, className = null, value = null, placeholder = '', span = null, prefix = null) {
     let input = '';
     let req = span !== null
@@ -106,15 +107,15 @@ export function inputFieldOnlyNumber(title, name, className = null, value = null
 
         // evt.returnValue = (evt.keyCode !== 46 && evt.keyCode > 31 && (evt.keyCode < 48 || evt.keyCode > 57));
 
-            let la;
-            if(evt.keyCode > 47 && evt.keyCode < 58)
-                la = false
-            else if(evt.keyCode === 8)
-                la = false;
-            else if(evt.keyCode > 95 && evt.keyCode < 106)
-                         la = false;
-                  else la = true;
-            evt.returnValue = la;
+        let la;
+        if (evt.keyCode > 47 && evt.keyCode < 58)
+            la = false
+        else if (evt.keyCode === 8)
+            la = false;
+        else if (evt.keyCode > 95 && evt.keyCode < 106)
+            la = false;
+        else la = true;
+        evt.returnValue = la;
 
 
         if (evt.returnValue) evt.preventDefault();
@@ -130,7 +131,7 @@ export function inputFieldOnlyNumber(title, name, className = null, value = null
         <div className={'position-relative'}>
             <label className={''} htmlFor="">{title}{span}</label>
             <input type="text" name={name} required={req} onKeyDown={isNumberKey.bind(this)} placeholder={placeholder}
-                   className={'user-surname ' + reqClass}  defaultValue={value}
+                   className={'user-surname ' + reqClass} defaultValue={value}
                    maxLength={maxlength}
                    minLength={minlength}/>
             {tooltip}
@@ -167,26 +168,23 @@ export function inputFieldOnlyNumberForMobile(title, name, className = null, val
         // console.log((evt.keyCode < 47 && evt.keyCode > 62 ));
         // console.log(!(evt.keyCode < 47 && evt.keyCode > 62 ));
         // evt.returnValue = (evt.keyCode !== 46 && evt.keyCode > 31 && (evt.keyCode < 48 || evt.keyCode > 57));
-        if(evt.target.value.length > 2){
+        if (evt.target.value.length > 2) {
             let la;
-            if(evt.keyCode > 47 && evt.keyCode < 62)
+            if (evt.keyCode > 47 && evt.keyCode < 62)
                 la = false
-            else if(evt.keyCode === 8){
+            else if (evt.keyCode === 8) {
                 la = false;
-                if(evt.target.value.length > 2)
+                if (evt.target.value.length > 2)
                     evt.target.value = '+7 ';
-            }
-            else if(evt.keyCode > 95 && evt.keyCode < 106)
+            } else if (evt.keyCode > 95 && evt.keyCode < 106)
                 la = false;
-            else if(evt.keyCode === 107)
+            else if (evt.keyCode === 107)
                 la = false;
             else la = true;
             evt.returnValue = la;
-        }else{
+        } else {
             evt.target.value = '+7 ';
         }
-
-
 
 
         if (evt.returnValue) evt.preventDefault();
@@ -197,16 +195,16 @@ export function inputFieldOnlyNumberForMobile(title, name, className = null, val
     if (sessionStorage.getItem(name) !== null) {
         value = sessionStorage.getItem(name);
     }
-
+    value = '+7 ';
     input = <div key={name} className={className}>
-                    <div className={'position-relative'}>
-                        <label className={''} htmlFor="">{title}{span}</label>
-                         <input type="text" name={name} required={req} onKeyDown={isNumberKey.bind(this)} placeholder={placeholder}
-                               className={'user-surname ' + reqClass}  defaultValue={'+7 '+value}
-                               maxLength={maxlength}
-                               minLength={minlength}/>
-                        {tooltip}
-                    </div>
+        <div className={'position-relative'}>
+            <label className={''} htmlFor="">{title}{span}</label>
+            <input type="text" name={name} required={req} onKeyDown={isNumberKey.bind(this)} placeholder={placeholder}
+                   className={'user-surname ' + reqClass} defaultValue={value}
+                   maxLength={maxlength}
+                   minLength={minlength}/>
+            {tooltip}
+        </div>
 
     </div>
     return (input)
@@ -278,42 +276,43 @@ export function inputFieldEmail(title, name, className = null, value = null, pla
     return (input)
 }
 
-export class InputFieldForEduc extends React.Component{
+export class InputFieldForEduc extends React.Component {
     constructor(props) {
         super(props);
     }
 
-     // input = '';
-     // req = span !== null
-     // reqClass = span !== null ? 'form-control ' : '';
+    // input = '';
+    // req = span !== null
+    // reqClass = span !== null ? 'form-control ' : '';
 
-     save(arg) {
+    save(arg) {
         sessionStorage.setItem(arg.target.name, arg.target.value);
         console.log(arg.target.value)
-     }
+    }
 
 
-    render(){
-         let val = '';
+    render() {
+        let val = '';
         if (sessionStorage.getItem(this.props.name)) {
             val = sessionStorage.getItem(this.props.name);
         }
 
         return (
             <div key={this.props.name} className={this.props.className}>
-                    <div className={'position-relative'}>
-                        <label className={''} htmlFor="">{this.props.title}{this.props.span}</label>
-                        <input type="text" name={this.props.name} onChange={this.save.bind(this)} required={true} placeholder={this.props.placeholder}
-                               className={'user-surname ' + this.reqClass} defaultValue={val}
-                               maxLength={200}/>
-                        <div className="invalid-tooltip">
-                            Заполните обязательное поле {this.props.title}
-                        </div>
+                <div className={'position-relative'}>
+                    <label className={''} htmlFor="">{this.props.title}{this.props.span}</label>
+                    <input type="text" name={this.props.name} onChange={this.save.bind(this)} required={true}
+                           placeholder={this.props.placeholder}
+                           className={'user-surname ' + this.reqClass} defaultValue={val}
+                           maxLength={200}/>
+                    <div className="invalid-tooltip">
+                        Заполните обязательное поле {this.props.title}
                     </div>
                 </div>
-             )
+            </div>
+        )
 
-        }
+    }
 
 }
 
@@ -332,22 +331,22 @@ export class DropEduc extends React.Component {
 
     render() {
         for (let i = 0; i < this.props.section.length; i++) {
-                this.sec[i] = <option value={i} key={i}>{this.props.section[i]}</option>;
+            this.sec[i] = <option value={i} key={i}>{this.props.section[i]}</option>;
         }
-        let t = 0 ;
-        if(sessionStorage.getItem(this.props.name)){
-             t = parseInt(sessionStorage.getItem(this.props.name));
+        let t = 0;
+        if (sessionStorage.getItem(this.props.name)) {
+            t = parseInt(sessionStorage.getItem(this.props.name));
         }
 
 
-            return <div key={this.props.name} className={this.props.className}>
-                {this.props.title !== '' ? <label htmlFor="">{this.props.title}{this.props.span}</label> : ""}
-                <select name={this.props.name} defaultValue={t} onChange={this.DropEducsave}
-                        className={"col-lg-0 selectpicker user-gender"}>
-                    {this.sec}
-                </select>
-            </div>
-        }
+        return <div key={this.props.name} className={this.props.className}>
+            {this.props.title !== '' ? <label htmlFor="">{this.props.title}{this.props.span}</label> : ""}
+            <select name={this.props.name} defaultValue={t} onChange={this.DropEducsave}
+                    className={"col-lg-0 selectpicker user-gender"}>
+                {this.sec}
+            </select>
+        </div>
+    }
 
 }
 
@@ -380,12 +379,11 @@ export class DataPik extends React.Component {
     render() {
         let tooltip = this.props.span !== null ?
             <div className="invalid-tooltip">
-            Заполните обязательное поле {this.props.title}
-        </div> : '';
+                Заполните обязательное поле {this.props.title}
+            </div> : '';
 
         // let req = this.props.span !== null;
         console.log(this.props.name + ' tewoRENDER ' + this.state.val);
-
 
         let date = '';
         if (this.state.val.has(this.props.name))
@@ -396,7 +394,7 @@ export class DataPik extends React.Component {
                 <label htmlFor={""}>{this.props.title}{this.props.span}</label>
                 <div>
 
-                    <input  value={date} onChange={this.DatapikClick} type="date"
+                    <input value={date} onChange={this.DatapikClick} type="date"
                            autoComplete={'off'} required={true} name={this.props.name}
                            className={"user-dateofbirth"}/>
                 </div>
@@ -461,28 +459,30 @@ export function dropDown(title, name, section, sample = null, className = 'col-l
     }
 
     return <div key={name} className={className}>
-                {title !== '' ? <label htmlFor="">{title}{span}</label> : ""}
-                <select name={name} onChange={save.bind(this)} className={"col-lg-0 selectpicker user-gender"}>
-                    {sec}
-                </select>
-                {sample}
-            </div>
+        {title !== '' ? <label htmlFor="">{title}{span}</label> : ""}
+        <select name={name} onChange={save.bind(this)} className={"col-lg-0 selectpicker user-gender"}>
+            {sec}
+        </select>
+        {sample}
+    </div>
 }
+
 export class DropDownKemVidanDoc extends React.Component {
     // (title, name, section, sample = null, className = 'col-lg-4', span = null, key = 0)
     constructor(props) {
         super(props);
         this.save = this.save.bind(this);
     }
+
     state = {
-        dopMenu:''
+        dopMenu: ''
 
     }
     sec = [];
 
     save(arg) {
         sessionStorage.setItem(arg.target.name, arg.target.selectedIndex);
-        if (arg.target.selectedIndex === arg.target.childElementCount-1){
+        if (arg.target.selectedIndex === arg.target.childElementCount - 1) {
             this.setState(function (prevState) {
                 return (
                     prevState.dopMenu = <div className={'position-relative d-lg-grid'}>
@@ -499,25 +499,26 @@ export class DropDownKemVidanDoc extends React.Component {
                     </div>
                 )
             });
-        }else{
+        } else {
             // console.log( arg.target.selectedIndex +':'+arg.target.childElementCount);
-            this.setState({dopMenu:''})
+            this.setState({dopMenu: ''})
 
         }
         // console.log(arg.target.selectedIndex)
     }
 
-    render(){
+    render() {
         for (let i = 0; i < this.props.section.length; i++) {
-            this.sec[i] = <option  value={i + 1} key={i}>{this.props.section[i]}</option>;
+            this.sec[i] = <option value={i + 1} key={i}>{this.props.section[i]}</option>;
         }
         let t = 0;
-        if(sessionStorage.getItem(this.props.name))
+        if (sessionStorage.getItem(this.props.name))
             t = sessionStorage.getItem(this.props.name);
 
-        return <div key={this.props.name} className={this.props.className +' d-lg-grid'}>
+        return <div key={this.props.name} className={this.props.className + ' d-lg-grid'}>
             {this.props.title !== '' ? <label htmlFor="">{this.props.title}{this.props.span}</label> : ""}
-            <select name={this.props.name} defaultValue={t} onChange={this.save} className={"col-lg-4 selectpicker user-gender"}>
+            <select name={this.props.name} defaultValue={t} onChange={this.save}
+                    className={"col-lg-4 selectpicker user-gender"}>
                 {this.sec}
             </select>
             {this.state.dopMenu}
@@ -526,33 +527,38 @@ export class DropDownKemVidanDoc extends React.Component {
     }
 
 }
+
 export class DropDownfieldOfActivity extends React.Component {
     // (title, name, section, sample = null, className = 'col-lg-4', span = null, key = 0)
-         constructor(props) {
-             super(props);
-             this.save = this.save.bind(this);
-         }
-         state = {
-             dopMenu:''
+    constructor(props) {
+        super(props);
+        this.save = this.save.bind(this);
+    }
 
-         }
-     sec = [];
+    state = {
+        dopMenu: ''
 
-     save(arg) {
+    }
+    sec = [];
+
+    save(arg) {
         sessionStorage.setItem(arg.target.name, arg.target.selectedIndex);
-         // console.log( arg.target.childElementCount);
-        if(arg.target.selectedIndex === 1){
-            this.setState(function (prevState){
-                return(
-                    prevState.dopMenu = <select name={this.props.dopmenuname} defaultValue={0}  className={"col-lg-8 selectpicker user-gender"}>
-                                                       <option   key={0}>Горнодобывающая промышленность и разработка карьеров</option>
-                                                       <option   key={1}>Обрабатывающая промышленность</option>
-                                                       <option   key={2}>Электроснабжение, подача газа, пара и воздушное кондиционирование</option>
-                                                       <option   key={3}>Водоснабжение; канализационная система, контроль над сбором и распределением отходов</option>
-                                        </select>
+        // console.log( arg.target.childElementCount);
+        if (arg.target.selectedIndex === 1) {
+            this.setState(function (prevState) {
+                return (
+                    prevState.dopMenu = <select name={this.props.dopmenuname} defaultValue={0}
+                                                className={"col-lg-8 selectpicker user-gender"}>
+                        <option key={0}>Горнодобывающая промышленность и разработка карьеров</option>
+                        <option key={1}>Обрабатывающая промышленность</option>
+                        <option key={2}>Электроснабжение, подача газа, пара и воздушное кондиционирование</option>
+                        <option key={3}>Водоснабжение; канализационная система, контроль над сбором и распределением
+                            отходов
+                        </option>
+                    </select>
                 )
             })
-        }else if (arg.target.selectedIndex === arg.target.childElementCount-1){
+        } else if (arg.target.selectedIndex === arg.target.childElementCount - 1) {
             this.setState(function (prevState) {
                 return (
                     prevState.dopMenu = <div className={'position-relative d-lg-grid'}>
@@ -569,25 +575,26 @@ export class DropDownfieldOfActivity extends React.Component {
                     </div>
                 )
             });
-        }else{
+        } else {
             // console.log( arg.target.selectedIndex +':'+arg.target.childElementCount);
-             this.setState({dopMenu:''})
+            this.setState({dopMenu: ''})
 
-         }
+        }
         // console.log(arg.target.selectedIndex)
-      }
+    }
 
-    render(){
+    render() {
         for (let i = 0; i < this.props.section.length; i++) {
-           this.sec[i] = <option  value={i + 1} key={i}>{this.props.section[i]}</option>;
+            this.sec[i] = <option value={i + 1} key={i}>{this.props.section[i]}</option>;
         }
         let t = 0;
-        if(sessionStorage.getItem(this.props.name))
+        if (sessionStorage.getItem(this.props.name))
             t = sessionStorage.getItem(this.props.name);
 
         return <div key={this.props.name} className={this.props.className}>
             {this.props.title !== '' ? <label htmlFor="">{this.props.title}{this.props.span}</label> : ""}
-            <select name={this.props.name} defaultValue={t} onChange={this.save} className={"col-lg-0 selectpicker user-gender"}>
+            <select name={this.props.name} defaultValue={t} onChange={this.save}
+                    className={"col-lg-0 selectpicker user-gender"}>
                 {this.sec}
             </select>
             {this.state.dopMenu}
@@ -804,27 +811,63 @@ export class RadioB extends React.Component {
         super(props);
         this.handleClick = this.handleClick.bind(this);
         // this.setState({defaultState:sessionStorage.getItem(props.name) !== null ? sessionStorage.getItem(props.name) :''})
+        if (this.props.filePikBox) {
+            let op = Array.from(this.props.filePikBox);
+            for (let i = 0; i < op.length-3; i++) {
+                console.log(op[i])
+                this.state.filePick.push(op[i]);
+            }
+        }
     }
 
     state = {
         popup: this.props.popUpElement,
         id: this.props.checkBoxTitle[0],
-        defaultState: ''
+        defaultState: '',
+        filePick: []
     }
 
 
     handleClick(i) {
 
-        console.log(i.target);
-
+        console.log(i.target.value);
+        if (this.props.filePikBox) {
+            if (i.target.value.includes('Executive')) {
+                this.setState(function (prevState) {
+                    this.state.filePick = [];
+                    let op = Array.from(this.props.filePikBox);
+                    for (let i = 0; i < op.length; i++) {
+                        console.log(op[i])
+                        this.state.filePick.push(op[i]);
+                    }
+                    return (
+                        prevState.filePick
+                    )
+                })
+            } else {
+                this.setState(function (prevState) {
+                    this.state.filePick = [];
+                    let op = Array.from(this.props.filePikBox);
+                    for (let i = 0; i < op.length-3; i++) {
+                        console.log(op[i])
+                        this.state.filePick.push(op[i]);
+                    }
+                    return (
+                        prevState.filePick
+                    )
+                })
+            }
+        }
         this.setState({id: i.target.id});
 
-        console.log(this.defaultState);
+        // console.log(this.defaultState);
 
 
         sessionStorage.setItem(i.target.name, i.target.id);
-        // console.log(i.target.value)
-        // console.log(i.target.name);
+
+        if (i.target.value === 'Нет') {
+            sessionStorage.removeItem(i.target.name);
+        }
     }
 
     howMany() {
@@ -887,11 +930,18 @@ export class RadioB extends React.Component {
 
     render() {
 
+
         return (
-            <div className={'row'}>
-                <label htmlFor="">{this.props.title} {this.props.span}</label>
-                {this.howMany()}
+            <div>
+                <div className={'row'}>
+                    <label htmlFor="">{this.props.title} {this.props.span}</label>
+                    {this.howMany()}
+                </div>
+                <div>
+                    {this.state.filePick}
+                </div>
             </div>
+
         )
     }
 }
@@ -935,17 +985,63 @@ export class MBAPropgramRadio extends React.Component {
     constructor(props) {
         super(props);
         this.handleClick = this.handleClick.bind(this);
+
+        if (this.props.filePikBox) {
+            let op = Array.from(this.props.filePikBox);
+            for (let i = 0; i < op.length-3; i++) {
+                console.log(op[i])
+                this.state.filePick.push(op[i]);
+            }
+        }
     }
 
     state = {
         popup: this.props.popUpElement,
         id: this.props.checkBoxTitle[0],
-        defaultState: ''
+        defaultState: '',
+        filePick: []
     }
 
     handleClick(i) {
+        // this.setState({id: i.target.id});
+        console.log(i.target.value);
+        if (this.props.filePikBox) {
+            if (i.target.value.includes('Executive')) {
+                this.setState(function (prevState) {
+                    this.state.filePick = [];
+                    let op = Array.from(this.props.filePikBox);
+                    for (let i = 0; i < op.length; i++) {
+                        console.log(op[i])
+                        this.state.filePick.push(op[i]);
+                    }
+                    return (
+                        prevState.filePick
+                    )
+                })
+            } else {
+                this.setState(function (prevState) {
+                    this.state.filePick = [];
+                    let op = Array.from(this.props.filePikBox);
+                    for (let i = 0; i < op.length-3; i++) {
+                        console.log(op[i])
+                        this.state.filePick.push(op[i]);
+                    }
+                    return (
+                        prevState.filePick
+                    )
+                })
+            }
+        }
         this.setState({id: i.target.id});
 
+        // console.log(this.defaultState);
+
+
+        sessionStorage.setItem(i.target.name, i.target.id);
+
+        if (i.target.value === 'Нет') {
+            sessionStorage.removeItem(i.target.name);
+        }
     }
 
     howMany() {
@@ -987,11 +1083,14 @@ export class MBAPropgramRadio extends React.Component {
 
     render() {
         return (
-            <div className={'row'}>
-
-                <label htmlFor="">{this.props.title} {this.props.span}</label>
-                {this.howMany()}
-
+            <div>
+                <div className={'row'}>
+                    <label htmlFor="">{this.props.title} {this.props.span}</label>
+                    {this.howMany()}
+                </div>
+                <div>
+                    {this.state.filePick}
+                </div>
             </div>
         )
     }
@@ -1059,15 +1158,37 @@ export class FilePicker extends React.Component {
     count = 0;
     picker;
     filesArray = [];
-
+    filesTypes = new Map();
+    namePikers = new Map();
     constructor(props) {
         super(props);
+        this.filesTypes.set('scanFileDocument[]' ,['image/jpeg','image/jpg','image/png','application/pdf' ]);
+        this.filesTypes.set('resumeFile[]', ['application/pdf','application/msword','application/vnd.openxmlformats-officedocument.wordprocessingml.document']);
+        this.filesTypes.set('foto3x4[]',['image/jpeg','image/jpg','image/png','application/pdf' ]);
+        this.filesTypes.set('fileScanDiplomWithApplication[]',['image/jpeg','image/jpg','image/png','application/pdf' ]);
+        this.filesTypes.set('scanFileCertificateFromWork[]', ['image/jpeg','image/jpg','image/png','application/pdf']);
+        this.filesTypes.set('medicalDoc[]',['image/jpeg','image/jpg','image/png','application/pdf' ]);
+        this.filesTypes.set('scanCertificate[]',['image/jpeg','image/jpg','image/png','application/pdf' ]);
+        this.filesTypes.set('fileEsse[]',['application/pdf','application/msword','application/vnd.openxmlformats-officedocument.wordprocessingml.document']);
+        this.filesTypes.set('copyPassport[]',['image/jpeg','image/jpg','image/png','application/pdf' ]);
+        this.filesTypes.set('recomentedLetter[]',['image/jpeg','image/jpg','image/png','application/pdf' ]);
 
+        this.namePikers.set( 'scanFileDocument[]', 'Загружаймый файл должен быть формата .pdf или .jpg, .png');
+        this.namePikers.set( 'resumeFile[]','Загружаймый файл должен быть формата .pdf или .doc');
+        this.namePikers.set( 'foto3x4[]','Загружаймый файл должен быть формата .pdf или .jpg, .png');
+        this.namePikers.set( 'fileScanDiplomWithApplication[]','Загружаймый файл должен быть формата .pdf или .jpg, .png');
+        this.namePikers.set( 'scanFileCertificateFromWork[]','Загружаймый файл должен быть формата .pdf или .jpg, .png');
+        this.namePikers.set('medicalDoc[]','Загружаймый файл должен быть формата .pdf или .jpg, .png');
+        this.namePikers.set( 'scanCertificate[]','Загружаймый файл должен быть формата .pdf или .jpg .png');
+        this.namePikers.set( 'fileEsse[]','Загружаймый файл должен быть формата .pdf или .doc');
+        this.namePikers.set( 'copyPassport[]','Загружаймый файл должен быть формата .pdf или .jpg, .png');
+        this.namePikers.set( 'recomentedLetter[]','Загружаймый файл должен быть формата .pdf или .jpg, .png');
     }
 
     state = {
         files: <p>No files selected!</p>
     }
+
 
     deleteFile(e) {
         let index = e['target'].parentElement.id;
@@ -1095,10 +1216,14 @@ export class FilePicker extends React.Component {
                 return {files: <p>No files selected!</p>};
             });
         }
-
     }
 
     handleFiles(e) {
+        // e.target.name
+
+
+
+        console.log(e.target.name);
         const liStyle = {
             listStyleType: 'none'
         }
@@ -1110,25 +1235,37 @@ export class FilePicker extends React.Component {
 
         const dt1 = new DataTransfer();
         this.filesArray.forEach((file) => {
-            dt1.items.add(file)
+            if (!this.fileValidation(file, this.filesTypes, e.target.name)) {
+                alert(this.namePikers.get( e.target.name));
+                this.filesArray.pop();
+            }else{
+                if(!this.filesizeCheck(file)){
+                    alert('Размер файла '+(Math.round((file.size/1024)/1024))+ ' МБ, превышает допустимые 12 МБ');
+                    this.filesArray.pop();
+                }else{
+                    dt1.items.add(file)
+
+                }
+            }
         })
+
         this.picker.files = dt1.files;
         let files_ = this.picker.files;
         // console.log(    files_);
 
         if (!files_.length) {
-            this.setState(files_, <p>No files selected!</p>);
+            this.setState({files_: <p>No files selected!</p>});
         } else {
             this.li = [];
             for (let i = 0; i < files_.length; i++) {
-                let img = <img src={window.URL.createObjectURL(files_[i])} height={60} alt={files_[i].name}/>
-                this.li.push(<li style={liStyle} key={this.count} id={this.count.toString()}
-                                 className={'ms-2 position-relative'}>
-                    {<button type="button" style={closeStyle} onClick={this.deleteFile.bind(this)}
-                             className="btn-close position-absolute rounded-circle" aria-label="Close"/>}
-                    {img}
-                </li>)
-                this.count++;
+                            let img = <img src={window.URL.createObjectURL(files_[i])} height={60} alt={files_[i].name}/>
+                            this.li.push(<li style={liStyle} key={this.count} id={this.count.toString()}
+                                                         className={'ms-2 position-relative'}>
+                                            {<button type="button" style={closeStyle} onClick={this.deleteFile.bind(this)}
+                                                     className="btn-close position-absolute rounded-circle" aria-label="Close"/>}
+                                            {img}
+                                         </li>)
+                            this.count++;
             }
 
             this.ul = <ul className={'d-flex '}>{this.li}</ul>
@@ -1136,6 +1273,29 @@ export class FilePicker extends React.Component {
                 return {files: this.ul};
             });
         }
+    }
+    filesizeCheck(file){
+            if(file.size < 12000000){
+                return true;
+            }
+        return false;
+    }
+
+    fileValidation(file, types, name){
+        // let fileTypes = [
+        //     'image/jpeg',
+        //     'image/jpg',
+        //     'image/png',
+        //     'application/pdf'
+        // ]
+        console.log(types.get(name))
+        for (let i = 0; i < types.get(name).length; i++) {
+            if (file.type === types.get(name)[i]) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     render() {
@@ -1197,8 +1357,8 @@ export class AddEducation extends React.Component {
         allState: [],
         fristDate: new Map(),
         seconDate: new Map(),
-        uchebZavEduc:new Map(),
-        specEduc:new Map()
+        uchebZavEduc: new Map(),
+        specEduc: new Map()
     }
 
     StartDate(i) {
@@ -1207,16 +1367,16 @@ export class AddEducation extends React.Component {
         this.setState(function (prevState) {
             return (
                 prevState.fristDate.set(i.target.name, i.target.value),
-                prevState.seconDate.set(i.target.name, i.target.value)
+                    prevState.seconDate.set(i.target.name, i.target.value)
             )
         })
     }
 
-    ucheZav(i){
+    ucheZav(i) {
         this.setState(function (prevState) {
             return (
                 prevState.uchebZavEduc.set(i.target.name, i.target.value),
-                prevState.specEduc.set(i.target.name, i.target.value)
+                    prevState.specEduc.set(i.target.name, i.target.value)
             )
         });
     }
@@ -1241,11 +1401,10 @@ export class AddEducation extends React.Component {
 
         let i = [];
         // i.push(dataPiker('Начало обучения', 'dataStartEduc'+ this.array.length,'col-lg-6', <RequiredSpan id={0}/>, 0));
-        if (this.state.allState.length === 0){
+        if (this.state.allState.length === 0) {
             this.state.fristDate.set('dataStartEduc&0', "");
             this.state.seconDate.set('dataStartEduc&0', "");
-        }
-        else {
+        } else {
             this.state.fristDate.set('dataStartEduc&' + this.state.allState.length, "");
             this.state.seconDate.set('dataStartEduc&' + this.state.allState.length, "");
         }
@@ -1297,24 +1456,27 @@ export class AddEducation extends React.Component {
         i = [];
         i.push(<InputFieldForEduc title={'Полное наименование учебного заведения'}
                                   name={'uchebZavEduc&' + this.state.allState.length}
-                                    className={'col-lg-8'}
-                                    value={this.state.uchebZavEduc}
-                                    placeholder={''}
-                                    span={<RequiredSpan id={0}/>}
-                                    />);
-        allcode[3] = <div className={"form-group row"} key={3}>{i}</div>;
-
-        i = [];
-        i.push(<InputFieldForEduc title={'Специальность (например, юриспруденция или разработка нефтяных и газовых месторождений)'}
-                                  name={'specEduc&' + this.state.allState.length}
                                   className={'col-lg-8'}
-                                  value={this.state.specEduc}
+                                  value={this.state.uchebZavEduc}
                                   placeholder={''}
                                   span={<RequiredSpan id={0}/>}
         />);
+        allcode[3] = <div className={"form-group row"} key={3}>{i}</div>;
 
-        allcode[4] =  <div className={"form-group row"} key={4}>{i}</div>;
-        allcode[5] =  <input key={5} hidden={true} type="text" name={'titleEduc&'+this.state.allState.length} readOnly={true} value={this.title[this.state.allState.length] + ' образование'}/>
+        i = [];
+        i.push(<InputFieldForEduc
+            title={'Специальность (например, юриспруденция или разработка нефтяных и газовых месторождений)'}
+            name={'specEduc&' + this.state.allState.length}
+            className={'col-lg-8'}
+            value={this.state.specEduc}
+            placeholder={''}
+            span={<RequiredSpan id={0}/>}
+        />);
+
+        allcode[4] = <div className={"form-group row"} key={4}>{i}</div>;
+        allcode[5] =
+            <input key={5} hidden={true} type="text" name={'titleEduc&' + this.state.allState.length} readOnly={true}
+                   value={this.title[this.state.allState.length] + ' образование'}/>
 
         this.setState(function (prevState) {
             return (
@@ -1348,7 +1510,8 @@ export class AddEducation extends React.Component {
                     <label className={'col-lg-6'} htmlFor="">Убрать поля образование</label>
                     <button onClick={this.DeleteElement} className={' col-lg-4 btn btn-danger'}>убрать</button>
                 </div>
-                <input hidden={true} type="text" name={'counterEduc'} readOnly={true} value={this.state.allState.length}/>
+                <input hidden={true} type="text" name={'counterEduc'} readOnly={true}
+                       value={this.state.allState.length}/>
             </div>
             <div className={'mt-4'}>
                 {this.state.allState}
