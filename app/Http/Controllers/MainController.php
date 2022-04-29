@@ -26,7 +26,7 @@ class MainController extends Controller
     public function index(RequestInputs $request)
     {
 
-
+        dump($request->all());
 
         $res = array_merge($this->tab1($request), $this->tab2($request), $this->tab3($request), $this->files($request));
 
