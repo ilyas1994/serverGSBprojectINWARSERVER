@@ -24,10 +24,10 @@ use function MongoDB\BSON\toJSON;
 class MainController extends Controller
 {
 
-    public function index(RequestInputs $request)
+    public function index(Request $request)
     {
 
-//        dump($request->all());
+
 
         $res = array_merge($this->tab1($request), $this->tab2($request), $this->tab3($request), $this->files($request));
 
@@ -100,7 +100,7 @@ class MainController extends Controller
 //            dump($toJson);
         }
 
-//        dd($res);
+
         try {
             DB::beginTransaction();
 
@@ -156,72 +156,74 @@ class MainController extends Controller
         $getUniqIin = $request->input('Iin');
 
         $arr = [];
+//            dd($request->file('scanFileDocument'));
         for ($i = 0; $i < count($InputName); $i++) {
 
-            foreach ($request->file($InputName[$i]) as $key => $file) {
+                if ($request->file($InputName[$i]) != null) {
+                    foreach ($request->file($InputName[$i]) as $key => $file) {
 //                dd(123);
 
-                $path = $file->store('public/folder/' . $getUniqIin . '');
-                $name = $file->getClientOriginalName();
+                        $path = $file->store('public/folder/' . $getUniqIin . '');
+                        $name = $file->getClientOriginalName();
 //                $fileNames[$key]['name'] = $name;
 //                $fileNames[$key]['path'] = $path;
-                $fileNames[$key] = $path;
+                        $fileNames[$key] = $path;
 
 //                dd($fileNames[0]['path']);
-                switch ($InputName[$i]) {
-                    case 'scanFileCertificateFromWork':
-                        $arr['scanFileCertificateFromWork'] = json_encode($fileNames);
+                        switch ($InputName[$i]) {
+                            case 'scanFileCertificateFromWork':
+                                $arr['scanFileCertificateFromWork'] = json_encode($fileNames);
 //                        $scanFileCertificateFromWork = $fileNames;
-                        break;
-                    case 'resumeFile':
+                                break;
+                            case 'resumeFile':
 //                        $resumeFile = $fileNames;
-                        $arr['resumeFile'] = json_encode($fileNames);
+                                $arr['resumeFile'] = json_encode($fileNames);
 
-                        break;
-                    case 'fileScanDiplomWithApplication':
+                                break;
+                            case 'fileScanDiplomWithApplication':
 //                        $fileScanDiplomWithApplication = $fileNames;
-                        $arr['fileScanDiplomWithApplication'] = json_encode($fileNames);
+                                $arr['fileScanDiplomWithApplication'] = json_encode($fileNames);
 
-                        break;
-                    case 'scanCertificate':
+                                break;
+                            case 'scanCertificate':
 //                        $scanCertificate = $fileNames;
-                        $arr['scanCertificate'] = json_encode($fileNames);
+                                $arr['scanCertificate'] = json_encode($fileNames);
 
-                        break;
-                    case 'fileEsse':
-                        $fileEsse = $fileNames;
-                        $arr['fileEsse'] = json_encode($fileNames);
+                                break;
+                            case 'fileEsse':
+                                $fileEsse = $fileNames;
+                                $arr['fileEsse'] = json_encode($fileNames);
 
-                        break;
-                    case 'scanFileDocument':
+                                break;
+                            case 'scanFileDocument':
 //                        $scanFileDocument = $fileNames;
-                        $arr['scanFileDocument'] = json_encode($fileNames);
+                                $arr['scanFileDocument'] = json_encode($fileNames);
 
-                        break;
-                    case  'copyPassport':
+                                break;
+                            case  'copyPassport':
 //                        $copyPassport = $fileNames;
-                        $arr['copyPassport'] = json_encode($fileNames);
+                                $arr['copyPassport'] = json_encode($fileNames);
 
-                        break;
-                    case  'foto3x4':
+                                break;
+                            case  'foto3x4':
 //                        $foto3x4 = $fileNames;
-                        $arr['foto3x4'] = json_encode($fileNames);
+                                $arr['foto3x4'] = json_encode($fileNames);
 
-                        break;
-                    case  'recomentedLetter':
-                        $arr['recomentedLetter'] = json_encode($fileNames);
+                                break;
+                            case  'recomentedLetter':
+                                $arr['recomentedLetter'] = json_encode($fileNames);
 
 //                        $recomentedLetter = $fileNames;
-                        break;
-                    case  'medicalDoc':
-                        $arr['medicalDoc'] = json_encode($fileNames);
+                                break;
+                            case  'medicalDoc':
+                                $arr['medicalDoc'] = json_encode($fileNames);
 
 //                        $medicalDoc = $fileNames;
-                        break;
+                                break;
+                        }
+
+                    }
                 }
-
-            }
-
         }
 
 
