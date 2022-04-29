@@ -170,8 +170,12 @@ export function inputFieldOnlyNumberForMobile(title, name, className = null, val
         // evt.returnValue = (evt.keyCode !== 46 && evt.keyCode > 31 && (evt.keyCode < 48 || evt.keyCode > 57));
         if (evt.target.value.length > -1) {
             let la;
-            if (evt.keyCode > 47 && evt.keyCode < 62)
+            if (evt.keyCode > 47 && evt.keyCode < 62){
                 la = false
+                if(!evt.target.value.includes('+7')){
+                    evt.target.value = '+7';
+                }
+            }
             else if (evt.keyCode === 8) {
                 la = false;
                 console.log(evt.target.value.length);
