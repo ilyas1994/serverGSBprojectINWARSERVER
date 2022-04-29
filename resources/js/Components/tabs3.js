@@ -438,27 +438,27 @@ export function tabs_3(names) {
 
     //окончательная версия
     // let underMBAprogram = [[]];
-            titleForCheckBox = [];
-            popUpElement = [];
-            for (const key of Object.keys(MBAprogram)) {
-            titleForCheckBox.push(key);
-            let popupArr = [];
+    titleForCheckBox = [];
+    popUpElement = [];
+    for (const key of Object.keys(MBAprogram)) {
+    titleForCheckBox.push(key);
+    let popupArr = [];
 
-            for (let i = 0; i < MBAprogram[key].length; i++) {
+    for (let i = 0; i < MBAprogram[key].length; i++) {
 
-                popupArr.push(<label className="radio source_label_">
-                    <input type="radio" name={names[count]} defaultChecked={true} value={key+" -> "+MBAprogram[key][i]}/>
-                    <span>{MBAprogram[key][i]}</span>
-                </label>);
-            }
-            let popup = ''
-            if(popupArr.length > 0){
-                popup = <div className="label_in_ ms-5" id="label_in_1_" >
-                    {popupArr}
-                </div>
-            }
-            popUpElement.push(popup);
-        }
+        popupArr.push(<label className="radio source_label_">
+            <input type="radio" name={names[count]} defaultChecked={true} value={key+" -> "+MBAprogram[key][i]}/>
+            <span>{MBAprogram[key][i]}</span>
+        </label>);
+    }
+    let popup = ''
+    if(popupArr.length > 0){
+        popup = <div className="label_in_ ms-5" id="label_in_1_" >
+            {popupArr}
+        </div>
+    }
+    popUpElement.push(popup);
+}
 //     titleForCheckBox = ['General MBA - Казахстанская программа MBA',
 //         'Казахстанская модульно-дистанционная программа',
 //         'Executive MBA Двудипломная программа с Высшей Школой Менеджмента Санкт-Петербургского Государственного Университета (Россия)',

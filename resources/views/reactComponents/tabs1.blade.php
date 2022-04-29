@@ -59,15 +59,12 @@
     </div>
 </div>
 <script>
-
     let dataArrayForDropDown = null;
     @isset($dataArrayForDropDown)
-
        dataArrayForDropDown ={!!json_encode($dataArrayForDropDown)!!};
     @endisset
 
     let programMBA = null;
-{{--    @dd($programMBA)--}}
     @isset($programMBA)
         programMBA ={!!json_encode($programMBA)!!};
     console.log(programMBA)
