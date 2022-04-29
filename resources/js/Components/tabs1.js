@@ -20,7 +20,6 @@ let count = 0;
 
 export function tabs_1(names) {
     let allcode = [];
-
     let title =['Фамилия','Имя','Отчество'];
     let input = [];
     let sec = [];
