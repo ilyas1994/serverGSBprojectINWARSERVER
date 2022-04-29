@@ -985,17 +985,63 @@ export class MBAPropgramRadio extends React.Component {
     constructor(props) {
         super(props);
         this.handleClick = this.handleClick.bind(this);
+
+        if (this.props.filePikBox) {
+            let op = Array.from(this.props.filePikBox);
+            for (let i = 0; i < op.length-3; i++) {
+                console.log(op[i])
+                this.state.filePick.push(op[i]);
+            }
+        }
     }
 
     state = {
         popup: this.props.popUpElement,
         id: this.props.checkBoxTitle[0],
-        defaultState: ''
+        defaultState: '',
+        filePick: []
     }
 
     handleClick(i) {
+        // this.setState({id: i.target.id});
+        console.log(i.target.value);
+        if (this.props.filePikBox) {
+            if (i.target.value.includes('Executive')) {
+                this.setState(function (prevState) {
+                    this.state.filePick = [];
+                    let op = Array.from(this.props.filePikBox);
+                    for (let i = 0; i < op.length; i++) {
+                        console.log(op[i])
+                        this.state.filePick.push(op[i]);
+                    }
+                    return (
+                        prevState.filePick
+                    )
+                })
+            } else {
+                this.setState(function (prevState) {
+                    this.state.filePick = [];
+                    let op = Array.from(this.props.filePikBox);
+                    for (let i = 0; i < op.length-3; i++) {
+                        console.log(op[i])
+                        this.state.filePick.push(op[i]);
+                    }
+                    return (
+                        prevState.filePick
+                    )
+                })
+            }
+        }
         this.setState({id: i.target.id});
 
+        // console.log(this.defaultState);
+
+
+        sessionStorage.setItem(i.target.name, i.target.id);
+
+        if (i.target.value === 'Нет') {
+            sessionStorage.removeItem(i.target.name);
+        }
     }
 
     howMany() {
@@ -1037,11 +1083,14 @@ export class MBAPropgramRadio extends React.Component {
 
     render() {
         return (
-            <div className={'row'}>
-
-                <label htmlFor="">{this.props.title} {this.props.span}</label>
-                {this.howMany()}
-
+            <div>
+                <div className={'row'}>
+                    <label htmlFor="">{this.props.title} {this.props.span}</label>
+                    {this.howMany()}
+                </div>
+                <div>
+                    {this.state.filePick}
+                </div>
             </div>
         )
     }
