@@ -371,7 +371,7 @@ class MainController extends Controller
                         $arr[$InputName[$i]] = json_encode($request->input($InputName[$i]));
                         break;
                     }
-
+//wqe
 
                     default:{
                         $arr[$InputName[$i]] = $request->input($InputName[$i]);
