@@ -148,7 +148,7 @@ export function tabs_1(names) {
 //------------------------------------------------------------------------------------
     input = [];
     title = ['Мобильный телефон','Второй мобильный номер'];
-        input[0] =inputFieldOnlyNumberForMobile(title[0], names[count], 'col-lg-3 d-flex', '','',null,'+7 ')
+        input[0] =inputFieldOnlyNumberForMobile(title[0], names[count], 'col-lg-3 d-flex', '','',<RequiredSpan id={names[count]}/>,'+7 ')
     count++;
         input[1] =inputFieldOnlyNumberForMobile(title[1], names[count], 'col-lg-3 d-flex', '','',null,'+7 ')
     count++;

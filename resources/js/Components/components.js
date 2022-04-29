@@ -174,17 +174,31 @@ export function inputFieldOnlyNumberForMobile(title, name, className = null, val
                 la = false
             else if (evt.keyCode === 8) {
                 la = false;
-                if (evt.target.value.length > 2)
-                    evt.target.value = '+7 ';
-            } else if (evt.keyCode > 95 && evt.keyCode < 106)
-                la = false;
-            else if (evt.keyCode === 107)
-                la = false;
+                console.log(evt.target.value.length);
+                if(evt.target.value.length === 3){
+                    evt.target.value = '';
+                }
+            } else if (evt.keyCode > 95 && evt.keyCode < 106){
+                          la = false;
+                                   console.log(1);
+                                if (evt.target.value.length == 2){
+                                    evt.target.value = '';
+                                }
+                          evt.target.placeholder = '+7';
+                    }
+            else if (evt.keyCode === 107){
+                console.log(2);
+                     la = false;
+                      evt.target.placeholder = '+7';
+                  }
             else la = true;
             evt.returnValue = la;
         } else {
-            evt.target.value = '+7 ';
-        }
+
+                     console.log(4);
+                     evt.target.value = '+7';
+
+               }
 
 
         if (evt.returnValue) evt.preventDefault();
@@ -195,7 +209,7 @@ export function inputFieldOnlyNumberForMobile(title, name, className = null, val
     if (sessionStorage.getItem(name) !== null) {
         value = sessionStorage.getItem(name);
     }
-    value = '+7 ';
+    placeholder = '+7 ';
     input = <div key={name} className={className}>
         <div className={'position-relative'}>
             <label className={''} htmlFor="">{title}{span}</label>
