@@ -438,36 +438,36 @@ export function tabs_3(names) {
 
     //окончательная версия
     // let underMBAprogram = [[]];
-    // titleForCheckBox = [];
-    // popUpElement = [];
-//     for (const key of Object.keys(MBAprogram)) {
-//     titleForCheckBox.push(key);
-//     let popupArr = [];
-//
-//     for (let i = 0; i < MBAprogram[key].length; i++) {
-//
-//         popupArr.push(<label className="radio source_label_">
-//             <input type="radio" name={names[count]} defaultChecked={true} value={key+" -> "+MBAprogram[key][i]}/>
-//             <span>{MBAprogram[key][i]}</span>
-//         </label>);
-//     }
-//     let popup = ''
-//     if(popupArr.length > 0){
-//         popup = <div className="label_in_ ms-5" id="label_in_1_" >
-//             {popupArr}
-//         </div>
-//     }
-//     popUpElement.push(popup);
-// }
-    titleForCheckBox = ['General MBA - Казахстанская программа MBA',
-        'Казахстанская модульно-дистанционная программа',
-        'Executive MBA Двудипломная программа с Высшей Школой Менеджмента Санкт-Петербургского Государственного Университета (Россия)',
-        'МВА Финансовый инжиниринг',
-        'МВА Менеджмент в здравоохранении',
-        'МВА Менеджмент в социальной сфере(г. Нур-Султан)',
-        'МВА (г. Ташкент)',
-        'МВА (г. Душанбе)'
-    ];
+    titleForCheckBox = [];
+    popUpElement = [];
+    for (const key of Object.keys(MBAprogram)) {
+    titleForCheckBox.push(key);
+    let popupArr = [];
+
+    for (let i = 0; i < MBAprogram[key].length; i++) {
+
+        popupArr.push(<label className="radio source_label_">
+            <input type="radio" name={names[count]} defaultChecked={true} value={key+" -> "+MBAprogram[key][i]}/>
+            <span>{MBAprogram[key][i]}</span>
+        </label>);
+    }
+    let popup = ''
+    if(popupArr.length > 0){
+        popup = <div className="label_in_ ms-5" id="label_in_1_" >
+            {popupArr}
+        </div>
+    }
+    popUpElement.push(popup);
+}
+//     titleForCheckBox = ['General MBA - Казахстанская программа MBA',
+//         'Казахстанская модульно-дистанционная программа',
+//         'Executive MBA Двудипломная программа с Высшей Школой Менеджмента Санкт-Петербургского Государственного Университета (Россия)',
+//         'МВА Финансовый инжиниринг',
+//         'МВА Менеджмент в здравоохранении',
+//         'МВА Менеджмент в социальной сфере(г. Нур-Султан)',
+//         'МВА (г. Ташкент)',
+//         'МВА (г. Душанбе)'
+//     ];
      let one = <div className="label_in_ ms-5" id="label_in_1_" >
          <label className="radio source_label_">
              <input type="radio" name={names[count]} defaultChecked={true} value="General MBA - Казахстанская программа MBA -> вечерняя программа в г. Алматы"/>
@@ -533,7 +533,6 @@ export function tabs_3(names) {
     </div>
 
     popUpElement = [one, two, '', three, four];
-     // input[0] = <MBAPropgramRadio input={true}  popUpElement={popUpElement} classN={'col-lg-12'} name={'notname'} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} span={<RequiredSpan id={names[count]}/>}/>;
 
     let pickArr = [];
     let co = count+1;
@@ -557,7 +556,9 @@ export function tabs_3(names) {
     co++;
     pickArr.push( <FilePicker name={names[co]+'[]'} uploadLabel={'2 рекомендательных письма (.pdf или .jpg, .png)'} key={co} span={<RequiredSpan id={names[co]}/>}/>)
 
-    input[0] = <RadioB filePikBox={pickArr} input={true} hidden={true} popupIndex={[0,1,3,4]} popUpElement={popUpElement} classN={'col-lg-12'} name={names[count]} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} span={<RequiredSpan id={names[count]}/>}/>;
+    input[0] = <MBAPropgramRadio filePikBox={pickArr} input={true}  popUpElement={popUpElement} classN={'col-lg-12'} name={names[count]} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} span={<RequiredSpan id={names[count]}/>}/>;
+
+    // input[0] = <RadioB filePikBox={pickArr} input={true} hidden={true} popupIndex={[0,1,3,4]} popUpElement={popUpElement} classN={'col-lg-12'} name={names[count]} column={1}  count={titleForCheckBox.length} title={title} checkBoxTitle={titleForCheckBox} key={count} span={<RequiredSpan id={names[count]}/>}/>;
     count++;
 
     allcode.push( <div className={"form-group row"} key={count+100}>{input}</div>);
