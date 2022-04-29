@@ -23,7 +23,7 @@ use function MongoDB\BSON\toJSON;
 class MainController extends Controller
 {
 
-    public function index(RequestInputs $request)
+    public function index(Request $request)
     {
 
         dump($request->all());
@@ -121,6 +121,8 @@ class MainController extends Controller
 
         $arr = [];
         for ($i = 0; $i < count($InputName); $i++) {
+
+
 
             foreach ($request->file($InputName[$i]) as $key => $file) {
 //                dd(123);
@@ -299,7 +301,7 @@ class MainController extends Controller
             'reqPositionHead'
         ];
          return $this->getKeyValue($InputName, $request);
-
+//ii
     }
 
     private function getKeyValue(array $InputName, $request)
