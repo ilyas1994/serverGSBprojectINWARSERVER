@@ -4,7 +4,51 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76c86216-8c47-45b5-b63a-4f4738510c0b" name="Changes" comment="18:05" />
+    <list default="true" id="76c86216-8c47-45b5-b63a-4f4738510c0b" name="Changes" comment="frontWithQuiz 19 34  -&gt;&gt;">
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/123212312313/6XAino47QYeOwpMiCijZj3lVo1bi9pnFCHZVmRFt.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/123212312313/GDhoVMm6QxNEFo16wF7OfI8uKsxUpG3fwOD75Thx.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/123212312313/Rg0qCtnIxGrhJ9YdwcjxFdbsGFBuKt5UDGDqilot.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/123212312313/S2nUqmpQiLOGeZ6g2qMIYydRpBtkPrSyCLjo65Dg.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/123212312313/UnUSQL0o5WwgPsQjRtSGj4srflSgHfEPW7SwbXDG.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/123212312313/VsNuCvJlpU8ecEdfr2pbfZILd5byi68WRshYO96v.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/123212312313/ltZvNRZHuGFWBiN8axVs8HErMPdaQSID8ogCd0aO.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/123212312313/naIBIXsZ6FhsomuVqxLtognVXNVVxp21ZCxKHXgI.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/123212312313/yPuUHn9Gp9vVNRwG85v2TWtwYJ8ORRyQzCm7Fbh4.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/123212312313/ylr6ifvuY65lrbTdx785T6wAsLVmeWK6EUGe7WeA.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/2hOUptCxYb3kcWYV2CkUXOVvQeQWf5cDo6oES0dG.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/3XEoJmmtpo6F2ENqx4kbcGp5LFW8k8xhsLCyfXBN.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/DHwS4rQFCW4cPD0mtVIe8y4cDoPUsLCwcQFkmpP7.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/EpXYbonqL6WCDzi1VVL1LV2ebLCKrr2MVmJ5iZeO.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/Fv22MnuMkE59mYEBnI1gkHWSnoyd3dVYaYUKFtJP.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/GYBbGCteg8ssm2paKYydZggfi7wKN73OBLhFCC0r.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/I9MOlFLWyGvllihQkeB1yrnfmvXFVu7yPzlm30dg.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/KNAwKhr0NqsEtxVvKLMGCFjgClTkmf4pJQvpilJl.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/LYkbQsC3AN4Xq4ZSuSuSx0H4N6yj0aHRg5Qi22QS.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/OC3cTNwDjdlbp0aOj6XUMkLaOyATcjbugYwgnawl.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/Rl8UAYjEekm9VB3I6jP1aPDKPOzNYpZTXJyXMGAh.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/Ryw0Ck50Iv05XMNx9OWBaG4MrPYrDRD9cHfTP1y1.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/a5j8MrT7nzLl2y26SDaJyOjR9vgryJEqxk4B9WZT.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/cs8HF3jg3kEiKLsZQ0PwMAA46tRur49I2oLwGVoE.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/gssLbW7EqJ3N7FpvIXnDNN1SgRjRcgktSVOSC7AS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/liHXiMZXDZsHjWhW8upASRdlLMbBgzfKP5MYaIwZ.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/mUrWStWBUOQCNa7wtlixEXRldDMLquOkeXjPTOcv.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/ninGKgnKiu2Kxq4aMoYi8Towf8ihCZO9mIX16Fja.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/u955UCsYBu6AkACxKNZp3w9vX0vJAT5aOFRSjGYU.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/y4o0weaFm9J6pMqDOmoNA2BqOjvHwbTaKALda43y.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PDFController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PDFController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Quiz/AnswerListController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Quiz/AnswerListController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/QuizResult/QuizResult.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/QuizResult/QuizResult.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/RequestInputs.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/RequestInputs.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2022_03_10_041829_create_personal_data_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_03_10_041829_create_personal_data_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Components/tabs1.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Components/tabs1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/adminPanel/profileUser.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/adminPanel/profileUser.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/showInPDF/preview.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/showInPDF/preview.blade.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,7 +75,6 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -449,12 +492,12 @@
       <option name="project" value="LOCAL" />
       <updated>1650883595243</updated>
     </task>
-    <task id="LOCAL-00026" summary="18:05">
-      <created>1651233950592</created>
+    <task id="LOCAL-00026" summary="frontWithQuiz 19 34  -&gt;&gt;">
+      <created>1651239288996</created>
       <option name="number" value="00026" />
       <option name="presentableId" value="LOCAL-00026" />
       <option name="project" value="LOCAL" />
-      <updated>1651233950592</updated>
+      <updated>1651239288996</updated>
     </task>
     <option name="localTasksCounter" value="27" />
     <servers />
@@ -499,8 +542,8 @@
     <MESSAGE value="frontWithQuiz+10:58" />
     <MESSAGE value="frontWithQuiz+14:46" />
     <MESSAGE value="Готово 16-46" />
-    <MESSAGE value="18:05" />
-    <option name="LAST_COMMIT_MESSAGE" value="18:05" />
+    <MESSAGE value="frontWithQuiz 19 34  -&gt;&gt;" />
+    <option name="LAST_COMMIT_MESSAGE" value="frontWithQuiz 19 34  -&gt;&gt;" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
