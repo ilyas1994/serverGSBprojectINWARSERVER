@@ -4,50 +4,119 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76c86216-8c47-45b5-b63a-4f4738510c0b" name="Changes" comment="frontWithQuiz 19 34  -&gt;&gt;">
-      <change afterPath="$PROJECT_DIR$/public/storage/folder/123212312313/6XAino47QYeOwpMiCijZj3lVo1bi9pnFCHZVmRFt.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/storage/folder/123212312313/GDhoVMm6QxNEFo16wF7OfI8uKsxUpG3fwOD75Thx.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/storage/folder/123212312313/Rg0qCtnIxGrhJ9YdwcjxFdbsGFBuKt5UDGDqilot.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/storage/folder/123212312313/S2nUqmpQiLOGeZ6g2qMIYydRpBtkPrSyCLjo65Dg.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/storage/folder/123212312313/UnUSQL0o5WwgPsQjRtSGj4srflSgHfEPW7SwbXDG.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/storage/folder/123212312313/VsNuCvJlpU8ecEdfr2pbfZILd5byi68WRshYO96v.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/storage/folder/123212312313/ltZvNRZHuGFWBiN8axVs8HErMPdaQSID8ogCd0aO.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/storage/folder/123212312313/naIBIXsZ6FhsomuVqxLtognVXNVVxp21ZCxKHXgI.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/storage/folder/123212312313/yPuUHn9Gp9vVNRwG85v2TWtwYJ8ORRyQzCm7Fbh4.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/storage/folder/123212312313/ylr6ifvuY65lrbTdx785T6wAsLVmeWK6EUGe7WeA.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/2hOUptCxYb3kcWYV2CkUXOVvQeQWf5cDo6oES0dG.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/3XEoJmmtpo6F2ENqx4kbcGp5LFW8k8xhsLCyfXBN.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/DHwS4rQFCW4cPD0mtVIe8y4cDoPUsLCwcQFkmpP7.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/EpXYbonqL6WCDzi1VVL1LV2ebLCKrr2MVmJ5iZeO.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/Fv22MnuMkE59mYEBnI1gkHWSnoyd3dVYaYUKFtJP.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/GYBbGCteg8ssm2paKYydZggfi7wKN73OBLhFCC0r.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/I9MOlFLWyGvllihQkeB1yrnfmvXFVu7yPzlm30dg.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/KNAwKhr0NqsEtxVvKLMGCFjgClTkmf4pJQvpilJl.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/LYkbQsC3AN4Xq4ZSuSuSx0H4N6yj0aHRg5Qi22QS.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/OC3cTNwDjdlbp0aOj6XUMkLaOyATcjbugYwgnawl.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/Rl8UAYjEekm9VB3I6jP1aPDKPOzNYpZTXJyXMGAh.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/Ryw0Ck50Iv05XMNx9OWBaG4MrPYrDRD9cHfTP1y1.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/a5j8MrT7nzLl2y26SDaJyOjR9vgryJEqxk4B9WZT.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/cs8HF3jg3kEiKLsZQ0PwMAA46tRur49I2oLwGVoE.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/gssLbW7EqJ3N7FpvIXnDNN1SgRjRcgktSVOSC7AS.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/liHXiMZXDZsHjWhW8upASRdlLMbBgzfKP5MYaIwZ.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/mUrWStWBUOQCNa7wtlixEXRldDMLquOkeXjPTOcv.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/ninGKgnKiu2Kxq4aMoYi8Towf8ihCZO9mIX16Fja.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/u955UCsYBu6AkACxKNZp3w9vX0vJAT5aOFRSjGYU.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/storage/folder/21121212112/y4o0weaFm9J6pMqDOmoNA2BqOjvHwbTaKALda43y.pdf" afterDir="false" />
+    <list default="true" id="76c86216-8c47-45b5-b63a-4f4738510c0b" name="Changes" comment="19 46">
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/3BZLTvGMdl33YJbvHDlyAUuOz3sz5kq1GI25U0Ny.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/7NZ4pWOU35XQTwtTFDrRDMMpQZvOt70Pdgj8jsj4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/8fXdbokEWQGvV17kJ3QCUmbaOuTZgHTrCLRMEKJ7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/A1irEI0oGnUO2tzcUvybQzh72atzuO7PKQ05bmZW.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/A3UIZaflxynkNb7R9igCH635pJ6OOaA1efBk1Z21.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/CgbdDeY7Z80Mjdj9YpYdZbVFZvDhOaklhbYlIJfX.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/FxBwU4GRimyTfqH7g7oi0ffsY1KMFQiP7rVhTMCd.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/KWjtC0jEKfBpumC1tedCYl2CFzihSzkrXg4gVbCj.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/MYIU8n1KPNERGZ0s7yuxXn53U9cZmIqMfNb1qE7i.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/OOxms5zNA550LWroKGbkPuWbENTDIxr5EfB1FjT7.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/P7fNDEmO0Sx3oA6pDzZUHs69Q8ZHGxGpKhEsYr5c.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/QDkLPswCHT0GMW0g2CtSECkSCVnyQLFA4s7Y8FFG.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/QOCI2b6tGj7d3x2rPJTFHEiKyNVnPLjmQp2jKXRL.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/Qezu3aywgI4FzZ2KHEOQEQ22UBopKyRB5UxQSQjJ.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/RisgYpryPfWnKy7w7mAJ0adFv0MImkk11g0FJieB.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/SQUFCkNte19Oi02gBCsuERSZxNGZThHQAhBAdMzh.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/Sbr6Bq7FVNqe1F0boRcPqwiONj8bYp9ffHSN2UWh.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/TSoxjO76S8fve3JUBBnfjhPyhUUulkNabDV7SCtl.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/Tg6xGEBFjYq7OBSpRn3eFbvGb0hZRH03gCn5g7k7.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/TjGGYEx9yAITIOmniiFZQk7OsqYJ25uCZRP3il79.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/TuA7K3nh4RqlCf3kvPX2wgHuhW2d1yjSgOZQgSeJ.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/X3t1gGW1Yjj45PELCCx5BHHd2Rvgwkwz0kbtXk77.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/XAfQnPlQODoCNaItnzYICPSM2h1RL060YszXMIEQ.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/XDmtwW8vEYqHZVZ17ODudOcH3fewm3t0vOD0SxXw.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/Xp2YkdDe40E3YUXMngYn5rfShz3mDWISjqUpo7B3.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/Y1cGndALxK88Af681GfusxtQh2trLhAA6SOcIauL.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/Y5vXRAYXHRY8qq8fI37luCsjpL8BaYjP25dCxVCE.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/YmbfWvbmeKMx7HZlPSrpYZv8CKWyh4GQx1MlZjNi.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/YqD6LCIPekHI83FdYCtsUJxI7FDxHsU9wKKNGjcM.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/Z4BcsW4eYtApXAXQLqflutXNkINDU5oJycXiX3lh.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/ZdnJKPX52nIYCdCiqTeR20oXCdhifXBwZClV3XYt.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/ZzWndDmET4Z2yzJLyQPJ4gRPFLOHLeAGMuHDEDBV.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/aah67kJEf7k4b6KnWPLtB1cynmioh5w0AHygTKbE.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/bM57AWl26CVgfcuUgjlBQ8ivrrInbekP5n8qSofY.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/cNm9VkCT2lqQlbx1gx3lO25SNn25aX0Zrdoy0R8b.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/dMPZ8HAl1NqQ7smU8B6geeGgMB5kSE7KtIgzqKt3.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/dT1KHoNNVql8AQH1YcC6NSGJJGQvWuZhGTUtSp0d.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/daS3HAo1zAyQV9zrD4Lkjyd7f4PwmsRNemjnUJBb.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/dkdBWNk7qkY3TQK17sK8HtYPWdykHuf50FvEBd0y.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/f7W3nP0zBchyjJ8yA34KuO1I8BbLPniZhX83loHp.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/fUZt08fyaGDbUn4ko6s0wYAKpKPSQaA2Ch779eE1.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/g5QyR8zBVx6XcafVZUgdPetjoGEPD2YEefdJzYgr.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/ggif5scouhXdJPmDBe2V5abYcS71w8D1jrGhSPuo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/hPd3rbqTQSAuA19AyK5kctBQrcS9B1avyCDEuRZN.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/hYDzZOidrQwMpZfkbVLKLLHHxOBgc7TRY1OKLYic.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/iOCbBxDlkVZbdP7w3V1XTCnG5CUkui0tD4nsEWmS.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/iTCZrcWU2AfoNL8STTtxKhwCsY5GpdNSc97APybv.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/iaXb0hbgeE9ZhVGjUYHztoG1EDIFipOC3BkujibD.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/ixZ45CWEkPTFOeyaj4TjEtAuafO4chrZC0s6OqLV.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/j2L8NAUblKKHbrJDuAiiwrw2xRmBegTvZxoM0JVF.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/l0aXbKGNRWNKRYH24Vuvn9L59CnbjdqTTqYhqQIi.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/l8R2bv8peUTnm9Fw4cTPfaDxegsOCbXRcJS1qft1.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/lLFFMvVHIopemz2WWFQHDuLoiS3oqgxnvFgHgl0r.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/mVYoiYG28rY6nMxa3C2tJFLW6XfBHyn4gKyrAbFN.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/nLF2IaFwFpKgtYBhQPSnrZbT8915IvJbudvzhK82.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/nb8Lv9ZalshopKzza86NRKmCQOsABJ0xfgIyZHql.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/nvb585F3SU0sqVcUskxqneaeEPfq316yzlOuzGJp.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/o0JGHSvyPANkWTxy5Q5B9BZ6bdbezeaTzNc50vZA.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/okMz5ZVQFNlZV2TDp2Ma4edDb2Rxg3jzNZqzjQhS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/okc7xdoBtdtYm4MS1C0dxQOoX8AyPEP0uzz6S783.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/oqiCAXod5l6bae2j6CE1dsMH6d3hfzqiGCQvojWE.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/otKF5uarAOLGRI2sivI0GyrTwY8sABt11YoOfGr1.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/p9Q17WgR4m5pGYLDyeFv6bnbAzoZ3qPllqaOe222.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/pERpN9umdjG75mBjyrENCZqTJFwSKHR555Ap65po.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/qU6FpcNOsZjBAkolm20NxA9W0rRN9uqLCxcm4UGL.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/qviHOJ0GaRyehxOKJigHmUyJiGSTyP0aoZyORt32.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/rAk4Gb9Yjt0oJPlOXguWwhqRNq8TjPLwtNmdS42S.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/sChlm8bUsYKijDakMOxt8DDmX7RQA7rnp9h2aNjB.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/tbuo33aBRazT0ISnxlPyyvwr5kMtUckWVYWCWw9v.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/uFxsev1PjnghpJ5A2M97tkDGUJiwQVsVYhAHghm8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/uv3Z3PpyedscYRnhe2V0CZrF3HkMe98Qdds7tZ3v.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/vtvGLstXZsTT6jAT7MtvUxDf7EDleKcdI2jJturp.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/w4ntTHbXwRDtC6G4cukmLD8A236GchIOiEn5QVdE.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/wCdaK9djyXRgJNZivPQT7TzCXkSWftHLeObvBFeo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/wFHRmwZv8no2TPDxQE5gl8gEHFCq6Fan1W7OZ4Du.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/xIyCo1Kt6PYdkI9RF1W1TeeUuKcUQa1uxcqNnLnb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/zHSsUthuYy8Bntxi87jMOudspxs8X56HsopKsKuZ.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/successForm.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PDFController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PDFController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Quiz/AnswerListController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Quiz/AnswerListController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/QuizResult/QuizResult.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/QuizResult/QuizResult.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/RequestInputs.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/RequestInputs.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2022_03_10_041829_create_personal_data_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_03_10_041829_create_personal_data_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Components/tabs1.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Components/tabs1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/adminPanel/profileUser.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/adminPanel/profileUser.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/showInPDF/preview.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/showInPDF/preview.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/quiz/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/quiz/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/folder/123212312313/6XAino47QYeOwpMiCijZj3lVo1bi9pnFCHZVmRFt.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/2MeBQmniOzxqzxGsfOHOL34sebdRUD2QT9DPwiHZ.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/folder/123212312313/GDhoVMm6QxNEFo16wF7OfI8uKsxUpG3fwOD75Thx.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/3Z4O2rXJmmU5WSd8C652JkU9GwJtHGuw2SXeaYbZ.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/folder/123212312313/Rg0qCtnIxGrhJ9YdwcjxFdbsGFBuKt5UDGDqilot.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/5ifQ5IJ7K38ARYH6bIVFljYNEw1Ws06zJba4chNK.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/folder/123212312313/S2nUqmpQiLOGeZ6g2qMIYydRpBtkPrSyCLjo65Dg.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/7fGDCBPjQPe71s0hatMP2RRe79R7fVwQRWXbxQmL.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/folder/123212312313/UnUSQL0o5WwgPsQjRtSGj4srflSgHfEPW7SwbXDG.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/At3Dm7mTY3fzH5tfEmjEwGkTRtux5ksP1HxMAF00.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/folder/123212312313/VsNuCvJlpU8ecEdfr2pbfZILd5byi68WRshYO96v.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/B0m1nSFhiKpkllPQ5nkHlegFkkrteatiPy5VvzHq.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/folder/123212312313/ltZvNRZHuGFWBiN8axVs8HErMPdaQSID8ogCd0aO.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/CSbMPj96i8A6JXm0SQxVoORQhs4WiLPBK18K3c9s.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/folder/123212312313/naIBIXsZ6FhsomuVqxLtognVXNVVxp21ZCxKHXgI.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/Cqbb3y6yQlGPDJa480zaYgo1vALp17yo5tma07Yf.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/folder/123212312313/yPuUHn9Gp9vVNRwG85v2TWtwYJ8ORRyQzCm7Fbh4.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/FOHuafJEgG7b6qX3SV7Ub8EAvJHTUEYaHm2wCfUw.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/folder/123212312313/ylr6ifvuY65lrbTdx785T6wAsLVmeWK6EUGe7WeA.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/FbO8WmByacwtPQq2pNBOcRTtZcgYQsXv1k8eMi2u.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/folder/21121212112/3XEoJmmtpo6F2ENqx4kbcGp5LFW8k8xhsLCyfXBN.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/0Id7ezFOJ4baHr10SCtAGUUvVhYGd9ftaCFg4Isv.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/folder/21121212112/DHwS4rQFCW4cPD0mtVIe8y4cDoPUsLCwcQFkmpP7.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/84qOwZZCAyPRadc3AQHdM4VHmrmEOcIsTTuVl9C1.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/folder/21121212112/EpXYbonqL6WCDzi1VVL1LV2ebLCKrr2MVmJ5iZeO.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/87vqeVp4h9CSBYtKHDN7Z5RYizcGuLbFZLQMT2fZ.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/folder/21121212112/Fv22MnuMkE59mYEBnI1gkHWSnoyd3dVYaYUKFtJP.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/9ZkiQ80czgTQoTGoDwSKPiRf6cdPVNJQ2peP3I6U.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/folder/21121212112/GYBbGCteg8ssm2paKYydZggfi7wKN73OBLhFCC0r.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/9rxIMZJREFvzlstXcakyKm5tu88qOYtG0tq3SnbP.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/folder/21121212112/I9MOlFLWyGvllihQkeB1yrnfmvXFVu7yPzlm30dg.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/JqQWPxwNN7DJKSuqLZeaNpBncXIsrFvVqph9z6XS.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/folder/21121212112/KNAwKhr0NqsEtxVvKLMGCFjgClTkmf4pJQvpilJl.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/JwTlzfsizrP5NxpKzy2l4AqKwCqBCdAWb5eSRh9D.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/folder/21121212112/LYkbQsC3AN4Xq4ZSuSuSx0H4N6yj0aHRg5Qi22QS.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/KPveGcqhUXNlQU5Eclh1q9eCH7uvDQhOZqnvYGQb.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/folder/21121212112/OC3cTNwDjdlbp0aOj6XUMkLaOyATcjbugYwgnawl.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/KioDEpTIu48mlpU9ubjqcDnr3fqzPtkxmciZ5loI.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/folder/21121212112/Rl8UAYjEekm9VB3I6jP1aPDKPOzNYpZTXJyXMGAh.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/Klh3Yk61148VT59o8wQBKDz0xbsuzSgaKHng1Ndg.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/folder/21121212112/Ryw0Ck50Iv05XMNx9OWBaG4MrPYrDRD9cHfTP1y1.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/OQfLN8nwWPCGIunM698bXssdzDrA3D0bBqOkUSIb.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/folder/21121212112/a5j8MrT7nzLl2y26SDaJyOjR9vgryJEqxk4B9WZT.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/RDLf0zMUVt07GlXp6kuKDbXQ0xYdqcr7NQM5vfls.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/folder/21121212112/cs8HF3jg3kEiKLsZQ0PwMAA46tRur49I2oLwGVoE.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/RWZg7cW5w7FncxQ9G9urKBYiRWCdoMISxNUcSmSU.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/folder/21121212112/gssLbW7EqJ3N7FpvIXnDNN1SgRjRcgktSVOSC7AS.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/JMKyYuAW720VYgfay2C3LFqt0L6DPkq6xk6hYeXU.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/folder/21121212112/liHXiMZXDZsHjWhW8upASRdlLMbBgzfKP5MYaIwZ.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/RqIs3Fxu4oUZHPOukujXzFLQfRe6hyQomsCHWu1T.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/folder/21121212112/mUrWStWBUOQCNa7wtlixEXRldDMLquOkeXjPTOcv.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/RulWReI7FPCjddv2JMTJf50iJITI63uklMJm2A3E.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/folder/21121212112/ninGKgnKiu2Kxq4aMoYi8Towf8ihCZO9mIX16Fja.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/1geuEoVKCvaSOrWjCjC5pdJCWVGv7gRHt1wP9yxW.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/folder/21121212112/u955UCsYBu6AkACxKNZp3w9vX0vJAT5aOFRSjGYU.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/UyJz8Jg0VJhL54zq0O9pn7RZsqIIdfvqOqH3Enws.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/folder/21121212112/y4o0weaFm9J6pMqDOmoNA2BqOjvHwbTaKALda43y.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/VEJMGvU5Qhpu6IFBFHJ4jOVhnIfuSUmIQEExWMas.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Components/components.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Components/components.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,22 +308,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../mbaAlmau" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
-    <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/program/OpenServer/domains/testGSB&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\OpenServer\domains\GSBGitHub\resources\jsquiz\quiz" />
@@ -316,6 +381,11 @@
       <workItem from="1650607261338" duration="3621000" />
       <workItem from="1650827303220" duration="763000" />
       <workItem from="1650902749232" duration="11445000" />
+      <workItem from="1651553851802" duration="617000" />
+      <workItem from="1651565134215" duration="10000" />
+      <workItem from="1651577986118" duration="1212000" />
+      <workItem from="1651646533398" duration="183000" />
+      <workItem from="1651646735220" duration="597000" />
     </task>
     <task id="LOCAL-00001" summary="почти закончил">
       <created>1648915219567</created>
@@ -511,6 +581,21 @@
         <entry key="MAIN">
           <value>
             <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="HEAD" />
+                </option>
+              </RecentGroup>
+            </list>
           </value>
         </entry>
       </map>

@@ -40,13 +40,13 @@ export function dropDownClick(title, name, section, sample = null, className = '
 
         let iin = document.getElementsByName('Iin');
         switch (e['target'].selectedIndex) {
-            case 0: {
+            case 1: {
                 iin[0].setAttribute('minlength', '9');
                 iin[0].setAttribute('maxlength', '9');
                 iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 9 цифр!';
                 break;
             }
-            case 1: {
+            case 2: {
                 iin[0].setAttribute('minlength', '11');
                 iin[0].setAttribute('maxlength', '11');
                 iin[0].parentElement.children[2].innerText = 'Поле должно быть не меньше 11 цифр!';
