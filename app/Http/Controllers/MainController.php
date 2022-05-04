@@ -127,11 +127,12 @@ class MainController extends Controller
             \Mail::to($email)->send(new SendPassword($email, $password));
             DB::commit();
 
-            dd('success');
+            return view('successForm');
 
         } catch (\Exception $exception) {
             DB::rollBack();
-            dd($exception);
+//            dd($exception);
+            abort(404);
         }
 
 

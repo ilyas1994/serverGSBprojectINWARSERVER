@@ -5524,7 +5524,7 @@ function dropDownClick(title, name, section) {
     var iin = document.getElementsByName('Iin');
 
     switch (e['target'].selectedIndex) {
-      case 0:
+      case 1:
         {
           iin[0].setAttribute('minlength', '9');
           iin[0].setAttribute('maxlength', '9');
@@ -5532,7 +5532,7 @@ function dropDownClick(title, name, section) {
           break;
         }
 
-      case 1:
+      case 2:
         {
           iin[0].setAttribute('minlength', '11');
           iin[0].setAttribute('maxlength', '11');
@@ -5677,9 +5677,16 @@ function inputFieldOnlyNumberForMobile(title, name) {
     // console.log((evt.keyCode < 47 && evt.keyCode > 62 ));
     // console.log(!(evt.keyCode < 47 && evt.keyCode > 62 ));
     // evt.returnValue = (evt.keyCode !== 46 && evt.keyCode > 31 && (evt.keyCode < 48 || evt.keyCode > 57));
-    if (evt.target.value.length > 2) {
+    if (evt.target.value.length > -1) {
       var la;
-      if (evt.keyCode > 47 && evt.keyCode < 62) la = false;else if (evt.keyCode === 8) {
+
+      if (evt.keyCode > 47 && evt.keyCode < 62) {
+        la = false;
+
+        if (!evt.target.value.includes('+7')) {
+          evt.target.value = '+7';
+        }
+      } else if (evt.keyCode === 8) {
         la = false;
         console.log(evt.target.value.length);
 
@@ -5690,20 +5697,32 @@ function inputFieldOnlyNumberForMobile(title, name) {
         la = false;
         console.log(1);
 
+        if (!evt.target.value.includes('+7')) {
+          evt.target.value = '+7';
+        }
+      } else if (evt.keyCode === 107) {
+        console.log('delete');
+        la = false;
+
         if (evt.target.value.length == 2) {
           evt.target.value = '';
         }
 
         evt.target.placeholder = '+7';
-      } else if (evt.keyCode === 107) {
-        console.log(2);
-        la = false;
-        evt.target.placeholder = '+7';
       } else la = true;
+
       evt.returnValue = la;
     } else {
-      console.log(4);
-      evt.target.value = '+7';
+      if (evt.target.value.length === 0) {
+        if (evt.keyCode === 8) {
+          evt.returnValue = true;
+        }
+      } else {
+        console.log(4);
+        evt.target.value = '+7';
+      } // console.log(evt.target.value.length+' else');
+      //sddsf
+
     }
 
     if (evt.returnValue) evt.preventDefault();

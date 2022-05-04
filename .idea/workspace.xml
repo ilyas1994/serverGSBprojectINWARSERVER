@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76c86216-8c47-45b5-b63a-4f4738510c0b" name="Changes" comment="19 46">
+    <list default="true" id="76c86216-8c47-45b5-b63a-4f4738510c0b" name="Changes" comment="13-21">
       <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/3BZLTvGMdl33YJbvHDlyAUuOz3sz5kq1GI25U0Ny.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/7NZ4pWOU35XQTwtTFDrRDMMpQZvOt70Pdgj8jsj4.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/8fXdbokEWQGvV17kJ3QCUmbaOuTZgHTrCLRMEKJ7.jpg" afterDir="false" />
@@ -82,11 +82,9 @@
       <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/wFHRmwZv8no2TPDxQE5gl8gEHFCq6Fan1W7OZ4Du.pdf" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/xIyCo1Kt6PYdkI9RF1W1TeeUuKcUQa1uxcqNnLnb.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/zHSsUthuYy8Bntxi87jMOudspxs8X56HsopKsKuZ.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/successForm.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/quiz/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/quiz/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/storage/folder/123212312313/6XAino47QYeOwpMiCijZj3lVo1bi9pnFCHZVmRFt.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/2MeBQmniOzxqzxGsfOHOL34sebdRUD2QT9DPwiHZ.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/storage/folder/123212312313/GDhoVMm6QxNEFo16wF7OfI8uKsxUpG3fwOD75Thx.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/3Z4O2rXJmmU5WSd8C652JkU9GwJtHGuw2SXeaYbZ.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/storage/folder/123212312313/Rg0qCtnIxGrhJ9YdwcjxFdbsGFBuKt5UDGDqilot.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/5ifQ5IJ7K38ARYH6bIVFljYNEw1Ws06zJba4chNK.pdf" afterDir="false" />
@@ -116,7 +114,6 @@
       <change beforePath="$PROJECT_DIR$/public/storage/folder/21121212112/ninGKgnKiu2Kxq4aMoYi8Towf8ihCZO9mIX16Fja.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/1geuEoVKCvaSOrWjCjC5pdJCWVGv7gRHt1wP9yxW.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/storage/folder/21121212112/u955UCsYBu6AkACxKNZp3w9vX0vJAT5aOFRSjGYU.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/UyJz8Jg0VJhL54zq0O9pn7RZsqIIdfvqOqH3Enws.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/storage/folder/21121212112/y4o0weaFm9J6pMqDOmoNA2BqOjvHwbTaKALda43y.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/folder/112211123211/VEJMGvU5Qhpu6IFBFHJ4jOVhnIfuSUmIQEExWMas.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Components/components.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Components/components.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -385,7 +382,7 @@
       <workItem from="1651565134215" duration="10000" />
       <workItem from="1651577986118" duration="1212000" />
       <workItem from="1651646533398" duration="183000" />
-      <workItem from="1651646735220" duration="597000" />
+      <workItem from="1651646735220" duration="1653000" />
     </task>
     <task id="LOCAL-00001" summary="почти закончил">
       <created>1648915219567</created>
@@ -569,7 +566,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651239288996</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="13-21">
+      <created>1651649007056</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1651649007057</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -603,7 +607,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="update dropDow" />
     <MESSAGE value="update table" />
     <MESSAGE value="add dropDown" />
     <MESSAGE value="add dropDown NEW" />
@@ -628,7 +631,8 @@
     <MESSAGE value="frontWithQuiz+14:46" />
     <MESSAGE value="Готово 16-46" />
     <MESSAGE value="frontWithQuiz 19 34  -&gt;&gt;" />
-    <option name="LAST_COMMIT_MESSAGE" value="frontWithQuiz 19 34  -&gt;&gt;" />
+    <MESSAGE value="13-21" />
+    <option name="LAST_COMMIT_MESSAGE" value="13-21" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
